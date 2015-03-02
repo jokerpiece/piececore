@@ -33,9 +33,10 @@
     self.webview.frame = CGRectMake(0, NavigationHight, self.viewSize.width, self.viewSize.height - TabbarHight - NavigationHight);
     self.webview.scalesPageToFit = YES;
     [self.view addSubview:self.webview];
-    NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
-    [self.webview loadRequest:req];
-
+    if ([Common isNotEmptyString:self.url]) {
+        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
+        [self.webview loadRequest:req];
+    }
 }
 
 

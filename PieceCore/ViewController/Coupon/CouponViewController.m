@@ -104,11 +104,11 @@
     int currentPage = 0;
     // スクロールビューにラベルを貼付ける
     for (CouponData *model in self.data.list) {
-        if (self.couponId.length > 0
+        if ([Common isNotEmptyString:self.couponId]
             && [self.couponId isEqualToString:model.coupon_code]){
             currentPage = i;
         }
-   
+        
         NSURL *imageURL = [NSURL URLWithString:model.img_url];
         //UIImage *placeholderImage = [UIImage imageNamed:@"wait.jpg"];
         
@@ -178,8 +178,8 @@
         [btn addTarget:self action:@selector(onTapButton:) forControlEvents:UIControlEventTouchUpInside ];
         btn.alpha = 0.9f;
         [view addSubview:btn];
-//        btn.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
-//        [btn setTitle:@"このクーポンをGETする ＞" forState:UIControlStateNormal];
+        //        btn.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
+        //        [btn setTitle:@"このクーポンをGETする ＞" forState:UIControlStateNormal];
     }
     
     
@@ -212,7 +212,7 @@
     if(self.mode == useCoupon){
         [self itemSyncAction];
     }
-
+    
 }
 - ( void )onTapButton:( id )sender
 {
@@ -277,7 +277,7 @@
     [btn setFrame:CGRectMake(350,self.getCoupnBtnRactHeight,self.viewSize.width, 65)];
     
     // アニメーション開始
-    [UIView commitAnimations];	
+    [UIView commitAnimations];
 }
 
 -(void)endAnimation{
@@ -375,7 +375,7 @@
     BaseConnector *data = [[self getDataWithSendId:sendId] initWithResponseData:receivedData];
     //後で外す
     if (data.error_code.intValue != 0){
-      //SN  && data.error_code.intValue !=999) {
+        //SN  && data.error_code.intValue !=999) {
         [self showAlert:@"エラー" message:data.error_message];
         return;
     }

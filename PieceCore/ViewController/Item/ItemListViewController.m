@@ -58,31 +58,37 @@
         UIImageView *iv = [[UIImageView alloc] init];
         iv.frame = CGRectMake(10, 5, 80, 80);
         
-        //SN画像URLをUTF8に変更
-        NSURL *imageURL = [NSURL URLWithString:[model.img_url stringByAddingPercentEscapesUsingEncoding:
-                                                NSUTF8StringEncoding]];
+        if ([Common isNotEmptyString:model.img_url]) {
+            NSURL *imageURL = [NSURL URLWithString:[model.img_url stringByAddingPercentEscapesUsingEncoding:
+                                                    NSUTF8StringEncoding]];
+            
+            [iv sd_setImageWithURL:imageURL
+                  placeholderImage:[UIImage imageNamed:@"wait.jpg"]
+                           options:SDWebImageCacheMemoryOnly
+                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                         }];
+            [cell.contentView addSubview:iv];
+        }
         
-        [iv sd_setImageWithURL:imageURL
-              placeholderImage:[UIImage imageNamed:@"wait.jpg"]
-                       options:SDWebImageCacheMemoryOnly
-                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                     }];
-        [cell.contentView addSubview:iv];
+        if ([Common isNotEmptyString:model.item_name]) {
+            UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(100,20,self.viewSize.width - 110,40)];
+            textLbl.text = model.item_name;
+            textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
+            textLbl.alpha = 1.0f;
+            textLbl.backgroundColor = [UIColor clearColor];
+            textLbl.numberOfLines = 2;[cell.contentView addSubview:textLbl];
+        }
         
-        UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(100,20,self.viewSize.width - 110,40)];
-        textLbl.text = model.item_name;
-        textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
-        textLbl.alpha = 1.0f;
-        textLbl.backgroundColor = [UIColor clearColor];
-        textLbl.numberOfLines = 2;[cell.contentView addSubview:textLbl];
+        if ([Common isNotEmptyString:model.item_price]) {
+            UILabel *priceLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width - 200,55,180,40)];
+            priceLbl.text = [NSString stringWithFormat:@"%@円",model.item_price];
+            priceLbl.font = [UIFont fontWithName:@"AppleGothic" size:13];
+            priceLbl.alpha = 1.0f;
+            priceLbl.textAlignment = NSTextAlignmentRight;
+            priceLbl.backgroundColor = [UIColor clearColor];
+            [cell.contentView addSubview:priceLbl];
+        }
         
-        UILabel *priceLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width - 200,55,180,40)];
-        priceLbl.text = [NSString stringWithFormat:@"%@円",model.item_price];
-        priceLbl.font = [UIFont fontWithName:@"AppleGothic" size:13];
-        priceLbl.alpha = 1.0f;
-        priceLbl.textAlignment = NSTextAlignmentRight;
-        priceLbl.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:priceLbl];
         //}
         return cell;
     } else {

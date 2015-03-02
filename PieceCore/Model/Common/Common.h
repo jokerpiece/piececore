@@ -18,4 +18,6 @@
 +(void)initUserDefaults;
 +(SettingData *)getSettingModel;
 +(void)saveSettingModel:(SettingData*)settingModel;
++(bool)isNotEmptyString:(NSString *)string;
+
 @end

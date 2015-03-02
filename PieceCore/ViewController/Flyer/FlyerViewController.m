@@ -182,16 +182,13 @@
 - (void)view_Tapped:(UITapGestureRecognizer *)sender
 {
     FlyerHeaderData *model = [self.data.headerList objectAtIndex:sender.view.tag];
-    if (model.category_id.length > 0) {
-        return;
-    }
-    if (model.item_url.length > 0) {
+    
+    if ([Common isNotEmptyString:model.item_url]) {
         
-        // 遷移先のViewControllerをStoryBoardをもとに作成
-        ItemViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"id_item"];
-        controller.url = model.item_url;
-        // 画面をPUSHで遷移させる
-        [self.navigationController pushViewController:controller animated:YES];
+        ItemViewController *vc = [[ItemViewController alloc] initWithNibName:@"ItemViewController" bundle:nil];
+        vc.url = model.item_url;
+        
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
@@ -322,14 +319,12 @@
     
     FlyerBodyData *model = [self.data.bodyList objectAtIndex:sender.view.tag];
     
-    if (model.item_url.length > 0) {
+    if ([Common isNotEmptyString:model.item_url]) {
         
+        ItemViewController *vc = [[ItemViewController alloc] initWithNibName:@"ItemViewController" bundle:nil];
+        vc.url = model.item_url;
         
-        // 遷移先のViewControllerをStoryBoardをもとに作成
-        ItemViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"id_item"];
-        controller.url = model.item_url;
-        // 画面をPUSHで遷移させる
-        [self.navigationController pushViewController:controller animated:YES];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -380,7 +375,7 @@
 }
 
 -(void)syncAction{
-    if (self.fliyerId.length > 0) {
+    if ([Common isNotEmptyString:self.fliyerId]) {
         [self syncFliyerAction];
     } else {
         //お知らせ情報取得
