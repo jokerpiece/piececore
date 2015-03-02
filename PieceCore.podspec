@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.source = { :git => "https://github.com/jokerpiece/PieceCore.git", :tag => "#{s.version}"}
     s.platform  = :ios, "7.0"
     s.source_files = "PieceCore/**/*.{h,m}"
-    s.resources = "PieceCore/Resources/**/*.{png, jpg}"
+    s.resources = "PieceCore/Resources/**/*.{png, jpg}","PieceCore/**/*.xib"
     s.frameworks = 'IOKit', 'QuartzCore','CoreLocation','MapKit'
     s.dependency 'AFNetworking', '> 2'
     s.dependency 'SDWebImage'
