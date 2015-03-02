@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'PieceCore'
-    s.version = '0.0.4'
+    s.version = '0.0.6'
     s.license = { :type => 'MIT', :file => 'LICENSE' }
     s.summary = 'This is piece library for iOS.'
     s.homepage = 'https://jokapi.jp'
