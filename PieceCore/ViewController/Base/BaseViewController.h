@@ -9,7 +9,6 @@
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
 #import "BaseConnector.h"
-#import "SVProgressHUD.h"
 #import "RoundBtn.h"
 #import "Common.h"
 #import "UIColor+MLPFlatColors.h"
