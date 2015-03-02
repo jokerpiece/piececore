@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DatePickerViewController">
+            <connections>
+                <outlet property="cancelBtn" destination="x2s-u0-kMB" id="CfP-G8-yFi"/>
+                <outlet property="datePicker" destination="ueS-aj-JKf" id="WsL-UF-DMr"/>
+                <outlet property="doneBtn" destination="ank-uH-r18" id="vNl-vK-Lhr"/>
+                <outlet property="view" destination="iN0-l3-epB" id="pVc-3L-aCb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ueS-aj-JKf">
+                    <rect key="frame" x="0.0" y="353" width="320" height="162"/>
+                    <date key="date" timeIntervalSinceReferenceDate="445397977.32611799">
+                        <!--2015-02-12 01:39:37 +0000-->
+                    </date>
+                </datePicker>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TuI-RR-QSe">
+                    <rect key="frame" x="0.0" y="310" width="320" height="44"/>
+                    <items>
+                        <barButtonItem title="Cancel" id="x2s-u0-kMB">
+                            <connections>
+                                <action selector="cancelAction:" destination="-1" id="dwK-OL-1ks"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="sma-QC-pyX"/>
+                        <barButtonItem title="Done" id="ank-uH-r18">
+                            <connections>
+                                <action selector="doneAction:" destination="-1" id="UyC-ln-pLu"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>
