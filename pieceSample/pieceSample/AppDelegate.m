@@ -25,7 +25,7 @@
 {
     
     [super application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions];
-    [PieceCoreConfig setShopId:@"otonagokoro"];
+    [PieceCoreConfig setShopId:@"pieceSample"];
     [PieceCoreConfig setAppId:@""];
     return YES;
 }

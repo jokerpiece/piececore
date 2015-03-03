@@ -18,7 +18,7 @@ static NSString *_shopId = @"";
 
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
-NSString * const  SendTokenUrl= @"http://jokapi.jp/manager/html/xml/device_token";
+NSString * const  SendTokenUrl= @"http://jokapi.jp/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
 NSString * const  SendIdItem= @"item/index.php?Action=itemList";
 NSString * const  SendIdItemCoupon= @"item/";
