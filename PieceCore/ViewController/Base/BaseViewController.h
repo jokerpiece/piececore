@@ -14,6 +14,7 @@
 #import "UIColor+MLPFlatColors.h"
 #import "PieceCoreConfig.h"
 #import "DLog.h"
+#import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
 
 @interface BaseViewController : UIViewController<NetworkDelegate, SDWebImageManagerDelegate>
 @property (strong, nonatomic) BaseConnector *connecter;

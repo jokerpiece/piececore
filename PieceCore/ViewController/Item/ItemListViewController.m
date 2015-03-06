@@ -62,11 +62,7 @@
             NSURL *imageURL = [NSURL URLWithString:[model.img_url stringByAddingPercentEscapesUsingEncoding:
                                                     NSUTF8StringEncoding]];
             
-            [iv sd_setImageWithURL:imageURL
-                  placeholderImage:[UIImage imageNamed:@"wait.jpg"]
-                           options:SDWebImageCacheMemoryOnly
-                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                         }];
+        [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             [cell.contentView addSubview:iv];
         }
         
@@ -172,12 +168,7 @@
     iv.frame = CGRectMake(0, 0, self.viewSize.width, self.viewSize.width * 0.28);
     NSURL *imageURL = [NSURL URLWithString:self.headerImgUrl];
     
-    [iv sd_setImageWithURL:imageURL
-          placeholderImage:[UIImage imageNamed:@"wait.jpg"]
-                   options:SDWebImageCacheMemoryOnly
-                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                     
-                 }];
+    [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [uv addSubview:iv];
     
     self.quanitityLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,uv.frame.size.height * 0.78,300,25)];

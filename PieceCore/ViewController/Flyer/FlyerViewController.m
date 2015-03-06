@@ -102,11 +102,7 @@
         //UIImage *placeholderImage = [UIImage imageNamed:@"wait.jpg"];
         
         UIImageView *iv = [[UIImageView alloc] init];
-        [iv sd_setImageWithURL:imageURL
-              placeholderImage:[UIImage imageNamed:@"wait.jpg"]
-                       options:SDWebImageCacheMemoryOnly
-                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                     }];
+        [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         
         iv.frame = CGRectMake(i * self.viewSize.width, 0, self.viewSize.width, self.headerHeight);
         iv.userInteractionEnabled = YES;
@@ -238,11 +234,7 @@
             }
             
             
-            [iv sd_setImageWithURL:imageURL
-                  placeholderImage:[UIImage imageNamed:@"wait.jpg"]
-                           options:SDWebImageCacheMemoryOnly
-                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                         }];
+            [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             iv.tag = currentRow;
             [self touchEnableImgview:iv];
             [childView addSubview:iv];

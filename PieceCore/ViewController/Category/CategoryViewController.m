@@ -44,12 +44,7 @@
         iv.frame = CGRectMake(0, 0, self.viewSize.width, self.cellHeight);
         NSURL *imageURL = [NSURL URLWithString:model.img_url];
 
-        [iv sd_setImageWithURL:imageURL
-              placeholderImage:[UIImage imageNamed:@"wait.jpg"]
-                       options:SDWebImageCacheMemoryOnly
-                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                         
-                     }];
+        [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [cell.contentView addSubview:iv];
       //}
         return cell;

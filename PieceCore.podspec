@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
     s.resources = "PieceCore/Resources/**/*.{png, jpg}","PieceCore/**/*.xib"
     s.frameworks = 'IOKit', 'QuartzCore','CoreLocation','MapKit'
     s.dependency 'AFNetworking', '> 2'
-    s.dependency 'SDWebImage'
+    s.dependency 'UIActivityIndicator-for-SDWebImage'
     s.dependency 'UIColor+MLPFlatColors'
 end

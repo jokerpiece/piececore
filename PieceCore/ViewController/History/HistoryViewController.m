@@ -31,11 +31,7 @@
         iv.frame = CGRectMake(10, 10, 80, 80);
         NSURL *imageURL = [NSURL URLWithString:model.img_url];
         
-        [iv sd_setImageWithURL:imageURL
-              placeholderImage:[UIImage imageNamed:@"wait.jpg"]
-                       options:SDWebImageCacheMemoryOnly
-                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                     }];
+        [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [cell.contentView addSubview:iv];
         
         UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(100,30,200,40)];

@@ -113,11 +113,7 @@
         //UIImage *placeholderImage = [UIImage imageNamed:@"wait.jpg"];
         
         UIImageView *iv = [[UIImageView alloc] init];
-        [iv sd_setImageWithURL:imageURL
-              placeholderImage:[UIImage imageNamed:@"wait.jpg"]
-                       options:SDWebImageCacheMemoryOnly
-                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                     }];
+        [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         
         iv.frame = CGRectMake(i * width, 0, width, height);
         iv.userInteractionEnabled = YES;
