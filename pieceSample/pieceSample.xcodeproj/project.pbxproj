@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		376A47AD1AADAEC3002A25D3 /* coupon_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A47AB1AADAEC3002A25D3 /* coupon_search@2x.png */; };
+		376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A47AC1AADAEC3002A25D3 /* coupon_use@2x.png */; };
+		376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A47AF1AADAEE1002A25D3 /* tab_icon_coupon@2x.png */; };
+		376A47B41AADAEE1002A25D3 /* tab_icon_flyer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A47B01AADAEE1002A25D3 /* tab_icon_flyer@2x.png */; };
+		376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A47B11AADAEE1002A25D3 /* tab_icon_news@2x.png */; };
+		376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A47B21AADAEE1002A25D3 /* tab_icon_shopping@2x.png */; };
 		37E3EA581AA45F6800EA7CB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EA571AA45F6800EA7CB9 /* main.m */; };
 		37E3EA5B1AA45F6800EA7CB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EA5A1AA45F6800EA7CB9 /* AppDelegate.m */; };
 		37E3EA5E1AA45F6800EA7CB9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EA5D1AA45F6800EA7CB9 /* ViewController.m */; };
@@ -138,6 +144,12 @@
 
 /* Begin PBXFileReference section */
 		0B2EB3020702E5D1A5D8492F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		376A47AB1AADAEC3002A25D3 /* coupon_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_search@2x.png"; sourceTree = "<group>"; };
+		376A47AC1AADAEC3002A25D3 /* coupon_use@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coupon_use@2x.png"; sourceTree = "<group>"; };
+		376A47AF1AADAEE1002A25D3 /* tab_icon_coupon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_icon_coupon@2x.png"; sourceTree = "<group>"; };
+		376A47B01AADAEE1002A25D3 /* tab_icon_flyer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_icon_flyer@2x.png"; sourceTree = "<group>"; };
+		376A47B11AADAEE1002A25D3 /* tab_icon_news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_icon_news@2x.png"; sourceTree = "<group>"; };
+		376A47B21AADAEE1002A25D3 /* tab_icon_shopping@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_icon_shopping@2x.png"; sourceTree = "<group>"; };
 		37E3EA521AA45F6800EA7CB9 /* pieceSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pieceSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E3EA561AA45F6800EA7CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37E3EA571AA45F6800EA7CB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -658,6 +670,8 @@
 			isa = PBXGroup;
 			children = (
 				37E3EAD01AA45F8C00EA7CB9 /* coupon_get_btn.png */,
+				376A47AB1AADAEC3002A25D3 /* coupon_search@2x.png */,
+				376A47AC1AADAEC3002A25D3 /* coupon_use@2x.png */,
 				37E3EAD11AA45F8C00EA7CB9 /* Info */,
 				37E3EAD51AA45F8C00EA7CB9 /* Profile */,
 				37E3EADD1AA45F8C00EA7CB9 /* sample_logo.png */,
@@ -705,6 +719,10 @@
 		37E3EAE11AA45F8C00EA7CB9 /* tab */ = {
 			isa = PBXGroup;
 			children = (
+				376A47AF1AADAEE1002A25D3 /* tab_icon_coupon@2x.png */,
+				376A47B01AADAEE1002A25D3 /* tab_icon_flyer@2x.png */,
+				376A47B11AADAEE1002A25D3 /* tab_icon_news@2x.png */,
+				376A47B21AADAEE1002A25D3 /* tab_icon_shopping@2x.png */,
 				37E3EAE21AA45F8C00EA7CB9 /* tab_icon_barcode.png */,
 				37E3EAE31AA45F8C00EA7CB9 /* tab_icon_coupon.png */,
 				37E3EAE41AA45F8C00EA7CB9 /* tab_icon_fitting.png */,
@@ -1051,12 +1069,14 @@
 				37E3EBC21AA45F8C00EA7CB9 /* SettingViewController.xib in Resources */,
 				37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */,
 				37E3EB911AA45F8C00EA7CB9 /* wait@2x.jpg in Resources */,
+				376A47AD1AADAEC3002A25D3 /* coupon_search@2x.png in Resources */,
 				37E3EBB01AA45F8C00EA7CB9 /* NewsViewController.xib in Resources */,
 				37E3EBA01AA45F8C00EA7CB9 /* DatePickerViewController.xib in Resources */,
 				37E3EBC41AA45F8C00EA7CB9 /* SexViewController.xib in Resources */,
 				37E3EB861AA45F8C00EA7CB9 /* tab_icon_fitting.png in Resources */,
 				37E3EBAC1AA45F8C00EA7CB9 /* HistoryViewController.xib in Resources */,
 				37E3EB9E1AA45F8C00EA7CB9 /* CouponViewController.xib in Resources */,
+				376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */,
 				37E3EBAA1AA45F8C00EA7CB9 /* DeliberyStatusViewController.xib in Resources */,
 				37E3EB771AA45F8C00EA7CB9 /* news_01.jpg in Resources */,
 				37E3EB7E1AA45F8C00EA7CB9 /* sex.png in Resources */,
@@ -1071,8 +1091,11 @@
 				37E3EB7F1AA45F8C00EA7CB9 /* woman.gif in Resources */,
 				37E3EB8F1AA45F8C00EA7CB9 /* tab_icon_stamp.png in Resources */,
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
+				376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */,
+				376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */,
 				37E3EB851AA45F8C00EA7CB9 /* tab_icon_coupon.png in Resources */,
 				37E3EBA81AA45F8C00EA7CB9 /* FlyerViewController.xib in Resources */,
+				376A47B41AADAEE1002A25D3 /* tab_icon_flyer@2x.png in Resources */,
 				37E3EB7D1AA45F8C00EA7CB9 /* man.gif in Resources */,
 				37E3EB881AA45F8C00EA7CB9 /* tab_icon_home.png in Resources */,
 				37E3EA631AA45F6800EA7CB9 /* Images.xcassets in Resources */,
@@ -1081,6 +1104,7 @@
 				37E3EB811AA45F8C00EA7CB9 /* sample_logo.png in Resources */,
 				37E3EB891AA45F8C00EA7CB9 /* tab_icon_map.png in Resources */,
 				37E3EB801AA45F8C00EA7CB9 /* work.png in Resources */,
+				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
 				37E3EB8D1AA45F8C00EA7CB9 /* tab_icon_shopping.png in Resources */,
 				37E3EB761AA45F8C00EA7CB9 /* coupon_get_btn.png in Resources */,
 				37E3EBBA1AA45F8C00EA7CB9 /* BirthDayViewController.xib in Resources */,

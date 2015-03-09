@@ -1,0 +1,5 @@
+platform:ios, 7.0
+pod 'UIActivityIndicator-for-SDWebImage'
+pod 'AFNetworking'
+pod 'Reachability'
+pod 'UIColor+MLPFlatColors'

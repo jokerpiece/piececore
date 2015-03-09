@@ -37,7 +37,7 @@
     shadow.shadowColor = [UIColor darkGrayColor];
     shadow.shadowBlurRadius = 0.f;
     
-    NSDictionary *navbarTitleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor colorWithRed:0.63 green:0.32 blue:0.18 alpha:1.0],
+    NSDictionary *navbarTitleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor darkGrayColor],
                                                  NSFontAttributeName : [UIFont boldSystemFontOfSize:22.0f],
                                                  NSShadowAttributeName: shadow,
                                                  NSShadowAttributeName : [UIColor blackColor]
@@ -117,7 +117,7 @@
                                  NSForegroundColorAttributeName : [UIColor grayColor]};
     
     NSDictionary *attributes2 = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f],
-                                  NSForegroundColorAttributeName : [UIColor brownColor]};
+                                  NSForegroundColorAttributeName : [UIColor darkGrayColor]};
     
     //タブのタイトル色指定
     [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
@@ -126,9 +126,9 @@
     [[UITabBarItem appearance] setTitleTextAttributes:attributes2 forState:UIControlStateSelected];
     
     //タブアイコン選択中の色
-    [UITabBar appearance].tintColor = [UIColor brownColor];
+    [UITabBar appearance].tintColor = [UIColor darkGrayColor];
     //タブバーの背景色
-    [UITabBar appearance].barTintColor = [UIColor colorWithRed:1.00 green:0.92 blue:0.80 alpha:1.0];
+    [UITabBar appearance].barTintColor = [UIColor whiteColor];
     
     //ビューを Controllerに追加
     

@@ -21,15 +21,13 @@
 -(void)viewDidLoadLogic{
     //self.mode = getCoupon;
     SDWebImageManager.sharedManager.delegate = self;
-    self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;
-    self.chengeCoupnTypeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.chengeCoupnTypeBtn.frame = CGRectMake(30, 0, 90, 30);
-    [self.chengeCoupnTypeBtn setTitle:@"クーポンを使う" forState:UIControlStateNormal];
-    [self.chengeCoupnTypeBtn setBackgroundColor:[UIColor colorWithRed:1.00 green:0.46 blue:0.03 alpha:1.0]];
-    [self.chengeCoupnTypeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;    
+    UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
+    self.chengeCoupnTypeBtn = [[UIButton alloc]init];
+    [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
+    self.chengeCoupnTypeBtn.frame = CGRectMake(30, 0, 80, 30);
     [self.chengeCoupnTypeBtn addTarget:self action:@selector(changeCoupnTypeAction:)
                       forControlEvents:UIControlEventTouchUpInside];
-    [self.chengeCoupnTypeBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:11]];
     UIBarButtonItem *barbtn = [[UIBarButtonItem alloc] initWithCustomView:self.chengeCoupnTypeBtn];
     
     // ナビゲーションバーの左側に追加する。
@@ -246,14 +244,19 @@
     [self syncAction];
 }
 -(void)dispUseCouponMode{
-    [self.chengeCoupnTypeBtn setTitle:@"クーポンを取得" forState:UIControlStateNormal];
-    self.navigationController.navigationBar.topItem.title = @"クーポン使用";
+    //[self.chengeCoupnTypeBtn setTitle:@"GET COUPON" forState:UIControlStateNormal];
+    UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
+    [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
+    
+    self.navigationController.navigationBar.topItem.title = @"USE COUPON";
     self.chengeCoupnTypeBtn.backgroundColor = [UIColor colorWithRed:0.18 green:0.31 blue:0.31 alpha:1.0];
     self.messageLbl.text = @"使用できるクーポンを所持していません。";
 }
 -(void)dispGetCouponMode{
-    [self.chengeCoupnTypeBtn setTitle:@"クーポンを使う" forState:UIControlStateNormal];
-    self.navigationController.navigationBar.topItem.title = @"クーポン取得";
+    //[self.chengeCoupnTypeBtn setTitle:@"USE COUPON" forState:UIControlStateNormal];
+    UIImage *img = [UIImage imageNamed:@"coupon_use.png"];
+    [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
+    self.navigationController.navigationBar.topItem.title = @"GET COUPON";
     self.chengeCoupnTypeBtn.backgroundColor = [UIColor orangeColor];
     self.messageLbl.text = @"申し訳ございません。\n現在、取得できるクーポンがありません。";
 }
