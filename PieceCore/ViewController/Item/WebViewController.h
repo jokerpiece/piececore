@@ -1,5 +1,5 @@
 //
-//  ItemViewController.h
+//  WebViewController.h
 //  piece
 //
 //  Created by ハマモト  on 2014/09/30.
@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface ItemViewController : BaseViewController<UIWebViewDelegate>
+@interface WebViewController : BaseViewController<UIWebViewDelegate>
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) UIWebView *webview;
+- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle url:(NSString*)url;
 @end

@@ -1,5 +1,5 @@
 //
-//  ItemViewController.h
+//  WebViewController.h
 //  piece
 //
 //  Created by ハマモト  on 2014/09/11.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemConnector.h"
-#import "ItemViewController.h"
+#import "WebViewController.h"
 #import "CategoryViewController.h"
 #import "BaseViewController.h"
 typedef enum {

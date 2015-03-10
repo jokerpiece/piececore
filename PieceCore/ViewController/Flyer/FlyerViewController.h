@@ -10,7 +10,7 @@
 #import "BaseViewController.h"
 #import "FlyerConnector.h"
 #import "ItemListViewController.h"
-#import "ItemViewController.h"
+#import "WebViewController.h"
 #import "CategoryViewController.h"
 #import "SurveyViewController.h"
 #import "InfoConnector.h"

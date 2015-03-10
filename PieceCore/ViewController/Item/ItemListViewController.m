@@ -1,5 +1,5 @@
 //
-//  ItemViewController.m
+//  WebViewController.m
 //  piece
 //
 //  Created by ハマモト  on 2014/09/11.
@@ -144,7 +144,7 @@
     if (indexPath.section == 0) {
         
         ItemData *model = [self.data.list objectAtIndex:indexPath.row];
-        ItemViewController *itemVc = [[ItemViewController alloc] initWithNibName:@"ItemViewController" bundle:nil];
+        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
         itemVc.url = model.item_url;
         // 画面をPUSHで遷移させる
         [self.navigationController pushViewController:itemVc animated:YES];
@@ -260,8 +260,7 @@
         if (self.isNext) {
             self.isNext = NO;
             ItemData *model = [self.data.list objectAtIndex:0];
-            ItemViewController *itemVc = [[ItemViewController alloc] initWithNibName:@"ItemViewController" bundle:nil];
-            itemVc.url = model.item_url;
+            WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:model.item_url];
             // 画面をPUSHで遷移させる
             [self.navigationController pushViewController:itemVc animated:YES];
         } else {

@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "BaseViewController.h"
 #import "FittingConnector.h"
-#import "ItemViewController.h"
+#import "WebViewController.h"
 
 @interface FittingViewController : BaseViewController
 @property (nonatomic,strong) NSString *question_id;

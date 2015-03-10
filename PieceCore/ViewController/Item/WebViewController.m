@@ -1,23 +1,36 @@
 //
-//  ItemViewController.m
+//  WebViewController.m
 //  piece
 //
 //  Created by ハマモト  on 2014/09/30.
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "ItemViewController.h"
+#import "WebViewController.h"
 
-@interface ItemViewController ()
+@interface WebViewController ()
 
 @end
 
-@implementation ItemViewController
+@implementation WebViewController
 
 
 - (void)loadView {
-    [[NSBundle mainBundle] loadNibNamed:@"ItemViewController" owner:self options:nil];
+    [[NSBundle mainBundle] loadNibNamed:@"WebViewController" owner:self options:nil];
 }
+
+- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle url:(NSString*)url
+{
+    self = [super initWithNibName:nibName bundle:nil];
+    if (!self) {
+        self.url = url;
+        return nil;
+    }
+    // write something.
+    
+    return self;
+}
+
 
 - (void)viewDidLoad
 {

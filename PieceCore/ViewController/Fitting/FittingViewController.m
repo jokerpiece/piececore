@@ -70,8 +70,7 @@
     self.data = data;
     if (self.data.model.item_url.length > 0) {
         
-        ItemViewController *itemVc = [[ItemViewController alloc] initWithNibName:@"ItemViewController" bundle:nil];
-        itemVc.url = self.data.model.item_url;
+        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.data.model.item_url];
         // 画面をPUSHで遷移させる
         [self.navigationController pushViewController:itemVc animated:YES];
         UIAlertView *alertView = [[UIAlertView alloc] init];
