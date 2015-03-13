@@ -112,4 +112,21 @@
         return YES;
     }
 }
+
++ (UIImage*)resizeAspectFitWithSize:(UIImage *)srcImg size:(CGSize)size {
+    
+    CGFloat widthRatio  = size.width  / srcImg.size.width;
+    CGFloat heightRatio = size.height / srcImg.size.height;
+    CGFloat ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;
+    
+    CGSize resizedSize = CGSizeMake(srcImg.size.width*ratio, srcImg.size.height*ratio);
+    
+    UIGraphicsBeginImageContext(resizedSize);
+    [srcImg drawInRect:CGRectMake(0, 0, resizedSize.width, resizedSize.height)];
+    UIImage* resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resizedImage;
+}
 @end

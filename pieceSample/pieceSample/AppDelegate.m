@@ -1,21 +1,19 @@
 //
-//  AppDelegate.m
-//  pieceSample
+//  pieceAppDelegate.m
+//  piece
 //
-//  Created by ハマモト  on 2015/02/20.
-//  Copyright (c) 2015年 jokerpiece. All rights reserved.
+//  Created by ハマモト  on 2014/09/09.
+//  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "FlyerViewController.h"
-#import "InfoListViewController.h"
-#import "CategoryViewController.h"
-#import "TabbarViewController.h"
+#import "StampViewController.h"
+#import "WebViewController.h"
 #import "FittingViewController.h"
-#import "BarcodeReaderViewController.h"
-#import "CheckinViewController.h"
-#import "SettingViewController.h"
+#import "TabbarViewController.h"
 #import "HistoryViewController.h"
+#import "SosialViewController.h"
 
 
 @implementation AppDelegate
@@ -30,64 +28,49 @@
     return YES;
 }
 
+-(void)setThemeColor{
+    self.theme = [[ThemeData alloc]initThemeCute];
+}
+
 //UITabBarController初期化
 - (NSMutableArray *)getTabbarDataList
 {
     NSMutableArray *tabbarDataList = [NSMutableArray array];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil]
-                                                                imgName:@"tab_icon_flyer.png"
-                                                          selectImgName:@"tab_icon_flyer.png"
-                                                               tabTitle:@"Flyer"
-                                                           titleImgName:@"sample_logo.png"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[InfoListViewController alloc] initWithNibName:@"InfoListViewController" bundle:nil]
-                                                                imgName:@"tab_icon_news.png"
-                                                          selectImgName:@"tab_icon_news.png"
-                                                               tabTitle:@"Info"
-                                                                  title:@"お知らせ"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil]
+
+
+    WebViewController *shop = [[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil url:@"http://pushcolor.com/" maskType:SVProgressHUDMaskTypeBlack];
+    shop.isSnsEnable = YES;
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:shop
                                                                 imgName:@"tab_icon_shopping.png"
                                                           selectImgName:@"tab_icon_shopping.png"
                                                                tabTitle:@"Shopping"
-                                                                  title:@"カテゴリ一覧"]];
+                                                                  title:@"ショッピング"]];
+
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
-                                                                imgName:@"tab_icon_coupon.png"
-                                                          selectImgName:@"tab_icon_coupon.png"
-                                                               tabTitle:@"Coupon"
-                                                                  title:@"クーポン"]];
+                               [[SosialViewController alloc] initWithNibName:@"SosialViewController" bundle:nil]
+                                                                imgName:@"tab_icon_flyer.png"
+                                                          selectImgName:@"tab_icon_flyer.png"
+                                                               tabTitle:@"Flyer"
+                                                                  title:@"装着例"]];
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[StampViewController alloc] initWithNibName:@"StampViewController" bundle:nil]
+                                                                imgName:@"tab_icon_news.png"
+                                                          selectImgName:@"tab_icon_news.png"
+                                                               tabTitle:@"Info"
+                                                                  title:@"スタンプラリー"]];
+
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[FittingViewController alloc] initWithNibName:@"FittingViewController" bundle:nil]
-                                                                imgName:@"tab_icon_fitting.png"
-                                                          selectImgName:@"tab_icon_fitting.png"
+                                                                imgName:@"tab_icon_coupon.png"
+                                                          selectImgName:@"tab_icon_coupon.png"
                                                                tabTitle:@"Fitting"
-                                                                  title:@"フィッテイング"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[BarcodeReaderViewController alloc] initWithNibName:@"BarcodeReaderViewController" bundle:nil]
-                                                                imgName:@"tab_icon_barcode.png"
-                                                          selectImgName:@"tab_icon_barcode.png"
-                                                               tabTitle:@"Barcode"
-                                                                  title:@"バーコード読取り"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[CheckinViewController alloc] initWithNibName:@"CheckinViewController" bundle:nil]
-                                                                imgName:@"tab_icon_map.png"
-                                                          selectImgName:@"tab_icon_map.png"
-                                                               tabTitle:@"Map"
-                                                                  title:@"店舗一覧"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil]
-                                                                imgName:@"tab_icon_setting.png"
-                                                          selectImgName:@"tab_icon_setting.png"
-                                                               tabTitle:@"Profile"
-                                                                  title:@"プロフィール"]];
+                                                                  title:@"フィッティング"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[HistoryViewController alloc] initWithNibName:@"HistoryViewController" bundle:nil]
-                                                                imgName:@"tab_icon_setting.png"
-                                                          selectImgName:@"tab_icon_setting.png"
+                                                                imgName:@"tab_icon_coupon.png"
+                                                          selectImgName:@"tab_icon_coupon.png"
                                                                tabTitle:@"History"
-                                                                  title:@"購入履歴"]];
+                                                                  title:@"配送状況"]];
     return tabbarDataList;
 }
 
@@ -120,4 +103,6 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 @end

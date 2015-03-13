@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
+    [self setThemeColor];
     [self setNavibarTitleAttributes];
     [self registDeviceToken];
     [self setTabBarController];
@@ -27,20 +27,21 @@
     return YES;
 }
 
-
+-(void)setThemeColor{
+    self.theme = [[ThemeData alloc]initThemeDefault];
+}
 -(void)setNavibarTitleAttributes{
-    [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].barTintColor = self.theme.navigationBarColor;
     [UINavigationBar appearance].backItem.title = @"戻る";
     
     NSShadow *shadow = [[NSShadow alloc] init];
     shadow.shadowOffset = CGSizeMake(0.f, -0.5f);
-    shadow.shadowColor = [UIColor darkGrayColor];
+    shadow.shadowColor = self.theme.navigationTitleShadowColor;
     shadow.shadowBlurRadius = 0.f;
     
-    NSDictionary *navbarTitleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor darkGrayColor],
+    NSDictionary *navbarTitleTextAttributes = @{ NSForegroundColorAttributeName : self.theme.navigationTitleColor,
                                                  NSFontAttributeName : [UIFont boldSystemFontOfSize:22.0f],
-                                                 NSShadowAttributeName: shadow,
-                                                 NSShadowAttributeName : [UIColor blackColor]
+                                                 NSShadowAttributeName: shadow
                                                  };
     
     
@@ -114,10 +115,10 @@
     //タブのタイトル位置設定
     [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -1)];
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f],
-                                 NSForegroundColorAttributeName : [UIColor grayColor]};
+                                 NSForegroundColorAttributeName : self.theme.tabTitleNomalColor};
     
     NSDictionary *attributes2 = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f],
-                                  NSForegroundColorAttributeName : [UIColor darkGrayColor]};
+                                  NSForegroundColorAttributeName : self.theme.tabTitleSelectColor};
     
     //タブのタイトル色指定
     [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
@@ -126,9 +127,9 @@
     [[UITabBarItem appearance] setTitleTextAttributes:attributes2 forState:UIControlStateSelected];
     
     //タブアイコン選択中の色
-    [UITabBar appearance].tintColor = [UIColor darkGrayColor];
+    [UITabBar appearance].tintColor = self.theme.tabBarSelectColor;
     //タブバーの背景色
-    [UITabBar appearance].barTintColor = [UIColor whiteColor];
+    [UITabBar appearance].barTintColor = self.theme.tabBarBackColor;
     
     //ビューを Controllerに追加
     

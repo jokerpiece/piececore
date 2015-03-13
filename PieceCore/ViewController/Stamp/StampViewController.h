@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface StampViewController : BaseViewController
-
+@property (nonatomic) float stampLineStartHeight;
 @end

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *awnser2Btn;
 @property (weak, nonatomic) IBOutlet UIView *questionVew;
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
+@property (weak, nonatomic) IBOutlet UIView *view;
 - (IBAction)awnser1Action:(id)sender;
 - (IBAction)awnser2Action:(id)sender;
 @end

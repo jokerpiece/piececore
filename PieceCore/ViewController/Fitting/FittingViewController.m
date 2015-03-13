@@ -26,7 +26,7 @@
     
     self.shadowView.backgroundColor = [UIColor clearColor];
     self.shadowView.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-    self.shadowView.layer.shadowOffset = CGSizeMake(5, 5);
+    self.shadowView.layer.shadowOffset = CGSizeMake(1, 1);
     self.shadowView.layer.shadowOpacity = 5.7f;
     self.shadowView.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.shadowView.bounds].CGPath;
 }

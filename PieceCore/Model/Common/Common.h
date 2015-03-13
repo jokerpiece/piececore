@@ -19,5 +19,5 @@
 +(SettingData *)getSettingModel;
 +(void)saveSettingModel:(SettingData*)settingModel;
 +(bool)isNotEmptyString:(NSString *)string;
-
++ (UIImage*)resizeAspectFitWithSize:(UIImage *)srcImg size:(CGSize)size;
 @end
