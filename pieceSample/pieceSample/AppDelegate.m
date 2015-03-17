@@ -8,10 +8,16 @@
 
 #import "AppDelegate.h"
 #import "FlyerViewController.h"
+#import "InfoListViewController.h"
+#import "CategoryViewController.h"
+#import "TabbarViewController.h"
+#import "FittingViewController.h"
+#import "BarcodeReaderViewController.h"
+#import "CheckinViewController.h"
+#import "SettingViewController.h"
+#import "HistoryViewController.h"
 #import "StampViewController.h"
 #import "WebViewController.h"
-#import "FittingViewController.h"
-#import "TabbarViewController.h"
 #import "HistoryViewController.h"
 #import "SosialViewController.h"
 
@@ -19,13 +25,9 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    
-    [super application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions];
-    [PieceCoreConfig setShopId:@"pieceSample"];
+-(void)setConfig{
+    [PieceCoreConfig setShopId:@"pushColor"];
     [PieceCoreConfig setAppId:@""];
-    return YES;
 }
 
 -(void)setThemeColor{
@@ -46,8 +48,7 @@
                                                                tabTitle:@"Shopping"
                                                                   title:@"ショッピング"]];
 
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[SosialViewController alloc] initWithNibName:@"SosialViewController" bundle:nil]
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:  [[SosialViewController alloc] initWithNibName:@"SosialViewController" bundle:nil]
                                                                 imgName:@"tab_icon_flyer.png"
                                                           selectImgName:@"tab_icon_flyer.png"
                                                                tabTitle:@"Flyer"
@@ -70,7 +71,7 @@
                                                                 imgName:@"tab_icon_coupon.png"
                                                           selectImgName:@"tab_icon_coupon.png"
                                                                tabTitle:@"History"
-                                                                  title:@"配送状況"]];
+                                                                  title:@"配送状況一覧"]];
     return tabbarDataList;
 }
 
