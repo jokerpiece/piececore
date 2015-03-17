@@ -18,6 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [self setConfig];
     [self setThemeColor];
     [self setNavibarTitleAttributes];
     [self registDeviceToken];
@@ -26,7 +27,8 @@
     
     return YES;
 }
-
+-(void)setConfig{
+}
 -(void)setThemeColor{
     self.theme = [[ThemeData alloc]initThemeDefault];
 }

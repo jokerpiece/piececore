@@ -21,10 +21,10 @@
 
 - (void)viewDidLoadLogic {
     HistoryItemData *model = [[HistoryItemData alloc]init];
-    model.deliverStatus = self.delicerStatus;
-    self.statusLbl.text = [model getDeliverName];
-    self.statusLbl.textColor = [model getColor];
-    self.messageLbl.text = [model getDeliverMessage];
+//    model.deliverStatus = self.delicerStatus;
+//    self.statusLbl.text = [model getDeliverName];
+//    self.statusLbl.textColor = [model getColor];
+//    self.messageLbl.text = [model getDeliverMessage];
     [self setSeed];
     // Do any additional setup after loading the view.
 }

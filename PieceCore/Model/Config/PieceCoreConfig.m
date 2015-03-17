@@ -37,6 +37,12 @@ NSString * const  SendIdSendSurvey= @"send_survey/";
 NSString * const  SendIdCheckin= @"checkin/";
 NSString * const  SendIdPushNews= @"news/index.php?Action=newsList";
 NSString * const  SendIdStamp= @"stamp/";
+NSString * const  SendIdDeliverList= @"deliver_list/";
+
+NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
+NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";
+NSString * const  UrlYubinDeliver= @"http://tracking.post.japanpost.jp/service/singleSearch.do?org.apache.struts.taglib.html.TOKEN=&searchKind=S002&locale=ja&SVID=&reqCodeNo1=";
+
 const int DispSurveyDate = 90;
 const float TimeSlidershow = 5.5;
 const float NavigationHight = 65;

@@ -14,11 +14,45 @@ typedef enum {
     delivered
 } deliverStatus;
 
-@interface HistoryItemData : ItemData
-@property (strong,nonatomic) NSString *strOrderNum;
-@property (nonatomic) deliverStatus deliverStatus;
-@property (nonatomic) int quantity;
--(NSString *)getDeliverName;
--(NSString *)getDeliverMessage;
--(UIColor *)getColor;
+typedef enum {
+    yamato = 0,
+    sagawa,
+    yubin
+} deliverCampany;
+
+
+@interface HistoryItemData : NSObject
+
+/**
+ 伝票番号
+ */
+@property (nonatomic) NSString *deliverNum;
+/**
+ 配送業者
+ */
+@property (nonatomic) deliverCampany deliverCampany;
+/**
+ 商品名
+ */
+@property (nonatomic) NSString *item_name;
+/**
+ 数量
+ */
+@property (nonatomic) NSString *quantity;
+/**
+ 価格
+ */
+@property (nonatomic) NSString *item_price;
+/**
+ 小計
+ */
+@property (nonatomic) NSString* sub_total_price;
+/**
+ 商品URL
+ */
+@property (nonatomic,strong) NSString *img_url;
+
+//-(NSString *)getDeliverName;
+//-(NSString *)getDeliverMessage;
+//-(UIColor *)getColor;
 @end

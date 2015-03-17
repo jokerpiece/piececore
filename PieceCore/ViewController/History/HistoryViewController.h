@@ -14,7 +14,7 @@
 
 @interface HistoryViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic)HistoryOrderData *data;
+@property (nonatomic)NSMutableArray *historyOrderDataList;
 @property (nonatomic)int selectRow;
 - (IBAction)toDeliveryAction:(id)sender;
 

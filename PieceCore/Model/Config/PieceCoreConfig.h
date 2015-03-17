@@ -28,6 +28,12 @@ extern NSString * const SendIdSendSurvey;
 extern NSString * const SendIdCheckin;
 extern NSString * const SendIdPushNews;
 extern NSString * const SendIdStamp;
+extern NSString * const SendIdDeliverList;
+
+extern NSString * const UrlYamatoDeliver;
+extern NSString * const UrlSagawaDeliver;
+extern NSString * const UrlYubinDeliver;
+
 extern const int DispSurveyDate;
 extern const float TimeSlidershow;
 extern const float NavigationHight;

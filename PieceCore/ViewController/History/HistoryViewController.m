@@ -7,6 +7,9 @@
 //
 
 #import "HistoryViewController.h"
+#import "HistoryTableViewCell.h"
+#import "WebViewController.h"
+#import "DeliverConnector.h"
 
 @interface HistoryViewController ()
 
@@ -17,125 +20,117 @@
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"HistoryViewController" owner:self options:nil];
 }
+- (void)viewDidLoadLogic
+{
+    self.historyOrderDataList = [NSMutableArray array];
+    UINib *nib = [UINib nibWithNibName:@"HistoryTableViewCell" bundle:nil];
+    [self.table registerNib:nib forCellReuseIdentifier:@"Cell"];
+    self.table.rowHeight = UITableViewAutomaticDimension;
+    //[self syncAction];
+    [self.historyOrderDataList addObject:[[HistoryOrderData alloc]initSeedData]];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40.0;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    HistoryOrderData *orderData = [self.historyOrderDataList objectAtIndex:section];
+    UIView *containerView = [[UIView alloc] init];
+    UILabel *lbl1 = [[UILabel alloc]initWithFrame:CGRectMake(5, 0, self.viewSize.width, 20)];
+    lbl1.font = [UIFont systemFontOfSize:14];
+    lbl1.text = [NSString stringWithFormat:@"注文日 %@",orderData.orderDate];
+    [containerView addSubview:lbl1];
+    UILabel *lbl2 = [[UILabel alloc]initWithFrame:CGRectMake(5, 20, self.viewSize.width, 20)];
+    lbl2.font = [UIFont systemFontOfSize:14];
+    lbl2.text = [NSString stringWithFormat:@"注文番号 %@",orderData.orderNum];
+    [containerView addSubview:lbl2];
+    return containerView;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    HistoryOrderData *orderData = [self.historyOrderDataList objectAtIndex:section];
+    return [NSString stringWithFormat:@"注文日 %@",orderData.orderDate];
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        NSString *CellIdentifier = [NSString stringWithFormat:@"CreateCell%ld",(long)indexPath.row];
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        //if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        //cell.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1.0] ;
-        HistoryItemData *model = [self.data.historyItemList objectAtIndex:indexPath.row];
-        UIImageView *iv = [[UIImageView alloc] init];
-        iv.frame = CGRectMake(10, 10, 80, 80);
-        NSURL *imageURL = [NSURL URLWithString:model.img_url];
+    NSString *CellIdentifier = @"Cell";
+    HistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    DLog(@"%ld",(long)indexPath.row);
+    HistoryOrderData *historyOrderData = [self.historyOrderDataList objectAtIndex:indexPath.section];
+    HistoryItemData *detailData = [historyOrderData.historyItemList objectAtIndex:indexPath.row];
+    
+    cell.itemNamelbl.text = detailData.item_name;
         
-        [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [cell.contentView addSubview:iv];
-        
-        UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(100,30,200,40)];
-        textLbl.text = model.item_text;
-        textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
-        textLbl.alpha = 1.0f;
-        textLbl.backgroundColor = [UIColor clearColor];
-        textLbl.numberOfLines = 2;
-        [cell.contentView addSubview:textLbl];
-        
-        
-        UILabel *statesLbl = [[UILabel alloc] initWithFrame:CGRectMake(10,90,180,40)];
-        statesLbl.text = [NSString stringWithFormat:@"%@",[model getDeliverName]];
-        statesLbl.font = [UIFont fontWithName:@"AppleGothic" size:20];
-        switch (model.deliverStatus) {
-            case delivered:
-                statesLbl.textColor = [UIColor flatDarkBlueColor];
-                break;
-            case deliver:
-                statesLbl.textColor = [UIColor flatGreenColor];
-                break;
-            case sipment:
-                statesLbl.textColor = [UIColor blackColor];
-                break;
-            case preparation:
-                statesLbl.textColor = [UIColor grayColor];
-                break;
-                
-            default:
-                break;
-        }
-        statesLbl.alpha = 1.0f;
-        statesLbl.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:statesLbl];
-        
-        UILabel *deliverDateLbl = [[UILabel alloc] initWithFrame:CGRectMake(10,120,180,40)];
-        deliverDateLbl.text = [NSString stringWithFormat:@"お届け予定日：%@",self.data.strDeliverDate];
-        deliverDateLbl.font = [UIFont fontWithName:@"AppleGothic" size:13];
-        deliverDateLbl.alpha = 1.0f;
-        deliverDateLbl.backgroundColor = [UIColor clearColor];
-        [cell.contentView addSubview:deliverDateLbl];
-        
-        
-        //}
-        return cell;
-    } else {
-        static NSString *CellIdentifier = @"Cell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            cell.backgroundColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1.0];
-            UIImageView *reloadView = [[UIImageView alloc] init];
-            reloadView.frame = CGRectMake(80,15, 32, 32);
-            reloadView.image = [UIImage imageNamed:@"undo.png"];
-            [cell.contentView addSubview:reloadView];
+    if ([Common isNotEmptyString:detailData.img_url]) {
+        NSURL *imageURL = [NSURL URLWithString:[detailData.img_url stringByAddingPercentEscapesUsingEncoding:
+                                                    NSUTF8StringEncoding]];
             
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(125,20,100,25)];
-            label.text = @"次を検索する";
-            label.font = [UIFont fontWithName:@"AppleGothic" size:16];
-            label.alpha = 1.0f;
-            label.backgroundColor = [UIColor clearColor];
-            [cell.contentView addSubview:label];
-        }
-        return cell;
+        [cell.itemIv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }
+        
+    return cell;
     
     
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.historyOrderDataList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return 160.0f;
-    } else {
-        return 60.0f;
-    }
+    return 74;
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return self.data.historyItemList.count;
-    }
-    return 1;
+    HistoryOrderData *orderData = [self.historyOrderDataList objectAtIndex:section];
+    DLog(@"履歴数：%lu",(unsigned long)orderData.historyItemList.count);
+    return orderData.historyItemList.count;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         self.selectRow = (int)indexPath.row;
-        HistoryItemData *model = [self.data.historyItemList objectAtIndex:self.selectRow];
-        
-        DeliberyStatusViewController *vc = [[DeliberyStatusViewController alloc] initWithNibName:@"DeliberyStatusViewController" bundle:nil];
-        vc.delicerStatus = model.deliverStatus;
-        // 画面をPUSHで遷移させる
-        [self.navigationController pushViewController:vc animated:YES];
+        HistoryOrderData *historyOrderData = [self.historyOrderDataList objectAtIndex:indexPath.section];
+        HistoryItemData *data = [historyOrderData.historyItemList objectAtIndex:indexPath.row];
+    
+        NSString *url = @"";
+        if (data.deliverCampany == yamato) {
+            url = [NSString stringWithFormat:@"%@%@",UrlYamatoDeliver,data.deliverNum];
+        } else if(data.deliverCampany == sagawa){
+            url = [NSString stringWithFormat:@"%@%@",UrlSagawaDeliver,data.deliverNum];
+        } else if(data.deliverCampany == yubin){
+            url = [NSString stringWithFormat:@"%@%@",UrlYubinDeliver,data.deliverNum];
+        }
+        WebViewController *webVc = [[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil url:url];
+        webVc.title = @"配送状況";
+        [self.navigationController pushViewController:webVc animated:YES];
         
     }
     
 }
+-(void)syncAction{
+    
+    NetworkConecter *conecter = [NetworkConecter alloc];
+    conecter.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:[Common getUuid] forKey:@"uuid"];
+    [conecter sendActionSendId:SendIdDeliverList param:param];
+    
+}
 
+-(BaseConnector *)getDataWithSendId:(NSString *)sendId{
+    return [DeliverConnector alloc];
+}
+
+-(void)setData:(DeliverConnector *)data sendId:(NSString *)sendId{
+    
+    DeliverConnector *connector = data;
+    self.historyOrderDataList = connector.historyOrderlist;
+    [self.table reloadData];
+}
 - (IBAction)toDeliveryAction:(id)sender {
 }
 @end

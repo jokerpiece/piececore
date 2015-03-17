@@ -19,6 +19,7 @@
 @property (nonatomic) ThemeData *theme;
 @property (nonatomic) bool isUpdate;
 - (NSMutableArray *)getTabbarDataList;
+-(void)setConfig;
 -(void)setThemeColor;
 -(void)setTabbarNumberWithVc:(BaseViewController *)vc index:(int)index;
 @end

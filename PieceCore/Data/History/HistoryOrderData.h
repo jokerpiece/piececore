@@ -8,15 +8,22 @@
 #import "HistoryItemData.h"
 
 @interface HistoryOrderData : NSObject
-@property (strong,nonatomic) NSString *strOrderNum;
-@property (strong,nonatomic) NSString *strOrderDate;
-@property (strong,nonatomic) NSString *strDeliverDate;
-
-@property (nonatomic) int totalPrice;
-@property (nonatomic) int feePrice;
-@property (nonatomic) int discountPrice;
-@property (nonatomic) int orderPrice;
-
+/**
+ 注文番号
+ */
+@property (strong,nonatomic) NSString *orderNum;
+/**
+ 注文日
+ */
+@property (strong,nonatomic) NSString *orderDate;
+/**
+ 合計金額
+ */
+@property (nonatomic) NSString *totalPrice;
+/**
+ 商品明細
+ */
 @property (strong,nonatomic) NSMutableArray *historyItemList;
 -(id)initSeedData;
+
 @end
