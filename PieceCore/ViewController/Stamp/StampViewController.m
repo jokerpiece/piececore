@@ -79,7 +79,7 @@
             stampBaseIv.frame = CGRectMake(60*ii, -10, 50, 50);
             [stampLineView addSubview:stampBaseIv];
             if (stampCount <= data.get_point.intValue) {
-                UIImage *stampImg = [UIImage imageNamed:@"stamp.jpg"];
+                UIImage *stampImg = [UIImage imageNamed:@"stamp.png"];
                 UIImageView *stampIv = [[UIImageView alloc] initWithImage:stampImg];
                 stampIv.frame = CGRectMake(0, 0, 50, 50);
                 [stampBaseIv addSubview:stampIv];
