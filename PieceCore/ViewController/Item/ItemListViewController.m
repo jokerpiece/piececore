@@ -144,8 +144,7 @@
     if (indexPath.section == 0) {
         
         ItemData *model = [self.data.list objectAtIndex:indexPath.row];
-        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
-        itemVc.url = model.item_url;
+        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:model.item_url];
         // 画面をPUSHで遷移させる
         [self.navigationController pushViewController:itemVc animated:YES];
         

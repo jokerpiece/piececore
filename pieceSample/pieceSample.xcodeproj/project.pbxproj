@@ -25,6 +25,16 @@
 		37949A4E1AB6C497002E5194 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37949A4C1AB6C497002E5194 /* HistoryTableViewCell.xib */; };
 		37949A551AB819BF002E5194 /* DeliverConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 37949A541AB819BF002E5194 /* DeliverConnector.m */; };
 		37949A571AB83B84002E5194 /* stamp.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A561AB83B84002E5194 /* stamp.png */; };
+		37949A6A1ABA8D4B002E5194 /* WebViewSettingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 37949A691ABA8D4B002E5194 /* WebViewSettingData.m */; };
+		37949A701ABA9670002E5194 /* backBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A6C1ABA9670002E5194 /* backBtn.png */; };
+		37949A711ABA9670002E5194 /* backBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A6D1ABA9670002E5194 /* backBtn@2x.png */; };
+		37949A721ABA9670002E5194 /* nextBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A6E1ABA9670002E5194 /* nextBtn.png */; };
+		37949A731ABA9670002E5194 /* nextBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A6F1ABA9670002E5194 /* nextBtn@2x.png */; };
+		37949A771ABAB42A002E5194 /* SosialSettingData.m in Sources */ = {isa = PBXBuildFile; fileRef = 37949A761ABAB42A002E5194 /* SosialSettingData.m */; };
+		37949A7C1ABAC534002E5194 /* icon_eye@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A781ABAC534002E5194 /* icon_eye@2x.png */; };
+		37949A7D1ABAC534002E5194 /* icon_fitting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A791ABAC534002E5194 /* icon_fitting@2x.png */; };
+		37949A7E1ABAC534002E5194 /* icon_history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A7A1ABAC534002E5194 /* icon_history@2x.png */; };
+		37949A7F1ABAC534002E5194 /* icon_stamp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37949A7B1ABAC534002E5194 /* icon_stamp@2x.png */; };
 		37D758421AB1738900E6B421 /* SosialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D758401AB1738900E6B421 /* SosialViewController.m */; };
 		37D758431AB1738900E6B421 /* SosialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D758411AB1738900E6B421 /* SosialViewController.xib */; };
 		37D758451AB1743800E6B421 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D758441AB1743800E6B421 /* Social.framework */; };
@@ -188,6 +198,18 @@
 		37949A531AB819BF002E5194 /* DeliverConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliverConnector.h; sourceTree = "<group>"; };
 		37949A541AB819BF002E5194 /* DeliverConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliverConnector.m; sourceTree = "<group>"; };
 		37949A561AB83B84002E5194 /* stamp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stamp.png; sourceTree = "<group>"; };
+		37949A681ABA8D4B002E5194 /* WebViewSettingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewSettingData.h; sourceTree = "<group>"; };
+		37949A691ABA8D4B002E5194 /* WebViewSettingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewSettingData.m; sourceTree = "<group>"; };
+		37949A6C1ABA9670002E5194 /* backBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backBtn.png; sourceTree = "<group>"; };
+		37949A6D1ABA9670002E5194 /* backBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backBtn@2x.png"; sourceTree = "<group>"; };
+		37949A6E1ABA9670002E5194 /* nextBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBtn.png; sourceTree = "<group>"; };
+		37949A6F1ABA9670002E5194 /* nextBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nextBtn@2x.png"; sourceTree = "<group>"; };
+		37949A751ABAB42A002E5194 /* SosialSettingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SosialSettingData.h; sourceTree = "<group>"; };
+		37949A761ABAB42A002E5194 /* SosialSettingData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SosialSettingData.m; sourceTree = "<group>"; };
+		37949A781ABAC534002E5194 /* icon_eye@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_eye@2x.png"; sourceTree = "<group>"; };
+		37949A791ABAC534002E5194 /* icon_fitting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_fitting@2x.png"; sourceTree = "<group>"; };
+		37949A7A1ABAC534002E5194 /* icon_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_history@2x.png"; sourceTree = "<group>"; };
+		37949A7B1ABAC534002E5194 /* icon_stamp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_stamp@2x.png"; sourceTree = "<group>"; };
 		37D7583F1AB1738900E6B421 /* SosialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SosialViewController.h; sourceTree = "<group>"; };
 		37D758401AB1738900E6B421 /* SosialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SosialViewController.m; sourceTree = "<group>"; };
 		37D758411AB1738900E6B421 /* SosialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SosialViewController.xib; sourceTree = "<group>"; };
@@ -442,6 +464,35 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		37949A671ABA8D24002E5194 /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				37949A681ABA8D4B002E5194 /* WebViewSettingData.h */,
+				37949A691ABA8D4B002E5194 /* WebViewSettingData.m */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
+		37949A6B1ABA9670002E5194 /* Webview */ = {
+			isa = PBXGroup;
+			children = (
+				37949A6C1ABA9670002E5194 /* backBtn.png */,
+				37949A6D1ABA9670002E5194 /* backBtn@2x.png */,
+				37949A6E1ABA9670002E5194 /* nextBtn.png */,
+				37949A6F1ABA9670002E5194 /* nextBtn@2x.png */,
+			);
+			path = Webview;
+			sourceTree = "<group>";
+		};
+		37949A741ABAB40A002E5194 /* Sns */ = {
+			isa = PBXGroup;
+			children = (
+				37949A751ABAB42A002E5194 /* SosialSettingData.h */,
+				37949A761ABAB42A002E5194 /* SosialSettingData.m */,
+			);
+			path = Sns;
+			sourceTree = "<group>";
+		};
 		37D7584E1AB27E6600E6B421 /* Sosial */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +583,8 @@
 		37E3EA7C1AA45F8C00EA7CB9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				37949A741ABAB40A002E5194 /* Sns */,
+				37949A671ABA8D24002E5194 /* Webview */,
 				3791297B1AB2DC2A001237C7 /* Theme */,
 				37E3EA7D1AA45F8C00EA7CB9 /* Category */,
 				37E3EA801AA45F8C00EA7CB9 /* Coupn */,
@@ -758,6 +811,7 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37949A6B1ABA9670002E5194 /* Webview */,
 				37D7584E1AB27E6600E6B421 /* Sosial */,
 				37E3EAD01AA45F8C00EA7CB9 /* coupon_get_btn.png */,
 				376A47AB1AADAEC3002A25D3 /* coupon_search@2x.png */,
@@ -811,6 +865,10 @@
 		37E3EAE11AA45F8C00EA7CB9 /* tab */ = {
 			isa = PBXGroup;
 			children = (
+				37949A781ABAC534002E5194 /* icon_eye@2x.png */,
+				37949A791ABAC534002E5194 /* icon_fitting@2x.png */,
+				37949A7A1ABAC534002E5194 /* icon_history@2x.png */,
+				37949A7B1ABAC534002E5194 /* icon_stamp@2x.png */,
 				376A47AF1AADAEE1002A25D3 /* tab_icon_coupon@2x.png */,
 				376A47B01AADAEE1002A25D3 /* tab_icon_flyer@2x.png */,
 				376A47B11AADAEE1002A25D3 /* tab_icon_news@2x.png */,
@@ -1158,20 +1216,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E3EB781AA45F8C00EA7CB9 /* news_02.jpg in Resources */,
+				37949A7F1ABAC534002E5194 /* icon_stamp@2x.png in Resources */,
 				37E3EB841AA45F8C00EA7CB9 /* tab_icon_barcode.png in Resources */,
+				37949A721ABA9670002E5194 /* nextBtn.png in Resources */,
 				37D758511AB27E6600E6B421 /* FB@2x.png in Resources */,
 				37E3EB7B1AA45F8C00EA7CB9 /* coin.png in Resources */,
 				37E3EB7C1AA45F8C00EA7CB9 /* kinenbi.png in Resources */,
 				37E3EBB21AA45F8C00EA7CB9 /* ItemListViewController.xib in Resources */,
+				37949A711ABA9670002E5194 /* backBtn@2x.png in Resources */,
 				37E3EBA41AA45F8C00EA7CB9 /* SinglePickerViewController.xib in Resources */,
 				37E3EB791AA45F8C00EA7CB9 /* news_03.jpg in Resources */,
 				37E3EB8B1AA45F8C00EA7CB9 /* tab_icon_news.png in Resources */,
 				37E3EB8E1AA45F8C00EA7CB9 /* tab_icon_sosial.png in Resources */,
+				37949A7D1ABAC534002E5194 /* icon_fitting@2x.png in Resources */,
 				379129741AB2B40B001237C7 /* camera@2x.png in Resources */,
 				376A47EA1AAFCE19002A25D3 /* stampbar@2x.png in Resources */,
 				37E3EB651AA45F8C00EA7CB9 /* CabinSketch-Bold.otf in Resources */,
 				37E3EB831AA45F8C00EA7CB9 /* stamp_base.png in Resources */,
 				37E3EB981AA45F8C00EA7CB9 /* BarcodeReaderViewController.xib in Resources */,
+				37949A731ABA9670002E5194 /* nextBtn@2x.png in Resources */,
 				37E3EBBC1AA45F8C00EA7CB9 /* JobViewController.xib in Resources */,
 				37E3EB901AA45F8C00EA7CB9 /* wait.jpg in Resources */,
 				37E3EBC21AA45F8C00EA7CB9 /* SettingViewController.xib in Resources */,
@@ -1181,9 +1244,11 @@
 				376A47AD1AADAEC3002A25D3 /* coupon_search@2x.png in Resources */,
 				37E3EBB01AA45F8C00EA7CB9 /* NewsViewController.xib in Resources */,
 				376A47EC1AAFD6E3002A25D3 /* stampbase@2x.png in Resources */,
+				37949A701ABA9670002E5194 /* backBtn.png in Resources */,
 				37E3EBA01AA45F8C00EA7CB9 /* DatePickerViewController.xib in Resources */,
 				37E3EBC41AA45F8C00EA7CB9 /* SexViewController.xib in Resources */,
 				37E3EB861AA45F8C00EA7CB9 /* tab_icon_fitting.png in Resources */,
+				37949A7C1ABAC534002E5194 /* icon_eye@2x.png in Resources */,
 				37E3EBAC1AA45F8C00EA7CB9 /* HistoryViewController.xib in Resources */,
 				37E3EB9E1AA45F8C00EA7CB9 /* CouponViewController.xib in Resources */,
 				376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */,
@@ -1217,6 +1282,7 @@
 				37E3EB891AA45F8C00EA7CB9 /* tab_icon_map.png in Resources */,
 				37E3EB801AA45F8C00EA7CB9 /* work.png in Resources */,
 				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
+				37949A7E1ABAC534002E5194 /* icon_history@2x.png in Resources */,
 				3791297A1AB2CCD6001237C7 /* sns@2x.png in Resources */,
 				37D758521AB27E6600E6B421 /* Twitter@2x.png in Resources */,
 				37E3EB8D1AA45F8C00EA7CB9 /* tab_icon_shopping.png in Resources */,
@@ -1312,6 +1378,7 @@
 				37E3EB641AA45F8C00EA7CB9 /* TabbarData.m in Sources */,
 				37E3EB6A1AA45F8C00EA7CB9 /* CouponConnector.m in Sources */,
 				37E3EB701AA45F8C00EA7CB9 /* SpotConnector.m in Sources */,
+				37949A6A1ABA8D4B002E5194 /* WebViewSettingData.m in Sources */,
 				37E3EBBB1AA45F8C00EA7CB9 /* JobViewController.m in Sources */,
 				376A47F31AAFE450002A25D3 /* StampConnector.m in Sources */,
 				37E3EBBD1AA45F8C00EA7CB9 /* KinenbiDetailViewController.m in Sources */,
@@ -1338,6 +1405,7 @@
 				37949A551AB819BF002E5194 /* DeliverConnector.m in Sources */,
 				37E3EBC31AA45F8C00EA7CB9 /* SexViewController.m in Sources */,
 				37E3EBA51AA45F8C00EA7CB9 /* FittingViewController.m in Sources */,
+				37949A771ABAB42A002E5194 /* SosialSettingData.m in Sources */,
 				37E3EA581AA45F6800EA7CB9 /* main.m in Sources */,
 				37E3EBB71AA45F8C00EA7CB9 /* BirthdayDetailViewController.m in Sources */,
 				37E3EB611AA45F8C00EA7CB9 /* SpotData.m in Sources */,

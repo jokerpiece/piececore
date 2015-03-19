@@ -14,6 +14,7 @@
 #import "UIColor+MLPFlatColors.h"
 #import "PieceCoreConfig.h"
 #import "DLog.h"
+#import "SosialSettingData.h"
 #import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
 
 @interface BaseViewController : UIViewController<NetworkDelegate, SDWebImageManagerDelegate>
@@ -21,10 +22,13 @@
 @property (nonatomic) bool isResponse;
 @property (strong, nonatomic) NSString *titleImgName;
 @property (nonatomic) CGSize viewSize;
+@property (nonatomic)SosialSettingData *sosialSetting;
+@property (nonatomic) UIButton *sosialBtn;
 -(void)showAlert:(BaseConnector *)data;
 -(void)showAlert:(NSString *)title message:(NSString *)message;
 -(void)viewDidLoadLogic;
 -(void)viewDidAppearLogic;
 - (void)viewWillAppearLogic;
 - (void)viewWillDisappearLogic;
+-(void)setSosialBtn;
 @end

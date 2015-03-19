@@ -8,16 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "WebViewSettingData.h"
 #import "SVProgressHUD.h"
 
 @interface WebViewController : BaseViewController<UIWebViewDelegate>
-@property (strong, nonatomic) NSString *url;
-@property (nonatomic) bool isMask;
-@property (nonatomic) SVProgressHUDMaskType maskType;
-//@property (strong, nonatomic) UIWebView *webview;
+@property (nonatomic) WebViewSettingData *setting;
+@property (nonatomic) float browserPositionY;
 
-@property (nonatomic) bool isSnsEnable;
+
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle url:(NSString*)url maskType:(SVProgressHUDMaskType)maskType;
+- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle webSetting:(WebViewSettingData *)setting;
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle url:(NSString*)url;
 @end

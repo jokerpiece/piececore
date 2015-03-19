@@ -40,38 +40,44 @@
     NSMutableArray *tabbarDataList = [NSMutableArray array];
 
 
-    WebViewController *shop = [[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil url:@"http://pushcolor.com/" maskType:SVProgressHUDMaskTypeBlack];
-    shop.isSnsEnable = YES;
+    
+    SosialSettingData *sosialSetting = [[SosialSettingData alloc]init];
+    FlyerViewController *flyerVc =[[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil];
+    flyerVc.sosialSetting = sosialSetting;
+    
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:flyerVc
+                                                                imgName:@"icon_eye.png"
+                                                          selectImgName:@"icon_eye.png"
+                                                               tabTitle:@"image"
+                                                                  title:@"装着イメージ"]];
+    
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[StampViewController alloc] initWithNibName:@"StampViewController" bundle:nil]
+                                                                imgName:@"icon_stamp.png"
+                                                          selectImgName:@"icon_stamp.png"
+                                                               tabTitle:@"Stamp"
+                                                                  title:@"Stamp"]];
+    
+    WebViewController *shop = [[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil url:@"http://pushcolor.com/" ];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:shop
                                                                 imgName:@"tab_icon_shopping.png"
                                                           selectImgName:@"tab_icon_shopping.png"
                                                                tabTitle:@"Shopping"
-                                                                  title:@"ショッピング"]];
-
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:  [[SosialViewController alloc] initWithNibName:@"SosialViewController" bundle:nil]
-                                                                imgName:@"tab_icon_flyer.png"
-                                                          selectImgName:@"tab_icon_flyer.png"
-                                                               tabTitle:@"Flyer"
-                                                                  title:@"装着例"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[StampViewController alloc] initWithNibName:@"StampViewController" bundle:nil]
-                                                                imgName:@"tab_icon_news.png"
-                                                          selectImgName:@"tab_icon_news.png"
-                                                               tabTitle:@"Info"
-                                                                  title:@"スタンプラリー"]];
-
+                                                                  title:@"Shopping"]];
+    
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[FittingViewController alloc] initWithNibName:@"FittingViewController" bundle:nil]
-                                                                imgName:@"tab_icon_coupon.png"
-                                                          selectImgName:@"tab_icon_coupon.png"
+                                                                imgName:@"icon_fitting.png"
+                                                          selectImgName:@"icon_fitting.png"
                                                                tabTitle:@"Fitting"
                                                                   title:@"フィッティング"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[HistoryViewController alloc] initWithNibName:@"HistoryViewController" bundle:nil]
-                                                                imgName:@"tab_icon_coupon.png"
-                                                          selectImgName:@"tab_icon_coupon.png"
+                                                                imgName:@"icon_history.png"
+                                                          selectImgName:@"icon_history.png"
                                                                tabTitle:@"History"
                                                                   title:@"配送状況一覧"]];
+    
     return tabbarDataList;
 }
 

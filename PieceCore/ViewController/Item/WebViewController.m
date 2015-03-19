@@ -20,17 +20,14 @@
     [[NSBundle mainBundle] loadNibNamed:@"WebViewController" owner:self options:nil];
 }
 
-- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle url:(NSString*)url maskType:(SVProgressHUDMaskType)maskType
+- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle webSetting:(WebViewSettingData *)setting
 {
     self = [super initWithNibName:nibName bundle:nil];
     if (!self) {
         return nil;
     }
     // write something.
-    self.url = url;
-    self.isMask = YES;
-    self.maskType = maskType;
-    self.isSns = NO;
+    self.setting = setting;
     return self;
 }
 
@@ -39,10 +36,9 @@
     if (!self) {
         return nil;
     }
+    self.setting = [[WebViewSettingData alloc]init];
     // write something.
-    self.url = url;
-    self.isMask = NO;
-    self.maskType = SVProgressHUDMaskTypeBlack;
+    self.setting.url = url;
     return self;
 }
 
@@ -52,35 +48,77 @@
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
-    if ([Common isNotEmptyString:self.url]) {
-        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.url]];
+    
+    [self setBlowserBtn];
+    
+    if ([Common isNotEmptyString:self.setting.url]) {
+        NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.setting.url]];
         [self.webView loadRequest:req];
     }
-    
-    if (self.isSnsEnable) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(self.viewSize.width * 0.8, self.viewSize.height - TabbarHight - NavigationHight, 50, 50);
-        [button setImage:[UIImage imageNamed:@"sns.png"] forState:UIControlStateNormal];
-        [button addTarget:self
-                action:@selector(moveSns:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
-    }
-    
 }
 
+-(void)viewWillAppearLogic{
+    if (self.setting.isReloadEveryTime) {
+        if ([Common isNotEmptyString:self.setting.url]) {
+            NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.setting.url]];
+            [self.webView loadRequest:req];
+        }
+    }
+}
+-(void)setBlowserBtn{
+    
+    if (!self.setting.isDispBrowserBackBtn && !self.setting.isDispBrowserNextBtn) {
+        return;
+    }
+    
+    float positionY = 0.0;
+    if (self.setting.browserBtnPosition == BrowserBtnPositionUp) {
+        positionY = NavigationHight + 10;
+    } else if (self.setting.browserBtnPosition == BrowserBtnPositionMiddle){
+        positionY = self.viewSize.height * 0.5;
+    } else if (self.setting.browserBtnPosition == BrowserBtnPositionDown) {
+        positionY = self.viewSize.height - self.viewSize.height - TabbarHight - NavigationHight;
+    }
+    
+    if (self.setting.isDispBrowserBackBtn) {
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [backBtn setImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
+        backBtn.frame = CGRectMake(0, positionY, 64, 64);
+        
+        [backBtn addTarget:self
+                    action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:backBtn];
+    }
+    
+    if (self.setting.isDispBrowserNextBtn) {
+        UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [nextBtn setImage:[UIImage imageNamed:@"nextBtn.png"] forState:UIControlStateNormal];
+        nextBtn.frame = CGRectMake(self.viewSize.width -64, positionY, 64, 64);
+        
+        [nextBtn addTarget:self
+                    action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:nextBtn];
+    }
+    
+    
+    
+    
+    
+    
+}
 - (IBAction)backAction:(id)sender{
     [self.webView goBack];
 }
-- (void)moveSns:(id)sender{
-    SosialViewController *vc = [[SosialViewController alloc] initWithNibName:@"SosialViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+- (IBAction)nextAction:(id)sender{
+    [self.webView goForward];
 }
+
 
 // ページ読込開始直後に呼ばれるデリゲートメソッド
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    if (self.isMask) {
-        [SVProgressHUD showWithMaskType:self.maskType];
+    if (self.setting.maskType != 0) {
+        [SVProgressHUD showWithMaskType:self.setting.maskType];
     }
     
 }
@@ -88,9 +126,17 @@
 // ページ読込終了直後に呼ばれるデリゲートメソッド
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    if (self.isMask) {
+    if (self.setting.maskType != 0) {
         [SVProgressHUD dismiss];
     }
     
+}
+
+- (void)dealloc {
+    
+    [self.webView setDelegate:nil];
+    [self.webView stopLoading];
+    [self.webView.layer removeAllAnimations];
+    [self.webView removeFromSuperview];
 }
 @end

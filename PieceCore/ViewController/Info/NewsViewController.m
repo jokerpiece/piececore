@@ -63,4 +63,7 @@
 -(BaseConnector *)getDataWithSendId:(NSString *)sendId{
     return [NewsConnector alloc];
 }
+
+
+
 @end

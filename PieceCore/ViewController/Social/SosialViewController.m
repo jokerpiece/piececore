@@ -33,6 +33,9 @@
     [self setImgView];
     
 }
+-(void)setSosialBtn{
+    
+}
 -(void)setImgView {
     
     self.imgView.tag = 1;
@@ -105,9 +108,7 @@
 
 - (IBAction)pressBtn {
     
-    NSString *text  = @"投稿するテキスト";
-    NSURL *url = [NSURL URLWithString:@"http://jakapi.jp"];
-    NSArray *activityItems = @[text, url, self.imgView.image];
+    NSArray *activityItems = @[self.sosialSetting.shareMessage, self.sosialSetting.shareUrl, self.imgView.image];
     
     
     NSArray *excludedActivityTypes = @[UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypeAirDrop];

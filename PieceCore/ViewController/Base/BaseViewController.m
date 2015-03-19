@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "SosialViewController.h"
 #import "CoreDelegate.h"
 
 @interface BaseViewController ()
@@ -40,6 +41,7 @@
         UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:self.titleImgName]];
         self.navigationItem.titleView = titleImageView;
     }
+    
     [self viewDidLoadLogic];
 }
 -(void)viewDidLoadLogic{
@@ -53,6 +55,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self setSosialBtn];
     [self viewDidAppearLogic];
 }
 
@@ -81,7 +84,21 @@
     
 }
 
-
+-(void)setSosialBtn{
+    if (self.sosialSetting != nil && self.sosialBtn == nil) {
+        self.sosialBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.sosialBtn.frame = CGRectMake(self.viewSize.width * 0.8, self.viewSize.height - TabbarHight - NavigationHight, 50, 50);
+        [self.sosialBtn setImage:[UIImage imageNamed:@"sns.png"] forState:UIControlStateNormal];
+        [self.sosialBtn addTarget:self
+                   action:@selector(moveSns:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.sosialBtn];
+    }
+}
+- (void)moveSns:(id)sender{
+    SosialViewController *vc = [[SosialViewController alloc] initWithNibName:@"SosialViewController" bundle:nil];
+    vc.sosialSetting = self.sosialSetting;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 -(void)receiveSucceed:(NSDictionary *)receivedData sendId:(NSString *)sendId{
     self.isResponse = YES;
     BaseConnector *data = [[self getDataWithSendId:sendId] initWithResponseData:receivedData];

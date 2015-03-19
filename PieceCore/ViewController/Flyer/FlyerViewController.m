@@ -312,8 +312,7 @@
     
     if ([Common isNotEmptyString:model.item_url]) {
         
-        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
-        vc.url = model.item_url;
+        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:model.item_url];
         
         [self.navigationController pushViewController:vc animated:YES];
     }
