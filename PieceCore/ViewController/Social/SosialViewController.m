@@ -11,7 +11,6 @@
 #import "FBActivity.h"
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
-#import "ImageUtil.h"
 #import "Common.h"
 
 @interface SosialViewController ()

@@ -14,12 +14,13 @@
 #import "FittingViewController.h"
 #import "BarcodeReaderViewController.h"
 #import "CheckinViewController.h"
-#import "SettingViewController.h"
 #import "HistoryViewController.h"
 #import "StampViewController.h"
 #import "WebViewController.h"
 #import "HistoryViewController.h"
 #import "SosialViewController.h"
+#import "ProfileViewController.h"
+#import "CouponViewController.h"
 
 
 @implementation AppDelegate
@@ -77,6 +78,26 @@
                                                           selectImgName:@"icon_history.png"
                                                                tabTitle:@"History"
                                                                   title:@"配送状況一覧"]];
+    NSMutableArray *cellList = [NSMutableArray array];
+    [cellList addObject:[[ProfileNameTableViewCell alloc]init]];
+    [cellList addObject:[[ProfileSexTableViewCell alloc]init]];
+    [cellList addObject:[[ProfileBirthdayTableViewCell alloc]init]];
+    [cellList addObject:[[ProfileAnniversaryTableViewCell alloc]init]];
+    [cellList addObject:[[ProfileAdressTableViewCell alloc]init]];
+    ProfileViewController *profileVc = [[ProfileViewController alloc]initWithNibName:@"ProfileViewController" bundle:nil];
+    profileVc.cellList = cellList;
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:profileVc
+                                                                imgName:@"icon_history.png"
+                                                          selectImgName:@"icon_history.png"
+                                                               tabTitle:@"Profile"
+                                                                  title:@"プロフィール設定"]];
+    
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
+                                                                imgName:@"icon_coupon.png"
+                                                          selectImgName:@"icon_coupon.png"
+                                                               tabTitle:@"Coupon"
+                                                                  title:@"COUPON"]];
     
     return tabbarDataList;
 }

@@ -21,8 +21,8 @@
         historyItem1.item_name = @"GRASP ワルサー P38 ディスプレイ：ディスプレイ付き";
         historyItem1.quantity = @"1";
         historyItem1.img_url = @"http://otonagokoro.com/upload/save_image/05051921_4be146bfab8ce.jpg";
-        historyItem1.deliverCampany = sagawa;
-        historyItem1.deliverNum = @"401997807396";
+        historyItem1.deliverCampany = yamato;
+        historyItem1.deliverNum = @"410614362502";
         [self.historyItemList addObject:historyItem1];
         
         HistoryItemData *historyItem2 = [HistoryItemData alloc];

@@ -83,7 +83,7 @@
     if (self.setting.isDispBrowserBackBtn) {
         UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [backBtn setImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
-        backBtn.frame = CGRectMake(0, positionY, 64, 64);
+        backBtn.frame = CGRectMake(0, positionY, 35, 64);
         
         [backBtn addTarget:self
                     action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -93,7 +93,7 @@
     if (self.setting.isDispBrowserNextBtn) {
         UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [nextBtn setImage:[UIImage imageNamed:@"nextBtn.png"] forState:UIControlStateNormal];
-        nextBtn.frame = CGRectMake(self.viewSize.width -64, positionY, 64, 64);
+        nextBtn.frame = CGRectMake(self.viewSize.width -35, positionY, 35, 64);
         
         [nextBtn addTarget:self
                     action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -129,7 +129,8 @@
     if (self.setting.maskType != 0) {
         [SVProgressHUD dismiss];
     }
-    
+    self.sosialSetting.shareMessage = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.sosialSetting.shareUrl = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
 }
 
 - (void)dealloc {

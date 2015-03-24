@@ -1,0 +1,18 @@
+//
+//  ProfileSexTableViewCell.h
+//  pieceSample
+//
+//  Created by ハマモト  on 2015/03/20.
+//  Copyright (c) 2015年 jokerpiece. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "BaseInputCell.h"
+
+@interface ProfileSexTableViewCell : BaseInputCell
+@property (weak, nonatomic) IBOutlet UIButton *manBtn;
+- (IBAction)setManAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *womanBtn;
+@property (weak, nonatomic) IBOutlet UIButton *setWomenAction;
+
+@end
