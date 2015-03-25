@@ -21,5 +21,11 @@
 }
 
 - (IBAction)setManAction:(id)sender {
+    self.manFrame.backgroundColor = [UIColor blueColor];
+    self.womenFrame.backgroundColor = [UIColor clearColor];
+}
+- (IBAction)setWomanAction:(id)sender {
+    self.manFrame.backgroundColor = [UIColor clearColor];
+    self.womenFrame.backgroundColor = [UIColor redColor];
 }
 @end

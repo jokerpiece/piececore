@@ -223,10 +223,7 @@
             self.datePickerViewController = [[DatePickerViewController alloc] initWithNibName:@"DatePickerViewController" bundle:nil];
             self.datePickerViewController.delegate = self;
             self.datePickerViewController.datePicker.datePickerMode = UIDatePickerModeDate;
-                //self.datePickerViewController.strDate = self.barthdayTf.text;
             self.isDispDatePicker = YES;
-                
-                
             [self showModal:self.datePickerViewController.view];
                 
             return NO;
@@ -268,15 +265,15 @@
 {
     UIWindow *mainWindow = (((CoreDelegate *) [UIApplication sharedApplication].delegate).window);
     CGPoint middleCenter = modalView.center;
-    CGSize offSize = [UIScreen mainScreen].bounds.size;
-    CGPoint offScreenCenter = CGPointMake(offSize.width * 0.5f, offSize.height * 1.5f);
+//    CGSize offSize = [UIScreen mainScreen].bounds.size;
+    CGPoint offScreenCenter = CGPointMake(self.viewSize.width * 0.5f, self.viewSize.height * 1.5f);
     modalView.center = offScreenCenter;
-    
+    modalView.frame = CGRectMake(0, 0, self.viewSize.width, self.viewSize.height);
     [mainWindow addSubview:modalView];
     
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3f];
-    modalView.center = middleCenter;
+    [UIView setAnimationDuration:0.5f];
+    modalView.center = CGPointMake(self.viewSize.width * 0.5f, self.viewSize.height * 0.5f);
     [UIView commitAnimations];
 }
 
@@ -311,7 +308,7 @@
 }
 
 -(void)setToolbarInTextView:(UITextView *)tv{
-    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, 44)];
     //スタイルの設定
     toolBar.barStyle = UIBarStyleDefault;
     //ツールバーを画面サイズに合わせる

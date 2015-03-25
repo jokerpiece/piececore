@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *manBtn;
 - (IBAction)setManAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *womanBtn;
-@property (weak, nonatomic) IBOutlet UIButton *setWomenAction;
+- (IBAction)setWomanAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *manFrame;
+@property (weak, nonatomic) IBOutlet UIView *womenFrame;
+
 
 @end
