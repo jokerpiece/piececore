@@ -24,4 +24,17 @@
     [self.monthDayPickerList addObject:self.anniversaryDayTf];
     [self.tfList addObject:self.anniversaryNameTf];
 }
+
+-(void)setDataWithProfileConnector:(ProfileConnector *)connector{
+    if ([Common isNotEmptyString:connector.anniversary]) {
+        self.anniversaryDayTf.text = connector.anniversary;
+    }
+    if([Common isNotEmptyString:connector.anniversary_name]){
+        self.anniversaryNameTf.text = connector.anniversary_name;
+    }
+}
+-(void)saveDataWithProfileConnector:(ProfileConnector *)connector{
+    connector.anniversary = self.anniversaryDayTf.text;
+    connector.anniversary_name = self.anniversaryNameTf.text;
+}
 @end

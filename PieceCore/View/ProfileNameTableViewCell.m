@@ -25,4 +25,16 @@
     [self.tfList addObject:self.seiTf];
     [self.tfList addObject:self.meiTf];
 }
+-(void)setDataWithProfileConnector:(ProfileConnector *)connector{
+    if([Common isNotEmptyString:connector.sei]){
+        self.seiTf.text = connector.sei;
+    }
+    if([Common isNotEmptyString:connector.mei]){
+        self.meiTf.text = connector.mei;
+    }
+}
+-(void)saveDataWithProfileConnector:(ProfileConnector *)connector{
+    connector.sei = self.seiTf.text;
+    connector.mei = self.meiTf.text;
+}
 @end

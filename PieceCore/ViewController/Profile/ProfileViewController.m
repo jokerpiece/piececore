@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import "CoreDelegate.h"
+
 @interface ProfileViewController ()
 @property (nonatomic) NSIndexPath *selectIndexPath;
 @end
@@ -35,6 +36,9 @@
         } else if ([cell isKindOfClass:[ProfileAdressTableViewCell class]]){
             UINib *nib = [UINib nibWithNibName:@"ProfileAdressTableViewCell" bundle:nil];
             [self.table registerNib:nib forCellReuseIdentifier:@"AdressCell"];
+        } else if ([cell isKindOfClass:[ProfileSendBtnTableViewCell class]]){
+            UINib *nib = [UINib nibWithNibName:@"ProfileSendBtnTableViewCell" bundle:nil];
+            [self.table registerNib:nib forCellReuseIdentifier:@"SendBtnCell"];
         }
     }
     self.table.allowsSelection = NO;
@@ -51,6 +55,32 @@
 {
     [self releaseKeybordNC];
 }
+
+-(void)syncAction{
+    
+    NetworkConecter *conecter = [NetworkConecter alloc];
+    conecter.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:[Common getUuid] forKey:@"uuid"];
+    [param setValue:@"sample" forKey:@"user_id"];
+    [param setValue:@"sample" forKey:@"password"];
+    [conecter sendActionSendId:SendIdGetProfile param:param];
+    
+}
+
+-(BaseConnector *)getDataWithSendId:(NSString *)sendId{
+    return [ProfileConnector alloc];
+}
+
+-(void)setData:(ProfileConnector *)data sendId:(NSString *)sendId{
+    if ([sendId isEqualToString:SendIdGetProfile]) {
+        ProfileConnector *connector = data;
+        self.connecter = connector;
+        [self.table reloadData];
+    }
+    
+}
+
 -(void)setKeybordNC{
     NSNotificationCenter *nc;
     nc = [NSNotificationCenter defaultCenter];
@@ -156,9 +186,12 @@
         CellIdentifier = @"AnniversaryCell";
     } else if ([tmpCell isKindOfClass:[ProfileAdressTableViewCell class]]){
         CellIdentifier = @"AdressCell";
+    } else if ([tmpCell isKindOfClass:[ProfileSendBtnTableViewCell class]]){
+        CellIdentifier = @"SendBtnCell";
     }
     BaseInputCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     [cell setInputList];
+    [cell setDataWithProfileConnector:self.connector];
     for (UITextField *tf in cell.tfList) {
         tf.delegate = self;
         [self.ucIndexpathList addObject:[[UcIndexpathData alloc]initWithUiControll:tf indexPath:indexPath]];
@@ -177,6 +210,11 @@
     for (UITextField *tf in cell.monthDayPickerList) {
         tf.delegate = self;
         [self.monthDayPickerList addObject:tf];
+    }
+    
+    if ([cell isKindOfClass:[ProfileSendBtnTableViewCell class]]) {
+        ProfileSendBtnTableViewCell *sendCell = (ProfileSendBtnTableViewCell*)cell;
+        sendCell.delegate = self;
     }
     return (UITableViewCell *)cell;
     
@@ -199,6 +237,8 @@
         return 179.0f;
     } else if ([tmpCell isKindOfClass:[ProfileAdressTableViewCell class]]){
         return 240.0f;
+    } else if ([tmpCell isKindOfClass:[ProfileSendBtnTableViewCell class]]){
+        return 100.0f;
     }
     return 0;
 }
@@ -218,6 +258,8 @@
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    self.activeTf = textField;
+    self.activeTv = nil;
     for (UITextField *tf in self.datePickerList) {
         if (textField == tf) {
             self.datePickerViewController = [[DatePickerViewController alloc] initWithNibName:@"DatePickerViewController" bundle:nil];
@@ -243,8 +285,7 @@
             
         }
     }
-    self.activeTf = textField;
-    self.activeTv = nil;
+    
     return YES;
 }
 
@@ -264,8 +305,7 @@
 - (void) showModal:(UIView *) modalView
 {
     UIWindow *mainWindow = (((CoreDelegate *) [UIApplication sharedApplication].delegate).window);
-    CGPoint middleCenter = modalView.center;
-//    CGSize offSize = [UIScreen mainScreen].bounds.size;
+    
     CGPoint offScreenCenter = CGPointMake(self.viewSize.width * 0.5f, self.viewSize.height * 1.5f);
     modalView.center = offScreenCenter;
     modalView.frame = CGRectMake(0, 0, self.viewSize.width, self.viewSize.height);
@@ -298,8 +338,8 @@
 
 - (void)didCommitButtonClicked:(DatePickerViewController *)controller selectDate:(NSString *)selectDate{
     [self hideModal:controller.view];
-    //controller.delegate = nil;
-    //[self setDateField :selectDate];
+    self.activeTf.text = selectDate;
+    
 }
 - (void)didCancelButtonClicked:(DatePickerViewController *)controller{
     [self hideModal:controller.view];
@@ -309,18 +349,11 @@
 
 -(void)setToolbarInTextView:(UITextView *)tv{
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, 44)];
-    //スタイルの設定
     toolBar.barStyle = UIBarStyleDefault;
-    //ツールバーを画面サイズに合わせる
     [toolBar sizeToFit];
-    // 「完了」ボタンを右端に配置したいためフレキシブルなスペースを作成する。
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    //　完了ボタンの生成
     UIBarButtonItem *_commitBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(closeKeyboard:)];
-    
-    // ボタンをToolbarに設定
     NSArray *toolBarItems = [NSArray arrayWithObjects:spacer, _commitBtn, nil];
-    // 表示・非表示の設定
     [toolBar setItems:toolBarItems animated:YES];
     tv.inputAccessoryView = toolBar;
 }
@@ -331,4 +364,29 @@
     }
     
 }
+
+- (void)didProfileSendButton{
+    for (BaseInputCell *cell in self.cellList) {
+        [cell saveDataWithProfileConnector:self.connector];
+    }
+    self.isResponse = NO;
+    NetworkConecter *conecter = [NetworkConecter alloc];
+    conecter.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:[Common getUuid] forKey:@"uuid"];
+    [param setValue:self.connector.user_id forKey:@"user_id"];
+    [param setValue:self.connector.password forKey:@"password"];
+    [param setValue:self.connector.sei forKey:@"sei"];
+    [param setValue:self.connector.mei forKey:@"mei"];
+    [param setValue:self.connector.berth_day forKey:@"berth_day"];
+    [param setValue:self.connector.post forKey:@"post"];
+    [param setValue:self.connector.address forKey:@"adress"];
+    [param setValue:self.connector.sex forKey:@"sex"];
+    [param setValue:self.connector.tel forKey:@"tel"];
+    [param setValue:self.connector.mail_address forKey:@"mail_address"];
+    [param setValue:self.connector.anniversary_name forKey:@"anniversary_name"];
+    [param setValue:self.connector.anniversary forKey:@"anniversary"];
+    [conecter sendActionSendId:SendIdSendProfile param:param];
+}
+
 @end

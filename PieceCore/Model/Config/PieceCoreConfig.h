@@ -29,6 +29,8 @@ extern NSString * const SendIdCheckin;
 extern NSString * const SendIdPushNews;
 extern NSString * const SendIdStamp;
 extern NSString * const SendIdDeliverList;
+extern NSString * const SendIdGetProfile;
+extern NSString * const SendIdSendProfile;
 
 extern NSString * const UrlYamatoDeliver;
 extern NSString * const UrlSagawaDeliver;

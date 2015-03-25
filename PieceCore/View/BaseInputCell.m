@@ -16,7 +16,10 @@
     self.datePickerList = [NSMutableArray array];
     self.monthDayPickerList = [NSMutableArray array];
 }
--(void)setInputList{
+-(void)setDataWithProfileConnector:(ProfileConnector *)connector{
 }
-
+-(void)setInputList {
+}
+-(void)saveDataWithProfileConnector:(ProfileConnector *)connector{
+}
 @end

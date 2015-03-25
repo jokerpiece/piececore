@@ -13,12 +13,13 @@
 #import "ProfileBirthdayTableViewCell.h"
 #import "ProfileAnniversaryTableViewCell.h"
 #import "ProfileAdressTableViewCell.h"
+#import "ProfileSendBtnTableViewCell.h"
 #import "DatePickerViewController.h"
 #import "MonthAndDatePickerViewController.h"
 #import "UcIndexpathData.h"
+#import "ProfileConnector.h"
 
-
-@interface ProfileViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate,UITextViewDelegate>
+@interface ProfileViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate,UITextViewDelegate,ProfileSendBtnDelegate>
 @property (nonatomic) NSMutableArray *cellList;
 @property (nonatomic) bool isDispDatePicker;
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -29,6 +30,7 @@
 @property (nonatomic) NSMutableArray *datePickerList;
 @property (nonatomic) NSMutableArray *monthDayPickerList;
 @property (nonatomic) NSMutableArray *ucIndexpathList;
+@property (nonatomic) ProfileConnector *connector;
 
 @property (strong, nonatomic) UITextField *activeTf;
 @property (strong, nonatomic) UITextView *activeTv;

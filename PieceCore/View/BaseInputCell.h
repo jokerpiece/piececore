@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProfileConnector.h"
+#import "Common.h"
 
 @interface BaseInputCell : UITableViewCell
 @property NSMutableArray *tfList;
@@ -15,4 +17,6 @@
 @property NSMutableArray *monthDayPickerList;
 - (void)initInputList;
 -(void)setInputList;
+-(void)setDataWithProfileConnector:(ProfileConnector *)connector;
+-(void)saveDataWithProfileConnector:(ProfileConnector *)connector;
 @end

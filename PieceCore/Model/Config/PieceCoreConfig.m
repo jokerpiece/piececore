@@ -38,6 +38,8 @@ NSString * const  SendIdCheckin= @"checkin/";
 NSString * const  SendIdPushNews= @"news/index.php?Action=newsList";
 NSString * const  SendIdStamp= @"stamp/";
 NSString * const  SendIdDeliverList= @"deliver_list/";
+NSString * const  SendIdGetProfile= @"get_profile/";
+NSString * const  SendIdSendProfile= @"send_profile/";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";

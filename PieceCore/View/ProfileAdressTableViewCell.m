@@ -24,5 +24,16 @@
     [self.tfList addObject:self.postTf];
     [self.tvList addObject:self.adressTv];
 }
-
+-(void)setDataWithProfileConnector:(ProfileConnector *)connector{
+    if([Common isNotEmptyString:connector.address]){
+        self.adressTv.text = connector.address;
+    }
+    if([Common isNotEmptyString:connector.post]){
+        self.postTf.text = connector.post;
+    }
+}
+-(void)saveDataWithProfileConnector:(ProfileConnector *)connector{
+    connector.post = self.postTf.text;
+    connector.address = self.adressTv.text;
+}
 @end

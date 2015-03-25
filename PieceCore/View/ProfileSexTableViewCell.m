@@ -21,11 +21,30 @@
 }
 
 - (IBAction)setManAction:(id)sender {
+    self.selectedBtn = SexBtnManSelect;
     self.manFrame.backgroundColor = [UIColor blueColor];
     self.womenFrame.backgroundColor = [UIColor clearColor];
 }
 - (IBAction)setWomanAction:(id)sender {
+    self.selectedBtn = SexBtnWomanSelect;
     self.manFrame.backgroundColor = [UIColor clearColor];
     self.womenFrame.backgroundColor = [UIColor redColor];
+}
+
+-(void)setDataWithProfileConnector:(ProfileConnector *)connector{
+    if ([Common isNotEmptyString:connector.sex]) {
+        if (connector.sex.intValue == 0) {
+            self.selectedBtn = SexBtnManSelect;
+            self.manFrame.backgroundColor = [UIColor blueColor];
+            self.womenFrame.backgroundColor = [UIColor clearColor];
+        } else if(connector.sex.intValue == 1){
+            self.selectedBtn = SexBtnWomanSelect;
+            self.manFrame.backgroundColor = [UIColor clearColor];
+            self.womenFrame.backgroundColor = [UIColor redColor];
+        }
+    }
+}
+-(void)saveDataWithProfileConnector:(ProfileConnector *)connector{
+    connector.sex = [NSString stringWithFormat:@"%d",self.selectedBtn];
 }
 @end

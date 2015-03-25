@@ -84,6 +84,7 @@
     [cellList addObject:[[ProfileBirthdayTableViewCell alloc]init]];
     [cellList addObject:[[ProfileAnniversaryTableViewCell alloc]init]];
     [cellList addObject:[[ProfileAdressTableViewCell alloc]init]];
+    [cellList addObject:[[ProfileSendBtnTableViewCell alloc]init]];
     ProfileViewController *profileVc = [[ProfileViewController alloc]initWithNibName:@"ProfileViewController" bundle:nil];
     profileVc.cellList = cellList;
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:profileVc
