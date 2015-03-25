@@ -7,6 +7,7 @@
 //
 
 #import "CategoryViewController.h"
+#import "RoundView.h"
 
 @interface CategoryViewController ()
 
@@ -40,13 +41,28 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 
         CategoryData *model = [self.data.list objectAtIndex:indexPath.row];
-        UIImageView *iv = [[UIImageView alloc] init];
-        iv.frame = CGRectMake(0, 0, self.viewSize.width, self.cellHeight);
-        NSURL *imageURL = [NSURL URLWithString:model.img_url];
-
-        [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [cell.contentView addSubview:iv];
-      //}
+        if ([Common isNotEmptyString:model.img_url]) {
+            UIImageView *iv = [[UIImageView alloc] init];
+            iv.frame = CGRectMake(0, 0, self.viewSize.width, self.cellHeight);
+            NSURL *imageURL = [NSURL URLWithString:model.img_url];
+            
+            [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            [cell.contentView addSubview:iv];
+        } else {
+            RoundView *view = [[RoundView alloc]initWithFrame:CGRectMake(10, 10, self.viewSize.width - 20, self.cellHeight-20)];
+            view.backgroundColor = [UIColor lightGrayColor];
+            
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, view.frame.size.width - 20, view.frame.size.height -20)];
+            label.text = model.category_name;
+            label.numberOfLines = 3;
+            label.textColor = [UIColor darkGrayColor];
+            label.font = [UIFont boldSystemFontOfSize:23.0f];
+            label.shadowColor = [UIColor blackColor];
+            label.shadowOffset = CGSizeMake(0, 1);
+            [view addSubview:label];
+            [cell.contentView addSubview:view];
+        }
+        
         return cell;
     } else {
         static NSString *CellIdentifier = @"Cell";

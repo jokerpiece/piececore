@@ -14,7 +14,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.layer.borderColor = [UIColor colorWithRed:0.88 green:0.88 blue:0.88 alpha:1.0].CGColor;
+        self.layer.borderWidth = 1.0f;
+        self.layer.cornerRadius = 15;
     }
     return self;
 }

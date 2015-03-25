@@ -31,7 +31,7 @@
     }
     model.category_id = [dec valueForKey:@"category_id"];
     model.shop_category_url = [dec valueForKey:@"shop_url"];
-    model.category_name = [dec valueForKey:@"category_name"];
+    model.category_name = [dec valueForKey:@"title"];
     model.category_text = [dec valueForKey:@"category_text"];
     return model;
 }

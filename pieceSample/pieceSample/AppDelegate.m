@@ -27,7 +27,7 @@
 
 
 -(void)setConfig{
-    [PieceCoreConfig setShopId:@"pushColor"];
+    [PieceCoreConfig setShopId:@"pieceSample"];
     [PieceCoreConfig setAppId:@""];
 }
 
@@ -60,7 +60,7 @@
                                                                   title:@"Stamp"]];
     
     WebViewController *shop = [[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil url:@"http://pushcolor.com/" ];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:shop
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil]
                                                                 imgName:@"tab_icon_shopping.png"
                                                           selectImgName:@"tab_icon_shopping.png"
                                                                tabTitle:@"Shopping"
@@ -88,15 +88,15 @@
     ProfileViewController *profileVc = [[ProfileViewController alloc]initWithNibName:@"ProfileViewController" bundle:nil];
     profileVc.cellList = cellList;
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:profileVc
-                                                                imgName:@"icon_history.png"
-                                                          selectImgName:@"icon_history.png"
+                                                                imgName:@"tab_icon_profile.png"
+                                                          selectImgName:@"tab_icon_profile.png"
                                                                tabTitle:@"Profile"
                                                                   title:@"プロフィール設定"]];
     
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
-                                                                imgName:@"icon_coupon.png"
-                                                          selectImgName:@"icon_coupon.png"
+                                                                imgName:@"tab_icon_coupon.png"
+                                                          selectImgName:@"tab_icon_coupon.png"
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
     
