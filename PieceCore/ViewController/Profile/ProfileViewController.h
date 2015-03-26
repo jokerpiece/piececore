@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "ViewController.h"
 #import "BaseViewController.h"
 #import "ProfileSexTableViewCell.h"
 #import "ProfileNameTableViewCell.h"

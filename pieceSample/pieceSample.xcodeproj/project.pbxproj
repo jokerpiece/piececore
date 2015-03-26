@@ -65,7 +65,6 @@
 		37D758551AB296CB00E6B421 /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D758541AB296CB00E6B421 /* AlertView.m */; };
 		37E3EA581AA45F6800EA7CB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EA571AA45F6800EA7CB9 /* main.m */; };
 		37E3EA5B1AA45F6800EA7CB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EA5A1AA45F6800EA7CB9 /* AppDelegate.m */; };
-		37E3EA5E1AA45F6800EA7CB9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EA5D1AA45F6800EA7CB9 /* ViewController.m */; };
 		37E3EA631AA45F6800EA7CB9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EA621AA45F6800EA7CB9 /* Images.xcassets */; };
 		37E3EA721AA45F6800EA7CB9 /* pieceSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EA711AA45F6800EA7CB9 /* pieceSampleTests.m */; };
 		37E3EB561AA45F8C00EA7CB9 /* CategoryData.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EA7F1AA45F8C00EA7CB9 /* CategoryData.m */; };
@@ -261,8 +260,6 @@
 		37E3EA571AA45F6800EA7CB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37E3EA591AA45F6800EA7CB9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		37E3EA5A1AA45F6800EA7CB9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		37E3EA5C1AA45F6800EA7CB9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		37E3EA5D1AA45F6800EA7CB9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		37E3EA601AA45F6800EA7CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37E3EA621AA45F6800EA7CB9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		37E3EA651AA45F6800EA7CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -533,8 +530,6 @@
 			children = (
 				37E3EA591AA45F6800EA7CB9 /* AppDelegate.h */,
 				37E3EA5A1AA45F6800EA7CB9 /* AppDelegate.m */,
-				37E3EA5C1AA45F6800EA7CB9 /* ViewController.h */,
-				37E3EA5D1AA45F6800EA7CB9 /* ViewController.m */,
 				37E3EA5F1AA45F6800EA7CB9 /* Main.storyboard */,
 				37E3EA621AA45F6800EA7CB9 /* Images.xcassets */,
 				37E3EA641AA45F6800EA7CB9 /* LaunchScreen.xib */,
@@ -1412,7 +1407,6 @@
 				37E3EB5E1AA45F8C00EA7CB9 /* HistoryOrderData.m in Sources */,
 				37E3EBC51AA45F8C00EA7CB9 /* StampViewController.m in Sources */,
 				37E3EB6F1AA45F8C00EA7CB9 /* NewsRecipient.m in Sources */,
-				37E3EA5E1AA45F6800EA7CB9 /* ViewController.m in Sources */,
 				37E3EB561AA45F8C00EA7CB9 /* CategoryData.m in Sources */,
 				37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */,
 				37E3EB5B1AA45F8C00EA7CB9 /* FlyerItemData.m in Sources */,
