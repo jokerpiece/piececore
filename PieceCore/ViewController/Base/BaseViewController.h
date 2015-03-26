@@ -18,7 +18,7 @@
 #import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
 
 @interface BaseViewController : UIViewController<NetworkDelegate, SDWebImageManagerDelegate>
-@property (strong, nonatomic) BaseRecipient *baseRecipient;
+@property (strong, nonatomic) BaseRecipient *recipient;
 @property (nonatomic) bool isResponse;
 @property (strong, nonatomic) NSString *titleImgName;
 @property (nonatomic) CGSize viewSize;

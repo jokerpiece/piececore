@@ -50,6 +50,7 @@
     self.tvList = [NSMutableArray array];
     self.ucIndexpathList = [NSMutableArray array];
     [self setKeybordNC];
+    [self syncAction];
 }
 - (void)dealloc
 {
@@ -74,9 +75,15 @@
 
 -(void)setDataWithRecipient:(ProfileRecipient *)recipient sendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdGetProfile]) {
-        ProfileRecipient *recipient = recipient;
-        self.baseRecipient = recipient;
+        self.recipient = recipient;
         [self.table reloadData];
+    } else if ([sendId isEqualToString:SendIdSendProfile]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"お知らせ"
+                                                        message:@"プロフィール情報を更新しました。"
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
     }
     
 }
