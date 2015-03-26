@@ -71,7 +71,7 @@
 }
 
 -(void)moveScreenWithLaunchOptions:(NSDictionary *)launchOptions{
-    //アプリが起動していない時に、PUSH通知からアプリを起動した場合
+    
     NSDictionary *userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if (userInfo != nil) {
         
@@ -90,7 +90,6 @@
 }
 
 
-//UITabBarController初期化
 - (void)setTabBarController
 {
     self.window =  [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -122,22 +121,11 @@
     NSDictionary *attributes2 = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f],
                                   NSForegroundColorAttributeName : self.theme.tabTitleSelectColor};
     
-    //タブのタイトル色指定
     [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    
-    //タブのタイトル色指定(選択中)
     [[UITabBarItem appearance] setTitleTextAttributes:attributes2 forState:UIControlStateSelected];
-    
-    //タブアイコン選択中の色
     [UITabBar appearance].tintColor = self.theme.tabBarSelectColor;
-    //タブバーの背景色
     [UITabBar appearance].barTintColor = self.theme.tabBarBackColor;
-    
-    //ビューを Controllerに追加
-    
     [(UITabBarController *)self.tabBarController setViewControllers:navigationControllerList animated:NO];
-    
-    //windowに Controllerのビュー追加
     [self.window setRootViewController:self.tabBarController];
     [self.window makeKeyAndVisible];
 }

@@ -44,7 +44,6 @@
 + (NSDate *)stringToDate:(NSString *)baseString
 {
     NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
-    // iPhoneの現在の設定に合わせる
     [inputDateFormatter setLocale:[NSLocale currentLocale]];
     [inputDateFormatter setDateFormat:@"yyyy/MM/dd"];
     NSDate *inputDate = [inputDateFormatter dateFromString:baseString];
@@ -54,7 +53,6 @@
 + (NSString*)dateToString:(NSDate *)baseDate formatString:(NSString *)formatString
 {
     NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
-    //24時間表示 & iPhoneの現在の設定に合わせる
     [inputDateFormatter setLocale:[NSLocale currentLocale]];
     [inputDateFormatter setDateFormat:formatString];
     NSString *str = [inputDateFormatter stringFromDate:baseDate];
@@ -62,7 +60,6 @@
 }
 + (NSString*)getMonthStartStrDate
 {
-    // 月初の日付のNSDateを作成する
     NSDate *today = [NSDate date];
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components

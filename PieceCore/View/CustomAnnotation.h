@@ -10,8 +10,8 @@
 #import <MapKit/MapKit.h>
 
 @interface CustomAnnotation : NSObject<MKAnnotation>
-@property (nonatomic, copy) NSString* title;         //吹き出しに表示するタイトル
-@property (nonatomic, copy) NSString* subtitle;   //吹き出しに表示するサブタイトル
+@property (nonatomic, copy) NSString* title;
+@property (nonatomic, copy) NSString* subtitle;
 
 - (id) initWithCoordinate:(CLLocationCoordinate2D) coordinate;
 @end

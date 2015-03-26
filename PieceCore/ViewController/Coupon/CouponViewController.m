@@ -19,7 +19,6 @@
 }
 
 -(void)viewDidLoadLogic{
-    //self.mode = getCoupon;
     SDWebImageManager.sharedManager.delegate = self;
     self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;    
     UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
@@ -30,16 +29,12 @@
                       forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barbtn = [[UIBarButtonItem alloc] initWithCustomView:self.chengeCoupnTypeBtn];
     
-    // ナビゲーションバーの左側に追加する。
     self.navigationItem.rightBarButtonItem = barbtn;
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)viewDidAppearLogic
@@ -80,27 +75,17 @@
     self.pageSize = (int)self.recipient.list.count; // ページ数
     CGFloat width = self.viewSize.width;
     CGFloat height = self.viewSize.height - NavigationHight - TabbarHight;
-    
-    // UIScrollViewのインスタンス化
-    
     self.scroll.frame = self.view.bounds;
-    
-    // 横スクロールのインジケータを非表示にする
     self.scroll.showsHorizontalScrollIndicator = YES;
-    
-    // ページングを有効にする
     self.scroll.pagingEnabled = YES;
     
     self.scroll.userInteractionEnabled = YES;
     self.scroll.delegate = self;
-    
-    // スクロールの範囲を設定
     [self.scroll setContentSize:CGSizeMake((self.pageSize * width), height)];
     self.scroll.frame = CGRectMake(0, 0, width, height);
     
     int i=0;
     int currentPage = 0;
-    // スクロールビューにラベルを貼付ける
     for (CouponData *data in self.recipient.list) {
         if ([Common isNotEmptyString:self.couponId]
             && [self.couponId isEqualToString:data.coupon_code]){
@@ -108,8 +93,6 @@
         }
         
         NSURL *imageURL = [NSURL URLWithString:data.img_url];
-        //UIImage *placeholderImage = [UIImage imageNamed:@"wait.jpg"];
-        
         UIImageView *iv = [[UIImageView alloc] init];
         [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         
@@ -129,34 +112,25 @@
         
         i ++;
     }
-    // 背景色を設定
-    //self.page.backgroundColor = [UIColor blackColor];
     self.page = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 0, width, 30)];
     
     self.page.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.0];
     self.page.currentPageIndicatorTintColor = [UIColor whiteColor];
     self.page.pageIndicatorTintColor = [UIColor darkGrayColor];
-    // ページ数を設定
     self.page.numberOfPages = self.pageSize;
     
-    // 現在のページを設定
     self.page.currentPage = currentPage;
     
     
-    // ページコントロールをタップされたときに呼ばれるメソッドを設定
     self.page.userInteractionEnabled = YES;
     [self.page addTarget:self
                   action:@selector(pageControl_Tapped:)
         forControlEvents:UIControlEventValueChanged];
     
-    // ページコントロールを貼付ける
-    
     [self.mainView addSubview:self.scroll];
     if (self.recipient.list.count > 1) {
         [self.mainView addSubview:self.page];
     }
-    
-    
     
 }
 
@@ -172,8 +146,6 @@
         [btn addTarget:self action:@selector(onTapButton:) forControlEvents:UIControlEventTouchUpInside ];
         btn.alpha = 0.9f;
         [view addSubview:btn];
-        //        btn.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
-        //        [btn setTitle:@"このクーポンをGETする ＞" forState:UIControlStateNormal];
     }
     
     
@@ -244,7 +216,6 @@
     [self syncAction];
 }
 -(void)dispUseCouponMode{
-    //[self.chengeCoupnTypeBtn setTitle:@"GET COUPON" forState:UIControlStateNormal];
     UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
     [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
     
@@ -253,7 +224,6 @@
     self.messageLbl.text = @"使用できるクーポンを所持していません。";
 }
 -(void)dispGetCouponMode{
-    //[self.chengeCoupnTypeBtn setTitle:@"USE COUPON" forState:UIControlStateNormal];
     UIImage *img = [UIImage imageNamed:@"coupon_use.png"];
     [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
     self.navigationController.navigationBar.topItem.title = @"GET COUPON";
@@ -262,20 +232,12 @@
 }
 -(void)startAnimation:(id)sender{
     UIButton *btn = (UIButton *)sender;
-    
-    //アニメーションの対象となるコンテキスト
     CGContextRef context = UIGraphicsGetCurrentContext();
     [UIView beginAnimations:nil context:context];
-    //アニメーションを実行する時間
     [UIView setAnimationDuration:1.0];
-    //アニメーションイベントを受け取るview
     [UIView setAnimationDelegate:self];
-    //アニメーション終了後に実行される
     [UIView setAnimationDidStopSelector:@selector(endAnimation)];
-    
     [btn setFrame:CGRectMake(350,self.getCoupnBtnRactHeight,self.viewSize.width, 65)];
-    
-    // アニメーション開始
     [UIView commitAnimations];
 }
 
@@ -327,9 +289,6 @@
                 
                 controller.searchType = coupon;
                 controller.code = couponModel.coupon_id;
-                
-                
-                
             }
         }
         
@@ -343,7 +302,6 @@
     
 }
 
-//
 -(void)itemSyncAction{
     
     NetworkConecter *conecter = [NetworkConecter alloc];
@@ -358,7 +316,6 @@
     
 }
 
-//
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdGetCoupon]) {
         return [BaseRecipient alloc];

@@ -60,8 +60,6 @@
     [self.view addSubview:btn];
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -70,89 +68,54 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    // Return the number of rows in the section.
-//    if (section == 0) {
-//        return 1;
-//    } else{
-        return self.recipient.list.count;
-//    }
+    return self.recipient.list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *CellIdentifier = [NSString stringWithFormat:@"CreateCell%ld",(long)indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    
+    SpotData *data = [self.recipient.list objectAtIndex:indexPath.row];
     
     
-    // Configure the cell...
-//    if (indexPath.section == 0) {
-//        static NSString *CellIdentifier = @"Cell";
-//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//        if (cell == nil) {
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//            
-//            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//            btn.frame = CGRectMake( 0, 0, 320, 40 );
-//            [[btn layer]setCornerRadius:15.0f];
-//            [btn setClipsToBounds:YES];
-//            btn.backgroundColor = [UIColor grayColor];
-//            btn.tintColor = [UIColor whiteColor];
-//            [btn setTitle:@"チェックイン" forState:UIControlStateNormal];
-//            [btn addTarget:self action:@selector(onTapButton:) forControlEvents:UIControlEventTouchUpInside ];
-//            [cell.contentView addSubview:btn];
-//        }
-//        return cell;
-//        } else {
-            NSString *CellIdentifier = [NSString stringWithFormat:@"CreateCell%ld",(long)indexPath.row];
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            //if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-            
-            SpotData *data = [self.recipient.list objectAtIndex:indexPath.row];
-            
-            
-            UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,20,300,40)];
-            textLbl.text = data.shopName;
-            textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
-            textLbl.alpha = 1.0f;
-            textLbl.backgroundColor = [UIColor clearColor];
-            textLbl.numberOfLines = 2;
-            [cell.contentView addSubview:textLbl];
-            
-            UILabel *addressLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,45,300,60)];
-            addressLbl.text = data.address;
-            addressLbl.font = [UIFont fontWithName:@"AppleGothic" size:13];
-            addressLbl.alpha = 1.0f;
-            addressLbl.numberOfLines = 2;
-            addressLbl.backgroundColor = [UIColor clearColor];
-            [cell.contentView addSubview:addressLbl];
-            
-            UILabel *distanceLbl = [[UILabel alloc] initWithFrame:CGRectMake(180,20,300,40)];
-            
-            CLLocation *recordLocation = [[CLLocation alloc] initWithLatitude:data.lat.floatValue longitude:data.lon.floatValue];
-            distanceLbl.text = [NSString stringWithFormat:@"あと%f m",[self.locationManager.location distanceFromLocation:recordLocation]];
-            distanceLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
-            distanceLbl.alpha = 1.0f;
-            distanceLbl.backgroundColor = [UIColor clearColor];
-            
-            [cell.contentView addSubview:distanceLbl];
-            //}
-            return cell;
-//        }
+    UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,20,300,40)];
+    textLbl.text = data.shopName;
+    textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
+    textLbl.alpha = 1.0f;
+    textLbl.backgroundColor = [UIColor clearColor];
+    textLbl.numberOfLines = 2;
+    [cell.contentView addSubview:textLbl];
+    
+    UILabel *addressLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,45,300,60)];
+    addressLbl.text = data.address;
+    addressLbl.font = [UIFont fontWithName:@"AppleGothic" size:13];
+    addressLbl.alpha = 1.0f;
+    addressLbl.numberOfLines = 2;
+    addressLbl.backgroundColor = [UIColor clearColor];
+    [cell.contentView addSubview:addressLbl];
+    
+    UILabel *distanceLbl = [[UILabel alloc] initWithFrame:CGRectMake(180,20,300,40)];
+    
+    CLLocation *recordLocation = [[CLLocation alloc] initWithLatitude:data.lat.floatValue longitude:data.lon.floatValue];
+    distanceLbl.text = [NSString stringWithFormat:@"あと%f m",[self.locationManager.location distanceFromLocation:recordLocation]];
+    distanceLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
+    distanceLbl.alpha = 1.0f;
+    distanceLbl.backgroundColor = [UIColor clearColor];
+    
+    [cell.contentView addSubview:distanceLbl];
+    return cell;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if(indexPath.section == 0){
-//        return 40;
-//    }
-    
     return 93.0f;
 }
 
 #pragma mark - Table view delegate
 
-/**
- * セルが選択されたとき
- */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SpotData *spot = [self.recipient.list objectAtIndex:indexPath.row];
@@ -202,18 +165,13 @@
         
         [self.view addSubview:getPointView];
         self.pointView = getPointView;
-        //アニメーションの対象となるコンテキスト
         CGContextRef context = UIGraphicsGetCurrentContext();
         [UIView beginAnimations:nil context:context];
-        //アニメーションを実行する時間
         [UIView setAnimationDuration:1.0];
-        //アニメーションイベントを受け取るview
         [UIView setAnimationDelegate:self];
         
         
         [getPointView setFrame:CGRectMake((self.view.frame.size.width - 300)/2, (self.view.frame.size.height -300)/2, 300, 300)];
-        
-        // アニメーション開始
         [UIView commitAnimations];
     }
     
@@ -241,24 +199,6 @@
     if (self.pointView != nil){
         return;
     }
-//    GetPointView *getPointView = [[GetPointView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 300)/2, 500, 300, 300) point:@"+1"];
-//    
-//    [self.view addSubview:getPointView];
-//    self.pointView = getPointView;
-//    //アニメーションの対象となるコンテキスト
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    [UIView beginAnimations:nil context:context];
-//    //アニメーションを実行する時間
-//    [UIView setAnimationDuration:1.0];
-//    //アニメーションイベントを受け取るview
-//    [UIView setAnimationDelegate:self];
-//    
-//    
-//    [getPointView setFrame:CGRectMake((self.view.frame.size.width - 300)/2, (self.view.frame.size.height -300)/2, 300, 300)];
-//    
-//    // アニメーション開始
-//    [UIView commitAnimations];
-
     [self checkinAction:@"111"];
 }
 
@@ -267,23 +207,14 @@
     if(self.pointView == nil){
         return;
     }
-//    UITouch *touch = [touches anyObject];
-//    switch (touch.view.tag) {
-            //アニメーションの対象となるコンテキスト
-            CGContextRef context = UIGraphicsGetCurrentContext();
-            [UIView beginAnimations:nil context:context];
-            //アニメーションを実行する時間
-            [UIView setAnimationDuration:1.0];
-            //アニメーションイベントを受け取るview
-            [UIView setAnimationDelegate:self];
-            
-            
-            [self.pointView setFrame:CGRectMake((self.view.frame.size.width - 300)/2, 500, 300, 300)];
-            //アニメーション終了後に実行される
-            [UIView setAnimationDidStopSelector:@selector(endAnimation)];
-            // アニメーション開始
-            [UIView commitAnimations];
-//    }
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationDelegate:self];
+    
+    [self.pointView setFrame:CGRectMake((self.view.frame.size.width - 300)/2, 500, 300, 300)];
+    [UIView setAnimationDidStopSelector:@selector(endAnimation)];
+    [UIView commitAnimations];
 }
 -(void)endAnimation{
     [self.pointView removeFromSuperview];

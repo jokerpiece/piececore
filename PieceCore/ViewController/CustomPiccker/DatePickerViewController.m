@@ -24,23 +24,11 @@
     if (self.strDate.length != 0) {
         self.datePicker.date = [Common stringToDate: self.strDate];
     }
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)doneAction:(id)sender {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
