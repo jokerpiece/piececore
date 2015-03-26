@@ -59,7 +59,6 @@
                                                                tabTitle:@"Stamp"
                                                                   title:@"Stamp"]];
     
-    WebViewController *shop = [[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil url:@"http://pushcolor.com/" ];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil]
                                                                 imgName:@"tab_icon_shopping.png"
                                                           selectImgName:@"tab_icon_shopping.png"
