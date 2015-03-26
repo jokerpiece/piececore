@@ -47,10 +47,12 @@ extern const float TabbarHight;
 + (NSNumber *)tabnumberShopping;
 + (NSString *)appId;
 + (NSString *)shopId;
++ (NSString *)apiKey;
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
 + (void)setTabnumberInfo:(NSNumber *)tabnumberInfo;
 + (void)setTabnumberCoupon:(NSNumber *)tabnumberCoupon;
 + (void)setTabnumberShopping:(NSNumber *)tabnumberShopping;
 + (void)setAppId:(NSString *)appId;
 + (void)setShopId:(NSString *)shopId;
++ (void)setApiKey:(NSString *)apiKey;
 @end

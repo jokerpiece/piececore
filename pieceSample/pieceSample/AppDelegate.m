@@ -29,6 +29,7 @@
 -(void)setConfig{
     [PieceCoreConfig setShopId:@"pieceSample"];
     [PieceCoreConfig setAppId:@""];
+    [PieceCoreConfig setApiKey:@"3dda3c1e8d60b512b7bd8eec730cf3ef"];
 }
 
 -(void)setThemeColor{

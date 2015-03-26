@@ -15,6 +15,7 @@ static NSNumber *_tabnumberCoupon = nil;
 static NSNumber *_tabnumberShopping = nil;
 static NSString *_appId = @"";
 static NSString *_shopId = @"";
+static NSString *_apiKey = @"";
 
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
@@ -97,4 +98,13 @@ const float TabbarHight = 49;
 + (NSString *)shopId {
     return _shopId;
 }
+
++ (void)setApiKey:(NSString *)apiKey {
+    _apiKey = apiKey;
+}
+
++ (NSString *)apiKey {
+    return _apiKey;
+}
+
 @end
