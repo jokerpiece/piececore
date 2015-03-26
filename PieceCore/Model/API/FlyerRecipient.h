@@ -3,11 +3,11 @@
 //  Copyright(c) JokerPiece Co.Ltd. All rights reserved.
 //
 
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 #import "FlyerHeaderData.h"
 #import "FlyerBodyData.h"
 
-@interface FlyerConnector : BaseConnector
+@interface FlyerRecipient : BaseRecipient
 @property (nonatomic,strong) NSMutableArray *headerList;
 @property (nonatomic,strong) NSMutableArray *bodyList;
 @end

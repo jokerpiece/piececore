@@ -68,14 +68,14 @@
     
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
-    return [ProfileConnector alloc];
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return [ProfileRecipient alloc];
 }
 
--(void)setData:(ProfileConnector *)data sendId:(NSString *)sendId{
+-(void)setDataWithRecipient:(ProfileRecipient *)recipient sendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdGetProfile]) {
-        ProfileConnector *connector = data;
-        self.connecter = connector;
+        ProfileRecipient *recipient = recipient;
+        self.baseRecipient = recipient;
         [self.table reloadData];
     }
     
@@ -191,7 +191,7 @@
     }
     BaseInputCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     [cell setInputList];
-    [cell setDataWithProfileConnector:self.connector];
+    [cell setDataWithProfileRecipient:self.recipient];
     for (UITextField *tf in cell.tfList) {
         tf.delegate = self;
         [self.ucIndexpathList addObject:[[UcIndexpathData alloc]initWithUiControll:tf indexPath:indexPath]];
@@ -367,25 +367,25 @@
 
 - (void)didProfileSendButton{
     for (BaseInputCell *cell in self.cellList) {
-        [cell saveDataWithProfileConnector:self.connector];
+        [cell saveDataWithProfileRecipient:self.recipient];
     }
     self.isResponse = NO;
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:[Common getUuid] forKey:@"uuid"];
-    [param setValue:self.connector.user_id forKey:@"user_id"];
-    [param setValue:self.connector.password forKey:@"password"];
-    [param setValue:self.connector.sei forKey:@"sei"];
-    [param setValue:self.connector.mei forKey:@"mei"];
-    [param setValue:self.connector.berth_day forKey:@"berth_day"];
-    [param setValue:self.connector.post forKey:@"post"];
-    [param setValue:self.connector.address forKey:@"adress"];
-    [param setValue:self.connector.sex forKey:@"sex"];
-    [param setValue:self.connector.tel forKey:@"tel"];
-    [param setValue:self.connector.mail_address forKey:@"mail_address"];
-    [param setValue:self.connector.anniversary_name forKey:@"anniversary_name"];
-    [param setValue:self.connector.anniversary forKey:@"anniversary"];
+    [param setValue:self.recipient.user_id forKey:@"user_id"];
+    [param setValue:self.recipient.password forKey:@"password"];
+    [param setValue:self.recipient.sei forKey:@"sei"];
+    [param setValue:self.recipient.mei forKey:@"mei"];
+    [param setValue:self.recipient.berth_day forKey:@"berth_day"];
+    [param setValue:self.recipient.post forKey:@"post"];
+    [param setValue:self.recipient.address forKey:@"adress"];
+    [param setValue:self.recipient.sex forKey:@"sex"];
+    [param setValue:self.recipient.tel forKey:@"tel"];
+    [param setValue:self.recipient.mail_address forKey:@"mail_address"];
+    [param setValue:self.recipient.anniversary_name forKey:@"anniversary_name"];
+    [param setValue:self.recipient.anniversary forKey:@"anniversary"];
     [conecter sendActionSendId:SendIdSendProfile param:param];
 }
 

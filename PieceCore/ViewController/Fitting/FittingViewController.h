@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "BaseViewController.h"
-#import "FittingConnector.h"
+#import "FittingRecipient.h"
 #import "WebViewController.h"
 
 @interface FittingViewController : BaseViewController
 @property (nonatomic,strong) NSString *question_id;
 @property (nonatomic,strong) NSString *answer_num;
-@property (strong, nonatomic) FittingConnector *data;
+@property (strong, nonatomic) FittingRecipient *recipient;
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
 @property (weak, nonatomic) IBOutlet UIButton *awnser1Btn;
 @property (weak, nonatomic) IBOutlet UIButton *awnser2Btn;

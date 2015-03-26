@@ -24,16 +24,16 @@
     [self.tfList addObject:self.postTf];
     [self.tvList addObject:self.adressTv];
 }
--(void)setDataWithProfileConnector:(ProfileConnector *)connector{
-    if([Common isNotEmptyString:connector.address]){
-        self.adressTv.text = connector.address;
+-(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
+    if([Common isNotEmptyString:recipient.address]){
+        self.adressTv.text = recipient.address;
     }
-    if([Common isNotEmptyString:connector.post]){
-        self.postTf.text = connector.post;
+    if([Common isNotEmptyString:recipient.post]){
+        self.postTf.text = recipient.post;
     }
 }
--(void)saveDataWithProfileConnector:(ProfileConnector *)connector{
-    connector.post = self.postTf.text;
-    connector.address = self.adressTv.text;
+-(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
+    recipient.post = self.postTf.text;
+    recipient.address = self.adressTv.text;
 }
 @end

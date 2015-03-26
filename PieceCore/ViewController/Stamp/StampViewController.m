@@ -7,7 +7,7 @@
 //
 
 #import "StampViewController.h"
-#import "StampConnector.h"
+#import "StampRecipient.h"
 #import "RoundView.h"
 #import "ExcengeCouponViewController.h"
 
@@ -49,14 +49,14 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(void)setData:(StampConnector *)data sendId:(NSString *)sendId{
+-(void)setDataWithRecipient:(StampRecipient *)recipient sendId:(NSString *)sendId{
     
     //test
-    data.get_point = @"10";
-    data.total_point = @"10";
+    recipient.get_point = @"10";
+    recipient.total_point = @"10";
     
-    int StampLineCount = ceil(data.total_point.intValue/5.0);
-    int mod = data.total_point.intValue%5;
+    int StampLineCount = ceil(recipient.total_point.intValue/5.0);
+    int mod = recipient.total_point.intValue%5;
     int stampCount = 0;
 
     for (int i = 1; i <= StampLineCount; i++) {
@@ -78,12 +78,12 @@
             UIImageView *stampBaseIv = [[UIImageView alloc] initWithImage:stampBaseImg];
             stampBaseIv.frame = CGRectMake(60*ii, -10, 50, 50);
             [stampLineView addSubview:stampBaseIv];
-            if (stampCount <= data.get_point.intValue) {
+            if (stampCount <= recipient.get_point.intValue) {
                 UIImage *stampImg = [UIImage imageNamed:@"stamp.png"];
                 UIImageView *stampIv = [[UIImageView alloc] initWithImage:stampImg];
                 stampIv.frame = CGRectMake(0, 0, 50, 50);
                 [stampBaseIv addSubview:stampIv];
-                if (stampCount == data.get_point.intValue) {
+                if (stampCount == recipient.get_point.intValue) {
                     stampIv.transform = CGAffineTransformMakeScale(3, 3);
                     [UIView animateWithDuration:1.0f
                                       animations:^{
@@ -94,7 +94,7 @@
                                           self.excengeCouponBtn.enabled = YES;
                                       }];
                 }
-            } else if(stampCount > data.get_point.intValue){
+            } else if(stampCount > recipient.get_point.intValue){
                 UILabel *countLbl = [[UILabel alloc] initWithFrame:CGRectMake(0,0,50,50)];
                 countLbl.textAlignment = NSTextAlignmentCenter;
                 countLbl.text = [NSString stringWithFormat:@"%d",stampCount];
@@ -123,7 +123,7 @@
     
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
-    return [StampConnector alloc];
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return [StampRecipient alloc];
 }
 @end

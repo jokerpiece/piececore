@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "NewsConnector.h"
+#import "NewsRecipient.h"
 
-@implementation NewsConnector
+@implementation NewsRecipient
 -(void)setData{
     self.news_id = [self.resultset valueForKey:@"news_id"];
     self.title = [self.resultset valueForKey:@"title"];

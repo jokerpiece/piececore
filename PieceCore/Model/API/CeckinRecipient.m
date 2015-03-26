@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "CeckinConnector.h"
+#import "CeckinRecipient.h"
 
-@implementation CeckinConnector
+@implementation CeckinRecipient
 -(void)setData{
     self.get_point = [[self.resultset valueForKey:@"get_point"] stringValue];
 }

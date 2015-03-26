@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 
-@interface ProfileConnector : BaseConnector
+@interface ProfileRecipient : BaseRecipient
 @property (nonatomic,strong) NSString *user_id;
 @property (nonatomic,strong) NSString *password;
 @property (nonatomic,strong) NSString *sei;

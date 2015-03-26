@@ -8,7 +8,7 @@
 #import "NetworkConecter.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 #import "RoundBtn.h"
 #import "Common.h"
 #import "UIColor+MLPFlatColors.h"
@@ -18,13 +18,13 @@
 #import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
 
 @interface BaseViewController : UIViewController<NetworkDelegate, SDWebImageManagerDelegate>
-@property (strong, nonatomic) BaseConnector *connecter;
+@property (strong, nonatomic) BaseRecipient *baseRecipient;
 @property (nonatomic) bool isResponse;
 @property (strong, nonatomic) NSString *titleImgName;
 @property (nonatomic) CGSize viewSize;
 @property (nonatomic)SosialSettingData *sosialSetting;
 @property (nonatomic) UIButton *sosialBtn;
--(void)showAlert:(BaseConnector *)data;
+-(void)showAlert:(BaseRecipient *)recipient;
 -(void)showAlert:(NSString *)title message:(NSString *)message;
 -(void)viewDidLoadLogic;
 -(void)viewDidAppearLogic;

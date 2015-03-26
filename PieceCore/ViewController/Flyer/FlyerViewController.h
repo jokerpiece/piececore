@@ -8,19 +8,19 @@
 
 
 #import "BaseViewController.h"
-#import "FlyerConnector.h"
+#import "FlyerRecipient.h"
 #import "ItemListViewController.h"
 #import "WebViewController.h"
 #import "CategoryViewController.h"
 #import "SurveyViewController.h"
-#import "InfoConnector.h"
+#import "InfoRecipient.h"
 
 @interface FlyerViewController : BaseViewController<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 @property (strong, nonatomic) UIScrollView *scroll;
 @property (strong, nonatomic)UIPageControl *page;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic) int pageSize;
-@property (strong, nonatomic) FlyerConnector *data;
+@property (strong, nonatomic) FlyerRecipient *recipient;
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) bool isDispSurvey;
 @property (strong, nonatomic) NSString *fliyerId;

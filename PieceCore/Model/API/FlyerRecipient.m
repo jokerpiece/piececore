@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "FlyerConnector.h"
+#import "FlyerRecipient.h"
 
-@implementation FlyerConnector
+@implementation FlyerRecipient
 -(void)setData{
     //リスト
     self.headerList = [[NSMutableArray alloc]init];
@@ -35,18 +35,18 @@
 }
 
 -(FlyerHeaderData *)setChildDataHeader:(NSDictionary *)dec{
-    FlyerHeaderData *model = [FlyerHeaderData alloc];
-    model.img_url = [dec valueForKey:@"img_url"];
-    model.category_id = [dec valueForKey:@"category_id"];
-    model.item_url = [dec valueForKey:@"item_url"];
-    return model;
+    FlyerHeaderData *data = [FlyerHeaderData alloc];
+    data.img_url = [dec valueForKey:@"img_url"];
+    data.category_id = [dec valueForKey:@"category_id"];
+    data.item_url = [dec valueForKey:@"item_url"];
+    return data;
 }
 
 -(FlyerBodyData *)setChildDataBody:(NSDictionary *)dec{
-    FlyerBodyData *model = [FlyerBodyData alloc];
-    model.img_url = [dec valueForKey:@"img_url"];
-    model.item_url = [dec valueForKey:@"item_url"];
-    return model;
+    FlyerBodyData *data = [FlyerBodyData alloc];
+    data.img_url = [dec valueForKey:@"img_url"];
+    data.item_url = [dec valueForKey:@"item_url"];
+    return data;
 }
 
 @end

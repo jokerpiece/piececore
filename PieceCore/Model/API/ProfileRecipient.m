@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "ProfileConnector.h"
+#import "ProfileRecipient.h"
 
-@implementation ProfileConnector
+@implementation ProfileRecipient
 -(void)setData{
     self.user_id = [self.resultset valueForKey:@"user_id"];
     self.password = [self.resultset valueForKey:@"password"];

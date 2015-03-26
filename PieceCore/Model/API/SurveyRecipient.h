@@ -3,9 +3,9 @@
 //  Copyright(c) JokerPiece Co.Ltd. All rights reserved.
 //
 
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 
-@interface SurveyConnector : BaseConnector
+@interface SurveyRecipient : BaseRecipient
 @property (nonatomic,strong) NSString *survey_id;
 @property (nonatomic,strong) NSString *text;
 @property (nonatomic,strong) NSString *answer_1;

@@ -23,12 +23,12 @@
     [self initInputList];
     [self.datePickerList addObject:self.birthdayTf];
 }
--(void)setDataWithProfileConnector:(ProfileConnector *)connector{
-    if ([Common isNotEmptyString:connector.berth_day]) {
-        self.birthdayTf.text = connector.berth_day;
+-(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
+    if ([Common isNotEmptyString:recipient.berth_day]) {
+        self.birthdayTf.text = recipient.berth_day;
     }
 }
--(void)saveDataWithProfileConnector:(ProfileConnector *)connector{
-    connector.berth_day = self.birthdayTf.text;
+-(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
+    recipient.berth_day = self.birthdayTf.text;
 }
 @end

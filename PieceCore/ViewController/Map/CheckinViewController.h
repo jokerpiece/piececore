@@ -8,11 +8,11 @@
 
 #import "BaseViewController.h"
 #import "MapCell.h"
-#import "SpotConnector.h"
+#import "SpotRecipient.h"
 #import "CustomAnnotation.h"
 #import <MapKit/MapKit.h>
 #import "GetPointView.h"
-#import "CeckinConnector.h"
+#import "CeckinRecipient.h"
 
 
 @interface CheckinViewController : BaseViewController<MKMapViewDelegate,CLLocationManagerDelegate>
@@ -21,6 +21,6 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic) SpotConnector *data;
+@property (strong, nonatomic) SpotRecipient *recipient;
 @property (strong, nonatomic) GetPointView *pointView;
 @end

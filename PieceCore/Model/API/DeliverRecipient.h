@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 #import "HistoryOrderData.h"
 
-@interface DeliverConnector : BaseConnector
+@interface DeliverRecipient : BaseRecipient
 @property (nonatomic,strong) NSMutableArray *historyOrderlist;
 @end

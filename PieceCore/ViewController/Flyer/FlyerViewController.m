@@ -77,7 +77,7 @@
 -(void)createSlider{
     
     self.scroll = [[UIScrollView alloc] init];
-    self.pageSize = (int)self.data.headerList.count; // ページ数
+    self.pageSize = (int)self.recipient.headerList.count; // ページ数
     
     // UIScrollViewのインスタンス化
     self.scroll.frame = self.view.bounds;
@@ -97,8 +97,8 @@
     
     int i=0;
     // スクロールビューにラベルを貼付ける
-    for (FlyerHeaderData *model in self.data.headerList) {
-        NSURL *imageURL = [NSURL URLWithString:model.img_url];
+    for (FlyerHeaderData *data in self.recipient.headerList) {
+        NSURL *imageURL = [NSURL URLWithString:data.img_url];
         //UIImage *placeholderImage = [UIImage imageNamed:@"wait.jpg"];
         
         UIImageView *iv = [[UIImageView alloc] init];
@@ -177,11 +177,11 @@
 
 - (void)view_Tapped:(UITapGestureRecognizer *)sender
 {
-    FlyerHeaderData *model = [self.data.headerList objectAtIndex:sender.view.tag];
+    FlyerHeaderData *data = [self.recipient.headerList objectAtIndex:sender.view.tag];
     
-    if ([Common isNotEmptyString:model.item_url]) {
+    if ([Common isNotEmptyString:data.item_url]) {
         
-        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:model.item_url];
+        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
         
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -200,7 +200,7 @@
         pageView.backgroundColor = [UIColor clearColor];
         [pageView addSubview:self.page];
         [childView addSubview:self.scroll];
-        if (self.data.headerList.count > 1) {
+        if (self.recipient.headerList.count > 1) {
             [childView addSubview:pageView];
         }
         
@@ -219,17 +219,17 @@
             
             //if (cell == nil) {
             
-            if (indexPath.row * 2 + i >= self.data.bodyList.count) {
+            if (indexPath.row * 2 + i >= self.recipient.bodyList.count) {
                 break;
             }
             int currentRow = (int)indexPath.row * 2 + i;
-            FlyerBodyData *model = [self.data.bodyList objectAtIndex:currentRow];
+            FlyerBodyData *data = [self.recipient.bodyList objectAtIndex:currentRow];
             UIImageView *iv = [[UIImageView alloc] init];
             iv.frame = CGRectMake(i * self.bodyWidh, 0, self.bodyWidh, self.bodyWidh);
             
             NSURL *imageURL = [NSURL URLWithString:@""];
-            if (![model.img_url isEqual:[NSNull null]]) {
-                imageURL = [NSURL URLWithString:model.img_url];
+            if (![data.img_url isEqual:[NSNull null]]) {
+                imageURL = [NSURL URLWithString:data.img_url];
             }
             
             
@@ -283,10 +283,10 @@
     if (section == 0) {
         return 1;
     } else if(section == 1) {
-        if (self.data.bodyList.count == 0) {
+        if (self.recipient.bodyList.count == 0) {
             return 0;
         }
-        float recordNum = self.data.bodyList.count/2.0f;
+        float recordNum = self.recipient.bodyList.count/2.0f;
         return (int)ceil(recordNum) ;
     } else {
         return 1;
@@ -308,11 +308,11 @@
 
 -(void)touchImg: (UITapGestureRecognizer *)sender{
     
-    FlyerBodyData *model = [self.data.bodyList objectAtIndex:sender.view.tag];
+    FlyerBodyData *data = [self.recipient.bodyList objectAtIndex:sender.view.tag];
     
-    if ([Common isNotEmptyString:model.item_url]) {
+    if ([Common isNotEmptyString:data.item_url]) {
         
-        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:model.item_url];
+        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
         
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -383,32 +383,32 @@
     [conecter sendActionSendId:SendIdFlyerList param:param];
 }
 
--(void)setData:(BaseConnector *)data sendId:(NSString *)sendId{
+-(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
     
     if ([sendId isEqualToString:SendIdNewsList]) {
-        InfoConnector *infoData = (InfoConnector *)data;
+        InfoRecipient *infoData = (InfoRecipient *)recipient;
         //最新のチラシを取得
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"2"];
         NSArray *fliyerList = [infoData.list filteredArrayUsingPredicate:predicate];
         if (fliyerList.count > 0) {
-            InfoListData *model = [fliyerList objectAtIndex:0];
-            self.fliyerId = model.typeId;
+            InfoListData *data = [fliyerList objectAtIndex:0];
+            self.fliyerId = data.typeId;
             [self syncFliyerAction];
         }
         
     } else {
-        self.data = (FlyerConnector *)data;
+        self.recipient = (FlyerRecipient *)recipient;
         [self createSlider];
         [self.table reloadData];
     }
     
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdNewsList]) {
-        return [InfoConnector alloc];
+        return [InfoRecipient alloc];
     } else {
-        return [FlyerConnector alloc];
+        return [FlyerRecipient alloc];
     }
 }
 

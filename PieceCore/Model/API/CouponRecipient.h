@@ -4,8 +4,9 @@
 //
 
 
-#import "BaseConnector.h"
-#import "CategoryData.h"
-@interface CategoryConnector : BaseConnector
+#import "BaseRecipient.h"
+#import "CouponData.h"
+
+@interface CouponRecipient : BaseRecipient
 @property (nonatomic,strong) NSMutableArray *list;
 @end

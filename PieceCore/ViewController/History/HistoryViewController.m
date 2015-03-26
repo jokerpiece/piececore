@@ -9,7 +9,7 @@
 #import "HistoryViewController.h"
 #import "HistoryTableViewCell.h"
 #import "WebViewController.h"
-#import "DeliverConnector.h"
+#import "DeliverRecipient.h"
 
 @interface HistoryViewController ()
 
@@ -121,14 +121,14 @@
     
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
-    return [DeliverConnector alloc];
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return [DeliverRecipient alloc];
 }
 
--(void)setData:(DeliverConnector *)data sendId:(NSString *)sendId{
+-(void)setDataWithRecipient:(DeliverRecipient *)recipient sendId:(NSString *)sendId{
     
-    DeliverConnector *connector = data;
-    self.historyOrderDataList = connector.historyOrderlist;
+    DeliverRecipient *deliverRecipient = recipient;
+    self.historyOrderDataList = deliverRecipient.historyOrderlist;
     [self.table reloadData];
 }
 - (IBAction)toDeliveryAction:(id)sender {

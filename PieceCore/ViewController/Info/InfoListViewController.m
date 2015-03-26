@@ -41,15 +41,15 @@
         //if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
-        InfoListData *model = [self.fillterList objectAtIndex:indexPath.row];
+        InfoListData *data = [self.fillterList objectAtIndex:indexPath.row];
         
         
         NSString *imgName = @"";
-        if ([model.type isEqualToString:@"1"]) {
+        if ([data.type isEqualToString:@"1"]) {
             imgName = @"news_02.jpg";
-        } else if ([model.type isEqualToString:@"2"]){
+        } else if ([data.type isEqualToString:@"2"]){
             imgName = @"news_03.jpg";
-        } else if ([model.type isEqualToString:@"3"]){
+        } else if ([data.type isEqualToString:@"3"]){
             imgName = @"news_01.jpg";
         }
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
@@ -57,7 +57,7 @@
         [cell.contentView addSubview:iv];
         
         UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(80,10,200,80)];
-        textLbl.text = model.title;
+        textLbl.text = data.title;
         textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
         textLbl.alpha = 1.0f;
         textLbl.backgroundColor = [UIColor clearColor];
@@ -126,20 +126,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         
-        InfoListData *model = [self.fillterList objectAtIndex:indexPath.row];
+        InfoListData *data = [self.fillterList objectAtIndex:indexPath.row];
         
-        if ([model.type isEqualToString:@"1"]) {
-            self.infoId = model.info_id;
+        if ([data.type isEqualToString:@"1"]) {
+            self.infoId = data.info_id;
             
              NewsViewController *newsVc = [[NewsViewController alloc] initWithNibName:@"NewsViewController" bundle:nil];
             newsVc.news_id = self.infoId;
             [self.navigationController pushViewController:newsVc animated:YES];
             return;
             
-        } else if([model.type isEqualToString:@"2"]){
+        } else if([data.type isEqualToString:@"2"]){
             
             if ([PieceCoreConfig tabnumberFlyer]) {
-                self.infoId = model.typeId;
+                self.infoId = data.typeId;
                 
                 FlyerViewController * resultVC;
                 UINavigationController* nc =[[self.tabBarController viewControllers] objectAtIndex:[PieceCoreConfig tabnumberFlyer].intValue];
@@ -150,7 +150,7 @@
                 }
                 
                 
-                DLog(@"flyerId:%@",model.typeId);
+                DLog(@"flyerId:%@",data.typeId);
                 
                 //遷移先へ移動
                 [self.tabBarController setSelectedViewController: nc];
@@ -159,10 +159,10 @@
             }
             
             
-        } else if([model.type isEqualToString:@"3"]){
+        } else if([data.type isEqualToString:@"3"]){
             
             if ([PieceCoreConfig tabnumberCoupon]) {
-                self.infoId = model.typeId;
+                self.infoId = data.typeId;
                 
                 CouponViewController * resultVC;
                 UINavigationController* nc =[[self.tabBarController viewControllers] objectAtIndex:[PieceCoreConfig tabnumberCoupon].integerValue];
@@ -171,12 +171,12 @@
                     
                     resultVC = [nc.viewControllers objectAtIndex:0];
                     resultVC.mode = getCoupon;
-                    resultVC.couponId = model.typeId;
+                    resultVC.couponId = data.typeId;
                     resultVC.mode = getCoupon;
                 }
                 
                 
-                DLog(@"coupnID:%@",model.typeId);
+                DLog(@"coupnID:%@",data.typeId);
                 
                 //遷移先へ移動
                 [self.tabBarController setSelectedViewController: nc];
@@ -192,7 +192,7 @@
 }
 
 - (IBAction)allAction:(id)sender {
-    self.fillterList = self.data.list;
+    self.fillterList = self.recipient.list;
     [self.allBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.newsBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.fliyerBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -206,7 +206,7 @@
     [self.fliyerBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.couponBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"1"];
-    self.fillterList = [self.data.list filteredArrayUsingPredicate:predicate];
+    self.fillterList = [self.recipient.list filteredArrayUsingPredicate:predicate];
     [self.table reloadData];
 }
 
@@ -216,7 +216,7 @@
     [self.fliyerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.couponBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"2"];
-    self.fillterList = [self.data.list filteredArrayUsingPredicate:predicate];
+    self.fillterList = [self.recipient.list filteredArrayUsingPredicate:predicate];
     [self.table reloadData];
 }
 
@@ -226,7 +226,7 @@
     [self.fliyerBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.couponBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"3"];
-    self.fillterList = [self.data.list filteredArrayUsingPredicate:predicate];
+    self.fillterList = [self.recipient.list filteredArrayUsingPredicate:predicate];
     [self.table reloadData];
 }
 
@@ -240,9 +240,9 @@
     
 }
 
--(void)setData:(InfoConnector *)data sendId:(NSString *)sendId{
-    self.data = data;
-    self.fillterList = self.data.list;
+-(void)setDataWithRecipient:(InfoRecipient *)data sendId:(NSString *)sendId{
+    self.recipient = data;
+    self.fillterList = self.recipient.list;
     
     //    pieceAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     //    if (appDelegate.isFirstStart) {
@@ -250,9 +250,9 @@
     //        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"2"];
     //        NSArray *fliyerList = [self.data.list filteredArrayUsingPredicate:predicate];
     //        if (fliyerList.count > 0) {
-    //            InfoListModel *model = [fliyerList objectAtIndex:0];
+    //            InfoListModel *data = [fliyerList objectAtIndex:0];
     //            //チラシ画面に遷移
-    //            self.infoId = model.typeId;
+    //            self.infoId = data.typeId;
     //            [self performSegueWithIdentifier:@"to_fliyer" sender:self];
     //
     //        }
@@ -261,8 +261,8 @@
     [self.table reloadData];
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
-    return [InfoConnector alloc];
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return [InfoRecipient alloc];
 }
 
 

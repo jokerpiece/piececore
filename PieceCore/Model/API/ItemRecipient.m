@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "ItemConnector.h"
+#import "ItemRecipient.h"
 
-@implementation ItemConnector
+@implementation ItemRecipient
 -(void)setData{
     //リスト
     self.list = [[NSMutableArray alloc]init];
@@ -32,13 +32,13 @@
 }
 
 -(ItemData *)setChildData:(NSDictionary *)dec{
-    ItemData *model = [ItemData alloc];
-    model.img_url = [dec valueForKey:@"img_url"];
-    model.item_name = [dec valueForKey:@"item_name"];
-    model.category_id = [dec valueForKey:@"ite_id"];
-    model.item_url = [dec valueForKey:@"item_url"];
-    model.item_text = [dec valueForKey:@"text"];
-    model.item_price = [dec valueForKey:@"price"];
-    return model;
+    ItemData *data = [ItemData alloc];
+    data.img_url = [dec valueForKey:@"img_url"];
+    data.item_name = [dec valueForKey:@"item_name"];
+    data.category_id = [dec valueForKey:@"ite_id"];
+    data.item_url = [dec valueForKey:@"item_url"];
+    data.item_text = [dec valueForKey:@"text"];
+    data.item_price = [dec valueForKey:@"price"];
+    return data;
 }
 @end

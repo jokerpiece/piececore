@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "DeliverConnector.h"
+#import "DeliverRecipient.h"
 
-@implementation DeliverConnector
+@implementation DeliverRecipient
 -(void)setData{
     //リスト
     self.historyOrderlist = [[NSMutableArray alloc]init];

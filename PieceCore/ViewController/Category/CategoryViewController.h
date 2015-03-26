@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "CategoryConnector.h"
+#import "CategoryRecipient.h"
 #import "CategoryData.h"
 #import "ItemListViewController.h"
 #import "BaseViewController.h"
 
 @interface CategoryViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) CategoryConnector *data;
+@property (strong, nonatomic) CategoryRecipient *recipient;
 @property (nonatomic) bool isMore;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) CategoryData *selectCategory;

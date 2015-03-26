@@ -7,11 +7,11 @@
 //
 
 #import "BaseViewController.h"
-#import "NewsConnector.h"
+#import "NewsRecipient.h"
 
 @interface NewsViewController : BaseViewController<NetworkDelegate, UITextViewDelegate>
 @property (nonatomic,strong) NSString *news_id;
-@property (strong, nonatomic) NewsConnector *data;
+@property (strong, nonatomic) NewsRecipient *recipient;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 @property (weak, nonatomic) IBOutlet UITextView *textTv;
 @end

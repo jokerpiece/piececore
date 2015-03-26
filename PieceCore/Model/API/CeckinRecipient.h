@@ -4,8 +4,8 @@
 //
 
 
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 
-@interface CeckinConnector : BaseConnector
+@interface CeckinRecipient : BaseRecipient
 @property (nonatomic,strong) NSString *get_point;
 @end

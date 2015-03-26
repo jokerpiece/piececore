@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 
-@implementation BaseConnector
+@implementation BaseRecipient
 -(id)initWithResponseData:(NSDictionary *)resData {
     if (self = [super init]) {
         //self.resultset = [resData valueForKey:@"resultset"];

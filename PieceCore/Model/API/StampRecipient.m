@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "StampConnector.h"
+#import "StampRecipient.h"
 
-@implementation StampConnector
+@implementation StampRecipient
 -(void)setData{
     self.start_date = [self.resultset valueForKey:@"start_date"];
     self.end_date = [self.resultset valueForKey:@"end_date"];

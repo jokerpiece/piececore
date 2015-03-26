@@ -16,8 +16,6 @@
 + (NSString *)dateToString:(NSDate *)baseDate formatString:(NSString *)formatString;
 + (NSString*)getMonthStartStrDate;
 +(void)initUserDefaults;
-+(SettingData *)getSettingModel;
-+(void)saveSettingModel:(SettingData*)settingModel;
 +(bool)isNotEmptyString:(NSString *)string;
 + (UIImage*)resizeAspectFitWithSize:(UIImage *)srcImg size:(CGSize)size;
 @end

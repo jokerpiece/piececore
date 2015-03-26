@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "CouponConnector.h"
+#import "CouponRecipient.h"
 
-@implementation CouponConnector
+@implementation CouponRecipient
 -(void)setData{
     //リスト
     self.list = [[NSMutableArray alloc]init];
@@ -23,12 +23,12 @@
 }
 
 -(CouponData *)setChildData:(NSDictionary *)dec{
-    CouponData *model = [[CouponData alloc]init];
-    model.coupon_id = [dec valueForKey:@"coupon_id"];
-    model.title = [dec valueForKey:@"title"];
-    model.text = [dec valueForKey:@"text"];
-    model.img_url = [dec valueForKey:@"img_url"];
-    model.coupon_code = [[dec valueForKey:@"coupon_cd"] stringValue];
-    return model;
+    CouponData *data = [[CouponData alloc]init];
+    data.coupon_id = [dec valueForKey:@"coupon_id"];
+    data.title = [dec valueForKey:@"title"];
+    data.text = [dec valueForKey:@"text"];
+    data.img_url = [dec valueForKey:@"img_url"];
+    data.coupon_code = [[dec valueForKey:@"coupon_cd"] stringValue];
+    return data;
 }
 @end

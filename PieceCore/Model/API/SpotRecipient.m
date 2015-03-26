@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "SpotConnector.h"
+#import "SpotRecipient.h"
 
-@implementation SpotConnector
+@implementation SpotRecipient
 -(void)setData{
     //リスト
     self.list = [[NSMutableArray alloc]init];
@@ -23,13 +23,13 @@
 }
 
 -(SpotData *)setChildData:(NSDictionary *)dec{
-    SpotData *model = [[SpotData alloc]init];
-    model.shopId = [dec valueForKey:@"shop_id"];
-    model.shopName = [dec valueForKey:@"shop_name"];
-    model.lat = [dec valueForKey:@"latitude"];
-    model.lon = [dec valueForKey:@"longitude"];
-    model.address = [dec valueForKey:@"address"];
-    model.distance = [dec valueForKey:@"distance"];
-    return model;
+    SpotData *data = [[SpotData alloc]init];
+    data.shopId = [dec valueForKey:@"shop_id"];
+    data.shopName = [dec valueForKey:@"shop_name"];
+    data.lat = [dec valueForKey:@"latitude"];
+    data.lon = [dec valueForKey:@"longitude"];
+    data.address = [dec valueForKey:@"address"];
+    data.distance = [dec valueForKey:@"distance"];
+    return data;
 }
 @end

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "CategoryConnector.h"
+#import "CategoryRecipient.h"
 
-@implementation CategoryConnector
+@implementation CategoryRecipient
 -(void)setData{
     //リスト
     self.list = [[NSMutableArray alloc]init];
@@ -23,16 +23,16 @@
 }
 
 -(CategoryData *)setChildData:(NSDictionary *)dec{
-    CategoryData *model = [CategoryData alloc];
+    CategoryData *data = [CategoryData alloc];
     
-    model.img_url = [dec valueForKey:@"img_url"];
-    if (model.img_url.length == 0) {
-        model.img_url = @"";
+    data.img_url = [dec valueForKey:@"img_url"];
+    if (data.img_url.length == 0) {
+        data.img_url = @"";
     }
-    model.category_id = [dec valueForKey:@"category_id"];
-    model.shop_category_url = [dec valueForKey:@"shop_url"];
-    model.category_name = [dec valueForKey:@"title"];
-    model.category_text = [dec valueForKey:@"category_text"];
-    return model;
+    data.category_id = [dec valueForKey:@"category_id"];
+    data.shop_category_url = [dec valueForKey:@"shop_url"];
+    data.category_name = [dec valueForKey:@"title"];
+    data.category_text = [dec valueForKey:@"category_text"];
+    return data;
 }
 @end

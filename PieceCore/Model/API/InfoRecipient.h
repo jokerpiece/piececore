@@ -3,9 +3,9 @@
 //  Copyright(c) JokerPiece Co.Ltd. All rights reserved.
 //
 
-#import "BaseConnector.h"
-#import "SpotData.h"
+#import "BaseRecipient.h"
+#import "InfoListData.h"
 
-@interface SpotConnector : BaseConnector
+@interface InfoRecipient : BaseRecipient
 @property (nonatomic,strong) NSMutableArray *list;
 @end

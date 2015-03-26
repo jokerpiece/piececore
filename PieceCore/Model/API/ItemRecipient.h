@@ -4,11 +4,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 #import "ItemData.h"
 #import "DLog.h"
 
-@interface ItemConnector : BaseConnector
+@interface ItemRecipient : BaseRecipient
 @property (nonatomic,strong) NSMutableArray *list;
 @property (nonatomic,copy) NSString *quantity;
 @property (nonatomic) bool more_flg;

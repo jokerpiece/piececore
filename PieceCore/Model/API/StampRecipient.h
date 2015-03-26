@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "BaseConnector.h"
+#import "BaseRecipient.h"
 
-@interface StampConnector : BaseConnector
+@interface StampRecipient : BaseRecipient
 @property (nonatomic,strong) NSString *start_date;
 @property (nonatomic,strong) NSString *end_date;
 @property (nonatomic,strong) NSString *stamp_id;

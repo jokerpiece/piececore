@@ -6,7 +6,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface BaseConnector : NSObject
+@interface BaseRecipient : NSObject
 @property (nonatomic, strong)NSDictionary *resultset;
 @property (nonatomic, strong)NSString *error_code;
 @property (nonatomic, strong)NSString *error_message;

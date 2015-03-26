@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 #import "BaseViewController.h"
-#import "CouponConnector.h"
+#import "CouponRecipient.h"
 #import "ItemListViewController.h"
 typedef enum {
     getCoupon = 0,
@@ -22,7 +22,7 @@ typedef enum {
 @property (strong, nonatomic) UIScrollView *scroll;
 @property (strong, nonatomic)UIPageControl *page;
 @property (nonatomic) int pageSize;
-@property (strong, nonatomic) CouponConnector *data;
+@property (strong, nonatomic) CouponRecipient *recipient;
 @property (nonatomic) int getPage;
 @property (nonatomic,strong) NSString *couponId;
 @property (weak, nonatomic) IBOutlet UILabel *messageLbl;

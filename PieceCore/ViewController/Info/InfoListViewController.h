@@ -7,7 +7,7 @@
 //
 #import "DLog.h"
 #import "BaseViewController.h"
-#import "InfoConnector.h"
+#import "InfoRecipient.h"
 #import "CouponViewController.h"
 #import "FlyerViewController.h"
 #import "NewsViewController.h"
@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *newsBtn;
 @property (weak, nonatomic) IBOutlet UIButton *fliyerBtn;
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic) InfoConnector *data;
+@property (strong, nonatomic) InfoRecipient *recipient;
 @property (strong, nonatomic) NSArray *fillterList;
 @property (strong, nonatomic) NSString *infoId;
 @property (weak, nonatomic) IBOutlet UIButton *couponBtn;

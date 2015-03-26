@@ -74,7 +74,7 @@
 //    if (section == 0) {
 //        return 1;
 //    } else{
-        return self.data.list.count;
+        return self.recipient.list.count;
 //    }
 }
 
@@ -106,11 +106,11 @@
             //if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
-            SpotData *model = [self.data.list objectAtIndex:indexPath.row];
+            SpotData *data = [self.recipient.list objectAtIndex:indexPath.row];
             
             
             UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,20,300,40)];
-            textLbl.text = model.shopName;
+            textLbl.text = data.shopName;
             textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
             textLbl.alpha = 1.0f;
             textLbl.backgroundColor = [UIColor clearColor];
@@ -118,7 +118,7 @@
             [cell.contentView addSubview:textLbl];
             
             UILabel *addressLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,45,300,60)];
-            addressLbl.text = model.address;
+            addressLbl.text = data.address;
             addressLbl.font = [UIFont fontWithName:@"AppleGothic" size:13];
             addressLbl.alpha = 1.0f;
             addressLbl.numberOfLines = 2;
@@ -127,7 +127,7 @@
             
             UILabel *distanceLbl = [[UILabel alloc] initWithFrame:CGRectMake(180,20,300,40)];
             
-            CLLocation *recordLocation = [[CLLocation alloc] initWithLatitude:model.lat.floatValue longitude:model.lon.floatValue];
+            CLLocation *recordLocation = [[CLLocation alloc] initWithLatitude:data.lat.floatValue longitude:data.lon.floatValue];
             distanceLbl.text = [NSString stringWithFormat:@"あと%f m",[self.locationManager.location distanceFromLocation:recordLocation]];
             distanceLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
             distanceLbl.alpha = 1.0f;
@@ -155,7 +155,7 @@
  */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SpotData *spot = [self.data.list objectAtIndex:indexPath.row];
+    SpotData *spot = [self.recipient.list objectAtIndex:indexPath.row];
     CLLocationCoordinate2D co;
     co.latitude = spot.lat.floatValue; // 経度
     co.longitude = spot.lon.floatValue; // 緯度
@@ -185,20 +185,20 @@
 }
 
 
--(void)setData:(BaseConnector *)data sendId:(NSString *)sendId{
+-(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdSpotList]) {
-        self.data = (SpotConnector*)data;
-        for (SpotData *model in self.data.list) {
+        self.recipient = (SpotRecipient*)recipient;
+        for (SpotData *data in self.recipient.list) {
             CustomAnnotation* pin = [[CustomAnnotation alloc] init];
-            pin.coordinate = CLLocationCoordinate2DMake(model.lat.floatValue,model.lon.floatValue); // 緯度経度
-            pin.title = model.shopName;//タイトル
-            pin.subtitle = model.address;//サブタイトル
+            pin.coordinate = CLLocationCoordinate2DMake(data.lat.floatValue,data.lon.floatValue); // 緯度経度
+            pin.title = data.shopName;//タイトル
+            pin.subtitle = data.address;//サブタイトル
             [self.map addAnnotation:pin];
         }
         [self.table reloadData];
     } else if ([sendId isEqualToString:SendIdCheckin]){
-        CeckinConnector *checkinData = (CeckinConnector *)data;
-        GetPointView *getPointView = [[GetPointView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 300)/2, 500, 300, 300) point:checkinData.get_point];
+        CeckinRecipient *checkinRecipient = (CeckinRecipient *)recipient;
+        GetPointView *getPointView = [[GetPointView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 300)/2, 500, 300, 300) point:checkinRecipient.get_point];
         
         [self.view addSubview:getPointView];
         self.pointView = getPointView;
@@ -219,11 +219,11 @@
     
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdSpotList]) {
-        return [SpotConnector alloc];
+        return [SpotRecipient alloc];
     } else {
-        return [CeckinConnector alloc];
+        return [CeckinRecipient alloc];
     }
     
 }
@@ -296,16 +296,16 @@
     spot1.address = @"大阪市中央区城見2-1-61　ツイン21MIDタワー37F";
     spot1.lat = @"34.692732";
     spot1.lon = @"135.531462";
-    self.data = [[SpotConnector alloc]init];
-    self.data.list = [NSMutableArray array];
-    [self.data.list addObject:spot1];
+    self.recipient = [[SpotRecipient alloc]init];
+    self.recipient.list = [NSMutableArray array];
+    [self.recipient.list addObject:spot1];
     
     SpotData *spot2 = [[SpotData alloc]init];
     spot2.shopName = @"幕張メッセ店";
     spot2.address = @"千葉県千葉市 美浜区中瀬2丁目1";
     spot2.lat = @"35.647244";
     spot2.lon = @"140.033701";
-    [self.data.list addObject:spot2];
+    [self.recipient.list addObject:spot2];
     
     [self.table reloadData];
 }

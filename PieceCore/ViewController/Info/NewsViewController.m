@@ -54,14 +54,14 @@
     [conecter sendActionSendId:SendIdNews param:param];
 }
 
--(void)setData:(NewsConnector *)data sendId:(NSString *)sendId{
-    self.data = data;
-    self.titleLbl.text = self.data.title;
-    self.textTv.text = self.data.text;
+-(void)setDataWithRecipient:(NewsRecipient *)recipient sendId:(NSString *)sendId{
+    self.recipient = recipient;
+    self.titleLbl.text = self.recipient.title;
+    self.textTv.text = self.recipient.text;
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
-    return [NewsConnector alloc];
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return [NewsRecipient alloc];
 }
 
 

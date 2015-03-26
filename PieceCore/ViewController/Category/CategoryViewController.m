@@ -21,7 +21,7 @@
 
 - (void)viewDidLoadLogic
 {
-    self.data.list = [NSMutableArray array];
+    self.recipient.list = [NSMutableArray array];
     self.table.delegate = self;
     self.cellHeight = self.viewSize.width * 0.28;
 }
@@ -40,11 +40,11 @@
         //if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 
-        CategoryData *model = [self.data.list objectAtIndex:indexPath.row];
-        if ([Common isNotEmptyString:model.img_url]) {
+        CategoryData *data = [self.recipient.list objectAtIndex:indexPath.row];
+        if ([Common isNotEmptyString:data.img_url]) {
             UIImageView *iv = [[UIImageView alloc] init];
             iv.frame = CGRectMake(0, 0, self.viewSize.width, self.cellHeight);
-            NSURL *imageURL = [NSURL URLWithString:model.img_url];
+            NSURL *imageURL = [NSURL URLWithString:data.img_url];
             
             [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             [cell.contentView addSubview:iv];
@@ -53,7 +53,7 @@
             view.backgroundColor = [UIColor lightGrayColor];
             
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, view.frame.size.width - 20, view.frame.size.height -20)];
-            label.text = model.category_name;
+            label.text = data.category_name;
             label.numberOfLines = 3;
             label.textColor = [UIColor darkGrayColor];
             label.font = [UIFont boldSystemFontOfSize:23.0f];
@@ -102,7 +102,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return self.data.list.count;
+        return self.recipient.list.count;
     } else {
         if (self.isMore) {
             return 1;
@@ -116,7 +116,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    self.selectCategory = [self.data.list objectAtIndex:indexPath.row];
+    self.selectCategory = [self.recipient.list objectAtIndex:indexPath.row];
     ItemListViewController *itemListVc = [[ItemListViewController alloc] initWithNibName:@"ItemListViewController" bundle:nil];
     itemListVc.isNext = YES;
     itemListVc.searchType = category;
@@ -136,13 +136,13 @@
     
 }
 
--(void)setData:(CategoryConnector *)data sendId:(NSString *)sendId{
-    self.data = data;
+-(void)setDataWithRecipient:(CategoryRecipient *)recipient sendId:(NSString *)sendId{
+    self.recipient = recipient;
     [self.table reloadData];
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
-    return [CategoryConnector alloc];
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return [CategoryRecipient alloc];
 }
 
 

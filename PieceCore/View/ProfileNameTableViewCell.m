@@ -25,16 +25,16 @@
     [self.tfList addObject:self.seiTf];
     [self.tfList addObject:self.meiTf];
 }
--(void)setDataWithProfileConnector:(ProfileConnector *)connector{
-    if([Common isNotEmptyString:connector.sei]){
-        self.seiTf.text = connector.sei;
+-(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
+    if([Common isNotEmptyString:recipient.sei]){
+        self.seiTf.text = recipient.sei;
     }
-    if([Common isNotEmptyString:connector.mei]){
-        self.meiTf.text = connector.mei;
+    if([Common isNotEmptyString:recipient.mei]){
+        self.meiTf.text = recipient.mei;
     }
 }
--(void)saveDataWithProfileConnector:(ProfileConnector *)connector{
-    connector.sei = self.seiTf.text;
-    connector.mei = self.meiTf.text;
+-(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
+    recipient.sei = self.seiTf.text;
+    recipient.mei = self.meiTf.text;
 }
 @end

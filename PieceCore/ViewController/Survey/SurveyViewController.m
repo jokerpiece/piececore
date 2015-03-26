@@ -53,7 +53,7 @@
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:[Common getUuid] forKey:@"uuid"];
-    [param setValue:self.data.survey_id forKey:@"survey_id"];
+    [param setValue:self.recipient.survey_id forKey:@"survey_id"];
     [param setValue:[NSString stringWithFormat:@"%d",(int)sender.tag] forKey:@"answer_num"];
     [param setValue:[Common getUuid] forKey:@"uuid"];
     [conecter sendActionSendId:SendIdSendSurvey param:param];
@@ -68,20 +68,20 @@
 }
 
 
--(void)setData:(SurveyConnector *)data sendId:(NSString *)sendId{
+-(void)setDataWithRecipient:(SurveyRecipient *)recipient sendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdGetSurvey]) {
-        self.data = data;
-        self.questionLbl.text = self.data.text;
+        self.recipient = recipient;
+        self.questionLbl.text = self.recipient.text;
         [self.questionLbl sizeToFit];
         
-        if (self.data.answer_1.length > 0) {
-            [self createBtnWithTitle:self.data.answer_1 tag:1 frame:CGRectMake(10, 270, 300, 50)];
+        if (self.recipient.answer_1.length > 0) {
+            [self createBtnWithTitle:self.recipient.answer_1 tag:1 frame:CGRectMake(10, 270, 300, 50)];
         }
-        if (self.data.answer_2.length > 0) {
-            [self createBtnWithTitle:self.data.answer_2 tag:2 frame:CGRectMake(10, 330, 300, 50)];
+        if (self.recipient.answer_2.length > 0) {
+            [self createBtnWithTitle:self.recipient.answer_2 tag:2 frame:CGRectMake(10, 330, 300, 50)];
         }
-        if (self.data.answer_3.length > 0) {
-            [self createBtnWithTitle:self.data.answer_3 tag:3 frame:CGRectMake(10, 390, 300, 50)];
+        if (self.recipient.answer_3.length > 0) {
+            [self createBtnWithTitle:self.recipient.answer_3 tag:3 frame:CGRectMake(10, 390, 300, 50)];
         }
     } else {
         for(UIView* view in self.view.subviews) {
@@ -97,11 +97,11 @@
     }
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdGetSurvey]) {
-        return [SurveyConnector alloc];
+        return [SurveyRecipient alloc];
     } else {
-        return [BaseConnector alloc];
+        return [BaseRecipient alloc];
     }
 }
 

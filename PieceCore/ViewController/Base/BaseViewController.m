@@ -101,15 +101,15 @@
 }
 -(void)receiveSucceed:(NSDictionary *)receivedData sendId:(NSString *)sendId{
     self.isResponse = YES;
-    BaseConnector *data = [[self getDataWithSendId:sendId] initWithResponseData:receivedData];
-    if (data.error_code.intValue != 0) {
-        [self showAlert:@"エラー" message:data.error_message];
+    BaseRecipient *recipient = [[self getDataWithSendId:sendId] initWithResponseData:receivedData];
+    if (recipient.error_code.intValue != 0) {
+        [self showAlert:@"エラー" message:recipient.error_message];
      return;
      }
-    if (data.error_message.length > 0) {
-        DLog(@"%@",data.error_message);
+    if (recipient.error_message.length > 0) {
+        DLog(@"%@",recipient.error_message);
     }
-    [self setData:data sendId:sendId];
+    [self setDataWithRecipient:recipient sendId:sendId];
     
 }
 
@@ -138,18 +138,18 @@
     }
 }
 
--(void)setData:(BaseConnector *)data sendId:(NSString *)sendId{
+-(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
 }
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     return nil;
 }
 
 - (void)timeoutRequest{
     [self showAlert:@"エラー" message:@"通信がタイムアウトしました。時間をおいて再度お試し下さい。"];
 }
--(void)showAlert:(BaseConnector *)data {
-    if (![data.error_code isEqualToString:@"0"]) {
-        [self showAlert:@"エラー" message:data.error_message];
+-(void)showAlert:(BaseRecipient *)recipient {
+    if (![recipient.error_code isEqualToString:@"0"]) {
+        [self showAlert:@"エラー" message:recipient.error_message];
     }
 }
 

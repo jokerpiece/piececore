@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "SurveyConnector.h"
+#import "SurveyRecipient.h"
 
-@implementation SurveyConnector
+@implementation SurveyRecipient
 -(void)setData{
     self.survey_id = [self.resultset valueForKey:@"survey_id"];
     self.text = [self.resultset valueForKey:@"text"];

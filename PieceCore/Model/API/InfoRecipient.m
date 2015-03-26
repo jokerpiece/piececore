@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 ハマモト . All rights reserved.
 //
 
-#import "InfoConnector.h"
+#import "InfoRecipient.h"
 
-@implementation InfoConnector
+@implementation InfoRecipient
 -(void)setData{
     //リスト
     self.list = [[NSMutableArray alloc]init];
@@ -24,11 +24,11 @@
 }
 
 -(InfoListData *)setChildData:(NSDictionary *)dec{
-    InfoListData *model = [[InfoListData alloc]init];
-    model.info_id = [dec valueForKey:@"news_id"];
-    model.title = [dec valueForKey:@"title"];
-    model.type = [dec valueForKey:@"type"];
-    model.typeId = [dec valueForKey:@"id"];
-    return model;
+    InfoListData *data = [[InfoListData alloc]init];
+    data.info_id = [dec valueForKey:@"news_id"];
+    data.title = [dec valueForKey:@"title"];
+    data.type = [dec valueForKey:@"type"];
+    data.typeId = [dec valueForKey:@"id"];
+    return data;
 }
 @end

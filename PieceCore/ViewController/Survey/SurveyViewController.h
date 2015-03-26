@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "SurveyConnector.h"
+#import "SurveyRecipient.h"
 @protocol surveyDelegate <NSObject>
 -(void)closeSurveyView;
 @end
@@ -18,6 +18,6 @@
 @property (nonatomic,weak) id delegate;
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
 @property (nonatomic) bool isResponse;
-@property (strong, nonatomic) SurveyConnector *data;
+@property (strong, nonatomic) SurveyRecipient *recipient;
 @property (weak, nonatomic) IBOutlet UIView *view;
 @end

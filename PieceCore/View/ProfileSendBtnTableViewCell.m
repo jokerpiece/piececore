@@ -22,7 +22,7 @@
 -(void)setInputList {
     [self initInputList];
 }
--(void)setDataWithProfileConnector:(ProfileConnector *)connector{
+-(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
 }
 
 - (IBAction)sendBtn:(id)sender {

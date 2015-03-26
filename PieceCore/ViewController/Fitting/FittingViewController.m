@@ -66,11 +66,11 @@
     
 }
 
--(void)setData:(FittingConnector *)data sendId:(NSString *)sendId{
-    self.data = data;
-    if (self.data.model.item_url.length > 0) {
+-(void)setDataWithRecipient:(FittingRecipient *)recipient sendId:(NSString *)sendId{
+    self.recipient = recipient;
+    if (self.recipient.data.item_url.length > 0) {
         
-        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.data.model.item_url];
+        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.recipient.data.item_url];
         // 画面をPUSHで遷移させる
         [self.navigationController pushViewController:itemVc animated:YES];
         UIAlertView *alertView = [[UIAlertView alloc] init];
@@ -79,16 +79,16 @@
         [alertView addButtonWithTitle:@"OK"];
         [alertView show];
     } else {
-        self.question_id = self.data.model.question_id;
-        self.questionLbl.text = self.data.model.text;
-        [self.awnser1Btn sd_setBackgroundImageWithURL:[NSURL URLWithString:self.data.model.img_url1] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"wait.jpg"]];
-        [self.awnser2Btn sd_setBackgroundImageWithURL:[NSURL URLWithString:self.data.model.img_url2] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"wait.jpg"]];
+        self.question_id = self.recipient.data.question_id;
+        self.questionLbl.text = self.recipient.data.text;
+        [self.awnser1Btn sd_setBackgroundImageWithURL:[NSURL URLWithString:self.recipient.data.img_url1] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"wait.jpg"]];
+        [self.awnser2Btn sd_setBackgroundImageWithURL:[NSURL URLWithString:self.recipient.data.img_url2] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"wait.jpg"]];
         
     }
 }
 
--(BaseConnector *)getDataWithSendId:(NSString *)sendId{
-    return [FittingConnector alloc];
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return [FittingRecipient alloc];
 }
 
 @end

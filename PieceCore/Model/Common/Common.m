@@ -91,16 +91,6 @@
     [defaults setObject:data forKey:@"SETTING"];
     [ud registerDefaults:defaults];
 }
-+(SettingData *)getSettingModel{
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSData *data = [ud dataForKey:@"SETTING"];
-    
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
-}
-+(void)saveSettingModel:(SettingData*)settingModel {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud synchronize];
-}
 +(bool)isNotEmptyString:(NSString *)string{
     if ([string isEqual:[NSNull null]]) {
         return NO;
