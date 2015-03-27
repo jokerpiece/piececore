@@ -103,11 +103,6 @@
         [self.view addSubview:nextBtn];
     }
     
-    
-    
-    
-    
-    
 }
 - (IBAction)backAction:(id)sender{
     [self.webView goBack];
@@ -135,7 +130,12 @@
     self.sosialSetting.shareMessage = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.sosialSetting.shareUrl = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
 }
-
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    if (self.setting.maskType != 0) {
+        [SVProgressHUD dismiss];
+        [super showAlert:@"エラー" message:[NSString stringWithFormat:@"%ld", (long)error.code]];
+    }
+}
 - (void)dealloc {
     
     [self.webView setDelegate:nil];
