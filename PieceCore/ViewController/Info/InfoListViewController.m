@@ -46,11 +46,11 @@
         
         NSString *imgName = @"";
         if ([data.type isEqualToString:@"1"]) {
-            imgName = @"news_02.jpg";
+            imgName = @"news_02.png";
         } else if ([data.type isEqualToString:@"2"]){
-            imgName = @"news_03.jpg";
+            imgName = @"news_03.png";
         } else if ([data.type isEqualToString:@"3"]){
-            imgName = @"news_01.jpg";
+            imgName = @"news_01.png";
         }
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
         iv.frame = CGRectMake(10, 20, 50, 50);
@@ -243,21 +243,6 @@
 -(void)setDataWithRecipient:(InfoRecipient *)data sendId:(NSString *)sendId{
     self.recipient = data;
     self.fillterList = self.recipient.list;
-    
-    //    pieceAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    //    if (appDelegate.isFirstStart) {
-    //        //最新のチラシを取得
-    //        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"2"];
-    //        NSArray *fliyerList = [self.data.list filteredArrayUsingPredicate:predicate];
-    //        if (fliyerList.count > 0) {
-    //            InfoListModel *data = [fliyerList objectAtIndex:0];
-    //            //チラシ画面に遷移
-    //            self.infoId = data.typeId;
-    //            [self performSegueWithIdentifier:@"to_fliyer" sender:self];
-    //
-    //        }
-    //
-    //    }
     [self.table reloadData];
 }
 

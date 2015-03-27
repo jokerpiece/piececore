@@ -23,6 +23,9 @@
 		376A47EC1AAFD6E3002A25D3 /* stampbase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A47EB1AAFD6E3002A25D3 /* stampbase@2x.png */; };
 		376A47F31AAFE450002A25D3 /* StampRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A47F21AAFE450002A25D3 /* StampRecipient.m */; };
 		376A47F61AB02BC0002A25D3 /* ExcengeCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A47F51AB02BC0002A25D3 /* ExcengeCouponViewController.m */; };
+		378F31821AC533AA0068224A /* news_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F317F1AC533AA0068224A /* news_01.png */; };
+		378F31831AC533AA0068224A /* news_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F31801AC533AA0068224A /* news_02.png */; };
+		378F31841AC533AA0068224A /* news_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F31811AC533AA0068224A /* news_03.png */; };
 		379129741AB2B40B001237C7 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 379129731AB2B40B001237C7 /* camera@2x.png */; };
 		3791297A1AB2CCD6001237C7 /* sns@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 379129791AB2CCD6001237C7 /* sns@2x.png */; };
 		3791297E1AB2DC45001237C7 /* ThemeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3791297D1AB2DC45001237C7 /* ThemeData.m */; };
@@ -200,6 +203,9 @@
 		376A47F21AAFE450002A25D3 /* StampRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StampRecipient.m; sourceTree = "<group>"; };
 		376A47F41AB02BC0002A25D3 /* ExcengeCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExcengeCouponViewController.h; sourceTree = "<group>"; };
 		376A47F51AB02BC0002A25D3 /* ExcengeCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExcengeCouponViewController.m; sourceTree = "<group>"; };
+		378F317F1AC533AA0068224A /* news_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_01.png; sourceTree = "<group>"; };
+		378F31801AC533AA0068224A /* news_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_02.png; sourceTree = "<group>"; };
+		378F31811AC533AA0068224A /* news_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_03.png; sourceTree = "<group>"; };
 		379129731AB2B40B001237C7 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 		379129791AB2CCD6001237C7 /* sns@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sns@2x.png"; sourceTree = "<group>"; };
 		3791297C1AB2DC45001237C7 /* ThemeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeData.h; sourceTree = "<group>"; };
@@ -831,6 +837,9 @@
 		37E3EAD11AA45F8C00EA7CB9 /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				378F317F1AC533AA0068224A /* news_01.png */,
+				378F31801AC533AA0068224A /* news_02.png */,
+				378F31811AC533AA0068224A /* news_03.png */,
 				37E3EAD21AA45F8C00EA7CB9 /* news_01.jpg */,
 				37E3EAD31AA45F8C00EA7CB9 /* news_02.jpg */,
 				37E3EAD41AA45F8C00EA7CB9 /* news_03.jpg */,
@@ -1227,6 +1236,7 @@
 				37668BBF1AC2A96E00D08368 /* tab_icon_profile@2x.png in Resources */,
 				37949A911ABBE590002E5194 /* ProfileBirthdayTableViewCell.xib in Resources */,
 				37D758511AB27E6600E6B421 /* FB@2x.png in Resources */,
+				378F31821AC533AA0068224A /* news_01.png in Resources */,
 				37E3EB7B1AA45F8C00EA7CB9 /* coin.png in Resources */,
 				37E3EB7C1AA45F8C00EA7CB9 /* kinenbi.png in Resources */,
 				37E3EBB21AA45F8C00EA7CB9 /* ItemListViewController.xib in Resources */,
@@ -1248,6 +1258,7 @@
 				37E3EB981AA45F8C00EA7CB9 /* BarcodeReaderViewController.xib in Resources */,
 				37949A731ABA9670002E5194 /* nextBtn@2x.png in Resources */,
 				37E3EB901AA45F8C00EA7CB9 /* wait.jpg in Resources */,
+				378F31841AC533AA0068224A /* news_03.png in Resources */,
 				37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */,
 				37E3EB911AA45F8C00EA7CB9 /* wait@2x.jpg in Resources */,
 				37949A4E1AB6C497002E5194 /* HistoryTableViewCell.xib in Resources */,
@@ -1272,6 +1283,7 @@
 				37E3EBB61AA45F8C00EA7CB9 /* CheckinViewController.xib in Resources */,
 				37E3EBB41AA45F8C00EA7CB9 /* WebViewController.xib in Resources */,
 				37E3EB7F1AA45F8C00EA7CB9 /* woman.gif in Resources */,
+				378F31831AC533AA0068224A /* news_02.png in Resources */,
 				37E3EB8F1AA45F8C00EA7CB9 /* tab_icon_stamp.png in Resources */,
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
 				376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */,
