@@ -19,6 +19,9 @@
 }
 - (void)viewDidLoadLogic
 {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].fittingTitle;
+    }
     self.questionVew.backgroundColor = [UIColor whiteColor];
     self.questionVew.layer.cornerRadius = 20;
     self.questionVew.layer.borderColor = [UIColor blackColor].CGColor;

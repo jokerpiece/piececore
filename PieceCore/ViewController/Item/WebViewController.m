@@ -45,6 +45,9 @@
 
 - (void)viewDidLoadLogic
 {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].webViewTitle;
+    }
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];

@@ -23,7 +23,10 @@
     [super viewDidLoad];
     
     
-//    [self barcodeCap];
+
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].getCouponTitle;
+    }
     self.session = [[AVCaptureSession alloc] init];
     
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];

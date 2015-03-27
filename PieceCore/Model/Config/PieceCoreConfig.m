@@ -16,6 +16,7 @@ static NSNumber *_tabnumberShopping = nil;
 static NSString *_appId = @"";
 static NSString *_shopId = @"";
 static NSString *_apiKey = @"";
+static TitleNameData *_titleNameData = nil;
 
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
@@ -107,4 +108,11 @@ const float TabbarHight = 49;
     return _apiKey;
 }
 
++ (void)setTitleNameData:(TitleNameData *)titleNameData {
+    _titleNameData = titleNameData;
+}
+
++ (TitleNameData *)titleNameData {
+    return _titleNameData;
+}
 @end

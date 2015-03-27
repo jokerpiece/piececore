@@ -17,7 +17,11 @@
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"InfoListViewController" owner:self options:nil];
 }
-
+-(void)viewDidLoadLogic{
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].getCouponTitle;
+    }
+}
 - (void)viewDidAppearLogic
 {
     if ([PieceCoreConfig tabnumberInfo]) {

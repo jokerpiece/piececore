@@ -20,6 +20,9 @@
 }
 
 - (void)viewDidLoadLogic{
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].profileTitle;
+    }
     for (UITableViewCell *cell in self.cellList) {
         if ([cell isKindOfClass:[ProfileNameTableViewCell class]]) {
             UINib *nib = [UINib nibWithNibName:@"ProfileNameTableViewCell" bundle:nil];

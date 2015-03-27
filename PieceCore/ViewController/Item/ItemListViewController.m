@@ -20,13 +20,15 @@
 
 - (void)viewDidLoadLogic
 {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].itemListTitle;
+    }
     self.HeaderHeight = self.viewSize.width * 0.38;
     self.table = [[UITableView alloc] initWithFrame:[self.view bounds]];
     self.table.delegate = self;
     self.table.dataSource = self;
     [self.view addSubview:self.table];
     self.table.separatorColor = [UIColor whiteColor];
-    self.title = @"商品一覧";
     //[self setSearchBar];
     [self setHeaderImg];
 }

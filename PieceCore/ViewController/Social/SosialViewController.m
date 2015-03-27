@@ -27,8 +27,10 @@
 }
 
 - (void)viewDidLoadLogic {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].sosialTitle;
+    }
     self.accountStore = [[ACAccountStore alloc] init];
-    self.title = @"SNS連携";
     [self setImgView];
     
 }

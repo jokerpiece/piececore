@@ -19,6 +19,7 @@
 }
 
 -(void)viewDidLoadLogic{
+    self.title = [PieceCoreConfig titleNameData].getCouponTitle;
     SDWebImageManager.sharedManager.delegate = self;
     self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;    
     UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
@@ -219,14 +220,14 @@
     UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
     [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
     
-    self.navigationController.navigationBar.topItem.title = @"USE COUPON";
+    self.navigationController.navigationBar.topItem.title = [PieceCoreConfig titleNameData].useCouponTitle;
     self.chengeCoupnTypeBtn.backgroundColor = [UIColor colorWithRed:0.18 green:0.31 blue:0.31 alpha:1.0];
     self.messageLbl.text = @"使用できるクーポンを所持していません。";
 }
 -(void)dispGetCouponMode{
     UIImage *img = [UIImage imageNamed:@"coupon_use.png"];
     [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
-    self.navigationController.navigationBar.topItem.title = @"GET COUPON";
+    self.navigationController.navigationBar.topItem.title = [PieceCoreConfig titleNameData].getCouponTitle;
     self.chengeCoupnTypeBtn.backgroundColor = [UIColor orangeColor];
     self.messageLbl.text = @"申し訳ございません。\n現在、取得できるクーポンがありません。";
 }

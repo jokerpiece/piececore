@@ -19,6 +19,9 @@
 
 - (void)viewDidLoadLogic
 {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].flyerTitle;
+    }
     self.headerHeight = self.viewSize.height * 0.35;
     self.bodyWidh = self.viewSize.width * 0.5;
     self.pageControllHeight = self.headerHeight * 0.15;
@@ -182,7 +185,6 @@
     if ([Common isNotEmptyString:data.item_url]) {
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-        
         [self.navigationController pushViewController:vc animated:YES];
     }
     
@@ -313,7 +315,6 @@
     if ([Common isNotEmptyString:data.item_url]) {
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-        
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

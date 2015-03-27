@@ -28,6 +28,9 @@
 
 - (void)viewDidLoadLogic
 {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].stampTitle;
+    }
     self.stampLineStartHeight = self.messageView.frame.origin.y + self.messageView.frame.size.height + 30;
     DLog(@"message %f %f", self.messageView.frame.origin.y,self.messageView.frame.size.height);
     [self syncAction];

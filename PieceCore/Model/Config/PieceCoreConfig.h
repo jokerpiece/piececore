@@ -4,6 +4,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TitleNameData.h"
 
 @interface PieceCoreConfig : NSObject
 extern NSString * const ServerUrl;
@@ -48,6 +49,7 @@ extern const float TabbarHight;
 + (NSString *)appId;
 + (NSString *)shopId;
 + (NSString *)apiKey;
++ (TitleNameData *)titleNameData;
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
 + (void)setTabnumberInfo:(NSNumber *)tabnumberInfo;
 + (void)setTabnumberCoupon:(NSNumber *)tabnumberCoupon;
@@ -55,4 +57,5 @@ extern const float TabbarHight;
 + (void)setAppId:(NSString *)appId;
 + (void)setShopId:(NSString *)shopId;
 + (void)setApiKey:(NSString *)apiKey;
++ (void)setTitleNameData:(TitleNameData *)titleNameData;
 @end

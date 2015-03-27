@@ -19,6 +19,7 @@
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [self setConfig];
+    [self setPieceTitle];
     [self setThemeColor];
     [self setNavibarTitleAttributes];
     [self registDeviceToken];
@@ -28,6 +29,9 @@
     return YES;
 }
 -(void)setConfig{
+}
+-(void)setPieceTitle{
+    [PieceCoreConfig setTitleNameData:[[TitleNameData alloc]initForEnglishDefault]];
 }
 -(void)setThemeColor{
     self.theme = [[ThemeData alloc]initThemeDefault];

@@ -22,6 +22,9 @@
 }
 - (void)viewDidLoadLogic
 {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].historyTitle;
+    }
     self.historyOrderDataList = [NSMutableArray array];
     UINib *nib = [UINib nibWithNibName:@"HistoryTableViewCell" bundle:nil];
     [self.table registerNib:nib forCellReuseIdentifier:@"Cell"];

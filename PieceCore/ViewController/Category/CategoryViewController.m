@@ -21,6 +21,9 @@
 
 - (void)viewDidLoadLogic
 {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].categoryTitle;
+    }
     self.recipient.list = [NSMutableArray array];
     self.table.delegate = self;
     self.cellHeight = self.viewSize.width * 0.28;

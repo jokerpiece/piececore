@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
 		37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */; };
 		37668BB61AC2804500D08368 /* ProfileRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB51AC2804500D08368 /* ProfileRecipient.m */; };
 		37668BBA1AC28DC500D08368 /* ProfileSendBtnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB81AC28DC500D08368 /* ProfileSendBtnTableViewCell.m */; };
@@ -103,9 +104,6 @@
 		37E3EB741AA45F8C00EA7CB9 /* CoreDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EAC91AA45F8C00EA7CB9 /* CoreDelegate.m */; };
 		37E3EB751AA45F8C00EA7CB9 /* NetworkConecter.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EACE1AA45F8C00EA7CB9 /* NetworkConecter.m */; };
 		37E3EB761AA45F8C00EA7CB9 /* coupon_get_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EAD01AA45F8C00EA7CB9 /* coupon_get_btn.png */; };
-		37E3EB771AA45F8C00EA7CB9 /* news_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EAD21AA45F8C00EA7CB9 /* news_01.jpg */; };
-		37E3EB781AA45F8C00EA7CB9 /* news_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EAD31AA45F8C00EA7CB9 /* news_02.jpg */; };
-		37E3EB791AA45F8C00EA7CB9 /* news_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EAD41AA45F8C00EA7CB9 /* news_03.jpg */; };
 		37E3EB7B1AA45F8C00EA7CB9 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EAD71AA45F8C00EA7CB9 /* coin.png */; };
 		37E3EB7C1AA45F8C00EA7CB9 /* kinenbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EAD81AA45F8C00EA7CB9 /* kinenbi.png */; };
 		37E3EB7D1AA45F8C00EA7CB9 /* man.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EAD91AA45F8C00EA7CB9 /* man.gif */; };
@@ -150,8 +148,6 @@
 		37E3EBA61AA45F8C00EA7CB9 /* FittingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB1A1AA45F8C00EA7CB9 /* FittingViewController.xib */; };
 		37E3EBA71AA45F8C00EA7CB9 /* FlyerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB1D1AA45F8C00EA7CB9 /* FlyerViewController.m */; };
 		37E3EBA81AA45F8C00EA7CB9 /* FlyerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB1E1AA45F8C00EA7CB9 /* FlyerViewController.xib */; };
-		37E3EBA91AA45F8C00EA7CB9 /* DeliberyStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB211AA45F8C00EA7CB9 /* DeliberyStatusViewController.m */; };
-		37E3EBAA1AA45F8C00EA7CB9 /* DeliberyStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB221AA45F8C00EA7CB9 /* DeliberyStatusViewController.xib */; };
 		37E3EBAB1AA45F8C00EA7CB9 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB241AA45F8C00EA7CB9 /* HistoryViewController.m */; };
 		37E3EBAC1AA45F8C00EA7CB9 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB251AA45F8C00EA7CB9 /* HistoryViewController.xib */; };
 		37E3EBAD1AA45F8C00EA7CB9 /* InfoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB281AA45F8C00EA7CB9 /* InfoListViewController.m */; };
@@ -182,6 +178,8 @@
 
 /* Begin PBXFileReference section */
 		0B2EB3020702E5D1A5D8492F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		371941F71AC549700033FBCA /* TitleNameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNameData.h; sourceTree = "<group>"; };
+		371941F81AC549700033FBCA /* TitleNameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleNameData.m; sourceTree = "<group>"; };
 		37668BAE1AC13ADF00D08368 /* UcIndexpathData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcIndexpathData.h; sourceTree = "<group>"; };
 		37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UcIndexpathData.m; sourceTree = "<group>"; };
 		37668BB41AC2804500D08368 /* ProfileRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileRecipient.h; sourceTree = "<group>"; };
@@ -336,9 +334,6 @@
 		37E3EACD1AA45F8C00EA7CB9 /* NetworkConecter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConecter.h; sourceTree = "<group>"; };
 		37E3EACE1AA45F8C00EA7CB9 /* NetworkConecter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkConecter.m; sourceTree = "<group>"; };
 		37E3EAD01AA45F8C00EA7CB9 /* coupon_get_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coupon_get_btn.png; sourceTree = "<group>"; };
-		37E3EAD21AA45F8C00EA7CB9 /* news_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = news_01.jpg; sourceTree = "<group>"; };
-		37E3EAD31AA45F8C00EA7CB9 /* news_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = news_02.jpg; sourceTree = "<group>"; };
-		37E3EAD41AA45F8C00EA7CB9 /* news_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = news_03.jpg; sourceTree = "<group>"; };
 		37E3EAD61AA45F8C00EA7CB9 /* barthday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barthday.png; sourceTree = "<group>"; };
 		37E3EAD71AA45F8C00EA7CB9 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
 		37E3EAD81AA45F8C00EA7CB9 /* kinenbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kinenbi.png; sourceTree = "<group>"; };
@@ -400,9 +395,6 @@
 		37E3EB1C1AA45F8C00EA7CB9 /* FlyerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerViewController.h; sourceTree = "<group>"; };
 		37E3EB1D1AA45F8C00EA7CB9 /* FlyerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FlyerViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		37E3EB1E1AA45F8C00EA7CB9 /* FlyerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlyerViewController.xib; sourceTree = "<group>"; };
-		37E3EB201AA45F8C00EA7CB9 /* DeliberyStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliberyStatusViewController.h; sourceTree = "<group>"; };
-		37E3EB211AA45F8C00EA7CB9 /* DeliberyStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DeliberyStatusViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		37E3EB221AA45F8C00EA7CB9 /* DeliberyStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliberyStatusViewController.xib; sourceTree = "<group>"; };
 		37E3EB231AA45F8C00EA7CB9 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		37E3EB241AA45F8C00EA7CB9 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
 		37E3EB251AA45F8C00EA7CB9 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
@@ -459,6 +451,15 @@
 				C0AEBEEC86ADD8603FA9B963 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		371941F61AC549450033FBCA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				371941F71AC549700033FBCA /* TitleNameData.h */,
+				371941F81AC549700033FBCA /* TitleNameData.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		3791297B1AB2DC2A001237C7 /* Theme */ = {
@@ -587,6 +588,7 @@
 		37E3EA7C1AA45F8C00EA7CB9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				371941F61AC549450033FBCA /* Common */,
 				37949A741ABAB40A002E5194 /* Sns */,
 				37949A671ABA8D24002E5194 /* Webview */,
 				3791297B1AB2DC2A001237C7 /* Theme */,
@@ -840,9 +842,6 @@
 				378F317F1AC533AA0068224A /* news_01.png */,
 				378F31801AC533AA0068224A /* news_02.png */,
 				378F31811AC533AA0068224A /* news_03.png */,
-				37E3EAD21AA45F8C00EA7CB9 /* news_01.jpg */,
-				37E3EAD31AA45F8C00EA7CB9 /* news_02.jpg */,
-				37E3EAD41AA45F8C00EA7CB9 /* news_03.jpg */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1049,9 +1048,6 @@
 		37E3EB1F1AA45F8C00EA7CB9 /* History */ = {
 			isa = PBXGroup;
 			children = (
-				37E3EB201AA45F8C00EA7CB9 /* DeliberyStatusViewController.h */,
-				37E3EB211AA45F8C00EA7CB9 /* DeliberyStatusViewController.m */,
-				37E3EB221AA45F8C00EA7CB9 /* DeliberyStatusViewController.xib */,
 				37E3EB231AA45F8C00EA7CB9 /* HistoryViewController.h */,
 				37E3EB241AA45F8C00EA7CB9 /* HistoryViewController.m */,
 				37E3EB251AA45F8C00EA7CB9 /* HistoryViewController.xib */,
@@ -1229,7 +1225,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E3EB781AA45F8C00EA7CB9 /* news_02.jpg in Resources */,
 				37949A7F1ABAC534002E5194 /* icon_stamp@2x.png in Resources */,
 				37E3EB841AA45F8C00EA7CB9 /* tab_icon_barcode.png in Resources */,
 				37949A721ABA9670002E5194 /* nextBtn.png in Resources */,
@@ -1243,7 +1238,6 @@
 				37949A9B1ABBE793002E5194 /* ProfileAdressTableViewCell.xib in Resources */,
 				37949A711ABA9670002E5194 /* backBtn@2x.png in Resources */,
 				37E3EBA41AA45F8C00EA7CB9 /* SinglePickerViewController.xib in Resources */,
-				37E3EB791AA45F8C00EA7CB9 /* news_03.jpg in Resources */,
 				37E3EB8B1AA45F8C00EA7CB9 /* tab_icon_news.png in Resources */,
 				37E3EB8E1AA45F8C00EA7CB9 /* tab_icon_sosial.png in Resources */,
 				37949A7D1ABAC534002E5194 /* icon_fitting@2x.png in Resources */,
@@ -1273,8 +1267,6 @@
 				37E3EB9E1AA45F8C00EA7CB9 /* CouponViewController.xib in Resources */,
 				37668BBE1AC2A96E00D08368 /* tab_icon_profile.png in Resources */,
 				376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */,
-				37E3EBAA1AA45F8C00EA7CB9 /* DeliberyStatusViewController.xib in Resources */,
-				37E3EB771AA45F8C00EA7CB9 /* news_01.jpg in Resources */,
 				37E3EB7E1AA45F8C00EA7CB9 /* sex.png in Resources */,
 				37E3EBA61AA45F8C00EA7CB9 /* FittingViewController.xib in Resources */,
 				37E3EB8A1AA45F8C00EA7CB9 /* tab_icon_more.png in Resources */,
@@ -1370,7 +1362,6 @@
 				37949A951ABBE5CE002E5194 /* ProfileAnniversaryTableViewCell.m in Sources */,
 				37E3EB991AA45F8C00EA7CB9 /* BaseViewController.m in Sources */,
 				37668BB61AC2804500D08368 /* ProfileRecipient.m in Sources */,
-				37E3EBA91AA45F8C00EA7CB9 /* DeliberyStatusViewController.m in Sources */,
 				37E3EB671AA45F8C00EA7CB9 /* BaseRecipient.m in Sources */,
 				37E3EB9B1AA45F8C00EA7CB9 /* CategoryViewController.m in Sources */,
 				37E3EB931AA45F8C00EA7CB9 /* GetPointView.m in Sources */,
@@ -1396,6 +1387,7 @@
 				37E3EB5A1AA45F8C00EA7CB9 /* FlyerHeaderData.m in Sources */,
 				37E3EB571AA45F8C00EA7CB9 /* CouponData.m in Sources */,
 				37E3EB721AA45F8C00EA7CB9 /* Common.m in Sources */,
+				371941F91AC549700033FBCA /* TitleNameData.m in Sources */,
 				37E3EB741AA45F8C00EA7CB9 /* CoreDelegate.m in Sources */,
 				37E3EBB51AA45F8C00EA7CB9 /* CheckinViewController.m in Sources */,
 				37949A4D1AB6C497002E5194 /* HistoryTableViewCell.m in Sources */,

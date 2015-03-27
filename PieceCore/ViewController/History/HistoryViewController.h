@@ -10,7 +10,6 @@
 #import "UIImageView+WebCache.h"
 #import "HistoryOrderData.h"
 #import "UIColor+MLPFlatColors.h"
-#import "DeliberyStatusViewController.h"
 
 @interface HistoryViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *table;

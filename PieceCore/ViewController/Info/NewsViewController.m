@@ -30,6 +30,9 @@
 
 - (void)viewDidLoadLogic
 {
+    if (self.title.length < 1) {
+        self.title = [PieceCoreConfig titleNameData].newsTitle;
+    }
     self.textTv.delegate = self;
 }
 
