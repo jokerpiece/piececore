@@ -19,7 +19,6 @@
 }
 
 -(void)viewDidLoadLogic{
-    self.title = [PieceCoreConfig titleNameData].getCouponTitle;
     SDWebImageManager.sharedManager.delegate = self;
     self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;    
     UIImage *img = [UIImage imageNamed:@"coupon_search.png"];

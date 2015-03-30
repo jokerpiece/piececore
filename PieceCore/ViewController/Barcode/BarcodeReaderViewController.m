@@ -25,7 +25,7 @@
     
 
     if (self.title.length < 1) {
-        self.title = [PieceCoreConfig titleNameData].getCouponTitle;
+        self.title = [PieceCoreConfig titleNameData].barcodeTitle;
     }
     self.session = [[AVCaptureSession alloc] init];
     
