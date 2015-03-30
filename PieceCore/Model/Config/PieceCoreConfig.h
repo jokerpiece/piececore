@@ -49,6 +49,7 @@ extern const float TabbarHight;
 + (NSString *)appId;
 + (NSString *)shopId;
 + (NSString *)apiKey;
++ (NSNumber *)splashInterval;
 + (TitleNameData *)titleNameData;
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
 + (void)setTabnumberInfo:(NSNumber *)tabnumberInfo;
@@ -57,5 +58,6 @@ extern const float TabbarHight;
 + (void)setAppId:(NSString *)appId;
 + (void)setShopId:(NSString *)shopId;
 + (void)setApiKey:(NSString *)apiKey;
++ (void)setSplashInterval:(NSNumber *)interval;
 + (void)setTitleNameData:(TitleNameData *)titleNameData;
 @end

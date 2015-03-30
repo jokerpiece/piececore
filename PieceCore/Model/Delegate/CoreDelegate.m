@@ -24,11 +24,17 @@
     [self setNavibarTitleAttributes];
     [self registDeviceToken];
     [self setTabBarController];
+    [self splashIntarval];
     [self moveScreenWithLaunchOptions:launchOptions];
     
     return YES;
 }
 -(void)setConfig{
+}
+-(void)splashIntarval{
+    if ([PieceCoreConfig splashInterval] != nil) {
+        [NSThread sleepForTimeInterval:[PieceCoreConfig splashInterval].floatValue];
+    }
 }
 -(void)setPieceTitle{
     [PieceCoreConfig setTitleNameData:[[TitleNameData alloc]initForEnglishDefault]];

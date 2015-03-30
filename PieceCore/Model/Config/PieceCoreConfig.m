@@ -17,6 +17,7 @@ static NSString *_appId = @"";
 static NSString *_shopId = @"";
 static NSString *_apiKey = @"";
 static TitleNameData *_titleNameData = nil;
+static NSNumber *_splashIntarval = nil;
 
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
@@ -114,5 +115,12 @@ const float TabbarHight = 49;
 
 + (TitleNameData *)titleNameData {
     return _titleNameData;
+}
+
++ (void)setSplashInterval:(NSNumber *)interval{
+    _splashIntarval = interval;
+}
++ (NSNumber *)splashInterval{
+    return _splashIntarval;
 }
 @end
