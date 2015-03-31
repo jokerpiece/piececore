@@ -17,7 +17,7 @@
     }
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [param setObject:[PieceCoreConfig shopId] forKey:@"app_id"];
-    [param setObject:[PieceCoreConfig apiKey] forKey:@"apiKey"];
+    [param setObject:[PieceCoreConfig appKey] forKey:@"app_key"];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     //SN 新しいAPIを受け取るため追加

@@ -15,7 +15,7 @@ static NSNumber *_tabnumberCoupon = nil;
 static NSNumber *_tabnumberShopping = nil;
 static NSString *_appId = @"";
 static NSString *_shopId = @"";
-static NSString *_apiKey = @"";
+static NSString *_appKey = @"";
 static TitleNameData *_titleNameData = nil;
 static NSNumber *_splashIntarval = nil;
 
@@ -101,12 +101,12 @@ const float TabbarHight = 49;
     return _shopId;
 }
 
-+ (void)setApiKey:(NSString *)apiKey {
-    _apiKey = apiKey;
++ (void)setAppKey:(NSString *)appKey {
+    _appKey = appKey;
 }
 
-+ (NSString *)apiKey {
-    return _apiKey;
++ (NSString *)appKey {
+    return _appKey;
 }
 
 + (void)setTitleNameData:(TitleNameData *)titleNameData {

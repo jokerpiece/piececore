@@ -29,7 +29,8 @@
 -(void)setConfig{
     [PieceCoreConfig setShopId:@"pieceSample"];
     [PieceCoreConfig setAppId:@""];
-    [PieceCoreConfig setApiKey:@"3dda3c1e8d60b512b7bd8eec730cf3ef"];
+    [PieceCoreConfig setSplashInterval:[[NSNumber alloc]initWithFloat:2.0f ]];
+    [PieceCoreConfig setAppKey:@"3dda3c1e8d60b512b7bd8eec730cf3ef"];
 }
 
 -(void)setThemeColor{
@@ -53,12 +54,12 @@
                                                                tabTitle:@"image"
                                                                   title:@"装着イメージ"]];
     
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[StampViewController alloc] initWithNibName:@"StampViewController" bundle:nil]
-                                                                imgName:@"icon_stamp.png"
-                                                          selectImgName:@"icon_stamp.png"
-                                                               tabTitle:@"Stamp"
-                                                                  title:@"Stamp"]];
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+//                               [[StampViewController alloc] initWithNibName:@"StampViewController" bundle:nil]
+//                                                                imgName:@"icon_stamp.png"
+//                                                          selectImgName:@"icon_stamp.png"
+//                                                               tabTitle:@"Stamp"
+//                                                                  title:@"Stamp"]];
     
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil]
                                                                 imgName:@"tab_icon_shopping.png"
@@ -72,26 +73,26 @@
                                                           selectImgName:@"icon_fitting.png"
                                                                tabTitle:@"Fitting"
                                                                   title:@"フィッティング"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[HistoryViewController alloc] initWithNibName:@"HistoryViewController" bundle:nil]
-                                                                imgName:@"icon_history.png"
-                                                          selectImgName:@"icon_history.png"
-                                                               tabTitle:@"History"
-                                                                  title:@"配送状況一覧"]];
-    NSMutableArray *cellList = [NSMutableArray array];
-    [cellList addObject:[[ProfileNameTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileSexTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileBirthdayTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileAnniversaryTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileAdressTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileSendBtnTableViewCell alloc]init]];
-    ProfileViewController *profileVc = [[ProfileViewController alloc]initWithNibName:@"ProfileViewController" bundle:nil];
-    profileVc.cellList = cellList;
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:profileVc
-                                                                imgName:@"tab_icon_profile.png"
-                                                          selectImgName:@"tab_icon_profile.png"
-                                                               tabTitle:@"Profile"
-                                                                  title:@"プロフィール設定"]];
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+//                               [[HistoryViewController alloc] initWithNibName:@"HistoryViewController" bundle:nil]
+//                                                                imgName:@"icon_history.png"
+//                                                          selectImgName:@"icon_history.png"
+//                                                               tabTitle:@"History"
+//                                                                  title:@"配送状況一覧"]];
+//    NSMutableArray *cellList = [NSMutableArray array];
+//    [cellList addObject:[[ProfileNameTableViewCell alloc]init]];
+//    [cellList addObject:[[ProfileSexTableViewCell alloc]init]];
+//    [cellList addObject:[[ProfileBirthdayTableViewCell alloc]init]];
+//    [cellList addObject:[[ProfileAnniversaryTableViewCell alloc]init]];
+//    [cellList addObject:[[ProfileAdressTableViewCell alloc]init]];
+//    [cellList addObject:[[ProfileSendBtnTableViewCell alloc]init]];
+//    ProfileViewController *profileVc = [[ProfileViewController alloc]initWithNibName:@"ProfileViewController" bundle:nil];
+//    profileVc.cellList = cellList;
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:profileVc
+//                                                                imgName:@"tab_icon_profile.png"
+//                                                          selectImgName:@"tab_icon_profile.png"
+//                                                               tabTitle:@"Profile"
+//                                                                  title:@"プロフィール設定"]];
     
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
