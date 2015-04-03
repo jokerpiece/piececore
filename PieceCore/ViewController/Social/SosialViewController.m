@@ -18,6 +18,7 @@
 @property (nonatomic)ACAccountStore *facebookAccount;
 //@property (nonatomic) UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (nonatomic) UIImage *setImg;
 @end
 
 @implementation SosialViewController
@@ -97,6 +98,7 @@
         didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
     //[self.gazou_iv setImage:image];
     [self.imgView setImage:image];
+    self.setImg = image;
 //    [self.imgView setImage:[[[ImageUtil alloc]init] imageByShrinkingWithSize:CGSizeMake(180, 180) uiImage:image maginW:0 maginH:0]];
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -109,9 +111,16 @@
 
 - (IBAction)pressBtn {
     
-    NSArray *activityItems = @[self.sosialSetting.shareMessage, self.sosialSetting.shareUrl, self.imgView.image];
-    
-    
+    NSMutableArray *activityItems = [NSMutableArray array];
+    if (self.sosialSetting.shareMessage != nil) {
+        [activityItems addObject:self.sosialSetting.shareMessage];
+    }
+    if (self.sosialSetting.shareUrl != nil) {
+        [activityItems addObject:self.sosialSetting.shareMessage];
+    }
+    if (self.setImg != nil) {
+        [activityItems addObject:self.setImg];
+    }
     NSArray *excludedActivityTypes = @[UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypeAirDrop];
     
     

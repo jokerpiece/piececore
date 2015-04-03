@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561921ACE2717002E7F1B /* MapKit.framework */; };
+		370561951ACE2A00002E7F1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561941ACE2A00002E7F1B /* CoreLocation.framework */; };
 		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
 		37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */; };
 		37668BB61AC2804500D08368 /* ProfileRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB51AC2804500D08368 /* ProfileRecipient.m */; };
@@ -178,6 +180,8 @@
 
 /* Begin PBXFileReference section */
 		0B2EB3020702E5D1A5D8492F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		370561921ACE2717002E7F1B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		370561941ACE2A00002E7F1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		371941F71AC549700033FBCA /* TitleNameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNameData.h; sourceTree = "<group>"; };
 		371941F81AC549700033FBCA /* TitleNameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleNameData.m; sourceTree = "<group>"; };
 		37668BAE1AC13ADF00D08368 /* UcIndexpathData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcIndexpathData.h; sourceTree = "<group>"; };
@@ -427,6 +431,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				370561951ACE2A00002E7F1B /* CoreLocation.framework in Frameworks */,
+				370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */,
 				37D758471AB175AF00E6B421 /* Accounts.framework in Frameworks */,
 				37D758451AB1743800E6B421 /* Social.framework in Frameworks */,
 				A3D4F76C73B2E08C13459071 /* libPods.a in Frameworks */,
@@ -446,6 +452,8 @@
 		0F40C018B20590D5ECB82DC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				370561941ACE2A00002E7F1B /* CoreLocation.framework */,
+				370561921ACE2717002E7F1B /* MapKit.framework */,
 				37D758461AB175AF00E6B421 /* Accounts.framework */,
 				37D758441AB1743800E6B421 /* Social.framework */,
 				C0AEBEEC86ADD8603FA9B963 /* libPods.a */,

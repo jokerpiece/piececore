@@ -36,18 +36,18 @@
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"FB"];
+    return [UIImage imageNamed:@"FB.png"];
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
 {
-    for (id activityItem in activityItems) {
-        if ([activityItem isKindOfClass:[NSURL class]] && [[UIApplication sharedApplication] canOpenURL:activityItem]) {
-            return YES;
-        }
-    }
+//    for (id activityItem in activityItems) {
+//        if ([activityItem isKindOfClass:[NSURL class]] && [[UIApplication sharedApplication] canOpenURL:activityItem]) {
+//            return YES;
+//        }
+//    }
     
-    return NO;
+    return YES;
 }
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems

@@ -18,7 +18,7 @@
     [[NSBundle mainBundle] loadNibNamed:@"CheckinViewController" owner:self options:nil];
 }
 
--(void)viewdidLoadLogic{
+-(void)viewDidLoadLogic{
     self.navigationController.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self syncAction];
     [self setTestData];
@@ -238,6 +238,13 @@
     spot2.lon = @"140.033701";
     [self.recipient.list addObject:spot2];
     
+    for (SpotData *data in self.recipient.list) {
+        CustomAnnotation* pin = [[CustomAnnotation alloc] init];
+        pin.coordinate = CLLocationCoordinate2DMake(data.lat.floatValue,data.lon.floatValue); // 緯度経度
+        pin.title = data.shopName;//タイトル
+        pin.subtitle = data.address;//サブタイトル
+        [self.map addAnnotation:pin];
+    }
     [self.table reloadData];
 }
 @end

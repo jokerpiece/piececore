@@ -21,6 +21,7 @@
 #import "SosialViewController.h"
 #import "ProfileViewController.h"
 #import "CouponViewController.h"
+#import "CheckinViewController.h"
 
 
 @implementation AppDelegate
@@ -34,7 +35,7 @@
 }
 
 -(void)setThemeColor{
-    self.theme = [[ThemeData alloc]initThemeCute];
+    self.theme = [[ThemeData alloc]initThemeDefault];
 }
 
 //UITabBarController初期化
@@ -49,10 +50,10 @@
     flyerVc.sosialSetting = sosialSetting;
     
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:flyerVc
-                                                                imgName:@"icon_eye.png"
-                                                          selectImgName:@"icon_eye.png"
-                                                               tabTitle:@"image"
-                                                                  title:@"装着イメージ"]];
+                                                                imgName:@"tab_icon_flyer.png"
+                                                          selectImgName:@"tab_icon_flyer.png"
+                                                               tabTitle:@"Flyer"
+                                                                  title:@"FLYER"]];
     
 //    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
 //                               [[StampViewController alloc] initWithNibName:@"StampViewController" bundle:nil]
@@ -93,13 +94,20 @@
 //                                                          selectImgName:@"tab_icon_profile.png"
 //                                                               tabTitle:@"Profile"
 //                                                                  title:@"プロフィール設定"]];
+//    
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+//                               [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
+//                                                                imgName:@"tab_icon_coupon.png"
+//                                                          selectImgName:@"tab_icon_coupon.png"
+//                                                               tabTitle:@"Coupon"
+//                                                                  title:@"COUPON"]];
     
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
-                                                                imgName:@"tab_icon_coupon.png"
-                                                          selectImgName:@"tab_icon_coupon.png"
-                                                               tabTitle:@"Coupon"
-                                                                  title:@"COUPON"]];
+                               [[CheckinViewController alloc] initWithNibName:@"CheckinViewController" bundle:nil]
+                                                                imgName:@"tab_icon_map.png"
+                                                          selectImgName:@"tab_icon_map.png"
+                                                               tabTitle:@"Map"
+                                                                  title:@"MAP"]];
     
     return tabbarDataList;
 }
