@@ -21,14 +21,7 @@
         [self.list addObject:[self setChildData:(NSDictionary *)dataList]];
     }
     self.quantity = [self.resultset valueForKey:@"quantity"];
-    DLog(@"%@",[self.resultset valueForKey:@"more_flg"]);
-    
     self.more_flg = CFBooleanGetValue((CFBooleanRef)[self.resultset valueForKey:@"more_flg"]);
-//    if ([(NSNumber *)[self.resultset valueForKey:@"more_flg"] boolValue]) {
-//        self.more_flg = NO;
-//    } else {
-//        self.more_flg = YES;
-//    }
 }
 
 -(ItemData *)setChildData:(NSDictionary *)dec{

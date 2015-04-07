@@ -250,8 +250,7 @@
     } else {
         self.recipient = recipient;
     }
-    
-    if (self.recipient.more_flg ) {
+    if (recipient.more_flg) {
         self.isMore = YES;
     } else {
         self.isMore = NO;
