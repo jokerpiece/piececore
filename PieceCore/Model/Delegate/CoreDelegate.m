@@ -365,7 +365,9 @@
                                          returningResponse:&response
                                                      error:&error];
     
-    
+    if (error.code ){
+        return;
+    }
     
     NSDictionary *dataDic  = [NSJSONSerialization JSONObjectWithData:data
                                                              options:NSJSONReadingAllowFragments
