@@ -125,7 +125,11 @@
                 errMsg = @"通信が混み合っています。\nしばらくしてからアクセスして下さい。";
                 break;
                 
+            case kCFURLErrorNotConnectedToInternet:
+                errMsg = @"通信できませんでした。\n電波状態をお確かめ下さい。";
+                break;
             default:
+                errMsg = [NSString stringWithFormat:@"エラーコード：%d",error.code];
                 break;
         }
         
