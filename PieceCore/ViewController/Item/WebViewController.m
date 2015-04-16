@@ -134,6 +134,9 @@
     if (self.setting.maskType != 0) {
         [SVProgressHUD dismiss];
     }
+    if ([error code] == NSURLErrorCancelled) {
+        return;
+    }
     NSString *errMsg;
     switch (error.code) {
         case NSURLErrorBadServerResponse:
