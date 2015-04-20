@@ -36,6 +36,32 @@
     }
     return self;
 }
+- (id)initWithFrame:(CGRect)frame title:(NSString*)title message:(NSString*)message titleSize:(float)titleSize messageSize:(float)messageSize
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.layer.cornerRadius = self.frame.size.width / 2.0;
+        self.clipsToBounds = YES;
+        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
+        
+        UILabel *title_lbl = [[UILabel alloc] initWithFrame:CGRectMake(0,60,300,80)];
+        title_lbl.numberOfLines = 0;
+        title_lbl.text = title;
+        title_lbl.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:titleSize];
+        title_lbl.textColor = [UIColor whiteColor];
+        title_lbl.textAlignment = NSTextAlignmentCenter;
+        
+        UILabel *point_lbl = [[UILabel alloc] initWithFrame:CGRectMake(0,120,300,80)];
+        point_lbl.numberOfLines = 0;
+        point_lbl.text = message;
+        point_lbl.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:messageSize];
+        point_lbl.textColor = [UIColor whiteColor];
+        point_lbl.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:title_lbl];
+        [self addSubview:point_lbl];
+    }
+    return self;
+}
 
 
 @end

@@ -16,14 +16,6 @@
 
 @implementation BaseViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
 
 - (void)viewDidLoad
 {
@@ -42,7 +34,56 @@
         self.navigationItem.titleView = titleImageView;
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didEnterRegion)
+                                                 name:@"didEnterRegion"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didExitRegion)
+                                                 name:@"didExitRegion"
+                                               object:nil];
     [self viewDidLoadLogic];
+}
+-(void)didEnterRegion{
+    if(self.pointView == nil){
+        self.pointView = [[GetPointView alloc]initWithFrame:CGRectMake(self.viewSize.width * 0.5 - 150, self.viewSize.height, 300, 300) title:@"ご来店ありがとうございます！" message:@"来店スタンプを\nGETしました！" titleSize:15 messageSize:20];
+        [self.view addSubview:self.pointView];
+    }
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationDuration:1.5];
+    [UIView setAnimationDelegate:self];
+    [self.pointView setFrame:CGRectMake(self.viewSize.width * 0.5 - 150, self.viewSize.height/2 - 150, 300, 300)];
+    [UIView setAnimationDidStopSelector:@selector(endAnimation)];
+    [UIView commitAnimations];
+}
+-(void)didExitRegion{
+    if(self.pointView == nil){
+        self.pointView = [[GetPointView alloc]initWithFrame:CGRectMake(self.viewSize.width * 0.5 - 150, self.viewSize.height, 300, 300) title:@"チェックアウトしました" message:@"" titleSize:15 messageSize:20];
+        [self.view addSubview:self.pointView];
+    }
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationDuration:1.5];
+    [UIView setAnimationDelegate:self];
+    [self.pointView setFrame:CGRectMake(self.viewSize.width * 0.5 - 150, self.viewSize.height/2 - 150, 300, 300)];
+    [UIView setAnimationDidStopSelector:@selector(endAnimation)];
+    [UIView commitAnimations];
+}
+-(void)endAnimation{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationDuration:1.5];
+    [UIView setAnimationDelegate:self];
+    [self.pointView setFrame:CGRectMake(self.viewSize.width * 0.5 - 150, self.viewSize.height, 300, 300)];
+    [UIView setAnimationDidStopSelector:@selector(removePointView)];
+    [UIView commitAnimations];
+    
+    
+}
+-(void)removePointView{
+    [self.pointView removeFromSuperview];
+    self.pointView = nil;
 }
 -(void)viewDidLoadLogic{
     
@@ -114,7 +155,7 @@
 }
 
 -(void)receiveError:(NSError *)error sendId:(NSString *)sendId{
-    CoreDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    CoreDelegate *delegate = (CoreDelegate *)[[UIApplication sharedApplication] delegate];
     if (!delegate.isUpdate) {
         NSString *errMsg;
         switch (error.code) {
@@ -129,7 +170,7 @@
                 errMsg = @"通信できませんでした。\n電波状態をお確かめ下さい。";
                 break;
             default:
-                errMsg = [NSString stringWithFormat:@"エラーコード：%d",error.code];
+                errMsg = [NSString stringWithFormat:@"エラーコード：%ld",(long)error.code];
                 break;
         }
         
@@ -169,9 +210,12 @@
      ];
     
     [alert show];
-    
-    
-    
+}
+
+- (void)dealloc {
+    DLog(@"NSNotificationCenter delloc");
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"didEnterRegion" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"didExitRegion" object:nil];
 }
 
 @end

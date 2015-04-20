@@ -12,9 +12,6 @@
 #import "ExcengeCouponViewController.h"
 
 @interface StampViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *startDateLbl;
-@property (weak, nonatomic) IBOutlet UILabel *endDateLbl;
-@property (weak, nonatomic) IBOutlet UILabel *messageLbl;
 @property (nonatomic) UIButton *excengeCouponBtn;
 @property (weak, nonatomic) IBOutlet RoundView *messageView;
 
@@ -54,10 +51,7 @@
 
 -(void)setDataWithRecipient:(StampRecipient *)recipient sendId:(NSString *)sendId{
     
-    //test
-    recipient.get_point = @"10";
-    recipient.total_point = @"10";
-    
+    self.messageLbl.text = recipient.message;
     int StampLineCount = ceil(recipient.total_point.intValue/5.0);
     int mod = recipient.total_point.intValue%5;
     int stampCount = 0;

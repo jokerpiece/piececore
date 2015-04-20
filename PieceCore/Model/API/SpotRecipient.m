@@ -12,7 +12,7 @@
 -(void)setData{
     //リスト
     self.list = [[NSMutableArray alloc]init];
-    NSMutableArray *dataList = [self.resultset objectForKey:@"list"];
+    NSMutableArray *dataList = [self.resultset objectForKey:@"shopLists"];
     if ([dataList isKindOfClass:[NSArray class]]) {
         for (NSDictionary *dec in dataList) {
             [self.list addObject:[self setChildData:dec]];

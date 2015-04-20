@@ -16,14 +16,17 @@
 #import "DLog.h"
 #import "SosialSettingData.h"
 #import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
+#import <CoreLocation/CoreLocation.h>
+#import "GetPointView.h"
 
-@interface BaseViewController : UIViewController<NetworkDelegate, SDWebImageManagerDelegate>
+@interface BaseViewController : UIViewController<NetworkDelegate, SDWebImageManagerDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) BaseRecipient *recipient;
 @property (nonatomic) bool isResponse;
 @property (strong, nonatomic) NSString *titleImgName;
 @property (nonatomic) CGSize viewSize;
 @property (nonatomic)SosialSettingData *sosialSetting;
 @property (nonatomic) UIButton *sosialBtn;
+@property (strong, nonatomic) GetPointView *pointView;
 -(void)showAlert:(BaseRecipient *)recipient;
 -(void)showAlert:(NSString *)title message:(NSString *)message;
 -(void)viewDidLoadLogic;

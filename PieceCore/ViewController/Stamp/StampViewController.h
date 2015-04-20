@@ -10,4 +10,8 @@
 
 @interface StampViewController : BaseViewController
 @property (nonatomic) float stampLineStartHeight;
+@property (weak, nonatomic) IBOutlet UILabel *startDateLbl;
+@property (weak, nonatomic) IBOutlet UILabel *endDateLbl;
+@property (weak, nonatomic) IBOutlet UILabel *messageLbl;
+
 @end

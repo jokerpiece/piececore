@@ -18,6 +18,7 @@ static NSString *_shopId = @"";
 static NSString *_appKey = @"";
 static TitleNameData *_titleNameData = nil;
 static NSNumber *_splashIntarval = nil;
+static BOOL *_isUseBeacon;
 
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
@@ -28,7 +29,7 @@ NSString * const  SendIdItemCoupon= @"item/";
 NSString * const  SendIdItemBarcode= @"item/index.php?Action=itemListBarcode";
 NSString * const  SendIdNewsList= @"news/";
 NSString * const  SendIdFlyerList= @"flyer/";
-NSString * const  SendIdSpotList= @"spotList/";
+NSString * const  SendIdSpotList= @"shop/";
 NSString * const  SendIdCouponGive= @"coupon/index.php?Action=giveList";
 NSString * const  SendIdCouponTake= @"coupon/index.php?Action=takedList";
 NSString * const  SendIdCouponExchange= @"coupon_list_exchange/";
@@ -122,5 +123,12 @@ const float TabbarHight = 49;
 }
 + (NSNumber *)splashInterval{
     return _splashIntarval;
+}
+
++ (void)setUseBeacon:(BOOL *)isUseBeacon{
+    _isUseBeacon = isUseBeacon;
+}
++ (BOOL *)isUseBeacon{
+    return _isUseBeacon;
 }
 @end

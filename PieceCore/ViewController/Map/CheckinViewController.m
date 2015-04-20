@@ -21,10 +21,13 @@
 -(void)viewDidLoadLogic{
     self.navigationController.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self syncAction];
-    [self setTestData];
+    //[self setTestData];
     self.map.delegate = self;
     self.map.showsUserLocation = YES;
     
+    if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [self.locationManager requestAlwaysAuthorization];
+    }
     CLLocationCoordinate2D co;
     co.latitude = 35.68664111; // 経度
     co.longitude = 139.6948839; // 緯度
@@ -81,7 +84,7 @@
     SpotData *data = [self.recipient.list objectAtIndex:indexPath.row];
     
     
-    UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,20,300,40)];
+    UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,20,180,40)];
     textLbl.text = data.shopName;
     textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
     textLbl.alpha = 1.0f;
@@ -97,10 +100,10 @@
     addressLbl.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:addressLbl];
     
-    UILabel *distanceLbl = [[UILabel alloc] initWithFrame:CGRectMake(180,20,300,40)];
+    UILabel *distanceLbl = [[UILabel alloc] initWithFrame:CGRectMake(220,20,300,40)];
     
     CLLocation *recordLocation = [[CLLocation alloc] initWithLatitude:data.lat.floatValue longitude:data.lon.floatValue];
-    distanceLbl.text = [NSString stringWithFormat:@"あと%f m",[self.locationManager.location distanceFromLocation:recordLocation]];
+    distanceLbl.text = [NSString stringWithFormat:@"あと%.0f m",[self.locationManager.location distanceFromLocation:recordLocation]];
     distanceLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
     distanceLbl.alpha = 1.0f;
     distanceLbl.backgroundColor = [UIColor clearColor];

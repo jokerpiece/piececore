@@ -13,12 +13,18 @@
 #import "CouponViewController.h"
 #import "CategoryViewController.h"
 
+#define UUID        @"00000000-5668-1001-b000-000000000009"
+#define MAJOR       @"3"
+#define MINOR       @"1"
+#define IDENTIFIER  @"MyBeacon-0001371A"
+
 @implementation CoreDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [self setConfig];
+    
     [self setPieceTitle];
     [self setThemeColor];
     [self setNavibarTitleAttributes];
@@ -26,11 +32,43 @@
     [self setTabBarController];
     [self splashIntarval];
     [self moveScreenWithLaunchOptions:launchOptions];
-    
+    [self setBeacon];
     return YES;
 }
 -(void)setConfig{
 }
+-(void)setBeacon{
+    if ([CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]] &&
+        [PieceCoreConfig isUseBeacon]) {
+        // CLLocationManagerの生成とデリゲートの設定
+        self.manager = [CLLocationManager new];
+        self.manager.delegate = self;
+        
+        self.proximityUUID = [[NSUUID alloc] initWithUUIDString:UUID];
+         //CLBeaconRegionを作成
+        self.region = [[CLBeaconRegion alloc] initWithProximityUUID:self.proximityUUID identifier:@"shop1"];
+        
+        if ([self.manager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+                        // requestAlwaysAuthorizationメソッドが利用できる場合(iOS8以上の場合)
+                        // 位置情報の取得許可を求めるメソッド
+                        [self.manager requestAlwaysAuthorization];
+                    } else {
+                        // requestAlwaysAuthorizationメソッドが利用できない場合(iOS8未満の場合)
+                        [self.manager startMonitoringForRegion: self.region];
+                    }
+    }
+}
+
+- (void)sendLocalNotificationForMessage:(NSString *)message
+{
+    DLog(@"send!");
+    UILocalNotification *localNotification = [UILocalNotification new];
+    localNotification.alertBody = message;
+    localNotification.fireDate = [NSDate date];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
 -(void)splashIntarval{
     if ([PieceCoreConfig splashInterval] != nil) {
         [NSThread sleepForTimeInterval:[PieceCoreConfig splashInterval].floatValue];
@@ -428,6 +466,113 @@
     NSArray  *aOsVersions = [[[UIDevice currentDevice]systemVersion] componentsSeparatedByString:@"."];
     NSInteger iOsVersionMajor  = [[aOsVersions objectAtIndex:0] intValue];
     return (iOsVersionMajor >= 7);
+}
+
+
+
+
+
+#pragma mark CLLocationManagerDelegate
+
+// ユーザの位置情報の許可状態を確認するメソッド
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status == kCLAuthorizationStatusNotDetermined) {
+        // ユーザが位置情報の使用を許可していない
+        [self.manager requestAlwaysAuthorization];
+    } else if(status == kCLAuthorizationStatusAuthorizedAlways) {
+        // ユーザが位置情報の使用を常に許可している場合
+        [self.manager startMonitoringForRegion: self.region];
+    } else if(status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        // ユーザが位置情報の使用を使用中のみ許可している場合
+        [self.manager startMonitoringForRegion: self.region];
+    }
+}
+
+/*
+ * 領域観測が正常に開始されると呼ばれる
+ */
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
+{
+    [self.manager requestStateForRegion:self.region];
+}
+
+/*
+ * 領域に入ると呼ばれる
+ */
+- (void)locationManager:(CLLocationManager *)manager
+         didEnterRegion:(CLRegion *)region
+{
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"didEnterRegion" object:nil];
+}
+-(void)endAnimation{
+    [self.pointView removeFromSuperview];
+    self.pointView = nil;
+    
+}
+/*
+ * 領域から出ると呼ばれる
+ */
+- (void)locationManager:(CLLocationManager *)manager
+          didExitRegion:(CLRegion *)region
+{
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"didExitRegion" object:nil];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
+{
+    switch (state) {
+        case CLRegionStateInside: // リージョン内にいる
+            DLog(@"ビーコン内");
+            if (self.isCheckIn != YES) {
+                self.isCheckIn = YES;
+                DLog(@"チェックイン");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"didEnterRegion" object:nil];
+            }
+            if ([region isMemberOfClass:[CLBeaconRegion class]] && [CLLocationManager isRangingAvailable]) {
+                [self.manager startRangingBeaconsInRegion:self.region];
+            }
+            break;
+        case CLRegionStateOutside:
+            DLog(@"ビーコン外");
+            if (self.isCheckIn) {
+                self.isCheckIn = NO;
+                DLog(@"チェックアウト");
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"didExitRegion" object:nil];
+            }
+        case CLRegionStateUnknown:
+            DLog(@"不明");
+        default:
+            break;
+    }
+}
+- (void)locationManager:(CLLocationManager *)manager
+        didRangeBeacons:(NSArray *)beacons
+               inRegion:(CLBeaconRegion *)region
+{
+    // init
+    NSString *uuid                          = @"unknown";
+    CLProximity proximity                   = CLProximityUnknown;
+    CLLocationAccuracy accuracy             = 0.0;
+    NSInteger rssi                          = 0;
+    NSNumber *major                         = @0;
+    NSNumber *minor                         = @0;
+    
+    if ([beacons count] > 0) {
+        // 最も近くにあるビーコンが配列の先頭にあるように、デバイスからの距離によって整列されている
+        CLBeacon *beacon    = beacons.firstObject;
+        
+        uuid                = beacon.proximityUUID.UUIDString;
+        proximity           = beacon.proximity;
+        accuracy            = beacon.accuracy;
+        rssi                = beacon.rssi;
+        major               = beacon.major;
+        minor               = beacon.minor;
+        
+        if ([beacon.proximityUUID.UUIDString isEqualToString:self.proximityUUID.UUIDString]){
+        }
+            
+    }
 }
 
 @end
