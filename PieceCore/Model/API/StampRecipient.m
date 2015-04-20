@@ -17,5 +17,9 @@
     self.total_point = [self.resultset valueForKey:@"total_point"];
     self.title = [self.resultset valueForKey:@"title"];
     self.message = [self.resultset valueForKey:@"message"];
+    if ([self.resultset valueForKey:@"regist_date_list"] != nil) {
+        self.regist_date_list = [self.resultset valueForKey:@"regist_date_list"];
+    }
+    
 }
 @end

@@ -76,20 +76,46 @@
             stampBaseIv.frame = CGRectMake(60*ii, -10, 50, 50);
             [stampLineView addSubview:stampBaseIv];
             if (stampCount <= recipient.get_point.intValue) {
+                
                 UIImage *stampImg = [UIImage imageNamed:@"stamp.png"];
                 UIImageView *stampIv = [[UIImageView alloc] initWithImage:stampImg];
                 stampIv.frame = CGRectMake(0, 0, 50, 50);
                 [stampBaseIv addSubview:stampIv];
+                
                 if (stampCount == recipient.get_point.intValue) {
                     stampIv.transform = CGAffineTransformMakeScale(3, 3);
                     [UIView animateWithDuration:1.0f
-                                      animations:^{
-                                          stampIv.transform = CGAffineTransformMakeScale(1, 1);
-                                          
-                                      }completion:^(BOOL finished){
-                                          self.excengeCouponBtn.alpha = 1.0f;
-                                          self.excengeCouponBtn.enabled = YES;
-                                      }];
+                                     animations:^{
+                                         stampIv.transform = CGAffineTransformMakeScale(1, 1);
+                                         
+                                     }completion:^(BOOL finished){
+                                         
+                                         if (recipient.regist_date_list.count >= stampCount) {
+                                             UILabel *countLbl = [[UILabel alloc] initWithFrame:CGRectMake(5,20,40,20)];
+                                             countLbl.backgroundColor =  [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];;
+                                             
+                                             countLbl.textAlignment = NSTextAlignmentCenter;
+                                             countLbl.text = [NSString stringWithFormat:@"%@",[recipient.regist_date_list objectAtIndex:stampCount -1]];
+                                             countLbl.textColor = [UIColor whiteColor];
+                                             [stampBaseIv addSubview:countLbl];
+                                         }
+                                         
+                                         if (recipient.total_point.intValue == recipient.get_point.intValue) {
+                                             self.excengeCouponBtn.alpha = 1.0f;
+                                             self.excengeCouponBtn.enabled = YES;
+                                             
+                                         }
+                                     }];
+                } else {
+                    if (recipient.regist_date_list.count >= stampCount) {
+                        UILabel *countLbl = [[UILabel alloc] initWithFrame:CGRectMake(5,20,40,20)];
+                        countLbl.backgroundColor =  [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];;
+                        
+                        countLbl.textAlignment = NSTextAlignmentCenter;
+                        countLbl.text = [NSString stringWithFormat:@"%@",[recipient.regist_date_list objectAtIndex:stampCount -1]];
+                        countLbl.textColor = [UIColor whiteColor];
+                        [stampBaseIv addSubview:countLbl];
+                    }
                 }
             } else if(stampCount > recipient.get_point.intValue){
                 UILabel *countLbl = [[UILabel alloc] initWithFrame:CGRectMake(0,0,50,50)];

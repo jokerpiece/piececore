@@ -16,4 +16,5 @@
 @property (nonatomic,strong) NSString *total_point;
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *message;
+@property (nonatomic,strong) NSArray *regist_date_list;
 @end
