@@ -24,7 +24,7 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].categoryTitle;
     }
-    self.recipient.list = [NSMutableArray array];
+    self.categoryRecipient.list = [NSMutableArray array];
     self.table.delegate = self;
     self.cellHeight = self.viewSize.width * 0.28;
 }
@@ -43,7 +43,7 @@
         //if(cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 
-        CategoryData *data = [self.recipient.list objectAtIndex:indexPath.row];
+        CategoryData *data = [self.categoryRecipient.list objectAtIndex:indexPath.row];
         if ([Common isNotEmptyString:data.img_url]) {
             UIImageView *iv = [[UIImageView alloc] init];
             iv.frame = CGRectMake(0, 0, self.viewSize.width, self.cellHeight);
@@ -105,7 +105,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return self.recipient.list.count;
+        return self.categoryRecipient.list.count;
     } else {
         if (self.isMore) {
             return 1;
@@ -119,7 +119,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    self.selectCategory = [self.recipient.list objectAtIndex:indexPath.row];
+    if (self.isStaticPage) {
+        return;
+    }
+    self.selectCategory = [self.categoryRecipient.list objectAtIndex:indexPath.row];
     ItemListViewController *itemListVc = [[ItemListViewController alloc] initWithNibName:@"ItemListViewController" bundle:nil];
     itemListVc.isNext = YES;
     itemListVc.searchType = category;
@@ -140,7 +143,7 @@
 }
 
 -(void)setDataWithRecipient:(CategoryRecipient *)recipient sendId:(NSString *)sendId{
-    self.recipient = recipient;
+    self.categoryRecipient = recipient;
     [self.table reloadData];
 }
 

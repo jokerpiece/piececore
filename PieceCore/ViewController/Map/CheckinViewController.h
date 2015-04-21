@@ -21,6 +21,6 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic) SpotRecipient *recipient;
-@property (strong, nonatomic) GetPointView *pointView;
+@property (strong, nonatomic) SpotRecipient *spotRecipient;
+@property (strong, nonatomic) GetPointView *checkinPointView;
 @end

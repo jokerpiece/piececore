@@ -78,7 +78,7 @@
 
 -(void)setDataWithRecipient:(ProfileRecipient *)recipient sendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdGetProfile]) {
-        self.recipient = recipient;
+        self.profileRecipient = recipient;
         [self.table reloadData];
     } else if ([sendId isEqualToString:SendIdSendProfile]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"お知らせ"
@@ -201,7 +201,7 @@
     }
     BaseInputCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     [cell setInputList];
-    [cell setDataWithProfileRecipient:self.recipient];
+    [cell setDataWithProfileRecipient:self.profileRecipient];
     for (UITextField *tf in cell.tfList) {
         tf.delegate = self;
         [self.ucIndexpathList addObject:[[UcIndexpathData alloc]initWithUiControll:tf indexPath:indexPath]];
@@ -377,25 +377,25 @@
 
 - (void)didProfileSendButton{
     for (BaseInputCell *cell in self.cellList) {
-        [cell saveDataWithProfileRecipient:self.recipient];
+        [cell saveDataWithProfileRecipient:self.profileRecipient];
     }
     self.isResponse = NO;
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:[Common getUuid] forKey:@"uuid"];
-    [param setValue:self.recipient.user_id forKey:@"user_id"];
-    [param setValue:self.recipient.password forKey:@"password"];
-    [param setValue:self.recipient.sei forKey:@"sei"];
-    [param setValue:self.recipient.mei forKey:@"mei"];
-    [param setValue:self.recipient.berth_day forKey:@"berth_day"];
-    [param setValue:self.recipient.post forKey:@"post"];
-    [param setValue:self.recipient.address forKey:@"adress"];
-    [param setValue:self.recipient.sex forKey:@"sex"];
-    [param setValue:self.recipient.tel forKey:@"tel"];
-    [param setValue:self.recipient.mail_address forKey:@"mail_address"];
-    [param setValue:self.recipient.anniversary_name forKey:@"anniversary_name"];
-    [param setValue:self.recipient.anniversary forKey:@"anniversary"];
+    [param setValue:self.profileRecipient.user_id forKey:@"user_id"];
+    [param setValue:self.profileRecipient.password forKey:@"password"];
+    [param setValue:self.profileRecipient.sei forKey:@"sei"];
+    [param setValue:self.profileRecipient.mei forKey:@"mei"];
+    [param setValue:self.profileRecipient.berth_day forKey:@"berth_day"];
+    [param setValue:self.profileRecipient.post forKey:@"post"];
+    [param setValue:self.profileRecipient.address forKey:@"adress"];
+    [param setValue:self.profileRecipient.sex forKey:@"sex"];
+    [param setValue:self.profileRecipient.tel forKey:@"tel"];
+    [param setValue:self.profileRecipient.mail_address forKey:@"mail_address"];
+    [param setValue:self.profileRecipient.anniversary_name forKey:@"anniversary_name"];
+    [param setValue:self.profileRecipient.anniversary forKey:@"anniversary"];
     [conecter sendActionSendId:SendIdSendProfile param:param];
 }
 

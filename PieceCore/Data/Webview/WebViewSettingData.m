@@ -17,6 +17,7 @@
         self.isDispBrowserNextBtn = YES;
         self.isReloadEveryTime = NO;
         self.url = @"";
+        self.couponInputDomList = [NSMutableDictionary dictionary];
     }
     return self;
 }

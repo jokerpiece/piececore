@@ -12,9 +12,10 @@
 #import "BaseViewController.h"
 
 @interface CategoryViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) CategoryRecipient *recipient;
+@property (strong, nonatomic) CategoryRecipient *categoryRecipient;
 @property (nonatomic) bool isMore;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) CategoryData *selectCategory;
 @property (nonatomic) float cellHeight;
+@property (nonatomic) bool isStaticPage;
 @end

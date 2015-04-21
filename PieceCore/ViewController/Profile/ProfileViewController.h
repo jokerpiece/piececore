@@ -29,7 +29,7 @@
 @property (nonatomic) NSMutableArray *datePickerList;
 @property (nonatomic) NSMutableArray *monthDayPickerList;
 @property (nonatomic) NSMutableArray *ucIndexpathList;
-@property (nonatomic) ProfileRecipient *recipient;
+@property (nonatomic) ProfileRecipient *profileRecipient;
 
 @property (strong, nonatomic) UITextField *activeTf;
 @property (strong, nonatomic) UITextView *activeTv;

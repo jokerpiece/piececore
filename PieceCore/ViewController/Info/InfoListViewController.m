@@ -196,7 +196,7 @@
 }
 
 - (IBAction)allAction:(id)sender {
-    self.fillterList = self.recipient.list;
+    self.fillterList = self.infoRecipient.list;
     [self.allBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.newsBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.fliyerBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
@@ -210,7 +210,7 @@
     [self.fliyerBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.couponBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"1"];
-    self.fillterList = [self.recipient.list filteredArrayUsingPredicate:predicate];
+    self.fillterList = [self.infoRecipient.list filteredArrayUsingPredicate:predicate];
     [self.table reloadData];
 }
 
@@ -220,7 +220,7 @@
     [self.fliyerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.couponBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"2"];
-    self.fillterList = [self.recipient.list filteredArrayUsingPredicate:predicate];
+    self.fillterList = [self.infoRecipient.list filteredArrayUsingPredicate:predicate];
     [self.table reloadData];
 }
 
@@ -230,7 +230,7 @@
     [self.fliyerBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [self.couponBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", @"type", @"3"];
-    self.fillterList = [self.recipient.list filteredArrayUsingPredicate:predicate];
+    self.fillterList = [self.infoRecipient.list filteredArrayUsingPredicate:predicate];
     [self.table reloadData];
 }
 
@@ -245,8 +245,8 @@
 }
 
 -(void)setDataWithRecipient:(InfoRecipient *)data sendId:(NSString *)sendId{
-    self.recipient = data;
-    self.fillterList = self.recipient.list;
+    self.infoRecipient = data;
+    self.fillterList = self.infoRecipient.list;
     [self.table reloadData];
 }
 

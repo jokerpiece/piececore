@@ -41,7 +41,7 @@
     [btn setTitle:title forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(pushAction:)
         forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:btn];
+    [self.surveyView addSubview:btn];
 }
 -(void)pushAction:(UIButton *)sender{
     if (!self.isResponse) {
@@ -53,7 +53,7 @@
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:[Common getUuid] forKey:@"uuid"];
-    [param setValue:self.recipient.survey_id forKey:@"survey_id"];
+    [param setValue:self.surveyRecipient.survey_id forKey:@"survey_id"];
     [param setValue:[NSString stringWithFormat:@"%d",(int)sender.tag] forKey:@"answer_num"];
     [param setValue:[Common getUuid] forKey:@"uuid"];
     [conecter sendActionSendId:SendIdSendSurvey param:param];
@@ -70,21 +70,21 @@
 
 -(void)setDataWithRecipient:(SurveyRecipient *)recipient sendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdGetSurvey]) {
-        self.recipient = recipient;
-        self.questionLbl.text = self.recipient.text;
+        self.surveyRecipient = recipient;
+        self.questionLbl.text = self.surveyRecipient.text;
         [self.questionLbl sizeToFit];
         
-        if (self.recipient.answer_1.length > 0) {
-            [self createBtnWithTitle:self.recipient.answer_1 tag:1 frame:CGRectMake(10, 270, 300, 50)];
+        if (self.surveyRecipient.answer_1.length > 0) {
+            [self createBtnWithTitle:self.surveyRecipient.answer_1 tag:1 frame:CGRectMake(10, 270, 300, 50)];
         }
-        if (self.recipient.answer_2.length > 0) {
-            [self createBtnWithTitle:self.recipient.answer_2 tag:2 frame:CGRectMake(10, 330, 300, 50)];
+        if (self.surveyRecipient.answer_2.length > 0) {
+            [self createBtnWithTitle:self.surveyRecipient.answer_2 tag:2 frame:CGRectMake(10, 330, 300, 50)];
         }
-        if (self.recipient.answer_3.length > 0) {
-            [self createBtnWithTitle:self.recipient.answer_3 tag:3 frame:CGRectMake(10, 390, 300, 50)];
+        if (self.surveyRecipient.answer_3.length > 0) {
+            [self createBtnWithTitle:self.surveyRecipient.answer_3 tag:3 frame:CGRectMake(10, 390, 300, 50)];
         }
     } else {
-        for(UIView* view in self.view.subviews) {
+        for(UIView* view in self.surveyView.subviews) {
             if ([view isKindOfClass:[UIButton class]]) {
                 [view removeFromSuperview];
             }

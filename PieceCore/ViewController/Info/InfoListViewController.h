@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *newsBtn;
 @property (weak, nonatomic) IBOutlet UIButton *fliyerBtn;
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (strong, nonatomic) InfoRecipient *recipient;
+@property (strong, nonatomic) InfoRecipient *infoRecipient;
 @property (strong, nonatomic) NSArray *fillterList;
 @property (strong, nonatomic) NSString *infoId;
 @property (weak, nonatomic) IBOutlet UIButton *couponBtn;

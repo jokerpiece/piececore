@@ -51,6 +51,7 @@ extern const float TabbarHight;
 + (NSString *)appKey;
 + (NSNumber *)splashInterval;
 + (BOOL *)isUseBeacon;
++ (NSString *)useCouponNum;
 + (TitleNameData *)titleNameData;
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
 + (void)setTabnumberInfo:(NSNumber *)tabnumberInfo;
@@ -62,4 +63,7 @@ extern const float TabbarHight;
 + (void)setSplashInterval:(NSNumber *)interval;
 + (void)setTitleNameData:(TitleNameData *)titleNameData;
 + (void)setUseBeacon:(BOOL *)isUseBeacon;
++ (void)setUseCouponNum:(NSString *)useCouponNum;
+
+
 @end

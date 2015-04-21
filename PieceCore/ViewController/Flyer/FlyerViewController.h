@@ -20,7 +20,7 @@
 @property (strong, nonatomic)UIPageControl *page;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic) int pageSize;
-@property (strong, nonatomic) FlyerRecipient *recipient;
+@property (strong, nonatomic) FlyerRecipient *flyerRecipient;
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) bool isDispSurvey;
 @property (strong, nonatomic) NSString *fliyerId;

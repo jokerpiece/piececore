@@ -71,7 +71,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.recipient.list.count;
+    return self.spotRecipient.list.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,7 +81,7 @@
     //if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
-    SpotData *data = [self.recipient.list objectAtIndex:indexPath.row];
+    SpotData *data = [self.spotRecipient.list objectAtIndex:indexPath.row];
     
     
     UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(20,20,180,40)];
@@ -121,7 +121,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SpotData *spot = [self.recipient.list objectAtIndex:indexPath.row];
+    SpotData *spot = [self.spotRecipient.list objectAtIndex:indexPath.row];
     CLLocationCoordinate2D co;
     co.latitude = spot.lat.floatValue; // 経度
     co.longitude = spot.lon.floatValue; // 緯度
@@ -153,8 +153,8 @@
 
 -(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdSpotList]) {
-        self.recipient = (SpotRecipient*)recipient;
-        for (SpotData *data in self.recipient.list) {
+        self.spotRecipient = (SpotRecipient*)recipient;
+        for (SpotData *data in self.spotRecipient.list) {
             CustomAnnotation* pin = [[CustomAnnotation alloc] init];
             pin.coordinate = CLLocationCoordinate2DMake(data.lat.floatValue,data.lon.floatValue); // 緯度経度
             pin.title = data.shopName;//タイトル
@@ -167,7 +167,7 @@
         GetPointView *getPointView = [[GetPointView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 300)/2, 500, 300, 300) point:checkinRecipient.get_point];
         
         [self.view addSubview:getPointView];
-        self.pointView = getPointView;
+        self.checkinPointView = getPointView;
         CGContextRef context = UIGraphicsGetCurrentContext();
         [UIView beginAnimations:nil context:context];
         [UIView setAnimationDuration:1.0];
@@ -199,7 +199,7 @@
 
 - ( void )onTapButton:( id )sender
 {
-    if (self.pointView != nil){
+    if (self.checkinPointView != nil){
         return;
     }
     [self checkinAction:@"111"];
@@ -207,7 +207,7 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(self.pointView == nil){
+    if(self.checkinPointView == nil){
         return;
     }
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -215,13 +215,13 @@
     [UIView setAnimationDuration:1.0];
     [UIView setAnimationDelegate:self];
     
-    [self.pointView setFrame:CGRectMake((self.view.frame.size.width - 300)/2, 500, 300, 300)];
+    [self.checkinPointView setFrame:CGRectMake((self.view.frame.size.width - 300)/2, 500, 300, 300)];
     [UIView setAnimationDidStopSelector:@selector(endAnimation)];
     [UIView commitAnimations];
 }
 -(void)endAnimation{
-    [self.pointView removeFromSuperview];
-    self.pointView = nil;
+    [self.checkinPointView removeFromSuperview];
+    self.checkinPointView = nil;
     
 }
 -(void)setTestData{
@@ -230,18 +230,18 @@
     spot1.address = @"大阪市中央区城見2-1-61　ツイン21MIDタワー37F";
     spot1.lat = @"34.692732";
     spot1.lon = @"135.531462";
-    self.recipient = [[SpotRecipient alloc]init];
-    self.recipient.list = [NSMutableArray array];
-    [self.recipient.list addObject:spot1];
+    self.spotRecipient = [[SpotRecipient alloc]init];
+    self.spotRecipient.list = [NSMutableArray array];
+    [self.spotRecipient.list addObject:spot1];
     
     SpotData *spot2 = [[SpotData alloc]init];
     spot2.shopName = @"幕張メッセ店";
     spot2.address = @"千葉県千葉市 美浜区中瀬2丁目1";
     spot2.lat = @"35.647244";
     spot2.lon = @"140.033701";
-    [self.recipient.list addObject:spot2];
+    [self.spotRecipient.list addObject:spot2];
     
-    for (SpotData *data in self.recipient.list) {
+    for (SpotData *data in self.spotRecipient.list) {
         CustomAnnotation* pin = [[CustomAnnotation alloc] init];
         pin.coordinate = CLLocationCoordinate2DMake(data.lat.floatValue,data.lon.floatValue); // 緯度経度
         pin.title = data.shopName;//タイトル

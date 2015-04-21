@@ -21,4 +21,6 @@ typedef enum {
 @property (nonatomic) bool isDispBrowserBackBtn;
 @property (nonatomic) bool isDispBrowserNextBtn;
 @property (nonatomic) bool isReloadEveryTime;
+/* key:URL value:DOM (ex:document.forms[0].Coupon.value) */
+@property (nonatomic) NSMutableDictionary *couponInputDomList;
 @end

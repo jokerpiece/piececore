@@ -22,10 +22,11 @@ typedef enum {
 @property (strong, nonatomic) UIScrollView *scroll;
 @property (strong, nonatomic)UIPageControl *page;
 @property (nonatomic) int pageSize;
-@property (strong, nonatomic) CouponRecipient *recipient;
+@property (strong, nonatomic) CouponRecipient *couponRecipient;
 @property (nonatomic) int getPage;
 @property (nonatomic,strong) NSString *couponId;
 @property (weak, nonatomic) IBOutlet UILabel *messageLbl;
 @property (nonatomic) int getCoupnBtnRactHeight;
 -(void)createSlider;
+-(void)setCouponNum;
 @end

@@ -11,7 +11,7 @@
 
 @interface NewsViewController : BaseViewController<NetworkDelegate, UITextViewDelegate>
 @property (nonatomic,strong) NSString *news_id;
-@property (strong, nonatomic) NewsRecipient *recipient;
+@property (strong, nonatomic) NewsRecipient *newsRecipient;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 @property (weak, nonatomic) IBOutlet UITextView *textTv;
 @end

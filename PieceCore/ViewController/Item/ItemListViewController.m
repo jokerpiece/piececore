@@ -33,7 +33,7 @@
     [self setHeaderImg];
 }
 -(void)viewWillAppearLogic{
-    self.recipient.list = [NSMutableArray array];
+    self.itemRecipient.list = [NSMutableArray array];
     if (self.searchType == category) {
         DLog(@"テーブル縦位置%f",self.table.frame.origin.y);
         self.table.frame = CGRectMake(0,NavigationHight + self.HeaderHeight,self.viewSize.width,self.viewSize.height - self.HeaderHeight -TabbarHight -NavigationHight);
@@ -56,7 +56,7 @@
         //if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1.0];
-        ItemData *data = [self.recipient.list objectAtIndex:indexPath.row];
+        ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
         UIImageView *iv = [[UIImageView alloc] init];
         iv.frame = CGRectMake(10, 5, 80, 80);
         
@@ -129,7 +129,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return self.recipient.list.count;
+        return self.itemRecipient.list.count;
     } else {
         if (self.isMore) {
             return 1;
@@ -145,7 +145,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         
-        ItemData *data = [self.recipient.list objectAtIndex:indexPath.row];
+        ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
         WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
         // 画面をPUSHで遷移させる
         [self.navigationController pushViewController:itemVc animated:YES];
@@ -224,19 +224,19 @@
         case coupon:
             sendId = SendIdItemCoupon;
             [param setValue:self.code forKey:@"coupon_id"];
-            [param setValue:[NSNumber numberWithInt:(int)self.recipient.list.count] forKey:@"get_list_num"];
+            [param setValue:[NSNumber numberWithInt:(int)self.itemRecipient.list.count] forKey:@"get_list_num"];
             break;
         case barcode:
             sendId = SendIdItemBarcode;
             [param setValue:self.code forKey:@"barcode_num"];
-            [param setValue:[NSNumber numberWithInt:(int)self.recipient.list.count] forKey:@"get_list_num"];
+            [param setValue:[NSNumber numberWithInt:(int)self.itemRecipient.list.count] forKey:@"get_list_num"];
             break;
             
         default:
             sendId = SendIdItem;
             [param setValue:self.code forKey:@"category_id"];
             [param setValue:self.searchBar.text forKey:@"sarch_word"];
-            [param setValue:[NSNumber numberWithInt:(int)self.recipient.list.count] forKey:@"get_list_num"];
+            [param setValue:[NSNumber numberWithInt:(int)self.itemRecipient.list.count] forKey:@"get_list_num"];
             break;
     }
     [conecter sendActionSendId:sendId param:param];
@@ -246,9 +246,9 @@
 -(void)setDataWithRecipient:(ItemRecipient *)recipient sendId:(NSString *)sendId{
     
     if (self.isSearchedMore) {
-        [self.recipient.list addObjectsFromArray: recipient.list];
+        [self.itemRecipient.list addObjectsFromArray: recipient.list];
     } else {
-        self.recipient = recipient;
+        self.itemRecipient = recipient;
     }
     if (recipient.more_flg) {
         self.isMore = YES;
@@ -256,10 +256,10 @@
         self.isMore = NO;
     }
     self.isSearchedMore = NO;
-    if (self.recipient.list.count == 1) {
+    if (self.itemRecipient.list.count == 1) {
         if (self.isNext) {
             self.isNext = NO;
-            ItemData *data = [self.recipient.list objectAtIndex:0];
+            ItemData *data = [self.itemRecipient.list objectAtIndex:0];
             WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
             // 画面をPUSHで遷移させる
             [self.navigationController pushViewController:itemVc animated:YES];
@@ -270,7 +270,7 @@
         }
         
     }
-    self.quanitityLbl.text = [NSString stringWithFormat:@"アイテム数：%@",self.recipient.quantity];
+    self.quanitityLbl.text = [NSString stringWithFormat:@"アイテム数：%@",self.itemRecipient.quantity];
     [self.table reloadData];
 }
 

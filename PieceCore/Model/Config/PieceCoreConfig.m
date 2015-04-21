@@ -19,6 +19,7 @@ static NSString *_appKey = @"";
 static TitleNameData *_titleNameData = nil;
 static NSNumber *_splashIntarval = nil;
 static BOOL *_isUseBeacon;
+static NSString *_useCouponNum = @"";
 
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
@@ -130,5 +131,12 @@ const float TabbarHight = 49;
 }
 + (BOOL *)isUseBeacon{
     return _isUseBeacon;
+}
+
++ (void)setUseCouponNum:(NSString *)useCouponNum{
+    _useCouponNum = useCouponNum;
+}
++ (NSString *)useCouponNum{
+    return _useCouponNum;
 }
 @end

@@ -72,7 +72,7 @@
     
     self.scroll = [[UIScrollView alloc] init];
     self.scroll.bounces = NO;
-    self.pageSize = (int)self.recipient.list.count; // ページ数
+    self.pageSize = (int)self.couponRecipient.list.count; // ページ数
     CGFloat width = self.viewSize.width;
     CGFloat height = self.viewSize.height - NavigationHight - TabbarHight;
     self.scroll.frame = self.view.bounds;
@@ -86,7 +86,7 @@
     
     int i=0;
     int currentPage = 0;
-    for (CouponData *data in self.recipient.list) {
+    for (CouponData *data in self.couponRecipient.list) {
         if ([Common isNotEmptyString:self.couponId]
             && [self.couponId isEqualToString:data.coupon_code]){
             currentPage = i;
@@ -128,7 +128,7 @@
         forControlEvents:UIControlEventValueChanged];
     
     [self.mainView addSubview:self.scroll];
-    if (self.recipient.list.count > 1) {
+    if (self.couponRecipient.list.count > 1) {
         [self.mainView addSubview:self.page];
     }
     
@@ -176,7 +176,9 @@
 - (void)view_Tapped:(UITapGestureRecognizer *)sender
 {
     if(self.mode == useCoupon){
-        [self itemSyncAction];
+        //TODO couponidからitem一覧取得のapiが未実装
+        //[self itemSyncAction];
+        [self setCouponNum];
     }
     
 }
@@ -188,7 +190,7 @@
             
         } else {
             UIButton *btn = sender;
-            CouponData *coupn = [self.recipient.list objectAtIndex:btn.tag];
+            CouponData *coupn = [self.couponRecipient.list objectAtIndex:btn.tag];
             [self getCouponAction:coupn.coupon_id];
             self.couponId = coupn.coupon_id;
             [self startAnimation:sender];
@@ -275,9 +277,11 @@
             self.tabBarController.selectedViewController = vc;
             [vc popToRootViewControllerAnimated:NO];
             
-            CouponData *couponModel = [self.recipient.list objectAtIndex:self.getPage];
+            CouponData *couponModel = [self.couponRecipient.list objectAtIndex:self.getPage];
             
             UIPasteboard *board = [UIPasteboard generalPasteboard];
+            
+            [PieceCoreConfig setUseCouponNum:couponModel.coupon_code];
             [board setValue:[NSString stringWithFormat:@"%@",couponModel.coupon_code] forPasteboardType:@"public.utf8-plain-text"];
             [super showAlert:@"確認" message:@"クーポン番号をコピーしました。\n購入画面でクーポン番号入力欄にペーストして下さい。"];
             
@@ -293,7 +297,7 @@
         }
         
     } else{
-        self.recipient = recipient;
+        self.couponRecipient = recipient;
         [self createSlider];
         CGRect frame = self.scroll.frame;
         frame.origin.x = frame.size.width * self.page.currentPage;
@@ -302,13 +306,29 @@
     
 }
 
+-(void)setCouponNum{
+    CouponData *couponModel = [self.couponRecipient.list objectAtIndex:self.getPage];
+    
+    
+    [PieceCoreConfig setUseCouponNum:couponModel.coupon_code];
+
+    UIPasteboard *board = [UIPasteboard generalPasteboard];
+    [board setValue:[NSString stringWithFormat:@"%@",couponModel.coupon_code] forPasteboardType:@"public.utf8-plain-text"];
+    [super showAlert:@"確認" message:@"クーポン番号をコピーしました。\n購入画面でクーポン番号入力欄にペーストして下さい。"];
+    
+    if ([PieceCoreConfig tabnumberShopping]) {
+        UINavigationController *vc = self.tabBarController.viewControllers[[PieceCoreConfig tabnumberShopping].intValue];
+        self.tabBarController.selectedViewController = vc;
+        [vc popToRootViewControllerAnimated:NO];
+    }
+}
 -(void)itemSyncAction{
     
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSString *sendId;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    CouponData *couponModel = [self.recipient.list objectAtIndex:self.getPage];
+    CouponData *couponModel = [self.couponRecipient.list objectAtIndex:self.getPage];
     sendId = SendIdItemCoupon;
     [param setValue:couponModel.coupon_id forKey:@"coupon_id"];
     [param setValue:0 forKey:@"get_list_num"];

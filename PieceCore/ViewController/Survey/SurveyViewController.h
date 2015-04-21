@@ -18,6 +18,6 @@
 @property (nonatomic,weak) id delegate;
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
 @property (nonatomic) bool isResponse;
-@property (strong, nonatomic) SurveyRecipient *recipient;
-@property (weak, nonatomic) IBOutlet UIView *view;
+@property (strong, nonatomic) SurveyRecipient *surveyRecipient;
+@property (weak, nonatomic) IBOutlet UIView *surveyView;
 @end

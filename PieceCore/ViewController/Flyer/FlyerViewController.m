@@ -80,7 +80,7 @@
 -(void)createSlider{
     
     self.scroll = [[UIScrollView alloc] init];
-    self.pageSize = (int)self.recipient.headerList.count; // ページ数
+    self.pageSize = (int)self.flyerRecipient.headerList.count; // ページ数
     
     // UIScrollViewのインスタンス化
     self.scroll.frame = self.view.bounds;
@@ -100,7 +100,7 @@
     
     int i=0;
     // スクロールビューにラベルを貼付ける
-    for (FlyerHeaderData *data in self.recipient.headerList) {
+    for (FlyerHeaderData *data in self.flyerRecipient.headerList) {
         NSURL *imageURL = [NSURL URLWithString:data.img_url];
         //UIImage *placeholderImage = [UIImage imageNamed:@"wait.jpg"];
         
@@ -180,7 +180,7 @@
 
 - (void)view_Tapped:(UITapGestureRecognizer *)sender
 {
-    FlyerHeaderData *data = [self.recipient.headerList objectAtIndex:sender.view.tag];
+    FlyerHeaderData *data = [self.flyerRecipient.headerList objectAtIndex:sender.view.tag];
     
     if ([Common isNotEmptyString:data.item_url]) {
         
@@ -202,7 +202,7 @@
         pageView.backgroundColor = [UIColor clearColor];
         [pageView addSubview:self.page];
         [childView addSubview:self.scroll];
-        if (self.recipient.headerList.count > 1) {
+        if (self.flyerRecipient.headerList.count > 1) {
             [childView addSubview:pageView];
         }
         
@@ -221,11 +221,11 @@
             
             //if (cell == nil) {
             
-            if (indexPath.row * 2 + i >= self.recipient.bodyList.count) {
+            if (indexPath.row * 2 + i >= self.flyerRecipient.bodyList.count) {
                 break;
             }
             int currentRow = (int)indexPath.row * 2 + i;
-            FlyerBodyData *data = [self.recipient.bodyList objectAtIndex:currentRow];
+            FlyerBodyData *data = [self.flyerRecipient.bodyList objectAtIndex:currentRow];
             UIImageView *iv = [[UIImageView alloc] init];
             iv.frame = CGRectMake(i * self.bodyWidh, 0, self.bodyWidh, self.bodyWidh);
             
@@ -285,10 +285,10 @@
     if (section == 0) {
         return 1;
     } else if(section == 1) {
-        if (self.recipient.bodyList.count == 0) {
+        if (self.flyerRecipient.bodyList.count == 0) {
             return 0;
         }
-        float recordNum = self.recipient.bodyList.count/2.0f;
+        float recordNum = self.flyerRecipient.bodyList.count/2.0f;
         return (int)ceil(recordNum) ;
     } else {
         return 1;
@@ -310,7 +310,7 @@
 
 -(void)touchImg: (UITapGestureRecognizer *)sender{
     
-    FlyerBodyData *data = [self.recipient.bodyList objectAtIndex:sender.view.tag];
+    FlyerBodyData *data = [self.flyerRecipient.bodyList objectAtIndex:sender.view.tag];
     
     if ([Common isNotEmptyString:data.item_url]) {
         
@@ -398,7 +398,7 @@
         }
         
     } else {
-        self.recipient = (FlyerRecipient *)recipient;
+        self.flyerRecipient = (FlyerRecipient *)recipient;
         [self createSlider];
         [self.table reloadData];
     }

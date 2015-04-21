@@ -58,9 +58,9 @@
 }
 
 -(void)setDataWithRecipient:(NewsRecipient *)recipient sendId:(NSString *)sendId{
-    self.recipient = recipient;
-    self.titleLbl.text = self.recipient.title;
-    self.textTv.text = self.recipient.text;
+    self.newsRecipient = recipient;
+    self.titleLbl.text = self.newsRecipient.title;
+    self.textTv.text = self.newsRecipient.text;
 }
 
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{

@@ -18,7 +18,7 @@ typedef enum {
 } itemSearchType;
 
 @interface ItemListViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate>
-@property (strong, nonatomic) ItemRecipient *recipient;
+@property (strong, nonatomic) ItemRecipient *itemRecipient;
 @property (nonatomic) bool isMore;
 @property (nonatomic) bool isNext;
 @property (nonatomic) bool isSearchedMore;

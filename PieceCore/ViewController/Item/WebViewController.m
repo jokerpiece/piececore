@@ -127,9 +127,22 @@
     if (self.setting.maskType != 0) {
         [SVProgressHUD dismiss];
     }
+    
+    if (self.sosialSetting == nil) {
+        self.sosialSetting = [[SosialSettingData alloc]init];
+    }
     self.sosialSetting.shareMessage = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.sosialSetting.shareUrl = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
+    
+    for (id key in [self.setting.couponInputDomList keyEnumerator]) {
+        DLog(@"Key:%@ Value:%@", key, [self.setting.couponInputDomList valueForKey:key]);
+        if ( [[webView stringByEvaluatingJavaScriptFromString:@"document.URL"] hasPrefix:key]) {
+            [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@ = %@",[self.setting.couponInputDomList valueForKey:key],[PieceCoreConfig useCouponNum]]];
+            break;
+        }
+    }
 }
+
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     if (self.setting.maskType != 0) {
         [SVProgressHUD dismiss];

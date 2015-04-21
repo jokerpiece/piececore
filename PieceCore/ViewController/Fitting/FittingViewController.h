@@ -15,13 +15,12 @@
 @interface FittingViewController : BaseViewController
 @property (nonatomic,strong) NSString *question_id;
 @property (nonatomic,strong) NSString *answer_num;
-@property (strong, nonatomic) FittingRecipient *recipient;
+@property (strong, nonatomic) FittingRecipient *fittingRecipient;
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
 @property (weak, nonatomic) IBOutlet UIButton *awnser1Btn;
 @property (weak, nonatomic) IBOutlet UIButton *awnser2Btn;
 @property (weak, nonatomic) IBOutlet UIView *questionVew;
 @property (weak, nonatomic) IBOutlet UIView *shadowView;
-@property (weak, nonatomic) IBOutlet UIView *view;
 - (IBAction)awnser1Action:(id)sender;
 - (IBAction)awnser2Action:(id)sender;
 @end
