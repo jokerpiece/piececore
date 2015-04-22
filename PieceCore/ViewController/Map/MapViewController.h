@@ -1,9 +1,9 @@
 //
-//  CheckinViewController.h
-//  piece
+//  MapViewController.h
+//  pieceSample
 //
-//  Created by ハマモト  on 2014/10/07.
-//  Copyright (c) 2014年 ハマモト . All rights reserved.
+//  Created by ハマモト  on 2015/04/22.
+//  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
 #import "BaseViewController.h"
@@ -14,9 +14,7 @@
 #import "GetPointView.h"
 #import "CeckinRecipient.h"
 
-
-@interface CheckinViewController : BaseViewController<MKMapViewDelegate,CLLocationManagerDelegate>
-
+@interface MapViewController : BaseViewController<MKMapViewDelegate,CLLocationManagerDelegate>
 @property (nonatomic) CLLocationCoordinate2D location;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet MKMapView *map;

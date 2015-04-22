@@ -1,21 +1,20 @@
 //
-//  CheckinViewController.m
-//  piece
+//  MapViewController.m
+//  pieceSample
 //
-//  Created by ハマモト  on 2014/10/07.
-//  Copyright (c) 2014年 ハマモト . All rights reserved.
+//  Created by ハマモト  on 2015/04/22.
+//  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "CheckinViewController.h"
+#import "MapViewController.h"
 
-@interface CheckinViewController ()
+@interface MapViewController ()
 
 @end
 
-@implementation CheckinViewController
-
+@implementation MapViewController
 - (void)loadView {
-    [[NSBundle mainBundle] loadNibNamed:@"CheckinViewController" owner:self options:nil];
+    [[NSBundle mainBundle] loadNibNamed:@"MapViewController" owner:self options:nil];
 }
 
 -(void)viewDidLoadLogic{
@@ -240,6 +239,34 @@
     spot2.lat = @"35.647244";
     spot2.lon = @"140.033701";
     [self.spotRecipient.list addObject:spot2];
+    
+    SpotData *spot3 = [[SpotData alloc]init];
+    spot3.shopName = @"幕張メッセ店";
+    spot3.address = @"千葉県千葉市 美浜区中瀬2丁目1";
+    spot3.lat = @"35.647244";
+    spot3.lon = @"140.033701";
+    [self.spotRecipient.list addObject:spot3];
+    
+    SpotData *spot4 = [[SpotData alloc]init];
+    spot4.shopName = @"幕張メッセ店";
+    spot4.address = @"千葉県千葉市 美浜区中瀬2丁目1";
+    spot4.lat = @"35.647244";
+    spot4.lon = @"140.033701";
+    [self.spotRecipient.list addObject:spot4];
+    
+    SpotData *spot5 = [[SpotData alloc]init];
+    spot5.shopName = @"幕張メッセ店";
+    spot5.address = @"千葉県千葉市 美浜区中瀬2丁目1";
+    spot5.lat = @"35.647244";
+    spot5.lon = @"140.033701";
+    [self.spotRecipient.list addObject:spot5];
+    
+    SpotData *spot6 = [[SpotData alloc]init];
+    spot6.shopName = @"幕張メッセ店";
+    spot6.address = @"千葉県千葉市 美浜区中瀬2丁目1";
+    spot6.lat = @"35.647244";
+    spot6.lon = @"140.033701";
+    [self.spotRecipient.list addObject:spot6];
     
     for (SpotData *data in self.spotRecipient.list) {
         CustomAnnotation* pin = [[CustomAnnotation alloc] init];

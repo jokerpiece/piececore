@@ -28,6 +28,7 @@
     }
     // write something.
     self.setting = setting;
+    self.isCancel = NO;
     return self;
 }
 
@@ -39,6 +40,7 @@
     self.setting = [[WebViewSettingData alloc]init];
     // write something.
     self.setting.url = url;
+    self.isCancel = NO;
     return self;
 }
 
@@ -67,7 +69,21 @@
             [self.webView loadRequest:req];
         }
     }
+    if (self.isCancel) {
+        [[[UIAlertView alloc] initWithTitle:@"読み込みが途中で中止しました。"
+                                    message:@"再読み込みしますか？"
+                                   delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"OK", nil] show];
+    }
 }
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        self.isCancel = NO;
+        [self.webView reload];
+    }
+}
+
 -(void)setBlowserBtn{
     
     if (!self.setting.isDispBrowserBackBtn && !self.setting.isDispBrowserNextBtn) {
@@ -84,23 +100,25 @@
     }
     
     if (self.setting.isDispBrowserBackBtn) {
-        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [backBtn setImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
-        backBtn.frame = CGRectMake(0, positionY, 35, 64);
+        self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.backBtn setImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
+        self.backBtn.frame = CGRectMake(0, positionY, 35, 64);
         
-        [backBtn addTarget:self
+        [self.backBtn addTarget:self
                     action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:backBtn];
+        self.backBtn.alpha = 0;
+        [self.view addSubview:self.backBtn];
     }
     
     if (self.setting.isDispBrowserNextBtn) {
-        UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [nextBtn setImage:[UIImage imageNamed:@"nextBtn.png"] forState:UIControlStateNormal];
-        nextBtn.frame = CGRectMake(self.viewSize.width -35, positionY, 35, 64);
+        self.nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self.nextBtn setImage:[UIImage imageNamed:@"nextBtn.png"] forState:UIControlStateNormal];
+        self.nextBtn.frame = CGRectMake(self.viewSize.width -35, positionY, 35, 64);
         
-        [nextBtn addTarget:self
+        [self.nextBtn addTarget:self
                     action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:nextBtn];
+        self.nextBtn.alpha = 0;
+        [self.view addSubview:self.nextBtn];
     }
     
 }
@@ -116,9 +134,18 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     if (self.setting.maskType != 0) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hudTapped:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
         [SVProgressHUD showWithMaskType:self.setting.maskType];
     }
     
+}
+- (void)hudTapped:(NSNotification *)notification
+{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
+    [SVProgressHUD dismiss];
+    [self.webView stopLoading];
+    self.isCancel = YES;
 }
 
 // ページ読込終了直後に呼ばれるデリゲートメソッド
@@ -135,12 +162,24 @@
     self.sosialSetting.shareUrl = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
     
     for (id key in [self.setting.couponInputDomList keyEnumerator]) {
-        DLog(@"Key:%@ Value:%@", key, [self.setting.couponInputDomList valueForKey:key]);
         if ( [[webView stringByEvaluatingJavaScriptFromString:@"document.URL"] hasPrefix:key]) {
             [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@ = %@",[self.setting.couponInputDomList valueForKey:key],[PieceCoreConfig useCouponNum]]];
             break;
         }
     }
+    
+    if (webView.canGoForward) {
+        self.nextBtn.alpha = 1.0f;
+    } else {
+        self.nextBtn.alpha = 0;
+    }
+    
+    if (webView.canGoBack) {
+        self.backBtn.alpha = 1.0f;
+    } else {
+        self.backBtn.alpha = 0;
+    }
+
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -174,11 +213,27 @@
                                           otherButtonTitles:@"OK", nil];
     [alert show];
 }
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if(navigationType == UIWebViewNavigationTypeLinkClicked || UIWebViewNavigationTypeFormSubmitted) {
+        NSString *scheme = [[request URL] scheme];
+        if ([scheme isEqualToString:@"http"] ||
+            [scheme isEqualToString:@"https"]) {
+            self.isCancel = NO;
+        }
+    }
+    return YES;
+}
+
+
+
 - (void)dealloc {
     
     [self.webView setDelegate:nil];
     [self.webView stopLoading];
     [self.webView.layer removeAllAnimations];
     [self.webView removeFromSuperview];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 @end
