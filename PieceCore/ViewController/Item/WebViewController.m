@@ -155,11 +155,11 @@
         [SVProgressHUD dismiss];
     }
     
-    if (self.sosialSetting == nil) {
-        self.sosialSetting = [[SosialSettingData alloc]init];
-    }
-    self.sosialSetting.shareMessage = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    self.sosialSetting.shareUrl = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
+//    if (self.sosialSetting == nil) {
+//        self.sosialSetting = [[SosialSettingData alloc]init];
+//    }
+//    self.sosialSetting.shareMessage = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+//    self.sosialSetting.shareUrl = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
     
     for (id key in [self.setting.couponInputDomList keyEnumerator]) {
         if ( [[webView stringByEvaluatingJavaScriptFromString:@"document.URL"] hasPrefix:key]) {
