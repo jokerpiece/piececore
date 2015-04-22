@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLbl;
 @property (nonatomic,weak) id delegate;
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
-@property (nonatomic) bool isResponse;
 @property (strong, nonatomic) SurveyRecipient *surveyRecipient;
 @property (weak, nonatomic) IBOutlet UIView *surveyView;
 @end
