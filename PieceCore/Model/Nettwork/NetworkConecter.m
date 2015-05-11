@@ -32,7 +32,17 @@
          } failure:^(NSURLSessionDataTask *task, NSError *error) {
              [self.delegate receiveError:error sendId:sendId];
          }];
-    
-    
+}
+
+-(void)sendActionWithAFHTTPSessionManager:(AFHTTPSessionManager *)manager url:(NSString *)url  param:(NSMutableDictionary*)param{
+    [manager POST:url
+       parameters:param
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              [self.delegate receiveSucceed:responseObject sendId:url];
+              // 通信に成功した場合の処理
+              DLog(@"responseObject: %@", responseObject);
+          } failure:^(NSURLSessionDataTask *task, NSError *error) {
+              [self.delegate receiveError:error sendId:url];
+          }];
 }
 @end

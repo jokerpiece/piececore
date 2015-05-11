@@ -15,5 +15,8 @@
 
 @interface NetworkConecter : NSObject
 @property (nonatomic,weak) id delegate;
+@property (nonatomic) NSDictionary *headerParam;
+
 -(void)sendActionSendId:(NSString *)sendId param:(NSDictionary*)param;
+-(void)sendActionWithAFHTTPSessionManager:(AFHTTPSessionManager *)manager url:(NSString *)url  param:(NSMutableDictionary*)param;
 @end

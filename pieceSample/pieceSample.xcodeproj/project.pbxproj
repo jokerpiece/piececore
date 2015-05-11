@@ -60,6 +60,8 @@
 		37949AA01ABBE7DC002E5194 /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37949A9E1ABBE7DC002E5194 /* ProfileNameTableViewCell.xib */; };
 		37949AA31ABFEEAE002E5194 /* BaseInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37949AA21ABFEEAE002E5194 /* BaseInputCell.m */; };
 		37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB131AA45F8C00EA7CB9 /* MonthAndDatePickerViewController.xib */; };
+		37B4E1501AE73BD200A082A3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E14E1AE73BD200A082A3 /* MapViewController.m */; };
+		37B4E1511AE73BD200A082A3 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B4E14F1AE73BD200A082A3 /* MapViewController.xib */; };
 		37D758421AB1738900E6B421 /* SosialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D758401AB1738900E6B421 /* SosialViewController.m */; };
 		37D758431AB1738900E6B421 /* SosialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37D758411AB1738900E6B421 /* SosialViewController.xib */; };
 		37D758451AB1743800E6B421 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D758441AB1743800E6B421 /* Social.framework */; };
@@ -160,8 +162,6 @@
 		37E3EBB21AA45F8C00EA7CB9 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB301AA45F8C00EA7CB9 /* ItemListViewController.xib */; };
 		37E3EBB31AA45F8C00EA7CB9 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB321AA45F8C00EA7CB9 /* WebViewController.m */; };
 		37E3EBB41AA45F8C00EA7CB9 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB331AA45F8C00EA7CB9 /* WebViewController.xib */; };
-		37E3EBB51AA45F8C00EA7CB9 /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB361AA45F8C00EA7CB9 /* CheckinViewController.m */; };
-		37E3EBB61AA45F8C00EA7CB9 /* CheckinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB371AA45F8C00EA7CB9 /* CheckinViewController.xib */; };
 		37E3EBC51AA45F8C00EA7CB9 /* StampViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB511AA45F8C00EA7CB9 /* StampViewController.m */; };
 		37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB521AA45F8C00EA7CB9 /* StampViewController.xib */; };
 		37E3EBC71AA45F8C00EA7CB9 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB551AA45F8C00EA7CB9 /* SurveyViewController.m */; };
@@ -250,6 +250,9 @@
 		37949A9E1ABBE7DC002E5194 /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
 		37949AA11ABFEEAE002E5194 /* BaseInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInputCell.h; sourceTree = "<group>"; };
 		37949AA21ABFEEAE002E5194 /* BaseInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInputCell.m; sourceTree = "<group>"; };
+		37B4E14D1AE73BD200A082A3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		37B4E14E1AE73BD200A082A3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		37B4E14F1AE73BD200A082A3 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		37D7583F1AB1738900E6B421 /* SosialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SosialViewController.h; sourceTree = "<group>"; };
 		37D758401AB1738900E6B421 /* SosialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SosialViewController.m; sourceTree = "<group>"; };
 		37D758411AB1738900E6B421 /* SosialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SosialViewController.xib; sourceTree = "<group>"; };
@@ -334,7 +337,7 @@
 		37E3EAC61AA45F8C00EA7CB9 /* PieceCoreConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieceCoreConfig.m; sourceTree = "<group>"; };
 		37E3EAC81AA45F8C00EA7CB9 /* CoreDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDelegate.h; sourceTree = "<group>"; };
 		37E3EAC91AA45F8C00EA7CB9 /* CoreDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDelegate.m; sourceTree = "<group>"; };
-		37E3EACB1AA45F8C00EA7CB9 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = "<group>"; };
+		37E3EACB1AA45F8C00EA7CB9 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DLog.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		37E3EACD1AA45F8C00EA7CB9 /* NetworkConecter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConecter.h; sourceTree = "<group>"; };
 		37E3EACE1AA45F8C00EA7CB9 /* NetworkConecter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkConecter.m; sourceTree = "<group>"; };
 		37E3EAD01AA45F8C00EA7CB9 /* coupon_get_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coupon_get_btn.png; sourceTree = "<group>"; };
@@ -414,9 +417,6 @@
 		37E3EB311AA45F8C00EA7CB9 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		37E3EB321AA45F8C00EA7CB9 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		37E3EB331AA45F8C00EA7CB9 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
-		37E3EB351AA45F8C00EA7CB9 /* CheckinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinViewController.h; sourceTree = "<group>"; };
-		37E3EB361AA45F8C00EA7CB9 /* CheckinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CheckinViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		37E3EB371AA45F8C00EA7CB9 /* CheckinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckinViewController.xib; sourceTree = "<group>"; };
 		37E3EB501AA45F8C00EA7CB9 /* StampViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StampViewController.h; sourceTree = "<group>"; };
 		37E3EB511AA45F8C00EA7CB9 /* StampViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StampViewController.m; sourceTree = "<group>"; };
 		37E3EB521AA45F8C00EA7CB9 /* StampViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StampViewController.xib; sourceTree = "<group>"; };
@@ -1092,9 +1092,9 @@
 		37E3EB341AA45F8C00EA7CB9 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				37E3EB351AA45F8C00EA7CB9 /* CheckinViewController.h */,
-				37E3EB361AA45F8C00EA7CB9 /* CheckinViewController.m */,
-				37E3EB371AA45F8C00EA7CB9 /* CheckinViewController.xib */,
+				37B4E14D1AE73BD200A082A3 /* MapViewController.h */,
+				37B4E14E1AE73BD200A082A3 /* MapViewController.m */,
+				37B4E14F1AE73BD200A082A3 /* MapViewController.xib */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -1201,6 +1201,11 @@
 					37E3EA511AA45F6800EA7CB9 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = MCM25T6BXG;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					37E3EA6A1AA45F6800EA7CB9 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -1280,12 +1285,12 @@
 				37E3EB8A1AA45F8C00EA7CB9 /* tab_icon_more.png in Resources */,
 				37E3EB661AA45F8C00EA7CB9 /* CabinSketch-Regular.otf in Resources */,
 				37E3EB871AA45F8C00EA7CB9 /* tab_icon_flyer.png in Resources */,
-				37E3EBB61AA45F8C00EA7CB9 /* CheckinViewController.xib in Resources */,
 				37E3EBB41AA45F8C00EA7CB9 /* WebViewController.xib in Resources */,
 				37E3EB7F1AA45F8C00EA7CB9 /* woman.gif in Resources */,
 				378F31831AC533AA0068224A /* news_02.png in Resources */,
 				37E3EB8F1AA45F8C00EA7CB9 /* tab_icon_stamp.png in Resources */,
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
+				37B4E1511AE73BD200A082A3 /* MapViewController.xib in Resources */,
 				376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */,
 				376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */,
 				37E3EB851AA45F8C00EA7CB9 /* tab_icon_coupon.png in Resources */,
@@ -1392,12 +1397,12 @@
 				37D758421AB1738900E6B421 /* SosialViewController.m in Sources */,
 				37E3EB621AA45F8C00EA7CB9 /* KinenbiData.m in Sources */,
 				37E3EB961AA45F8C00EA7CB9 /* RoundView.m in Sources */,
+				37B4E1501AE73BD200A082A3 /* MapViewController.m in Sources */,
 				37E3EB5A1AA45F8C00EA7CB9 /* FlyerHeaderData.m in Sources */,
 				37E3EB571AA45F8C00EA7CB9 /* CouponData.m in Sources */,
 				37E3EB721AA45F8C00EA7CB9 /* Common.m in Sources */,
 				371941F91AC549700033FBCA /* TitleNameData.m in Sources */,
 				37E3EB741AA45F8C00EA7CB9 /* CoreDelegate.m in Sources */,
-				37E3EBB51AA45F8C00EA7CB9 /* CheckinViewController.m in Sources */,
 				37949A4D1AB6C497002E5194 /* HistoryTableViewCell.m in Sources */,
 				37D7584A1AB2786300E6B421 /* TWActivity.m in Sources */,
 				37E3EB631AA45F8C00EA7CB9 /* SettingData.m in Sources */,

@@ -96,7 +96,7 @@
     } else if (self.setting.browserBtnPosition == BrowserBtnPositionMiddle){
         positionY = self.viewSize.height * 0.5;
     } else if (self.setting.browserBtnPosition == BrowserBtnPositionDown) {
-        positionY = self.viewSize.height - self.viewSize.height - TabbarHight - NavigationHight;
+        positionY = self.viewSize.height - TabbarHight - NavigationHight;
     }
     
     if (self.setting.isDispBrowserBackBtn) {

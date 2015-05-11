@@ -11,8 +11,8 @@
 @implementation WebViewSettingData
 - (id) init {
     if (self = [super init]) {
-        self.maskType = SVProgressHUDMaskTypeBlack;
-        self.browserBtnPosition = BrowserBtnPositionMiddle;
+        self.maskType = SVProgressHUDMaskTypeClear;
+        self.browserBtnPosition = BrowserBtnPositionDown;
         self.isDispBrowserBackBtn = YES;
         self.isDispBrowserNextBtn = YES;
         self.isReloadEveryTime = NO;

@@ -223,14 +223,12 @@
     
     self.navigationController.navigationBar.topItem.title = [PieceCoreConfig titleNameData].useCouponTitle;
     self.chengeCoupnTypeBtn.backgroundColor = [UIColor colorWithRed:0.18 green:0.31 blue:0.31 alpha:1.0];
-    self.messageLbl.text = @"使用できるクーポンを所持していません。";
 }
 -(void)dispGetCouponMode{
     UIImage *img = [UIImage imageNamed:@"coupon_use.png"];
     [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
     self.navigationController.navigationBar.topItem.title = [PieceCoreConfig titleNameData].getCouponTitle;
     self.chengeCoupnTypeBtn.backgroundColor = [UIColor orangeColor];
-    self.messageLbl.text = @"申し訳ございません。\n現在、取得できるクーポンがありません。";
 }
 -(void)startAnimation:(id)sender{
     UIButton *btn = (UIButton *)sender;
@@ -298,6 +296,13 @@
         
     } else{
         self.couponRecipient = recipient;
+        if (recipient.list.count == 0) {
+            if (self.mode == useCoupon) {
+                self.messageLbl.text = @"使用できるクーポンを所持していません。";
+            } else {
+                self.messageLbl.text = @"取得できるクーポンがありません。";
+            }
+        }
         [self createSlider];
         CGRect frame = self.scroll.frame;
         frame.origin.x = frame.size.width * self.page.currentPage;
