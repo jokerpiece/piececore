@@ -11,4 +11,5 @@
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *text;
 @property (strong, nonatomic) NSString *coupon_code;
+@property (strong, nonatomic) NSString *coupon_url;
 @end

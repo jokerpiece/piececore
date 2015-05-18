@@ -19,6 +19,7 @@
 }
 
 -(void)viewDidLoadLogic{
+    self.messageLbl.frame = CGRectMake(self.viewSize.width * 0.5 - (223 * 0.5), self.viewSize.height * 0.5 - 88 , 223, 61);
     SDWebImageManager.sharedManager.delegate = self;
     self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;    
     UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
@@ -45,7 +46,8 @@
     } else {
         [self dispGetCouponMode];
     }
-    [self syncAction];}
+    [self syncAction];
+}
 
 
 -(void)getCouponAction:(NSString *)coupnId{
@@ -178,6 +180,14 @@
     if(self.mode == useCoupon){
         //TODO couponidからitem一覧取得のapiが未実装
         //[self itemSyncAction];
+        CouponData *couponData = [self.couponRecipient.list objectAtIndex:self.getPage];
+        if ([Common isNotEmptyString:couponData.coupon_url]) {
+            WebViewController *webVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:couponData.coupon_url];
+            webVc.title = [PieceCoreConfig titleNameData].useCouponTitle;;
+            // 画面をPUSHで遷移させる
+            [self.navigationController pushViewController:webVc animated:YES];
+            return;
+        }
         [self setCouponNum];
     }
     
@@ -312,13 +322,13 @@
 }
 
 -(void)setCouponNum{
-    CouponData *couponModel = [self.couponRecipient.list objectAtIndex:self.getPage];
+    CouponData *couponData = [self.couponRecipient.list objectAtIndex:self.getPage];
     
     
-    [PieceCoreConfig setUseCouponNum:couponModel.coupon_code];
+    [PieceCoreConfig setUseCouponNum:couponData.coupon_code];
 
     UIPasteboard *board = [UIPasteboard generalPasteboard];
-    [board setValue:[NSString stringWithFormat:@"%@",couponModel.coupon_code] forPasteboardType:@"public.utf8-plain-text"];
+    [board setValue:[NSString stringWithFormat:@"%@",couponData.coupon_code] forPasteboardType:@"public.utf8-plain-text"];
     [super showAlert:@"確認" message:@"クーポン番号をコピーしました。\n購入画面でクーポン番号入力欄にペーストして下さい。"];
     
     if ([PieceCoreConfig tabnumberShopping]) {

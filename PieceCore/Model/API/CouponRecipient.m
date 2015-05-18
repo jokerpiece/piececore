@@ -29,6 +29,7 @@
     data.text = [dec valueForKey:@"text"];
     data.img_url = [dec valueForKey:@"img_url"];
     data.coupon_code = [dec valueForKey:@"coupon_code"];
+    data.coupon_url = [dec valueForKey:@"coupon_url"];
     return data;
 }
 @end
