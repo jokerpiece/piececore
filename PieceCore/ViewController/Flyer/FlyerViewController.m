@@ -250,15 +250,16 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.frame = CGRectMake( 10, 10, self.viewSize.width - 20, 40 );
-            [[btn layer]setCornerRadius:15.0f];
-            [btn setClipsToBounds:YES];
-            btn.backgroundColor = [UIColor grayColor];
-            btn.tintColor = [UIColor whiteColor];
-            [btn setTitle:@"他の商品を見る" forState:UIControlStateNormal];
-            [btn addTarget:self action:@selector(onTapButton:) forControlEvents:UIControlEventTouchUpInside ];
-            [cell.contentView addSubview:btn];
+            self.searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            self.searchBtn.frame = CGRectMake( 10, 10, self.viewSize.width - 20, 40 );
+            [[self.searchBtn layer]setCornerRadius:15.0f];
+            [self.searchBtn setClipsToBounds:YES];
+            self.searchBtn.backgroundColor = [UIColor grayColor];
+            self.searchBtn.tintColor = [UIColor whiteColor];
+            [self.searchBtn setTitle:@"他の商品を見る" forState:UIControlStateNormal];
+            [self.searchBtn addTarget:self action:@selector(onTapButton:) forControlEvents:UIControlEventTouchUpInside ];
+            self.searchBtn.alpha = 0;
+            [cell.contentView addSubview:self.searchBtn];
         }
         return cell;
     }
@@ -266,7 +267,11 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    if (self.isSearchBtnInvisible) {
+        return 2;
+    } else {
+        return 3;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -401,6 +406,10 @@
         self.flyerRecipient = (FlyerRecipient *)recipient;
         [self createSlider];
         [self.table reloadData];
+        if (!self.isSearchBtnInvisible) {
+            self.searchBtn.alpha = 1.0f;
+        }
+
     }
     
 }

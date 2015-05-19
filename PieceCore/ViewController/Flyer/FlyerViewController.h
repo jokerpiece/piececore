@@ -27,6 +27,8 @@
 @property (nonatomic) float headerHeight;
 @property (nonatomic) float pageControllHeight;
 @property (nonatomic) float bodyWidh;
+@property (nonatomic) UIButton *searchBtn;
+@property (nonatomic) bool isSearchBtnInvisible;
 - (void)view_Tapped:(UITapGestureRecognizer *)sender;
 
 -(void)createSlider;
