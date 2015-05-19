@@ -17,6 +17,7 @@
 @property (nonatomic) UIButton *backBtn;
 @property (nonatomic) UIButton *nextBtn;
 @property (nonatomic) bool isCancel;
+@property (nonatomic) int loadCount;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle webSetting:(WebViewSettingData *)setting;

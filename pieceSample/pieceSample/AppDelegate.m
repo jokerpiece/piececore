@@ -31,7 +31,6 @@
     [PieceCoreConfig setAppId:@""];
     [PieceCoreConfig setSplashInterval:[[NSNumber alloc]initWithFloat:2.0f ]];
     [PieceCoreConfig setAppKey:@"1111"];
-    [PieceCoreConfig setUseBeacon:YES];
 }
 
 -(void)setThemeColor{

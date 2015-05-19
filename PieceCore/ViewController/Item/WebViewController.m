@@ -133,6 +133,7 @@
 // ページ読込開始直後に呼ばれるデリゲートメソッド
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+    self.loadCount ++;
     if (self.setting.maskType != 0) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hudTapped:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
         [SVProgressHUD showWithMaskType:self.setting.maskType];
@@ -151,7 +152,9 @@
 // ページ読込終了直後に呼ばれるデリゲートメソッド
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    if (self.setting.maskType != 0) {
+
+    self.loadCount --;
+    if (self.setting.maskType != 0 && self.loadCount <= 0) {
         [SVProgressHUD dismiss];
     }
     
@@ -183,6 +186,7 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    self.loadCount --;
     if (self.setting.maskType != 0) {
         [SVProgressHUD dismiss];
     }
