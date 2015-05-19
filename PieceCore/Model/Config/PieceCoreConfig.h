@@ -50,7 +50,6 @@ extern const float TabbarHight;
 + (NSString *)shopId;
 + (NSString *)appKey;
 + (NSNumber *)splashInterval;
-+ (BOOL *)isUseBeacon;
 + (NSString *)useCouponNum;
 + (TitleNameData *)titleNameData;
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
@@ -62,7 +61,6 @@ extern const float TabbarHight;
 + (void)setAppKey:(NSString *)appKey;
 + (void)setSplashInterval:(NSNumber *)interval;
 + (void)setTitleNameData:(TitleNameData *)titleNameData;
-+ (void)setUseBeacon:(BOOL *)isUseBeacon;
 + (void)setUseCouponNum:(NSString *)useCouponNum;
 
 

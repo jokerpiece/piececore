@@ -202,7 +202,7 @@
             errMsg = @"通信できませんでした。\n電波状態をお確かめ下さい。";
             break;
         default:
-            errMsg = [NSString stringWithFormat:@"エラーコード：%ld",(long)error.code];
+            return;
             break;
     }
     
