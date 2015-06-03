@@ -20,6 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap:)];
+    self.singleTap.delegate = self;
+    self.singleTap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:self.singleTap];
+    
     int i = 0;
     int selectrow = 0;
     for (NSString *syurui in self.dataList) {
@@ -32,6 +37,11 @@
     [self.pickerView selectRow:selectrow inComponent:0 animated:NO];
     // Do any additional setup after loading the view.
 }
+
+-(void)onSingleTap:(UITapGestureRecognizer *)recognizer {
+    [self.delegate didCancelButtonClickedSinglePicker:self];
+}
+
 
 # pragma mark UIPIkerView's Delegate
 // 列(component)の数を返す

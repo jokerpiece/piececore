@@ -21,11 +21,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap:)];
+    self.singleTap.delegate = self;
+    self.singleTap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:self.singleTap];
     if (self.strDate.length != 0) {
         self.datePicker.date = [Common stringToDate: self.strDate];
     }
 }
-
+-(void)onSingleTap:(UITapGestureRecognizer *)recognizer {
+    [self.delegate didCancelButtonClicked:self];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

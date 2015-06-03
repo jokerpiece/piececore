@@ -27,6 +27,8 @@ typedef enum {
 @property (nonatomic,strong) NSString *couponId;
 @property (weak, nonatomic) IBOutlet UILabel *messageLbl;
 @property (nonatomic) int getCoupnBtnRactHeight;
+@property (nonatomic) bool isDispGetBtn;
 -(void)createSlider;
 -(void)setCouponNum;
+- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle isDispGetBtn:(bool)isDispGetBtn;
 @end

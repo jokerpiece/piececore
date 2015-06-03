@@ -14,23 +14,48 @@
 
 @implementation CouponViewController
 
+- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle isDispGetBtn:(bool)isDispGetBtn
+{
+    self = [super initWithNibName:nibName bundle:nil];
+    if (!self) {
+        return nil;
+    }
+    self.isDispGetBtn = isDispGetBtn;
+    
+    return self;
+}
+- (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle {
+    self = [super initWithNibName:nibName bundle:nil];
+    if (!self) {
+        return nil;
+    }
+    self.isDispGetBtn = YES;
+    
+    return self;
+}
+
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"CouponViewController" owner:self options:nil];
+    
 }
 
 -(void)viewDidLoadLogic{
     self.messageLbl.frame = CGRectMake(self.viewSize.width * 0.5 - (223 * 0.5), self.viewSize.height * 0.5 - 88 , 223, 61);
     SDWebImageManager.sharedManager.delegate = self;
-    self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;    
-    UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
-    self.chengeCoupnTypeBtn = [[UIButton alloc]init];
-    [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
-    self.chengeCoupnTypeBtn.frame = CGRectMake(30, 0, 80, 30);
-    [self.chengeCoupnTypeBtn addTarget:self action:@selector(changeCoupnTypeAction:)
-                      forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barbtn = [[UIBarButtonItem alloc] initWithCustomView:self.chengeCoupnTypeBtn];
     
-    self.navigationItem.rightBarButtonItem = barbtn;
+    if (self.isDispGetBtn) {
+        self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;
+        UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
+        self.chengeCoupnTypeBtn = [[UIButton alloc]init];
+        [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
+        self.chengeCoupnTypeBtn.frame = CGRectMake(30, 0, 80, 30);
+        [self.chengeCoupnTypeBtn addTarget:self action:@selector(changeCoupnTypeAction:)
+                          forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *barbtn = [[UIBarButtonItem alloc] initWithCustomView:self.chengeCoupnTypeBtn];
+        
+        self.navigationItem.rightBarButtonItem = barbtn;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,12 +65,15 @@
 
 - (void)viewDidAppearLogic
 {
-    DLog(@"受け取りcouponID:%@",self.couponId);
-    if (self.mode == useCoupon) {
-        [self dispUseCouponMode];
-    } else {
-        [self dispGetCouponMode];
+    if (self.isDispGetBtn) {
+        if (self.mode == useCoupon) {
+            [self dispUseCouponMode];
+        } else {
+            [self dispGetCouponMode];
+        }
     }
+    DLog(@"受け取りcouponID:%@",self.couponId);
+    
     [self syncAction];
 }
 
@@ -103,13 +131,16 @@
         [iv addGestureRecognizer:[[UITapGestureRecognizer alloc]
                                   initWithTarget:self action:@selector(view_Tapped:)]];
         iv.tag = i;
-        if (self.mode == getCoupon) {
+        if (self.mode == getCoupon && self.isDispGetBtn) {
             UIView *msk = [[UIView alloc]initWithFrame:CGRectMake(0, 0, iv.frame.size.width, iv.frame.size.height)];
             msk.backgroundColor = [UIColor blackColor];
             msk.alpha = 0.4f;
             [iv addSubview:msk];
         }
-        [self setButton:iv tag:i];
+        if (self.isDispGetBtn) {
+            [self setButton:iv tag:i];
+        }
+
         [self.scroll addSubview:iv];
         
         i ++;
@@ -177,7 +208,8 @@
 
 - (void)view_Tapped:(UITapGestureRecognizer *)sender
 {
-    if(self.mode == useCoupon){
+    
+    if(self.mode == useCoupon || !self.isDispGetBtn){
         //TODO couponidからitem一覧取得のapiが未実装
         //[self itemSyncAction];
         CouponData *couponData = [self.couponRecipient.list objectAtIndex:self.getPage];
@@ -215,11 +247,17 @@
     switch (self.mode) {
         case getCoupon:
             self.mode = useCoupon;
-            [self dispUseCouponMode];
+            if (self.isDispGetBtn) {
+                [self dispUseCouponMode];
+            }
+            
             break;
         case useCoupon:
             self.mode = getCoupon;
-            [self dispGetCouponMode];
+            if (self.isDispGetBtn) {
+                [self dispGetCouponMode];
+            }
+            
             break;
         default:
             break;
@@ -310,7 +348,7 @@
             if (self.mode == useCoupon) {
                 self.messageLbl.text = @"使用できるクーポンを所持していません。";
             } else {
-                self.messageLbl.text = @"取得できるクーポンがありません。";
+                self.messageLbl.text = @"現在、配布中のクーポンがありません。";
             }
         }
         [self createSlider];
@@ -326,7 +364,7 @@
     
     
     [PieceCoreConfig setUseCouponNum:couponData.coupon_code];
-
+    
     UIPasteboard *board = [UIPasteboard generalPasteboard];
     [board setValue:[NSString stringWithFormat:@"%@",couponData.coupon_code] forPasteboardType:@"public.utf8-plain-text"];
     [super showAlert:@"確認" message:@"クーポン番号をコピーしました。\n購入画面でクーポン番号入力欄にペーストして下さい。"];

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SinglePickerViewController : UIViewController
+@interface SinglePickerViewController : UIViewController<UIGestureRecognizerDelegate>
+
 @property (strong, nonatomic) NSMutableArray *dataList;
 @property (strong, nonatomic) NSString *selectData;
+@property(nonatomic, strong) UITapGestureRecognizer *singleTap;
 @property (nonatomic,weak) id delegate;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 - (IBAction)cancelAction:(id)sender;

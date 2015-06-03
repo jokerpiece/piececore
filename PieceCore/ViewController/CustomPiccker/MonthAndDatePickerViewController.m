@@ -20,6 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap:)];
+    self.singleTap.delegate = self;
+    self.singleTap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:self.singleTap];
+    
     NSString *strMonth = @"";
     NSString *strDay = @"";
     int initMonth = 1;
@@ -55,6 +60,11 @@
     [self.pickerView selectRow:initDay -1 inComponent:1 animated:NO];
     // Do any additional setup after loading the view.
 }
+
+-(void)onSingleTap:(UITapGestureRecognizer *)recognizer {
+    [self.delegate didCancelButtonClicked:self];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

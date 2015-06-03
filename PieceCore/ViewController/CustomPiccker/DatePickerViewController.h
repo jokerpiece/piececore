@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Common.h"
 
-@interface DatePickerViewController : UIViewController
+@interface DatePickerViewController : UIViewController<UIGestureRecognizerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBtn;
 @property (copy, nonatomic) NSString *columnId;
 @property (copy, nonatomic) NSString *strDate;
 @property (nonatomic,weak) id delegate;
+@property(nonatomic, strong) UITapGestureRecognizer *singleTap;
 - (IBAction)doneAction:(id)sender;
 - (IBAction)cancelAction:(id)sender;
 
