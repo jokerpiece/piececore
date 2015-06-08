@@ -11,16 +11,6 @@
 #import "InfoListViewController.h"
 #import "CategoryViewController.h"
 #import "TabbarViewController.h"
-#import "FittingViewController.h"
-#import "BarcodeReaderViewController.h"
-#import "HistoryViewController.h"
-#import "StampViewController.h"
-#import "WebViewController.h"
-#import "HistoryViewController.h"
-#import "SosialViewController.h"
-#import "ProfileViewController.h"
-#import "CouponViewController.h"
-#import "MapViewController.h"
 
 
 @implementation AppDelegate
@@ -28,115 +18,110 @@
 
 -(void)setConfig{
     [PieceCoreConfig setShopId:@"pieceSample"];
-    [PieceCoreConfig setAppId:@""];
-    [PieceCoreConfig setSplashInterval:[[NSNumber alloc]initWithFloat:2.0f ]];
     [PieceCoreConfig setAppKey:@"1111"];
-}
-
--(void)setThemeColor{
-    self.theme = [[ThemeData alloc]initThemeDefault];
+    [PieceCoreConfig setAppId:@""];
 }
 
 //UITabBarController初期化
 - (NSMutableArray *)getTabbarDataList
 {
     NSMutableArray *tabbarDataList = [NSMutableArray array];
-
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil]
-                                                                imgName:@"tab_icon_shopping.png"
-                                                          selectImgName:@"tab_icon_shopping.png"
-                                                               tabTitle:@"Information"
-                                                                  title:@"INFORMATION"]];
-    
-    WebViewSettingData *webSetting = [[WebViewSettingData alloc]init];
-    webSetting.url = @"http://www.cocacoca.jp";
-    [webSetting.couponInputDomList setObject:@"document.forms[4].COUPONCODE.value" forKey:@"http://cart6.shopserve.jp/-/cocacoca.jp/smp_cart.php"];
-
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil webSetting:webSetting]
-                                                                imgName:@"tab_icon_news.png"
-                                                          selectImgName:@"tab_icon_news.png"
-                                                               tabTitle:@"Information"
-                                                                  title:@"INFORMATION"]];
-
-//    SosialSettingData *sosialSetting = [[SosialSettingData alloc]init];
-    FlyerViewController *flyerVc =[[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil];
-//    flyerVc.sosialSetting = sosialSetting;
-//    
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:flyerVc
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil]
                                                                 imgName:@"tab_icon_flyer.png"
                                                           selectImgName:@"tab_icon_flyer.png"
                                                                tabTitle:@"Flyer"
                                                                   title:@"FLYER"]];
-    
-    CategoryViewController *cv =[[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:cv
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[InfoListViewController alloc] initWithNibName:@"InfoListViewController" bundle:nil]
+                                                                imgName:@"tab_icon_news.png"
+                                                          selectImgName:@"tab_icon_news.png"
+                                                               tabTitle:@"Info"
+                                                                  title:@"INFO"]];
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil]
                                                                 imgName:@"tab_icon_shopping.png"
                                                           selectImgName:@"tab_icon_shopping.png"
                                                                tabTitle:@"Shopping"
-                                                                  title:@"Shopping"]];
-    
-    CouponViewController *coupon =[[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:coupon
-                                                                imgName:@"tab_icon_coupon.png"
-                                                          selectImgName:@"tab_icon_coupon.png"
-                                                               tabTitle:@"Shopping"
-                                                                  title:@"Shopping"]];
-    
-    StampViewController *stamp = [[StampViewController alloc] initWithNibName:@"StampViewController" bundle:nil];
-    stamp.messageLbl.text = @"来店するたびにスタンプが貯まります！\nスタンプが溜まったらお得なクーポンと交換できます。";
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               stamp
-                                                                imgName:@"icon_stamp.png"
-                                                          selectImgName:@"icon_stamp.png"
-                                                               tabTitle:@"Stamp"
-                                                                  title:@"Stamp"]];
-        
-    
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil]
-                                                                imgName:@"tab_icon_map.png"
-                                                          selectImgName:@"tab_icon_map.png"
-                                                               tabTitle:@"Map"
-                                                                  title:@"MAP"]];
-    
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[FittingViewController alloc] initWithNibName:@"FittingViewController" bundle:nil]
-                                                                imgName:@"icon_fitting.png"
-                                                          selectImgName:@"icon_fitting.png"
-                                                               tabTitle:@"Fitting"
-                                                                  title:@"フィッティング"]];
-//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-//                               [[HistoryViewController alloc] initWithNibName:@"HistoryViewController" bundle:nil]
-//                                                                imgName:@"icon_history.png"
-//                                                          selectImgName:@"icon_history.png"
-//                                                               tabTitle:@"History"
-//                                                                  title:@"配送状況一覧"]];
-    NSMutableArray *cellList = [NSMutableArray array];
-    [cellList addObject:[[ProfileNameTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileSexTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileBirthdayTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileAnniversaryTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileAdressTableViewCell alloc]init]];
-    [cellList addObject:[[ProfileSendBtnTableViewCell alloc]init]];
-    ProfileViewController *profileVc = [[ProfileViewController alloc]initWithNibName:@"ProfileViewController" bundle:nil];
-    profileVc.cellList = cellList;
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:profileVc
-                                                                imgName:@"tab_icon_profile.png"
-                                                          selectImgName:@"tab_icon_profile.png"
-                                                               tabTitle:@"Profile"
-                                                                  title:@"PROFILE"]];
-    
+                                                                  title:@"SHOPPING"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
                                                                 imgName:@"tab_icon_coupon.png"
                                                           selectImgName:@"tab_icon_coupon.png"
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
-    
-    
     return tabbarDataList;
 }
 
+- (void)setTabBarController
+{
+    self.window =  [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.tabBarController = [[TabbarViewController alloc] init];
+    NSMutableArray *navigationControllerList = [NSMutableArray array];
+    NSMutableArray *tabbarDataList = [self getTabbarDataList];
+    
+    int i = 0;
+    for (TabbarData *tabbarData in tabbarDataList) {
+        if (tabbarData.viewController != nil) {
+            [self setTabbarNumberWithVc:tabbarData.viewController index:i];
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarData.viewController];
+            navigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:tabbarData.tabTitle
+                                                                            image:[[UIImage imageNamed:tabbarData.imgName] imageWithRenderingMode:UIImageRenderingModeAutomatic]
+                                                                    selectedImage:[[UIImage imageNamed:tabbarData.selectImgName] imageWithRenderingMode:UIImageRenderingModeAutomatic]];
+            navigationController.tabBarItem.title = tabbarData.tabTitle;
+            [navigationControllerList addObject:navigationController];
+            i++;
+        }
+    }
+    
+    
+    
+    //タブのタイトル位置設定
+    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -1)];
+    NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f],
+                                 NSForegroundColorAttributeName : [UIColor grayColor]};
+    
+    NSDictionary *attributes2 = @{NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:12.0f],
+                                  NSForegroundColorAttributeName : [UIColor darkGrayColor]};
+    
+    //タブのタイトル色指定
+    [[UITabBarItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    //タブのタイトル色指定(選択中)
+    [[UITabBarItem appearance] setTitleTextAttributes:attributes2 forState:UIControlStateSelected];
+    
+    //タブアイコン選択中の色
+    [UITabBar appearance].tintColor = [UIColor darkGrayColor];
+    //タブバーの背景色
+    [UITabBar appearance].barTintColor = [UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0];
+    
+    //ビューを Controllerに追加
+    
+    [(UITabBarController *)self.tabBarController setViewControllers:navigationControllerList animated:NO];
+    
+    //windowに Controllerのビュー追加
+    [self.window setRootViewController:self.tabBarController];
+    [self.window makeKeyAndVisible];
+}
+
+-(void)setNavibarTitleAttributes{
+    [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
+    [UINavigationBar appearance].backItem.title = @"戻る";
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = CGSizeMake(0.f, -0.5f);
+    shadow.shadowColor = [UIColor darkGrayColor];
+    shadow.shadowBlurRadius = 0.f;
+    
+    NSDictionary *navbarTitleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor darkGrayColor],
+                                                 NSFontAttributeName : [UIFont boldSystemFontOfSize:22.0f],
+                                                 NSShadowAttributeName: shadow,
+                                                 NSShadowAttributeName : [UIColor blackColor]
+                                                 };
+    
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
