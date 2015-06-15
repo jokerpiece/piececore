@@ -25,4 +25,8 @@
               selectImgName:(NSString *)selectImgName
                    tabTitle:(NSString *)tabTitle
                       titleImgName:(NSString *)titleImgName;
+
+-(id)initWithViewController:(BaseViewController *)viewController
+                   tabTitle:(NSString *)tabTitle
+                      title:(NSString *)title;
 @end
