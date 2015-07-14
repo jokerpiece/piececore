@@ -63,6 +63,7 @@
 }
 
 -(void)viewWillAppearLogic{
+    self.webView.scrollView.delegate = self;
     if (self.setting.isReloadEveryTime) {
         if ([Common isNotEmptyString:self.setting.url]) {
             NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.setting.url]];
@@ -77,6 +78,37 @@
                           otherButtonTitles:@"OK", nil] show];
     }
 }
+
+//スクロールビューをドラッグし始めた際に一度実行される
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView;
+{
+    self.beginScrollOffsetY = [scrollView contentOffset].y;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    if (self.beginScrollOffsetY < [scrollView contentOffset].y) {
+        //スクロール前のオフセットよりスクロール後が多い=下を見ようとした =>スクロールバーを隠す
+        self.backBtn.alpha = 0.0f;
+        self.nextBtn.alpha = 0.0f;
+        
+    } else if ([scrollView contentOffset].y < self.beginScrollOffsetY
+               && 0.0 != self.beginScrollOffsetY) {
+        if (self.webView.canGoForward && self.setting.isDispBrowserNextBtn) {
+            self.nextBtn.alpha = 0.8f;
+        } else {
+            self.nextBtn.alpha = 0;
+        }
+        
+        if (self.webView.canGoBack && self.setting.isDispBrowserNextBtn) {
+            self.backBtn.alpha = 0.8f;
+        } else {
+            self.backBtn.alpha = 0;
+        }
+    }
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
         self.isCancel = NO;
