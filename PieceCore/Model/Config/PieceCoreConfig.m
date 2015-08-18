@@ -19,6 +19,7 @@ static NSString *_appKey = @"";
 static TitleNameData *_titleNameData = nil;
 static NSNumber *_splashIntarval = nil;
 static NSString *_useCouponNum = @"";
+static NSString *_nex8Key = @"";
 
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
@@ -130,5 +131,11 @@ const float TabbarHight = 49;
 }
 + (NSString *)useCouponNum{
     return _useCouponNum;
+}
++ (void)setNex8Key:(NSString *)nex8Key{
+    _nex8Key = nex8Key;
+}
++ (NSString *)nex8Key{
+    return _nex8Key;
 }
 @end

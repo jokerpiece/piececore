@@ -42,6 +42,9 @@ extern const float TimeSlidershow;
 extern const float NavigationHight;
 extern const float TabbarHight;
 
+
+extern NSString * const nex8Key;
+
 + (NSNumber *)tabnumberFlyer;
 + (NSNumber *)tabnumberInfo;
 + (NSNumber *)tabnumberCoupon;
@@ -52,6 +55,8 @@ extern const float TabbarHight;
 + (NSNumber *)splashInterval;
 + (NSString *)useCouponNum;
 + (TitleNameData *)titleNameData;
++ (NSString *)nex8Key;
+
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
 + (void)setTabnumberInfo:(NSNumber *)tabnumberInfo;
 + (void)setTabnumberCoupon:(NSNumber *)tabnumberCoupon;
@@ -62,6 +67,7 @@ extern const float TabbarHight;
 + (void)setSplashInterval:(NSNumber *)interval;
 + (void)setTitleNameData:(TitleNameData *)titleNameData;
 + (void)setUseCouponNum:(NSString *)useCouponNum;
++ (void)setNex8Key:(NSString *)nex8Key;
 
 
 @end
