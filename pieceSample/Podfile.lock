@@ -20,28 +20,56 @@ PODS:
   - AFNetworking/UIKit (2.5.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AWSCore (2.2.1)
+  - AWSKinesis (2.2.1):
+    - AWSCore (= 2.2.1)
+  - Bolts (1.2.0):
+    - Bolts/AppLinks (= 1.2.0)
+    - Bolts/Tasks (= 1.2.0)
+  - Bolts/AppLinks (1.2.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.2.0)
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
+  - Nex8Tracking (0.0.2):
+    - AWSCore
+    - AWSKinesis
+    - Bolts
+    - FMDB
+    - TMCache
   - Reachability (3.2)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
   - SVProgressHUD (1.1.2)
+  - TMCache (2.1.0)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UIColor+MLPFlatColors (1.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - Nex8Tracking
   - Reachability
   - SVProgressHUD (~> 1.0)
   - UIActivityIndicator-for-SDWebImage
   - UIColor+MLPFlatColors
 
 SPEC CHECKSUMS:
-  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
-  Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
-  UIActivityIndicator-for-SDWebImage: 8bd92c15280fbe54816448c6b14674145eee05c7
-  UIColor+MLPFlatColors: d74d0e59ba8eb8960c0f8136928056d91e208585
+  AFNetworking: 10e85a00bb0f475124e4ff2677bf15693b2c1523
+  AWSCore: 55eb0d5e85bc1c7a05637957a05a7328be0b06dc
+  AWSKinesis: c6697d9d7b7dce04f092a707e3b9b53d96a92013
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  Nex8Tracking: b8b5ca10d5dda1134ee9da023d2a5b752fc4b6e5
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
+  SVProgressHUD: 3afb875b9eb23acd1bed9b82495695c68621a8b2
+  TMCache: 95ebcc9b3c7e90fb5fd8fc3036cba3aa781c9bed
+  UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
+  UIColor+MLPFlatColors: 14deb8f28da06ab8918c14231d4ff49ca7cd384a
 
 COCOAPODS: 0.35.0

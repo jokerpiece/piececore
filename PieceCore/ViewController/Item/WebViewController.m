@@ -137,7 +137,7 @@
         self.backBtn.frame = CGRectMake(0, positionY, 35, 64);
         
         [self.backBtn addTarget:self
-                    action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+                         action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
         self.backBtn.alpha = 0;
         [self.view addSubview:self.backBtn];
     }
@@ -148,7 +148,7 @@
         self.nextBtn.frame = CGRectMake(self.viewSize.width -35, positionY, 35, 64);
         
         [self.nextBtn addTarget:self
-                    action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
+                         action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
         self.nextBtn.alpha = 0;
         [self.view addSubview:self.nextBtn];
     }
@@ -179,6 +179,12 @@
     [SVProgressHUD dismiss];
     [self.webView stopLoading];
     self.isCancel = YES;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"お知らせ"
+                                                    message:@"読み込みを中止しました"
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 
 // ページ読込終了直後に呼ばれるデリゲートメソッド
@@ -190,11 +196,11 @@
         [SVProgressHUD dismiss];
     }
     
-//    if (self.sosialSetting == nil) {
-//        self.sosialSetting = [[SosialSettingData alloc]init];
-//    }
-//    self.sosialSetting.shareMessage = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-//    self.sosialSetting.shareUrl = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
+    //    if (self.sosialSetting == nil) {
+    //        self.sosialSetting = [[SosialSettingData alloc]init];
+    //    }
+    //    self.sosialSetting.shareMessage = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    //    self.sosialSetting.shareUrl = [webView stringByEvaluatingJavaScriptFromString:@"document.URL"];
     
     for (id key in [self.setting.couponInputDomList keyEnumerator]) {
         if ( [[webView stringByEvaluatingJavaScriptFromString:@"document.URL"] hasPrefix:key]) {
