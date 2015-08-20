@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseInputCell.h"
+#import "ProfileSendBtnTableViewCell.h"
 
 @interface ProfileAdressTableViewCell : BaseInputCell
 @property (weak, nonatomic) IBOutlet UITextField *postTf;
 @property (weak, nonatomic) IBOutlet UITextView *adressTv;
+- (IBAction)get_post:(id)sender;
 
 @end

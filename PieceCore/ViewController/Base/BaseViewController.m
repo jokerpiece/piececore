@@ -218,4 +218,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"didExitRegion" object:nil];
 }
 
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([[url scheme] isEqualToString:@""])
+    {
+        return [self openURL:url];
+    }
+    return NO;
+}
+
+
 @end

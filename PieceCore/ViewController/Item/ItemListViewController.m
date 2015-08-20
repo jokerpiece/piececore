@@ -10,12 +10,16 @@
 
 @interface ItemListViewController ()
 
+@property BOOL *linepay_flag;
+@property UIImage *image;
+
 @end
 
 @implementation ItemListViewController
 
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"ItemListViewController" owner:self options:nil];
+       self.linepay_flag = YES;
 }
 
 - (void)viewDidLoadLogic
@@ -66,7 +70,7 @@
             
         [iv setImageWithURL:imageURL placeholderImage:nil options:SDWebImageCacheMemoryOnly usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             [cell.contentView addSubview:iv];
-        }
+        } 
         
         if ([Common isNotEmptyString:data.item_name]) {
             UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(100,20,self.viewSize.width - 110,40)];
@@ -74,7 +78,8 @@
             textLbl.font = [UIFont fontWithName:@"AppleGothic" size:15];
             textLbl.alpha = 1.0f;
             textLbl.backgroundColor = [UIColor clearColor];
-            textLbl.numberOfLines = 2;[cell.contentView addSubview:textLbl];
+            textLbl.numberOfLines = 2;
+            [cell.contentView addSubview:textLbl];
         }
         
         if ([Common isNotEmptyString:data.item_price]) {
@@ -143,12 +148,47 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.section == 0) {
         
         ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
-        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-        // 画面をPUSHで遷移させる
-        [self.navigationController pushViewController:itemVc animated:YES];
+        
+        if(self.linepay_flag == NO)
+        {
+            WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
+            // 画面をPUSHで遷移させる
+            [self.navigationController pushViewController:itemVc animated:YES];
+        }else{
+            
+            //linepay_flagがYESの時、ネイティブのビューを作成
+            linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
+
+            //商品の名前を格納
+            vc.item_name = data.item_name;
+
+            //商品画像格納
+            vc.img_url = data.img_url;
+            UIImageView *item_Image = [[UIImageView alloc] init];
+            NSURL *imageURL = [NSURL URLWithString:[data.img_url stringByAddingPercentEscapesUsingEncoding:
+                                                    NSUTF8StringEncoding]];
+            item_Image.frame = CGRectMake(60, 150, 200, 200);
+            [item_Image setImageWithURL:imageURL
+                       placeholderImage:nil
+                                options:SDWebImageCacheMemoryOnly
+            usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            vc.item_image = item_Image;
+            
+            //商品説明格納
+            vc.item_text = data.item_text;
+            
+            //商品価格格納
+            vc.item_price = data.item_price;
+            
+            //画面遷移格納
+            [self.navigationController pushViewController:vc  animated:YES];
+            return;
+            
+        }
         
     } else if(indexPath.section == 1) {
         //self.selectPage ++;
@@ -277,5 +317,11 @@
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     return [ItemRecipient alloc];
 }
+
+
+
+
+
+
 
 @end

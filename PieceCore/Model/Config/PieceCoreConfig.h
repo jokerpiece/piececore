@@ -32,6 +32,8 @@ extern NSString * const SendIdStamp;
 extern NSString * const SendIdDeliverList;
 extern NSString * const SendIdGetProfile;
 extern NSString * const SendIdSendProfile;
+extern NSString * const SendIdLinePay;
+extern NSString * const SendIdDeterminedLinePay;
 
 extern NSString * const UrlYamatoDeliver;
 extern NSString * const UrlSagawaDeliver;
@@ -41,9 +43,6 @@ extern const int DispSurveyDate;
 extern const float TimeSlidershow;
 extern const float NavigationHight;
 extern const float TabbarHight;
-
-
-extern NSString * const nex8Key;
 
 + (NSNumber *)tabnumberFlyer;
 + (NSNumber *)tabnumberInfo;
@@ -55,8 +54,6 @@ extern NSString * const nex8Key;
 + (NSNumber *)splashInterval;
 + (NSString *)useCouponNum;
 + (TitleNameData *)titleNameData;
-+ (NSString *)nex8Key;
-
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
 + (void)setTabnumberInfo:(NSNumber *)tabnumberInfo;
 + (void)setTabnumberCoupon:(NSNumber *)tabnumberCoupon;
@@ -67,7 +64,6 @@ extern NSString * const nex8Key;
 + (void)setSplashInterval:(NSNumber *)interval;
 + (void)setTitleNameData:(TitleNameData *)titleNameData;
 + (void)setUseCouponNum:(NSString *)useCouponNum;
-+ (void)setNex8Key:(NSString *)nex8Key;
 
 
 @end

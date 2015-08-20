@@ -13,4 +13,5 @@
 -(id)initWithResponseData:(NSDictionary *)data;
 -(void)setData;
 -(NSString *)valueForKey:(NSString *)key dec:(NSDictionary *)dec;
+
 @end

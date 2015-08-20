@@ -17,6 +17,10 @@
 #import "MonthAndDatePickerViewController.h"
 #import "UcIndexpathData.h"
 #import "ProfileRecipient.h"
+#import "ItemListViewController.h"
+#import "LinepayRecipient.h"
+#import "linepay_ViewController.h"
+#import "setData.h"
 
 @interface ProfileViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate,UITextViewDelegate,ProfileSendBtnDelegate>
 @property (nonatomic) NSMutableArray *cellList;
@@ -30,6 +34,7 @@
 @property (nonatomic) NSMutableArray *monthDayPickerList;
 @property (nonatomic) NSMutableArray *ucIndexpathList;
 @property (nonatomic) ProfileRecipient *profileRecipient;
+@property (nonatomic, strong) LinepayRecipient *linerecipient;
 
 @property (strong, nonatomic) UITextField *activeTf;
 @property (strong, nonatomic) UITextView *activeTv;

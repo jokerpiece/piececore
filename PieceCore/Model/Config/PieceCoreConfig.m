@@ -19,7 +19,6 @@ static NSString *_appKey = @"";
 static TitleNameData *_titleNameData = nil;
 static NSNumber *_splashIntarval = nil;
 static NSString *_useCouponNum = @"";
-static NSString *_nex8Key = @"";
 
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
@@ -45,6 +44,9 @@ NSString * const  SendIdStamp= @"stamp/";
 NSString * const  SendIdDeliverList= @"deliver_list/";
 NSString * const  SendIdGetProfile= @"get_profile/";
 NSString * const  SendIdSendProfile= @"send_profile/";
+NSString * const  SendIdLinePay = @"linepay/index.php?Action=reserve";
+NSString * const  SendIdDeterminedLinePay = @"linepay/index.php?Action=confirm";
+
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";
@@ -131,11 +133,5 @@ const float TabbarHight = 49;
 }
 + (NSString *)useCouponNum{
     return _useCouponNum;
-}
-+ (void)setNex8Key:(NSString *)nex8Key{
-    _nex8Key = nex8Key;
-}
-+ (NSString *)nex8Key{
-    return _nex8Key;
 }
 @end

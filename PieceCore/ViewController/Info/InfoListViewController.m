@@ -47,17 +47,15 @@
         
         InfoListData *data = [self.fillterList objectAtIndex:indexPath.row];
         
-        NSString *imgName = @"";
         
-        if ([Common isNotEmptyString:data.type]) {
-            if ([data.type isEqualToString:@"1"]) {
-                imgName = @"news_02.png";
-            } else if ([data.type isEqualToString:@"2"]){
-                imgName = @"news_03.png";
-            } else if ([data.type isEqualToString:@"3"]){
-                imgName = @"news_01.png";
-            }        }
-
+        NSString *imgName = @"";
+        if ([data.type isEqualToString:@"1"]) {
+            imgName = @"news_02.png";
+        } else if ([data.type isEqualToString:@"2"]){
+            imgName = @"news_03.png";
+        } else if ([data.type isEqualToString:@"3"]){
+            imgName = @"news_01.png";
+        }
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
         iv.frame = CGRectMake(10, 20, 50, 50);
         [cell.contentView addSubview:iv];
@@ -134,8 +132,7 @@
         
         InfoListData *data = [self.fillterList objectAtIndex:indexPath.row];
         
-        if (![Common isNotEmptyString: data.type]
-            || [data.type isEqualToString:@"1"]) {
+        if ([data.type isEqualToString:@"1"]) {
             self.infoId = data.info_id;
             
              NewsViewController *newsVc = [[NewsViewController alloc] initWithNibName:@"NewsViewController" bundle:nil];

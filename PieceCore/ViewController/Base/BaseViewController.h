@@ -34,4 +34,5 @@
 - (void)viewWillAppearLogic;
 - (void)viewWillDisappearLogic;
 -(void)setSosialBtn;
+-(BOOL)openURL:(NSURL *)url;
 @end

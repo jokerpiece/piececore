@@ -22,10 +22,17 @@
 -(void)setInputList {
     [self initInputList];
 }
+
+- (void)didProfileSendButton
+{
+    
+}
+
 -(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
 }
 
 - (IBAction)sendBtn:(id)sender {
     [self.delegate didProfileSendButton];
 }
+
 @end

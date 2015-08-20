@@ -200,7 +200,7 @@
         CellIdentifier = @"SendBtnCell";
     }
     BaseInputCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    [cell setInputList];
+    //[cell setInputList];
     [cell setDataWithProfileRecipient:self.profileRecipient];
     for (UITextField *tf in cell.tfList) {
         tf.delegate = self;
@@ -226,8 +226,8 @@
         ProfileSendBtnTableViewCell *sendCell = (ProfileSendBtnTableViewCell*)cell;
         sendCell.delegate = self;
     }
+       
     return (UITableViewCell *)cell;
-    
     
 }
 
@@ -376,9 +376,11 @@
 }
 
 - (void)didProfileSendButton{
+    NSLog(@"%@",self.profileRecipient.sei);
     for (BaseInputCell *cell in self.cellList) {
         [cell saveDataWithProfileRecipient:self.profileRecipient];
     }
+    
     self.isResponse = NO;
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
@@ -397,6 +399,111 @@
     [param setValue:self.profileRecipient.anniversary_name forKey:@"anniversary_name"];
     [param setValue:self.profileRecipient.anniversary forKey:@"anniversary"];
     [conecter sendActionSendId:SendIdSendProfile param:param];
+    NSLog(@"%@",self.profileRecipient.sei);
+    
+    [self dataSet];
+    
+    linepay_ViewController *vc = [[linepay_ViewController alloc]init];
+    NetworkConecter *conecter_2 = [NetworkConecter alloc];
+    conecter_2.delegate = self;
+    NSMutableDictionary *param_2 = [NSMutableDictionary dictionary];
+    [param_2 setValue:[Common getUuid] forKeyPath:@"uuid"];
+    [param_2 setValue:vc.item_name forKeyPath:@"productName"];
+    [param_2 setValue:vc.img_url forKeyPath:@"productImageUrl"];
+    [param_2 setValue:vc.item_price forKeyPath:@"amount"];
+    [param_2 setValue:vc.app_url forKeyPath:@"confirmUrl"];
+    [conecter_2 sendActionSendId:SendIdLinePay param:param_2];
+    
+   // [self checkLineInstall];
+    
+    NSString *string = vc.string;
+    NSURL *url = [NSURL URLWithString:string];
+    [[UIApplication sharedApplication] openURL:url];
+    
+
+}
+
+-(void)dataSet
+{
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    [profile_data setObject:self.profileRecipient.user_id forKey:@"USER_ID"];
+    [profile_data setValue:self.profileRecipient.password forKey:@"PASSWORD"];
+    [profile_data setValue:self.profileRecipient.sei forKey:@"SEI"];
+    [profile_data setValue:self.profileRecipient.mei forKey:@"MEI"];
+    [profile_data setValue:self.profileRecipient.berth_day forKey:@"BERTH_DAY"];
+    [profile_data setValue:self.profileRecipient.post forKey:@"POST"];
+    [profile_data setValue:self.profileRecipient.address forKey:@"ADRESS"];
+    [profile_data setValue:self.profileRecipient.sex forKey:@"SEX"];
+    [profile_data setValue:self.profileRecipient.tel forKey:@"TEL"];
+    [profile_data setValue:self.profileRecipient.mail_address forKey:@"MAIL_ADDRESS"];
+    [profile_data setValue:self.profileRecipient.anniversary_name forKey:@"ANNIVERSARY_NAME"];
+    [profile_data setValue:self.profileRecipient.anniversary forKey:@"ANNIVERSARY"];
+    
+    [profile_data setValue:@"Testだよ！" forKey:@"TEST"];
+    
+    [profile_data synchronize];
+    
+    NSString *test = [profile_data stringForKey:@"TEST"];
+    NSLog(@"%@", test);
+    
+    [profile_data setValue:@"あいうえお！" forKey:@"TEST"];
+    [profile_data synchronize];
+    test = [profile_data stringForKey:@"TEST"];
+    NSLog(@"%@", test);
+    
+    [profile_data removeObjectForKey:@"TEST"];
+    test = [profile_data stringForKey:@"TEST"];
+    NSLog(@"%@", test);
+
+    
+//    NSString *sei_str = self.profileRecipient.sei;
+//    NSString *get_sei =  [Setdata getsei:sei_str];
+//    NSLog(@"%@", get_sei);
+//    
+//    NSString *mei_str = self.profileRecipient.mei;
+//    NSString *get_mei = [Setdata getmei:mei_str];
+//    NSLog(@"%@", get_mei);
+//    
+//    NSString *address_str = self.profileRecipient.address;
+//    NSString *get_address = [Setdata getmail:address_str];
+//    NSLog(@"%@", get_address);
+//    
+//    NSString *mail_str = self.profileRecipient.mail_address;
+//    NSString *get_mail = [Setdata getmail:mail_str];
+//    NSLog(@"%@",get_mail);
+    
+}
+
+-(void)checkLineInstall{
+    NSString *string = self.linerecipient.paymentUrl;
+    NSURL *url = [NSURL URLWithString:string];
+    [[UIApplication sharedApplication] openURL:url];
+    
+    BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
+    
+    if(installed) {
+        [[UIApplication sharedApplication] canOpenURL:url];
+        
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
+                                                        message:@"iPhone上にLINEがありません。　　　インストールしますか？"
+                                                       delegate:self
+                                              cancelButtonTitle:@"キャンセル"
+                                              otherButtonTitles:@"インストール", nil];
+        [alert show];
+    }
+    
+
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1){
+        NSString *line_Url = @"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=443904275&mt=8";
+        NSURL *url = [NSURL URLWithString:line_Url];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 @end

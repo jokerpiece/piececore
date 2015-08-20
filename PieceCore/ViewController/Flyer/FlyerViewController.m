@@ -371,14 +371,14 @@
 }
 
 -(void)syncAction{
-//    if ([Common isNotEmptyString:self.fliyerId]) {
+    if ([Common isNotEmptyString:self.fliyerId]) {
         [self syncFliyerAction];
-//    } else {
-//        //お知らせ情報取得
-//        NetworkConecter *conecter = [NetworkConecter alloc];
-//        conecter.delegate = self;
-//        [conecter sendActionSendId:SendIdNewsList param:nil];
-//    }
+    } else {
+        //お知らせ情報取得
+        NetworkConecter *conecter = [NetworkConecter alloc];
+        conecter.delegate = self;
+        [conecter sendActionSendId:SendIdNewsList param:nil];
+    }
 }
 
 -(void)syncFliyerAction{
