@@ -384,25 +384,38 @@
     self.isResponse = NO;
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
+    
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    NSString *anniversary_name = [profile_data stringForKey:@"ANNIVERSARY_NAME"];
+    NSString *anniversary = [profile_data stringForKey:@"ANNIVERSARY"];
+    NSString *adress = [profile_data stringForKey:@"ADRESS"];
+    NSString *sei = [profile_data stringForKey:@"SEI"];
+    NSString *mei = [profile_data stringForKey:@"MEI"];
+    NSString *berthday = [profile_data stringForKey:@"BERTH_DAY"];
+    
+    NSLog(@"%@ %@", sei, mei);
+    NSLog(@"%@",adress);
+    NSLog(@"%@", berthday);
+    NSLog(@"%@", anniversary_name);
+    NSLog(@"%@", anniversary);
+    
+    
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:[Common getUuid] forKey:@"uuid"];
     [param setValue:self.profileRecipient.user_id forKey:@"user_id"];
     [param setValue:self.profileRecipient.password forKey:@"password"];
-    [param setValue:self.profileRecipient.sei forKey:@"sei"];
-    [param setValue:self.profileRecipient.mei forKey:@"mei"];
-    [param setValue:self.profileRecipient.berth_day forKey:@"berth_day"];
+    [param setValue:sei forKey:@"sei"];
+    [param setValue:mei forKey:@"mei"];
+    [param setValue:berthday forKey:@"berth_day"];
     [param setValue:self.profileRecipient.post forKey:@"post"];
-    [param setValue:self.profileRecipient.address forKey:@"adress"];
+    [param setValue:adress forKey:@"adress"];
     [param setValue:self.profileRecipient.sex forKey:@"sex"];
     [param setValue:self.profileRecipient.tel forKey:@"tel"];
     [param setValue:self.profileRecipient.mail_address forKey:@"mail_address"];
-    [param setValue:self.profileRecipient.anniversary_name forKey:@"anniversary_name"];
-    [param setValue:self.profileRecipient.anniversary forKey:@"anniversary"];
+    [param setValue:anniversary_name forKey:@"anniversary_name"];
+    [param setValue:anniversary forKey:@"anniversary"];
     [conecter sendActionSendId:SendIdSendProfile param:param];
-    NSLog(@"%@",self.profileRecipient.sei);
-    
-    [self dataSet];
-    
+
     linepay_ViewController *vc = [[linepay_ViewController alloc]init];
     NetworkConecter *conecter_2 = [NetworkConecter alloc];
     conecter_2.delegate = self;
@@ -413,72 +426,11 @@
     [param_2 setValue:vc.item_price forKeyPath:@"amount"];
     [param_2 setValue:vc.app_url forKeyPath:@"confirmUrl"];
     [conecter_2 sendActionSendId:SendIdLinePay param:param_2];
-    
-   // [self checkLineInstall];
-    
-    NSString *string = vc.string;
-    NSURL *url = [NSURL URLWithString:string];
+    NSString *string = NULL;
+    NSString *get_lineurl = [Setdata getlineurl:string];
+    NSLog(@"%@",get_lineurl);
+    NSURL *url = [NSURL URLWithString:get_lineurl];
     [[UIApplication sharedApplication] openURL:url];
-    
-
-}
-
--(void)dataSet
-{
-    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
-    [profile_data setObject:self.profileRecipient.user_id forKey:@"USER_ID"];
-    [profile_data setValue:self.profileRecipient.password forKey:@"PASSWORD"];
-    [profile_data setValue:self.profileRecipient.sei forKey:@"SEI"];
-    [profile_data setValue:self.profileRecipient.mei forKey:@"MEI"];
-    [profile_data setValue:self.profileRecipient.berth_day forKey:@"BERTH_DAY"];
-    [profile_data setValue:self.profileRecipient.post forKey:@"POST"];
-    [profile_data setValue:self.profileRecipient.address forKey:@"ADRESS"];
-    [profile_data setValue:self.profileRecipient.sex forKey:@"SEX"];
-    [profile_data setValue:self.profileRecipient.tel forKey:@"TEL"];
-    [profile_data setValue:self.profileRecipient.mail_address forKey:@"MAIL_ADDRESS"];
-    [profile_data setValue:self.profileRecipient.anniversary_name forKey:@"ANNIVERSARY_NAME"];
-    [profile_data setValue:self.profileRecipient.anniversary forKey:@"ANNIVERSARY"];
-    
-    [profile_data setValue:@"Testだよ！" forKey:@"TEST"];
-    
-    [profile_data synchronize];
-    
-    NSString *test = [profile_data stringForKey:@"TEST"];
-    NSLog(@"%@", test);
-    
-    [profile_data setValue:@"あいうえお！" forKey:@"TEST"];
-    [profile_data synchronize];
-    test = [profile_data stringForKey:@"TEST"];
-    NSLog(@"%@", test);
-    
-    [profile_data removeObjectForKey:@"TEST"];
-    test = [profile_data stringForKey:@"TEST"];
-    NSLog(@"%@", test);
-
-    
-//    NSString *sei_str = self.profileRecipient.sei;
-//    NSString *get_sei =  [Setdata getsei:sei_str];
-//    NSLog(@"%@", get_sei);
-//    
-//    NSString *mei_str = self.profileRecipient.mei;
-//    NSString *get_mei = [Setdata getmei:mei_str];
-//    NSLog(@"%@", get_mei);
-//    
-//    NSString *address_str = self.profileRecipient.address;
-//    NSString *get_address = [Setdata getmail:address_str];
-//    NSLog(@"%@", get_address);
-//    
-//    NSString *mail_str = self.profileRecipient.mail_address;
-//    NSString *get_mail = [Setdata getmail:mail_str];
-//    NSLog(@"%@",get_mail);
-    
-}
-
--(void)checkLineInstall{
-    NSString *string = self.linerecipient.paymentUrl;
-    NSURL *url = [NSURL URLWithString:string];
-    [[UIApplication sharedApplication] openURL:url];
-    
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
     
     if(installed) {
@@ -492,11 +444,7 @@
                                               otherButtonTitles:@"インストール", nil];
         [alert show];
     }
-    
-
 }
-
-
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1){

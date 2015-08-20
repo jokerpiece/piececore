@@ -109,6 +109,10 @@
     [param setValue:self.item_price forKeyPath:@"amount"];
     [param setValue:self.app_url forKeyPath:@"confirmUrl"];
     [conecter sendActionSendId:SendIdLinePay param:param];
+    self.string = self.linepeyrecipent.paymentUrl;
+    NSString *str_lineurl = self.string;
+    NSString *get_lineurl = [Setdata getlineurl:str_lineurl];
+//    NSLog(@"%@", get_lineurl);
     
     [self addrell_select];
     
@@ -140,7 +144,7 @@
     text.backgroundColor = [UIColor grayColor];
     [self.uv addSubview:text];
     
-    self.button_1 = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.4, screen.size.width*0.8, screen.size.height*0.1)];
+    self.button_1 = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.35, screen.size.width*0.8, screen.size.height*0.1)];
     [self.button_1 setTitle:@"以前と同じ配送先に送る" forState:UIControlStateNormal];
     [self.button_1 addTarget:self
                          action:@selector(button_1_Tapeped:)
@@ -148,7 +152,7 @@
     self.button_1.backgroundColor = [UIColor colorWithRed:0.098f green:0.666f blue:0.352f alpha:1.000f];
     [self.uv addSubview:self.button_1];
     
-    self.button_2 = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.65, screen.size.width*0.8, screen.size.height*0.1)];
+    self.button_2 = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.75, screen.size.width*0.8, screen.size.height*0.1)];
     [self.button_2 setTitle:@"配送先を変更する" forState:UIControlStateNormal];
     [self.button_2 addTarget:self
                          action:@selector(button_2_Tapeped:)
@@ -156,6 +160,22 @@
     self.button_2.backgroundColor = [UIColor colorWithRed:0.098f green:0.666f blue:0.352f alpha:1.000f];
     [self.uv addSubview:self.button_2];
     
+    UILabel *adress_label = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.06, screen.size.height*0.26, screen.size.width*0.8, screen.size.height*0.5)];
+    
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    NSString *adress = [profile_data stringForKey:@"ADRESS"];
+    
+    adress_label.text = adress;
+    adress_label.font = [UIFont fontWithName:@"AppleGothic" size:16];
+    [self.uv addSubview:adress_label];
+    
+    UILabel *user_name = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.06, screen.size.height*0.35, screen.size.width*0.8, screen.size.height*0.5)];
+    NSString *sei = [profile_data stringForKey:@"SEI"];
+    NSString *mei = [profile_data stringForKey:@"MEI"];
+    NSString *name = [sei stringByAppendingString:mei];
+    user_name.text = name;
+     adress_label.font = [UIFont fontWithName:@"AppleGothic" size:16];
+    [self.uv addSubview:user_name];
 }
 
 -(void)button_1_Tapeped:(id)sender
@@ -176,12 +196,15 @@
     
     //Lineに移動
     self.string = self.linepeyrecipent.paymentUrl;
-    NSURL *url = [NSURL URLWithString:self.string];
-//    [[UIApplication sharedApplication] openURL:url];
-
-    linepayReservSquareViewController *line = [[linepayReservSquareViewController alloc] initWithNibName:@"linepayReservSquareViewController" bundle:nil];
+    NSString *str_lineurl = self.string;
+    NSString *get_lineurl = [Setdata getlineurl:str_lineurl];
     
-    [self.navigationController pushViewController:line animated:YES];
+    NSURL *url = [NSURL URLWithString:get_lineurl];
+    [[UIApplication sharedApplication] openURL:url];
+
+//    linepayReservSquareViewController *line = [[linepayReservSquareViewController alloc] initWithNibName:@"linepayReservSquareViewController" bundle:nil];
+    
+    //[self.navigationController pushViewController:line animated:YES];
 
     
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
@@ -238,9 +261,11 @@
 -(void)setDataWithRecipient:(LinepayRecipient *)recipient sendId:(NSString *)sendId
 {
     self.linepeyrecipent = recipient;
-    
-    NSLog(@"%@", self.linepeyrecipent.paymentUrl);
-//    [[UIApplication sharedApplication] openURL:self.linepeyrecipent.paymentUrl];
+    self.string = self.linepeyrecipent.paymentUrl;
+    NSString *str_lineurl = self.string;
+    NSString *get_lineurl = [Setdata getlineurl:str_lineurl];
+    NSLog(@"%@",get_lineurl);
+    //    [[UIApplication sharedApplication] openURL:self.linepeyrecipent.paymentUrl];
 }
 
 -(BaseRecipient *)getDataWithSendId:(NSString *)sentId{

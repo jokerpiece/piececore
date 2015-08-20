@@ -30,6 +30,10 @@
 
 -(void)closeKeyboard{
     //キーボード以外を押された時の処理
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    [profile_data setObject:self.adressTv.text forKey:@"ADRESS"];
+
+
     [self.viewForBaselineLayout endEditing:YES];
 }
 
