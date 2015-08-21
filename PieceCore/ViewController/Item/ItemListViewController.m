@@ -9,8 +9,6 @@
 #import "ItemListViewController.h"
 
 @interface ItemListViewController ()
-
-@property BOOL *linepay_flag;
 @property UIImage *image;
 
 @end
@@ -19,7 +17,6 @@
 
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"ItemListViewController" owner:self options:nil];
-       self.linepay_flag = YES;
 }
 
 - (void)viewDidLoadLogic
@@ -149,11 +146,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSString *linepay_ID = LinepayId;
+    
     if (indexPath.section == 0) {
         
         ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
         
-        if(self.linepay_flag == NO)
+        if(linepay_ID.intValue == 0)
         {
             WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
             // 画面をPUSHで遷移させる
@@ -179,8 +178,14 @@
             vc.item_image = item_Image;
             
             //商品説明格納
+            //item_text内の改行、スペース削除
             vc.item_text = data.item_text;
-            
+            [vc.item_text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSCharacterSet *space = [NSCharacterSet whitespaceCharacterSet];
+            NSString *result = [vc.item_text stringByTrimmingCharactersInSet:space];
+            NSLog(@"%@", vc.item_text);
+            NSLog(@"%d", result.length);
+                    
             //商品価格格納
             vc.item_price = data.item_price;
             
