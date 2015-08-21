@@ -159,7 +159,6 @@
             [self.navigationController pushViewController:itemVc animated:YES];
         }else{
             
-            //linepay_flagがYESの時、ネイティブのビューを作成
             linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
 
             //商品の名前を格納
@@ -180,11 +179,27 @@
             //商品説明格納
             //item_text内の改行、スペース削除
             vc.item_text = data.item_text;
-            [vc.item_text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            NSCharacterSet *space = [NSCharacterSet whitespaceCharacterSet];
-            NSString *result = [vc.item_text stringByTrimmingCharactersInSet:space];
-            NSLog(@"%@", vc.item_text);
-            NSLog(@"%d", result.length);
+
+            NSLog(@"%d", vc.item_text.length);
+            
+            //item_text内の改行、スペース削除
+            vc.item_text = [vc.item_text stringByReplacingOccurrencesOfString:@"　" withString:@""];
+            NSMutableArray *lines = [NSMutableArray array];
+            [vc.item_text enumerateLinesUsingBlock:^(NSString *line, BOOL *stop) {
+                [lines addObject:line];
+            }];
+            
+            NSMutableString *text = [[NSMutableString alloc] init];
+            for(int i = 0; i < [lines count]; i++)
+            {
+                if(![lines[i]isEqualToString:@""])
+                {
+                    [text appendString:lines[i]];
+                }
+            }
+            
+            NSLog(@"%@", text);
+            vc.item_text = text;
                     
             //商品価格格納
             vc.item_price = data.item_price;
