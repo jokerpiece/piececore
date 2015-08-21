@@ -429,21 +429,21 @@
     NSString *string = NULL;
     NSString *get_lineurl = [Setdata getlineurl:string];
     NSLog(@"%@",get_lineurl);
-    NSURL *url = [NSURL URLWithString:get_lineurl];
-    [[UIApplication sharedApplication] openURL:url];
-    BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
-    
-    if(installed) {
-        [[UIApplication sharedApplication] canOpenURL:url];
-        
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
-                                                        message:@"iPhone上にLINEがありません。　　　インストールしますか？"
-                                                       delegate:self
-                                              cancelButtonTitle:@"キャンセル"
-                                              otherButtonTitles:@"インストール", nil];
-        [alert show];
-    }
+//    NSURL *url = [NSURL URLWithString:get_lineurl];
+//    [[UIApplication sharedApplication] openURL:url];
+//    BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
+//    
+//    if(installed) {
+//        [[UIApplication sharedApplication] canOpenURL:url];
+//        
+//    }else{
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
+//                                                        message:@"iPhone上にLINEがありません。　　　インストールしますか？"
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"キャンセル"
+//                                              otherButtonTitles:@"インストール", nil];
+//        [alert show];
+//    }
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

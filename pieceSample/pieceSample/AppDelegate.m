@@ -20,6 +20,7 @@
     [PieceCoreConfig setShopId:@"pieceSample"];
     [PieceCoreConfig setAppKey:@"1111"];
     [PieceCoreConfig setAppId:@""];
+    [PieceCoreConfig setLinepay:@"1"];
 }
 
 //UITabBarController初期化

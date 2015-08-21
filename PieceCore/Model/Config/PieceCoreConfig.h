@@ -64,6 +64,7 @@ extern const float TabbarHight;
 + (void)setSplashInterval:(NSNumber *)interval;
 + (void)setTitleNameData:(TitleNameData *)titleNameData;
 + (void)setUseCouponNum:(NSString *)useCouponNum;
++ (void)setLinepay:(NSString *)linepay;
 
 
 @end
