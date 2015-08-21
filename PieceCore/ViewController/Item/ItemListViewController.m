@@ -51,13 +51,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
     if (indexPath.section == 0) {
         NSString *CellIdentifier = [NSString stringWithFormat:@"CreateCell%ld",(long)indexPath.row];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         //if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1.0];
-        ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
+        //ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
         UIImageView *iv = [[UIImageView alloc] init];
         iv.frame = CGRectMake(10, 5, 80, 80);
         
@@ -177,7 +178,6 @@
             vc.item_image = item_Image;
             
             //商品説明格納
-            //item_text内の改行、スペース削除
             vc.item_text = data.item_text;
 
             NSLog(@"%d", vc.item_text.length);
@@ -197,7 +197,7 @@
                     [text appendString:lines[i]];
                 }
             }
-            
+            NSLog(@"%d", (text.length%14));
             NSLog(@"%@", text);
             vc.item_text = text;
                     
@@ -215,6 +215,8 @@
         self.isSearchedMore = YES;
         [self syncAction];
         
+    } else {
+        NSLog(@"out_break");
     }
     
 }

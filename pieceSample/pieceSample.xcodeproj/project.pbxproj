@@ -11,6 +11,12 @@
 		10B66AFE1B61F34300AF524B /* linepayReservSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10B66AFC1B61F34300AF524B /* linepayReservSquareViewController.xib */; };
 		10B66B041B623CD900AF524B /* Setdata.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B66B031B623CD900AF524B /* Setdata.m */; };
 		10B66B071B6B6D3F00AF524B /* DeterminedLinePayRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B66B061B6B6D3F00AF524B /* DeterminedLinePayRecipient.m */; };
+		10E77B3F1B872706002B295A /* NewsImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E77B3D1B872706002B295A /* NewsImageViewCell.m */; };
+		10E77B401B872706002B295A /* NewsImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E77B3E1B872706002B295A /* NewsImageViewCell.xib */; };
+		10E77B441B872767002B295A /* NewsUrlViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E77B421B872767002B295A /* NewsUrlViewCell.m */; };
+		10E77B451B872767002B295A /* NewsUrlViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E77B431B872767002B295A /* NewsUrlViewCell.xib */; };
+		10E77B491B87278A002B295A /* NewsTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E77B471B87278A002B295A /* NewsTextViewCell.m */; };
+		10E77B4A1B87278A002B295A /* NewsTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E77B481B87278A002B295A /* NewsTextViewCell.xib */; };
 		10EF4FC31B58D317009066C2 /* LinepayRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EF4FC21B58D317009066C2 /* LinepayRecipient.m */; };
 		10F582A41B4F57BB009E5C32 /* linepay_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F582A21B4F57BB009E5C32 /* linepay_ViewController.m */; };
 		10F582A51B4F57BB009E5C32 /* linepay_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F582A31B4F57BB009E5C32 /* linepay_ViewController.xib */; };
@@ -194,6 +200,15 @@
 		10B66B031B623CD900AF524B /* Setdata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setdata.m; sourceTree = "<group>"; };
 		10B66B051B6B6D3F00AF524B /* DeterminedLinePayRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeterminedLinePayRecipient.h; sourceTree = "<group>"; };
 		10B66B061B6B6D3F00AF524B /* DeterminedLinePayRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeterminedLinePayRecipient.m; sourceTree = "<group>"; };
+		10E77B3C1B872706002B295A /* NewsImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsImageViewCell.h; sourceTree = "<group>"; };
+		10E77B3D1B872706002B295A /* NewsImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsImageViewCell.m; sourceTree = "<group>"; };
+		10E77B3E1B872706002B295A /* NewsImageViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsImageViewCell.xib; sourceTree = "<group>"; };
+		10E77B411B872767002B295A /* NewsUrlViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsUrlViewCell.h; sourceTree = "<group>"; };
+		10E77B421B872767002B295A /* NewsUrlViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsUrlViewCell.m; sourceTree = "<group>"; };
+		10E77B431B872767002B295A /* NewsUrlViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsUrlViewCell.xib; sourceTree = "<group>"; };
+		10E77B461B87278A002B295A /* NewsTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTextViewCell.h; sourceTree = "<group>"; };
+		10E77B471B87278A002B295A /* NewsTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTextViewCell.m; sourceTree = "<group>"; };
+		10E77B481B87278A002B295A /* NewsTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTextViewCell.xib; sourceTree = "<group>"; };
 		10EF4FC11B58D317009066C2 /* LinepayRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinepayRecipient.h; sourceTree = "<group>"; };
 		10EF4FC21B58D317009066C2 /* LinepayRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinepayRecipient.m; sourceTree = "<group>"; };
 		10F582A11B4F57BB009E5C32 /* linepay_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linepay_ViewController.h; path = ../PieceCore/ViewController/Item/linepay_ViewController.h; sourceTree = "<group>"; };
@@ -989,6 +1004,15 @@
 				37668BB71AC28DC500D08368 /* ProfileSendBtnTableViewCell.h */,
 				37668BB81AC28DC500D08368 /* ProfileSendBtnTableViewCell.m */,
 				37668BB91AC28DC500D08368 /* ProfileSendBtnTableViewCell.xib */,
+				10E77B3C1B872706002B295A /* NewsImageViewCell.h */,
+				10E77B3D1B872706002B295A /* NewsImageViewCell.m */,
+				10E77B3E1B872706002B295A /* NewsImageViewCell.xib */,
+				10E77B411B872767002B295A /* NewsUrlViewCell.h */,
+				10E77B421B872767002B295A /* NewsUrlViewCell.m */,
+				10E77B431B872767002B295A /* NewsUrlViewCell.xib */,
+				10E77B461B87278A002B295A /* NewsTextViewCell.h */,
+				10E77B471B87278A002B295A /* NewsTextViewCell.m */,
+				10E77B481B87278A002B295A /* NewsTextViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1293,7 +1317,9 @@
 				37949A711ABA9670002E5194 /* backBtn@2x.png in Resources */,
 				37E3EBA41AA45F8C00EA7CB9 /* SinglePickerViewController.xib in Resources */,
 				37E3EB8B1AA45F8C00EA7CB9 /* tab_icon_news.png in Resources */,
+				10E77B451B872767002B295A /* NewsUrlViewCell.xib in Resources */,
 				37E3EB8E1AA45F8C00EA7CB9 /* tab_icon_sosial.png in Resources */,
+				10E77B401B872706002B295A /* NewsImageViewCell.xib in Resources */,
 				37949A7D1ABAC534002E5194 /* icon_fitting@2x.png in Resources */,
 				37949A8C1ABBE551002E5194 /* ProfileSexTableViewCell.xib in Resources */,
 				379129741AB2B40B001237C7 /* camera@2x.png in Resources */,
@@ -1347,6 +1373,7 @@
 				37949A871ABBD8C2002E5194 /* ProfileViewController.xib in Resources */,
 				37E3EB8C1AA45F8C00EA7CB9 /* tab_icon_setting.png in Resources */,
 				37E3EB811AA45F8C00EA7CB9 /* sample_logo.png in Resources */,
+				10E77B4A1B87278A002B295A /* NewsTextViewCell.xib in Resources */,
 				37E3EB891AA45F8C00EA7CB9 /* tab_icon_map.png in Resources */,
 				37E3EB801AA45F8C00EA7CB9 /* work.png in Resources */,
 				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
@@ -1421,6 +1448,8 @@
 				37E3EB9B1AA45F8C00EA7CB9 /* CategoryViewController.m in Sources */,
 				37E3EB931AA45F8C00EA7CB9 /* GetPointView.m in Sources */,
 				37E3EB6B1AA45F8C00EA7CB9 /* FittingRecipient.m in Sources */,
+				10E77B441B872767002B295A /* NewsUrlViewCell.m in Sources */,
+				10E77B3F1B872706002B295A /* NewsImageViewCell.m in Sources */,
 				10B66B071B6B6D3F00AF524B /* DeterminedLinePayRecipient.m in Sources */,
 				37E3EB601AA45F8C00EA7CB9 /* ItemData.m in Sources */,
 				37E3EB711AA45F8C00EA7CB9 /* SurveyRecipient.m in Sources */,
@@ -1466,6 +1495,7 @@
 				37E3EBAD1AA45F8C00EA7CB9 /* InfoListViewController.m in Sources */,
 				37E3EB6E1AA45F8C00EA7CB9 /* ItemRecipient.m in Sources */,
 				3791297E1AB2DC45001237C7 /* ThemeData.m in Sources */,
+				10E77B491B87278A002B295A /* NewsTextViewCell.m in Sources */,
 				37E3EB5E1AA45F8C00EA7CB9 /* HistoryOrderData.m in Sources */,
 				37E3EBC51AA45F8C00EA7CB9 /* StampViewController.m in Sources */,
 				37E3EB6F1AA45F8C00EA7CB9 /* NewsRecipient.m in Sources */,

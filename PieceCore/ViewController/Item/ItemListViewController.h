@@ -42,4 +42,3 @@ typedef enum {
 @property (nonatomic) NSString *item_price;
 
 @end
-
