@@ -58,6 +58,7 @@
             } else if ([data.type isEqualToString:@"1"]){
                 imgName = @"news_02.png";
             }
+        
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
         iv.frame = CGRectMake(10, 20, 50, 50);
         [cell.contentView addSubview:iv];
