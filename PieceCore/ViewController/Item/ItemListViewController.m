@@ -51,14 +51,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
+    //ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
     if (indexPath.section == 0) {
         NSString *CellIdentifier = [NSString stringWithFormat:@"CreateCell%ld",(long)indexPath.row];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         //if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1.0];
-        //ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
+        ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
         UIImageView *iv = [[UIImageView alloc] init];
         iv.frame = CGRectMake(10, 5, 80, 80);
         
