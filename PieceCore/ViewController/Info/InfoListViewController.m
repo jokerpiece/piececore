@@ -47,18 +47,17 @@
         
         InfoListData *data = [self.fillterList objectAtIndex:indexPath.row];
         NSLog(@"%@",data.type);
-        NSString *imgName = @"";
-
-        if (data.type == NULL){
-            imgName = @"news_01.png";
-
-        if ([data.type isEqualToString:@"1"]) {
-            imgName = @"news_02.png";
-        } else if ([data.type isEqualToString:@"2"]){
-            imgName = @"news_03.png";
-        } else if ([data.type isEqualToString:@"3"]){
-            imgName = @"news_01.png";
-        }
+        NSString *imgName = @"news_02.png";
+        
+            if (data.type == nil || [data.type isEqual:[NSNull null]]) {
+                imgName = @"news_02.png";
+            } else if ([data.type isEqualToString:@"2"]){
+                imgName = @"news_03.png";
+            } else if ([data.type isEqualToString:@"3"]){
+                imgName = @"news_01.png";
+            } else if ([data.type isEqualToString:@"1"]){
+                imgName = @"news_02.png";
+            }
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
         iv.frame = CGRectMake(10, 20, 50, 50);
         [cell.contentView addSubview:iv];
@@ -72,7 +71,6 @@
         [cell.contentView addSubview:textLbl];
 //        }
         return cell;
-        }
     } else {
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -93,8 +91,6 @@
         }
         return cell;
     }
-    
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
