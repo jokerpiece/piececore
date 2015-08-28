@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/ItemListViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462361212.09416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "-syncAction"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/ItemListViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462361212.09416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
             landmarkName = "-getDataWithSendId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/ItemListViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462361212.09416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "340"
-            endingLineNumber = "340"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "-getDataWithSendId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/ItemListViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462361212.09416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/ItemListViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462361212.09416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
             landmarkName = "-setDataWithRecipient:sendId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/ItemListViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462361212.09416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "-setHeaderImg"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "252"
@@ -474,7 +474,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "250"
@@ -538,7 +538,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "267"
@@ -554,7 +554,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "275"
@@ -570,7 +570,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "232"
@@ -586,7 +586,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "234"
@@ -823,7 +823,7 @@
                   symbolName = "-[linepayReservSquareViewController profilerecipient]"
                   moduleName = "pieceSample"
                   urlString = "file:///Users/ohnuma/xcode/piececore/pieceSample/linepayReservSquareViewController.h"
-                  timestampString = "461841867.219564"
+                  timestampString = "462418898.563652"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -837,7 +837,7 @@
                   symbolName = "-[linepayReservSquareViewController setProfilerecipient:]"
                   moduleName = "pieceSample"
                   urlString = "file:///Users/ohnuma/xcode/piececore/pieceSample/linepayReservSquareViewController.h"
-                  timestampString = "461841867.219863"
+                  timestampString = "462418898.564086"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -1094,7 +1094,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "199"
@@ -1110,7 +1110,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "194"
@@ -1270,7 +1270,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "204"
@@ -1286,7 +1286,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
@@ -1302,7 +1302,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -1318,7 +1318,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -1376,11 +1376,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/ItemListViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462361212.09416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1408,7 +1408,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Item/linepay_ViewController.m"
-            timestampString = "461838181.399367"
+            timestampString = "462418343.390606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
@@ -1436,17 +1436,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PieceCore/ViewController/Info/NewsViewController.m"
+            timestampString = "462353363.391651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-setDataWithRecipient:sendId:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Info/NewsViewController.m"
-            timestampString = "461843043.790653"
+            timestampString = "462353631.036192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-setDataWithRecipient:sendId:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PieceCore/ViewController/Info/NewsViewController.h"
+            timestampString = "462417001.8328"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "titleLbl"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NewsViewController titleLbl]"
+                  moduleName = "pieceSample"
+                  urlString = "file:///Users/ohnuma/xcode/piececore/PieceCore/ViewController/Info/NewsViewController.h"
+                  timestampString = "462353801.464964"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NewsViewController setTitleLbl:]"
+                  moduleName = "pieceSample"
+                  urlString = "file:///Users/ohnuma/xcode/piececore/PieceCore/ViewController/Info/NewsViewController.h"
+                  timestampString = "462353801.465305"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

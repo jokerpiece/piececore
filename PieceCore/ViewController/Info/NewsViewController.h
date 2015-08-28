@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 #import "NewsRecipient.h"
-#import "NewsTextViewCell.h"
-#import "NewsImageViewCell.h"
-#import "NewsUrlViewCell.h"
+#import "WebViewController.h"
 
 @interface NewsViewController : BaseViewController<NetworkDelegate, UITextViewDelegate>
+
+@property (nonatomic, strong) UIView *uv;
+@property (nonatomic, strong) UIScrollView *sv;
+
 @property (nonatomic,strong) NSString *news_id;
 @property (strong, nonatomic) NewsRecipient *newsRecipient;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
