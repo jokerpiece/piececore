@@ -823,7 +823,7 @@
                   symbolName = "-[linepayReservSquareViewController profilerecipient]"
                   moduleName = "pieceSample"
                   urlString = "file:///Users/ohnuma/xcode/piececore/pieceSample/linepayReservSquareViewController.h"
-                  timestampString = "462427716.041857"
+                  timestampString = "462445576.699917"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -837,7 +837,7 @@
                   symbolName = "-[linepayReservSquareViewController setProfilerecipient:]"
                   moduleName = "pieceSample"
                   urlString = "file:///Users/ohnuma/xcode/piececore/pieceSample/linepayReservSquareViewController.h"
-                  timestampString = "462427716.042296"
+                  timestampString = "462445576.700247"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -1440,11 +1440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Info/NewsViewController.m"
-            timestampString = "462353363.391651"
+            timestampString = "462444687.008653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-setDataWithRecipient:sendId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1456,11 +1456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../PieceCore/ViewController/Info/NewsViewController.m"
-            timestampString = "462353631.036192"
+            timestampString = "462444687.008653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "-setDataWithRecipient:sendId:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1567,6 +1567,52 @@
             endingLineNumber = "54"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PieceCore/ViewController/Info/NewsViewController.h"
+            timestampString = "462443737.70073"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "news_img"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NewsViewController news_text]"
+                  moduleName = "pieceSample"
+                  urlString = "file:///Users/ohnuma/xcode/piececore/PieceCore/ViewController/Info/NewsViewController.h"
+                  timestampString = "462445576.715155"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NewsViewController setNews_text:]"
+                  moduleName = "pieceSample"
+                  urlString = "file:///Users/ohnuma/xcode/piececore/PieceCore/ViewController/Info/NewsViewController.h"
+                  timestampString = "462445576.715442"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

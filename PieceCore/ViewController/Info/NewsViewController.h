@@ -22,4 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *textTv;
 @property (nonatomic) NSMutableArray *cellList;
 @property (weak, nonatomic) IBOutlet UITableView *table;
+
+@property (nonatomic, strong) NSString *news_text;
 @end

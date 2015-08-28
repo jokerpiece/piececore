@@ -10,7 +10,6 @@
 #import "CoreDelegate.h"
 
 @interface NewsViewController ()
-
 @end
 
 @implementation NewsViewController
@@ -88,62 +87,70 @@
     self.sv.contentSize = self.uv.bounds.size;
     [self.view addSubview:self.sv];
     
-    UILabel *title = [[UILabel alloc] init];
-    title.frame = CGRectMake(self.viewSize.width*0.1, self.viewSize.height*0.15, self.viewSize.width*0.8, self.viewSize.height*0.05);
-    //title.backgroundColor = [UIColor blueColor];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, self.viewSize.height*0.15,
+                                                               self.viewSize.width*0.8, self.viewSize.height*0.05)];
     title.text = self.newsRecipient.title;
     title.font = [UIFont fontWithName:@"AppleGothic" size:21];
     [self.uv addSubview:title];
     
-    
-    UILabel *border = [[UILabel alloc] init];
-    border.frame = CGRectMake(0, self.viewSize.height*0.2, self.viewSize.width, self.viewSize.height*0.008);
+    UILabel *border = [[UILabel alloc] initWithFrame: CGRectMake(0, self.viewSize.height*0.2,
+                                                                 self.viewSize.width,self.viewSize.height*0.008)];
     border.backgroundColor = [UIColor orangeColor];
     [self.uv addSubview:border];
     
     //news_Image生成
-    UIImageView *news_Image = [[UIImageView alloc] init];
-    news_Image.frame = CGRectMake(self.viewSize.width/5, self.viewSize.height*0.23, self.viewSize.width*0.6, self.viewSize.height*0.45);
-    news_Image.backgroundColor = [UIColor flatYellowColor];
+    UIImageView *news_Image = [[UIImageView alloc] initWithFrame:CGRectMake(self.viewSize.width/5, self.viewSize.height*0.23,
+                                                                            self.viewSize.width*0.6, self.viewSize.height*0.45)];
+  //  news_Image.backgroundColor = [UIColor flatYellowColor];
     NSURL *imageURL = [NSURL URLWithString:@"http://192.168.77.200/piece_stab/img/detail1.jpg"];
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage *set_image = [UIImage imageWithData:imageData];
-    news_Image.image = set_image;
-    
+    UIImage *news_img = [UIImage imageWithData:imageData];
+    news_Image.image = news_img;
+    news_Image.contentMode = UIViewContentModeScaleAspectFit;
     [self.uv addSubview:news_Image];
 
-    //news_text生成
+   // news_text生成
     UITextView *news_text = [[UITextView alloc]init];
-    news_text.frame = CGRectMake(self.viewSize.width*0.07, self.viewSize.height*0.7, self.viewSize.width*0.87, self.viewSize.height*0.4);
     news_text.text = @"XX月XX日のイベントでXXさんが着ていたコスチュームはこちらです。下記リンクで販売店を開きます。";
+    CGFloat custamLetterSpacing = 4.0f;
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:news_text.text];
+    [attributedText addAttribute:NSKernAttributeName
+                           value:[NSNumber numberWithFloat:custamLetterSpacing]
+                           range:NSMakeRange(0, attributedText.length)];
+    news_text.attributedText = attributedText;
+    int characters_number = 18;
+    float line = (news_text.text.length / characters_number) * 0.1;
+
+    news_text.frame = CGRectMake(self.viewSize.width*0.07, self.viewSize.height*0.7,
+                                 self.viewSize.width*0.87, self.viewSize.height*line);
     //news_text.backgroundColor = [UIColor brownColor];
-    news_text.font = [UIFont fontWithName:@"AppleGothic" size:14];
+    news_text.font = [UIFont fontWithName:@"GeezaPro" size:16];
     news_text.editable = NO;
     [self.uv addSubview:news_text];
     
     //link_url生成
-    UIButton *link_url = [[UIButton alloc]init];
-    link_url.frame = CGRectMake(self.viewSize.width*0.07, self.viewSize.height*1.1, self.viewSize.width*0.87, self.viewSize.height*0.07);
+    UIButton *link_url = [[UIButton alloc]initWithFrame:CGRectMake(self.viewSize.width*0.07, (self.viewSize.height*0.7 + self.viewSize.height*line) + line + self.viewSize.height*0.03,
+                                                                   self.viewSize.width*0.87, self.viewSize.height*0.07)];
+    [link_url setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [link_url setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [link_url setTitle:@"コスプレはこちらで購入できます！"
                 forState:UIControlStateNormal];
-    //link_url.backgroundColor = [UIColor redColor];
     [link_url addTarget:self
                    action:@selector(news_link_Tapped:)
          forControlEvents:UIControlEventTouchUpInside];
-    [link_url.titleLabel setFont:[UIFont fontWithName:@"AppleGothic" size:16]];
-    [link_url setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [link_url.titleLabel setFont:[UIFont fontWithName:@"GeezaPro" size:16]];
     [self.uv addSubview:link_url];
     
-    UIButton *link_movie = [[UIButton alloc]init];
-    link_movie.frame = CGRectMake(self.viewSize.width*0.07, self.viewSize.height*1.17, self.viewSize.width*0.87, self.viewSize.height*0.07);
+    UIButton *link_movie = [[UIButton alloc]initWithFrame:CGRectMake(self.viewSize.width*0.07, (self.viewSize.height*0.7 + self.viewSize.height*line) + line + self.viewSize.height*0.1,
+                                                                     self.viewSize.width*0.87, self.viewSize.height*0.07)];
+    [link_movie setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [link_url setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [link_movie setTitle:@"動画はこちら"
                 forState:UIControlStateNormal];
-    //link_movie.backgroundColor = [UIColor flatRedColor];
     [link_movie addTarget:self
                    action:@selector(news_link_2_Tapped:)
          forControlEvents:UIControlEventTouchUpInside];
-    [link_movie.titleLabel setFont:[UIFont fontWithName:@"AppleGothic" size:16]];
-    [link_movie setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [link_movie.titleLabel setFont:[UIFont fontWithName:@"GeezaPro" size:16]];
     [self.uv addSubview:link_movie];
     
 }
@@ -161,6 +168,7 @@
     [self.navigationController pushViewController:itemVc animated:YES];
 
 }
+
 
 
 @end
