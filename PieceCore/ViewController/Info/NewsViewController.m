@@ -87,15 +87,18 @@
     self.sv.contentSize = self.uv.bounds.size;
     [self.view addSubview:self.sv];
     
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, self.viewSize.height*0.15,
-                                                               self.viewSize.width*0.8, self.viewSize.height*0.05)];
+    self.sv.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.239 alpha:0.1];
+    
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0, self.viewSize.height*0.11,
+                                                               self.viewSize.width, self.viewSize.height*0.1)];
     title.text = self.newsRecipient.title;
-    title.font = [UIFont fontWithName:@"AppleGothic" size:21];
+    title.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.239 alpha:0.5];
+    title.font = [UIFont fontWithName:@"GeezaPro" size:22];
     [self.uv addSubview:title];
     
-    UILabel *border = [[UILabel alloc] initWithFrame: CGRectMake(0, self.viewSize.height*0.2,
+    UILabel *border = [[UILabel alloc] initWithFrame: CGRectMake(self.viewSize.width*0, self.viewSize.height*0.21,
                                                                  self.viewSize.width,self.viewSize.height*0.008)];
-    border.backgroundColor = [UIColor orangeColor];
+    border.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.239 alpha:0.8];
     [self.uv addSubview:border];
     
     //news_Image生成
@@ -111,8 +114,9 @@
 
    // news_text生成
     UITextView *news_text = [[UITextView alloc]init];
+    news_text.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.239 alpha:0.01];
     news_text.text = @"XX月XX日のイベントでXXさんが着ていたコスチュームはこちらです。下記リンクで販売店を開きます。";
-    CGFloat custamLetterSpacing = 4.0f;
+    CGFloat custamLetterSpacing = 2.0f;
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:news_text.text];
     [attributedText addAttribute:NSKernAttributeName
                            value:[NSNumber numberWithFloat:custamLetterSpacing]
