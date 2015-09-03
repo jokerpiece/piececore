@@ -30,6 +30,10 @@
 
 -(void)closeKeyboard{
     //キーボード以外を押された時の処理
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    [profile_data setObject:self.adressTv.text forKey:@"ADRESS"];
+
+
     [self.viewForBaselineLayout endEditing:YES];
 }
 
@@ -56,6 +60,7 @@
     NSMutableString *str = [self.postTf.text mutableCopy];
     //住所検索ボタンを押した時の処理
     self.adressTv.text = nil;
+    [self.viewForBaselineLayout endEditing:YES];
     
     //郵便番号未入力かどうかの判別
     if([str length] == 0)

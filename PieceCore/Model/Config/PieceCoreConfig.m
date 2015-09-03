@@ -19,8 +19,9 @@ static NSString *_appKey = @"";
 static TitleNameData *_titleNameData = nil;
 static NSNumber *_splashIntarval = nil;
 static NSString *_useCouponNum = @"";
-
-NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
+static NSString *_linepay = @"";
+//jokapi.jp
+NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  OsType= @"1";
 NSString * const  SendTokenUrl= @"http://jokapi.jp/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
@@ -35,6 +36,7 @@ NSString * const  SendIdCouponTake= @"coupon/index.php?Action=takedList";
 NSString * const  SendIdCouponExchange= @"coupon_list_exchange/";
 NSString * const  SendIdGetCoupon= @"coupon/index.php?Action=get";
 NSString * const  SendIdFitting= @"fitting/";
+
 NSString * const  SendIdNews= @"news/index.php?Action=newsDetail";
 NSString * const  SendIdGetSurvey= @"get_survey/";
 NSString * const  SendIdSendSurvey= @"send_survey/";
@@ -46,7 +48,7 @@ NSString * const  SendIdGetProfile= @"get_profile/";
 NSString * const  SendIdSendProfile= @"send_profile/";
 NSString * const  SendIdLinePay = @"linepay/index.php?Action=reserve";
 NSString * const  SendIdDeterminedLinePay = @"linepay/index.php?Action=confirm";
-
+NSString * const  LinepayId = @"1";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";
@@ -134,4 +136,14 @@ const float TabbarHight = 49;
 + (NSString *)useCouponNum{
     return _useCouponNum;
 }
+
++ (void)setLinepay:(NSString *)linepay
+{
+    _linepay = linepay;
+}
++ (NSString *)linepayId
+{
+    return _linepay;
+}
+
 @end

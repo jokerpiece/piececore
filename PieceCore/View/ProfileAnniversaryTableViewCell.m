@@ -17,6 +17,11 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    [profile_data setObject:self.anniversaryNameTf.text forKey:@"ANNIVERSARY_NAME"];
+    [profile_data setObject:self.anniversaryDayTf.text forKey:@"ANNIVERSARY"];
+    [profile_data synchronize];
+
     //キーボード以外のところをタップするとキーボードが自動的に隠れる。
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
                                                  initWithTarget:self action:@selector(closeKeyboard)];
@@ -27,6 +32,11 @@
 
 -(void)closeKeyboard{
     //キーボード以外を押された時の処理
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    [profile_data setObject:self.anniversaryNameTf.text forKey:@"ANNIVERSARY_NAME"];
+    [profile_data setObject:self.anniversaryDayTf.text forKey:@"ANNIVERSARY"];
+    NSLog(@"%@",_anniversaryDayTf.text);
+    NSLog(@"%@",_anniversaryNameTf.text);
     [self.viewForBaselineLayout endEditing:YES];
 }
 
@@ -43,6 +53,7 @@
 //    if([Common isNotEmptyString:recipient.anniversary_name]){
 //        self.anniversaryNameTf.text = recipient.anniversary_name;
 //    }
+    
 }
 -(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
     recipient.anniversary = self.anniversaryDayTf.text;

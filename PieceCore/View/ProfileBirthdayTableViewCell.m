@@ -27,6 +27,8 @@
 
 -(void)closeKeyboard{
     //キーボード以外を押された時の処理
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    [profile_data setObject:self.birthdayTf.text forKey:@"BERTH_DAY"];
     [self.viewForBaselineLayout endEditing:YES];
 }
 

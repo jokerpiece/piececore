@@ -34,10 +34,12 @@ extern NSString * const SendIdGetProfile;
 extern NSString * const SendIdSendProfile;
 extern NSString * const SendIdLinePay;
 extern NSString * const SendIdDeterminedLinePay;
+extern NSString * const LinepayId;
 
 extern NSString * const UrlYamatoDeliver;
 extern NSString * const UrlSagawaDeliver;
 extern NSString * const UrlYubinDeliver;
+
 
 extern const int DispSurveyDate;
 extern const float TimeSlidershow;
@@ -53,6 +55,7 @@ extern const float TabbarHight;
 + (NSString *)appKey;
 + (NSNumber *)splashInterval;
 + (NSString *)useCouponNum;
++ (NSString *)linepayId;
 + (TitleNameData *)titleNameData;
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
 + (void)setTabnumberInfo:(NSNumber *)tabnumberInfo;
@@ -64,6 +67,6 @@ extern const float TabbarHight;
 + (void)setSplashInterval:(NSNumber *)interval;
 + (void)setTitleNameData:(TitleNameData *)titleNameData;
 + (void)setUseCouponNum:(NSString *)useCouponNum;
-
++ (void)setLinepay:(NSString *)linepay;
 
 @end

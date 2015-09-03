@@ -77,23 +77,6 @@
     return [DeterminedLinePayRecipient alloc];
 }
 
-//-(void)setDataWithRecipient:(DeterminedLinePayRecipient *)reccipient sendID:(NSString *)sendId
-//{
-//    if([sendId isEqualToString:SendIdDeterminedLinePay])
-//    {
-//        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"注文確定"
-//                                                       message:@"購入ありがとうございます"
-//                                                      delegate:self
-//                                             cancelButtonTitle:nil
-//                                             otherButtonTitles:@"OK", nil];
-//        [alert show];
-//        
-//        NSInteger count = self.navigationController.viewControllers.count - 3;
-//        ItemListViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
-//        [self.navigationController popToViewController:vc animated:YES];
-//    }
-//}
-
 - (IBAction)reserv:(id)sender {
      //LINEPay決済送信、アプリ内決済登録
     NSString *str = NULL;

@@ -1,3 +1,4 @@
+
 //
 //  ProfileNameTableViewCell.m
 //  pieceSample
@@ -27,6 +28,9 @@
 
 -(void)closeKeyboard{
     //キーボード以外を押された時の処理
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    [profile_data setObject:self.seiTf.text forKey:@"SEI"];
+    [profile_data setObject:self.meiTf.text forKey:@"MEI"];
     [self.viewForBaselineLayout endEditing:YES];
 }
 
@@ -36,12 +40,12 @@
     [self.tfList addObject:self.meiTf];
 }
 -(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
-    if([Common isNotEmptyString:recipient.sei]){
-        self.seiTf.text = recipient.sei;
-    }
-    if([Common isNotEmptyString:recipient.mei]){
-        self.meiTf.text = recipient.mei;
-    }
+//    if([Common isNotEmptyString:recipient.sei]){
+//        self.seiTf.text = recipient.sei;
+//    }
+//    if([Common isNotEmptyString:recipient.mei]){
+//        self.meiTf.text = recipient.mei;
+//    }
 }
 -(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
     recipient.sei = self.seiTf.text;

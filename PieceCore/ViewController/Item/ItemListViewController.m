@@ -9,8 +9,6 @@
 #import "ItemListViewController.h"
 
 @interface ItemListViewController ()
-
-@property BOOL *linepay_flag;
 @property UIImage *image;
 
 @end
@@ -19,7 +17,6 @@
 
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"ItemListViewController" owner:self options:nil];
-       self.linepay_flag = YES;
 }
 
 - (void)viewDidLoadLogic
@@ -54,6 +51,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
     if (indexPath.section == 0) {
         NSString *CellIdentifier = [NSString stringWithFormat:@"CreateCell%ld",(long)indexPath.row];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -149,18 +147,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSString *linepay_ID = LinepayId;
+    
     if (indexPath.section == 0) {
         
         ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
         
-        if(self.linepay_flag == NO)
+        if(linepay_ID.intValue == 0)
         {
             WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
             // 画面をPUSHで遷移させる
             [self.navigationController pushViewController:itemVc animated:YES];
         }else{
             
-            //linepay_flagがYESの時、ネイティブのビューを作成
             linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
 
             //商品の名前を格納
@@ -171,7 +170,8 @@
             UIImageView *item_Image = [[UIImageView alloc] init];
             NSURL *imageURL = [NSURL URLWithString:[data.img_url stringByAddingPercentEscapesUsingEncoding:
                                                     NSUTF8StringEncoding]];
-            item_Image.frame = CGRectMake(60, 150, 200, 200);
+            //item_Image.frame = CGRectMake(60, 150, 200, 200);
+            item_Image.frame = CGRectMake(self.viewSize.width*0.12, self.viewSize.height*0.3, self.viewSize.width*0.75, self.viewSize.height*0.45);
             [item_Image setImageWithURL:imageURL
                        placeholderImage:nil
                                 options:SDWebImageCacheMemoryOnly
@@ -180,7 +180,28 @@
             
             //商品説明格納
             vc.item_text = data.item_text;
+
+            NSLog(@"%d", vc.item_text.length);
             
+            //item_text内の改行、スペース削除
+            vc.item_text = [vc.item_text stringByReplacingOccurrencesOfString:@"　" withString:@""];
+            NSMutableArray *lines = [NSMutableArray array];
+            [vc.item_text enumerateLinesUsingBlock:^(NSString *line, BOOL *stop) {
+                [lines addObject:line];
+            }];
+            
+            NSMutableString *text = [[NSMutableString alloc] init];
+            for(int i = 0; i < [lines count]; i++)
+            {
+                if(![lines[i]isEqualToString:@""])
+                {
+                    [text appendString:lines[i]];
+                }
+            }
+            NSLog(@"%d", (text.length%14));
+            NSLog(@"%@", text);
+            vc.item_text = text;
+                    
             //商品価格格納
             vc.item_price = data.item_price;
             
@@ -195,6 +216,8 @@
         self.isSearchedMore = YES;
         [self syncAction];
         
+    } else {
+        NSLog(@"out_break");
     }
     
 }

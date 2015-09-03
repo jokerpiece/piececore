@@ -15,6 +15,7 @@
     if (param == nil) {
         param = [NSMutableDictionary dictionary];
     }
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [param setObject:[PieceCoreConfig shopId] forKey:@"app_id"];
     [param setObject:[PieceCoreConfig appKey] forKey:@"app_key"];
@@ -24,14 +25,14 @@
     [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"text/html", nil]];
     DLog(@"API通信　%@%@: param%@",ServerUrl,sendId,param);
     [manager POST:[NSString stringWithFormat:@"%@%@",ServerUrl,sendId]
-      parameters:param
-         success:^(NSURLSessionDataTask *task, id responseObject) {
-             [self.delegate receiveSucceed:responseObject sendId:sendId];
-             // 通信に成功した場合の処理
-             DLog(@"responseObject: %@", responseObject);
-         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-             [self.delegate receiveError:error sendId:sendId];
-         }];
+       parameters:param
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              [self.delegate receiveSucceed:responseObject sendId:sendId];
+              // 通信に成功した場合の処理
+              DLog(@"responseObject: %@", responseObject);
+          } failure:^(NSURLSessionDataTask *task, NSError *error) {
+              [self.delegate receiveError:error sendId:sendId];
+          }];
 }
 
 -(void)sendActionWithAFHTTPSessionManager:(AFHTTPSessionManager *)manager url:(NSString *)url  param:(NSMutableDictionary*)param{

@@ -27,7 +27,7 @@
     NSLog(@"%f,%f", screen.size.width, screen.size.height);
     
     self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen.size.width, 800)];
+    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen.size.width, screen.size.height * 1.8)];
     self.sv.indicatorStyle = UIScrollViewIndicatorStyleDefault;
     [self.sv addSubview:self.uv];
     self.sv.contentSize = self.uv.bounds.size;
@@ -55,21 +55,24 @@
     [self.uv addSubview:item_Image];
     
     //商品説明
-    UILabel *item_Text = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.25, screen.size.width*0.8, screen.size.height*1.2)];
+    UILabel *item_Text = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.6, screen.size.width*0.8, screen.size.height*0.65)];
     item_Text.text = self.item_text;
     item_Text.numberOfLines = 10;
     item_Text.font = [UIFont fontWithName:@"AppleGothic" size:18];
     item_Text.textColor = [UIColor blackColor];
     [self.uv addSubview:item_Text];
     
+    int text_height = (self.item_text.length % 14) ;
+    NSLog(@"height = %d",text_height);
+    
     //商品価格
-    UILabel *item_Price_1 = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.65, screen.size.width*0.8, screen.size.height*0.74)];
+    UILabel *item_Price_1 = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.95, screen.size.width*0.8, screen.size.height*0.74)];
     item_Price_1.text = @"販売価格(税込)";
     item_Price_1.font = [UIFont fontWithName:@"AppleGothic" size:20];
     item_Price_1.textColor = [UIColor blackColor];
     [self.uv addSubview:item_Price_1];
     
-    UILabel *item_Price_2 = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.6, screen.size.height*0.64, screen.size.width*0.8, screen.size.height*0.74)];
+    UILabel *item_Price_2 = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.6, screen.size.height*0.94, screen.size.width*0.8, screen.size.height*0.74)];
     item_Price_2.text = self.item_price;
     item_Price_2.font = [UIFont fontWithName:@"Arial-BoldMT" size:28];
     item_Price_2.textColor = [UIColor blackColor];
@@ -80,14 +83,14 @@
     NSString *get_item_price = [Setdata getprice:str_item_price];
     NSLog(@"%@",get_item_price);
     
-    UILabel *item_Price_3 = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.85, screen.size.height*0.65, screen.size.width*0.82, screen.size.height*0.74)];
+    UILabel *item_Price_3 = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.85, screen.size.height*0.95, screen.size.width*0.82, screen.size.height*0.74)];
     item_Price_3.text = @"円";
     item_Price_3.font = [UIFont fontWithName:@"AppleGothic" size:20];
     item_Price_3.textColor = [UIColor blackColor];
     [self.uv addSubview:item_Price_3];
     
     //Lineで購入ボタン生成
-    self.line_button = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.25, screen.size.height*1.1, screen.size.width*0.5, screen.size.height*0.1)];
+    self.line_button = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.25, screen.size.height*1.4, screen.size.width*0.5, screen.size.height*0.1)];
     [self.line_button setTitle:@"LINEで購入" forState:UIControlStateNormal];
     [self.line_button addTarget:self
                          action:@selector(line_button_Tapeped:)
@@ -109,6 +112,10 @@
     [param setValue:self.item_price forKeyPath:@"amount"];
     [param setValue:self.app_url forKeyPath:@"confirmUrl"];
     [conecter sendActionSendId:SendIdLinePay param:param];
+    self.string = self.linepeyrecipent.paymentUrl;
+    NSString *str_lineurl = self.string;
+    NSString *get_lineurl = [Setdata getlineurl:str_lineurl];
+    NSLog(@"%@", get_lineurl);
     
     [self addrell_select];
     
@@ -140,7 +147,7 @@
     text.backgroundColor = [UIColor grayColor];
     [self.uv addSubview:text];
     
-    self.button_1 = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.4, screen.size.width*0.8, screen.size.height*0.1)];
+    self.button_1 = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.35, screen.size.width*0.8, screen.size.height*0.1)];
     [self.button_1 setTitle:@"以前と同じ配送先に送る" forState:UIControlStateNormal];
     [self.button_1 addTarget:self
                          action:@selector(button_1_Tapeped:)
@@ -148,7 +155,7 @@
     self.button_1.backgroundColor = [UIColor colorWithRed:0.098f green:0.666f blue:0.352f alpha:1.000f];
     [self.uv addSubview:self.button_1];
     
-    self.button_2 = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.65, screen.size.width*0.8, screen.size.height*0.1)];
+    self.button_2 = [[UIButton alloc] initWithFrame:CGRectMake(screen.size.width*0.1, screen.size.height*0.75, screen.size.width*0.8, screen.size.height*0.1)];
     [self.button_2 setTitle:@"配送先を変更する" forState:UIControlStateNormal];
     [self.button_2 addTarget:self
                          action:@selector(button_2_Tapeped:)
@@ -156,6 +163,22 @@
     self.button_2.backgroundColor = [UIColor colorWithRed:0.098f green:0.666f blue:0.352f alpha:1.000f];
     [self.uv addSubview:self.button_2];
     
+    UILabel *adress_label = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.06, screen.size.height*0.26, screen.size.width*0.8, screen.size.height*0.5)];
+    
+    NSUserDefaults *profile_data = [NSUserDefaults standardUserDefaults];
+    NSString *adress = [profile_data stringForKey:@"ADRESS"];
+    
+    adress_label.text = adress;
+    adress_label.font = [UIFont fontWithName:@"AppleGothic" size:16];
+    [self.uv addSubview:adress_label];
+    
+    UILabel *user_name = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.06, screen.size.height*0.35, screen.size.width*0.8, screen.size.height*0.5)];
+    NSString *sei = [profile_data stringForKey:@"SEI"];
+    NSString *mei = [profile_data stringForKey:@"MEI"];
+    NSString *name = [sei stringByAppendingString:mei];
+    user_name.text = name;
+     adress_label.font = [UIFont fontWithName:@"AppleGothic" size:16];
+    [self.uv addSubview:user_name];
 }
 
 -(void)button_1_Tapeped:(id)sender
@@ -176,12 +199,15 @@
     
     //Lineに移動
     self.string = self.linepeyrecipent.paymentUrl;
-    NSURL *url = [NSURL URLWithString:self.string];
-//    [[UIApplication sharedApplication] openURL:url];
-
-    linepayReservSquareViewController *line = [[linepayReservSquareViewController alloc] initWithNibName:@"linepayReservSquareViewController" bundle:nil];
+    NSString *str_lineurl = self.string;
+    NSString *get_lineurl = [Setdata getlineurl:str_lineurl];
     
-    [self.navigationController pushViewController:line animated:YES];
+    NSURL *url = [NSURL URLWithString:get_lineurl];
+    [[UIApplication sharedApplication] openURL:url];
+
+//    linepayReservSquareViewController *line = [[linepayReservSquareViewController alloc] initWithNibName:@"linepayReservSquareViewController" bundle:nil];
+    
+    //[self.navigationController pushViewController:line animated:YES];
 
     
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
@@ -238,9 +264,11 @@
 -(void)setDataWithRecipient:(LinepayRecipient *)recipient sendId:(NSString *)sendId
 {
     self.linepeyrecipent = recipient;
-    
-    NSLog(@"%@", self.linepeyrecipent.paymentUrl);
-//    [[UIApplication sharedApplication] openURL:self.linepeyrecipent.paymentUrl];
+    self.string = self.linepeyrecipent.paymentUrl;
+    NSString *str_lineurl = self.string;
+    NSString *get_lineurl = [Setdata getlineurl:str_lineurl];
+    NSLog(@"%@",get_lineurl);
+    //    [[UIApplication sharedApplication] openURL:self.linepeyrecipent.paymentUrl];
 }
 
 -(BaseRecipient *)getDataWithSendId:(NSString *)sentId{

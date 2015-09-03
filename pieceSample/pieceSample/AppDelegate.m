@@ -17,9 +17,11 @@
 
 
 -(void)setConfig{
-    [PieceCoreConfig setShopId:@"pieceSample"];
-    [PieceCoreConfig setAppKey:@"1111"];
-    [PieceCoreConfig setAppId:@""];
+    //pieceSample
+    [PieceCoreConfig setShopId:@"kodomogokoro"];
+    [PieceCoreConfig setAppKey:@"1"];
+    [PieceCoreConfig setAppId:@"1111"];
+    [PieceCoreConfig setLinepay:@"0"];
 }
 
 //UITabBarController初期化

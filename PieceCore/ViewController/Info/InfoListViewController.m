@@ -42,20 +42,23 @@
     if (indexPath.section == 0) {
         NSString *CellIdentifier = [NSString stringWithFormat:@"CreateCell%ld",(long)indexPath.row];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        //if (cell == nil) {
+//        if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
         InfoListData *data = [self.fillterList objectAtIndex:indexPath.row];
+        NSLog(@"%@",data.type);
+        NSString *imgName = @"news_02.png";
         
+            if (data.type == nil || [data.type isEqual:[NSNull null]]) {
+                imgName = @"news_02.png";
+            } else if ([data.type isEqualToString:@"2"]){
+                imgName = @"news_03.png";
+            } else if ([data.type isEqualToString:@"3"]){
+                imgName = @"news_01.png";
+            } else if ([data.type isEqualToString:@"1"]){
+                imgName = @"news_02.png";
+            }
         
-        NSString *imgName = @"";
-        if ([data.type isEqualToString:@"1"]) {
-            imgName = @"news_02.png";
-        } else if ([data.type isEqualToString:@"2"]){
-            imgName = @"news_03.png";
-        } else if ([data.type isEqualToString:@"3"]){
-            imgName = @"news_01.png";
-        }
         UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
         iv.frame = CGRectMake(10, 20, 50, 50);
         [cell.contentView addSubview:iv];
@@ -67,7 +70,7 @@
         textLbl.backgroundColor = [UIColor clearColor];
         textLbl.numberOfLines = 4;
         [cell.contentView addSubview:textLbl];
-        //}
+//        }
         return cell;
     } else {
         static NSString *CellIdentifier = @"Cell";
@@ -89,8 +92,6 @@
         }
         return cell;
     }
-    
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
