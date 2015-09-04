@@ -1,0 +1,19 @@
+dependencies: \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/ViewController/Map/MapViewController.m \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/ViewController/Map/MapViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/ViewController/Base/BaseViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Model/Nettwork/NetworkConecter.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Model/Log/DLog.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Model/API/BaseRecipient.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/View/RoundBtn.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Model/Common/Common.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Data/Setting/SettingData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Model/Config/PieceCoreConfig.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Data/Common/TitleNameData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Data/Sns/SosialSettingData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/View/GetPointView.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/View/MapCell.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Model/API/SpotRecipient.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Data/Map/SpotData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/View/CustomAnnotation.h \
+  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/Model/API/CeckinRecipient.h
