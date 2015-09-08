@@ -22,7 +22,7 @@
         self.profileTitle = @"PROFILE";
         self.getCouponTitle = @"GET COUPON";
         self.useCouponTitle = @"USE COUPON";
-        self.infoTitle = @"INFO";
+        self.infoTitle = @"INFOMATION";
         self.newsTitle = @"NEWS";
         self.barcodeTitle = @"BARCODE";
         self.historyTitle = @"DELIVERLIST";
