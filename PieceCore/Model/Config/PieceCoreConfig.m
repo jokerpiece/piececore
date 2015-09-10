@@ -21,7 +21,10 @@ static NSNumber *_splashIntarval = nil;
 static NSString *_useCouponNum = @"";
 static NSString *_linepay = @"";
 //jokapi.jp
-NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
+//NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
+
+//本番用
+NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
 NSString * const  SendTokenUrl= @"http://jokapi.jp/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";

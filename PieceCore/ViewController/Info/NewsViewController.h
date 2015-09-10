@@ -28,4 +28,5 @@
 @property (nonatomic, strong) NSString *link_title_2;
 @property (nonatomic, strong) NSString *link_url;
 @property (nonatomic, strong) NSString *link_url_2;
+
 @end

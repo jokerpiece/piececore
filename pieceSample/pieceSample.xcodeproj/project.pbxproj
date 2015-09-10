@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10B66AFD1B61F34300AF524B /* linepayReservSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B66AFB1B61F34300AF524B /* linepayReservSquareViewController.m */; };
-		10B66AFE1B61F34300AF524B /* linepayReservSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10B66AFC1B61F34300AF524B /* linepayReservSquareViewController.xib */; };
-		10B66B041B623CD900AF524B /* Setdata.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B66B031B623CD900AF524B /* Setdata.m */; };
 		10B66B071B6B6D3F00AF524B /* DeterminedLinePayRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B66B061B6B6D3F00AF524B /* DeterminedLinePayRecipient.m */; };
+		10E77B531BA112A5002B295A /* linepay_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E77B4C1BA112A5002B295A /* linepay_ViewController.m */; };
+		10E77B541BA112A5002B295A /* linepay_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E77B4D1BA112A5002B295A /* linepay_ViewController.xib */; };
+		10E77B551BA112A5002B295A /* linepayReservSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E77B4F1BA112A5002B295A /* linepayReservSquareViewController.m */; };
+		10E77B561BA112A5002B295A /* linepayReservSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E77B501BA112A5002B295A /* linepayReservSquareViewController.xib */; };
+		10E77B571BA112A5002B295A /* Setdata.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E77B521BA112A5002B295A /* Setdata.m */; };
 		10EF4FC31B58D317009066C2 /* LinepayRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EF4FC21B58D317009066C2 /* LinepayRecipient.m */; };
-		10F582A41B4F57BB009E5C32 /* linepay_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F582A21B4F57BB009E5C32 /* linepay_ViewController.m */; };
-		10F582A51B4F57BB009E5C32 /* linepay_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10F582A31B4F57BB009E5C32 /* linepay_ViewController.xib */; };
 		370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561921ACE2717002E7F1B /* MapKit.framework */; };
 		370561951ACE2A00002E7F1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561941ACE2A00002E7F1B /* CoreLocation.framework */; };
 		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
@@ -187,18 +187,18 @@
 
 /* Begin PBXFileReference section */
 		0B2EB3020702E5D1A5D8492F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		10B66AFA1B61F34300AF524B /* linepayReservSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linepayReservSquareViewController.h; sourceTree = "<group>"; };
-		10B66AFB1B61F34300AF524B /* linepayReservSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = linepayReservSquareViewController.m; sourceTree = "<group>"; };
-		10B66AFC1B61F34300AF524B /* linepayReservSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = linepayReservSquareViewController.xib; sourceTree = "<group>"; };
-		10B66B021B623CD900AF524B /* Setdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Setdata.h; sourceTree = "<group>"; };
-		10B66B031B623CD900AF524B /* Setdata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setdata.m; sourceTree = "<group>"; };
 		10B66B051B6B6D3F00AF524B /* DeterminedLinePayRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeterminedLinePayRecipient.h; sourceTree = "<group>"; };
 		10B66B061B6B6D3F00AF524B /* DeterminedLinePayRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeterminedLinePayRecipient.m; sourceTree = "<group>"; };
+		10E77B4B1BA112A5002B295A /* linepay_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linepay_ViewController.h; path = ../PieceCore/ViewController/Linepay/linepay_ViewController.h; sourceTree = "<group>"; };
+		10E77B4C1BA112A5002B295A /* linepay_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = linepay_ViewController.m; path = ../PieceCore/ViewController/Linepay/linepay_ViewController.m; sourceTree = "<group>"; };
+		10E77B4D1BA112A5002B295A /* linepay_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = linepay_ViewController.xib; path = ../PieceCore/ViewController/Linepay/linepay_ViewController.xib; sourceTree = "<group>"; };
+		10E77B4E1BA112A5002B295A /* linepayReservSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linepayReservSquareViewController.h; path = ../PieceCore/ViewController/Linepay/linepayReservSquareViewController.h; sourceTree = "<group>"; };
+		10E77B4F1BA112A5002B295A /* linepayReservSquareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = linepayReservSquareViewController.m; path = ../PieceCore/ViewController/Linepay/linepayReservSquareViewController.m; sourceTree = "<group>"; };
+		10E77B501BA112A5002B295A /* linepayReservSquareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = linepayReservSquareViewController.xib; path = ../PieceCore/ViewController/Linepay/linepayReservSquareViewController.xib; sourceTree = "<group>"; };
+		10E77B511BA112A5002B295A /* Setdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Setdata.h; path = ../PieceCore/ViewController/Linepay/Setdata.h; sourceTree = "<group>"; };
+		10E77B521BA112A5002B295A /* Setdata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Setdata.m; path = ../PieceCore/ViewController/Linepay/Setdata.m; sourceTree = "<group>"; };
 		10EF4FC11B58D317009066C2 /* LinepayRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinepayRecipient.h; sourceTree = "<group>"; };
 		10EF4FC21B58D317009066C2 /* LinepayRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinepayRecipient.m; sourceTree = "<group>"; };
-		10F582A11B4F57BB009E5C32 /* linepay_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linepay_ViewController.h; path = ../PieceCore/ViewController/Item/linepay_ViewController.h; sourceTree = "<group>"; };
-		10F582A21B4F57BB009E5C32 /* linepay_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = linepay_ViewController.m; path = ../PieceCore/ViewController/Item/linepay_ViewController.m; sourceTree = "<group>"; };
-		10F582A31B4F57BB009E5C32 /* linepay_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = linepay_ViewController.xib; path = ../PieceCore/ViewController/Item/linepay_ViewController.xib; sourceTree = "<group>"; };
 		370561921ACE2717002E7F1B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		370561941ACE2A00002E7F1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		371941F71AC549700033FBCA /* TitleNameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNameData.h; sourceTree = "<group>"; };
@@ -483,14 +483,14 @@
 		10B66AF41B60E47000AF524B /* LinePay */ = {
 			isa = PBXGroup;
 			children = (
-				10F582A11B4F57BB009E5C32 /* linepay_ViewController.h */,
-				10F582A21B4F57BB009E5C32 /* linepay_ViewController.m */,
-				10F582A31B4F57BB009E5C32 /* linepay_ViewController.xib */,
-				10B66B021B623CD900AF524B /* Setdata.h */,
-				10B66B031B623CD900AF524B /* Setdata.m */,
-				10B66AFA1B61F34300AF524B /* linepayReservSquareViewController.h */,
-				10B66AFB1B61F34300AF524B /* linepayReservSquareViewController.m */,
-				10B66AFC1B61F34300AF524B /* linepayReservSquareViewController.xib */,
+				10E77B4B1BA112A5002B295A /* linepay_ViewController.h */,
+				10E77B4C1BA112A5002B295A /* linepay_ViewController.m */,
+				10E77B4D1BA112A5002B295A /* linepay_ViewController.xib */,
+				10E77B4E1BA112A5002B295A /* linepayReservSquareViewController.h */,
+				10E77B4F1BA112A5002B295A /* linepayReservSquareViewController.m */,
+				10E77B501BA112A5002B295A /* linepayReservSquareViewController.xib */,
+				10E77B511BA112A5002B295A /* Setdata.h */,
+				10E77B521BA112A5002B295A /* Setdata.m */,
 			);
 			name = LinePay;
 			path = ../../pieceSample;
@@ -1279,7 +1279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				37949A7F1ABAC534002E5194 /* icon_stamp@2x.png in Resources */,
-				10F582A51B4F57BB009E5C32 /* linepay_ViewController.xib in Resources */,
 				37E3EB841AA45F8C00EA7CB9 /* tab_icon_barcode.png in Resources */,
 				37949A721ABA9670002E5194 /* nextBtn.png in Resources */,
 				37668BBF1AC2A96E00D08368 /* tab_icon_profile@2x.png in Resources */,
@@ -1297,6 +1296,7 @@
 				37949A7D1ABAC534002E5194 /* icon_fitting@2x.png in Resources */,
 				37949A8C1ABBE551002E5194 /* ProfileSexTableViewCell.xib in Resources */,
 				379129741AB2B40B001237C7 /* camera@2x.png in Resources */,
+				10E77B541BA112A5002B295A /* linepay_ViewController.xib in Resources */,
 				37668BBB1AC28DC500D08368 /* ProfileSendBtnTableViewCell.xib in Resources */,
 				376A47EA1AAFCE19002A25D3 /* stampbar@2x.png in Resources */,
 				37E3EB651AA45F8C00EA7CB9 /* CabinSketch-Bold.otf in Resources */,
@@ -1333,7 +1333,6 @@
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
 				37B4E1511AE73BD200A082A3 /* MapViewController.xib in Resources */,
 				376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */,
-				10B66AFE1B61F34300AF524B /* linepayReservSquareViewController.xib in Resources */,
 				376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */,
 				37E3EB851AA45F8C00EA7CB9 /* tab_icon_coupon.png in Resources */,
 				37E3EBA81AA45F8C00EA7CB9 /* FlyerViewController.xib in Resources */,
@@ -1356,6 +1355,7 @@
 				37D758521AB27E6600E6B421 /* Twitter@2x.png in Resources */,
 				37E3EB8D1AA45F8C00EA7CB9 /* tab_icon_shopping.png in Resources */,
 				37E3EB761AA45F8C00EA7CB9 /* coupon_get_btn.png in Resources */,
+				10E77B561BA112A5002B295A /* linepayReservSquareViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1417,6 +1417,7 @@
 				37949A951ABBE5CE002E5194 /* ProfileAnniversaryTableViewCell.m in Sources */,
 				37E3EB991AA45F8C00EA7CB9 /* BaseViewController.m in Sources */,
 				37668BB61AC2804500D08368 /* ProfileRecipient.m in Sources */,
+				10E77B571BA112A5002B295A /* Setdata.m in Sources */,
 				37E3EB671AA45F8C00EA7CB9 /* BaseRecipient.m in Sources */,
 				37E3EB9B1AA45F8C00EA7CB9 /* CategoryViewController.m in Sources */,
 				37E3EB931AA45F8C00EA7CB9 /* GetPointView.m in Sources */,
@@ -1426,12 +1427,10 @@
 				37E3EB711AA45F8C00EA7CB9 /* SurveyRecipient.m in Sources */,
 				376A47F61AB02BC0002A25D3 /* ExcengeCouponViewController.m in Sources */,
 				37D758551AB296CB00E6B421 /* AlertView.m in Sources */,
-				10B66B041B623CD900AF524B /* Setdata.m in Sources */,
 				37E3EB591AA45F8C00EA7CB9 /* FlyerBodyData.m in Sources */,
 				37E3EB681AA45F8C00EA7CB9 /* CategoryRecipient.m in Sources */,
 				37E3EB6D1AA45F8C00EA7CB9 /* InfoRecipient.m in Sources */,
 				37949A901ABBE590002E5194 /* ProfileBirthdayTableViewCell.m in Sources */,
-				10F582A41B4F57BB009E5C32 /* linepay_ViewController.m in Sources */,
 				37E3EB951AA45F8C00EA7CB9 /* RoundBtn.m in Sources */,
 				37949A9A1ABBE793002E5194 /* ProfileAdressTableViewCell.m in Sources */,
 				37949A9F1ABBE7DC002E5194 /* ProfileNameTableViewCell.m in Sources */,
@@ -1441,6 +1440,7 @@
 				37E3EBAF1AA45F8C00EA7CB9 /* NewsViewController.m in Sources */,
 				37D758421AB1738900E6B421 /* SosialViewController.m in Sources */,
 				37E3EB621AA45F8C00EA7CB9 /* KinenbiData.m in Sources */,
+				10E77B551BA112A5002B295A /* linepayReservSquareViewController.m in Sources */,
 				37E3EB961AA45F8C00EA7CB9 /* RoundView.m in Sources */,
 				37B4E1501AE73BD200A082A3 /* MapViewController.m in Sources */,
 				37E3EB5A1AA45F8C00EA7CB9 /* FlyerHeaderData.m in Sources */,
@@ -1452,6 +1452,7 @@
 				37D7584A1AB2786300E6B421 /* TWActivity.m in Sources */,
 				37E3EB631AA45F8C00EA7CB9 /* SettingData.m in Sources */,
 				37E3EB9D1AA45F8C00EA7CB9 /* CouponViewController.m in Sources */,
+				10E77B531BA112A5002B295A /* linepay_ViewController.m in Sources */,
 				37E3EB5D1AA45F8C00EA7CB9 /* HistoryItemData.m in Sources */,
 				37E3EB641AA45F8C00EA7CB9 /* TabbarData.m in Sources */,
 				37E3EB6A1AA45F8C00EA7CB9 /* CouponRecipient.m in Sources */,
@@ -1470,7 +1471,6 @@
 				37E3EBC51AA45F8C00EA7CB9 /* StampViewController.m in Sources */,
 				37E3EB6F1AA45F8C00EA7CB9 /* NewsRecipient.m in Sources */,
 				37E3EB561AA45F8C00EA7CB9 /* CategoryData.m in Sources */,
-				10B66AFD1B61F34300AF524B /* linepayReservSquareViewController.m in Sources */,
 				37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */,
 				37E3EB5B1AA45F8C00EA7CB9 /* FlyerItemData.m in Sources */,
 				37E3EBB11AA45F8C00EA7CB9 /* ItemListViewController.m in Sources */,

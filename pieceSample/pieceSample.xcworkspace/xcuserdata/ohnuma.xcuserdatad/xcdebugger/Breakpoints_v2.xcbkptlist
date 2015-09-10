@@ -783,36 +783,6 @@
             endingLineNumber = "22"
             landmarkName = "@interface linepayReservSquareViewController"
             landmarkType = "2">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[linepayReservSquareViewController profilerecipient]"
-                  moduleName = "pieceSample"
-                  urlString = "file:///Users/ohnuma/xcode/piececore/pieceSample/linepayReservSquareViewController.h"
-                  timestampString = "462967326.535558"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[linepayReservSquareViewController setProfilerecipient:]"
-                  moduleName = "pieceSample"
-                  urlString = "file:///Users/ohnuma/xcode/piececore/pieceSample/linepayReservSquareViewController.h"
-                  timestampString = "462967326.535937"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "22">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1628,6 +1598,22 @@
             startingLineNumber = "36"
             endingLineNumber = "36"
             landmarkName = "-sendActionSendId:param:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PieceCore/ViewController/Info/NewsViewController.m"
+            timestampString = "463554466.233904"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-set_NewsViewController_item"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
