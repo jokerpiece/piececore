@@ -13,5 +13,9 @@
     self.news_id = [self.resultset valueForKey:@"news_id"];
     self.title = [self.resultset valueForKey:@"title"];
     self.text =[self valueForKey:@"text" dec:self.resultset];
+    self.image_url = [self.resultset valueForKey:@"img_url"];
+    self.link_title = [self.resultset valueForKey:@"link_title"];
+    self.link_url = [self.resultset valueForKey:@"link_url"];
+    self.link_list = [self.resultset valueForKey:@"link_list"];
 }
 @end
