@@ -26,7 +26,9 @@
 @property (nonatomic, strong) NSString *news_text;
 @property (nonatomic, strong) NSString *link_title;
 @property (nonatomic, strong) NSString *link_title_2;
+@property (nonatomic, strong) NSString *link_title_3;
 @property (nonatomic, strong) NSString *link_url;
 @property (nonatomic, strong) NSString *link_url_2;
+@property (nonatomic, strong) NSString *link_url_3;
 
 @end

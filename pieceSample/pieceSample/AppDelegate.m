@@ -18,14 +18,14 @@
 
 -(void)setConfig{
     //pieceSample
-//    [PieceCoreConfig setShopId:@"kodomogokoro"];
-//    [PieceCoreConfig setAppKey:@"1"];
-//    [PieceCoreConfig setAppId:@"1111"];
-//    [PieceCoreConfig setLinepay:@"0"];
-    [PieceCoreConfig setShopId:@"pieceSample"];
+    [PieceCoreConfig setShopId:@"kodomogokoro"];
     [PieceCoreConfig setAppKey:@"1111"];
-    [PieceCoreConfig setAppId:@""];
+    [PieceCoreConfig setAppId:@"1"];
     [PieceCoreConfig setLinepay:@"0"];
+//    [PieceCoreConfig setShopId:@"pieceSample"];
+//    [PieceCoreConfig setAppKey:@"1111"];
+//    [PieceCoreConfig setAppId:@""];
+//    [PieceCoreConfig setLinepay:@"0"];
 }
 
 //UITabBarController初期化
