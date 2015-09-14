@@ -79,15 +79,16 @@
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.05,
                                                                NavigationHight,
-                                                               self.viewSize.width,
+                                                               self.viewSize.width - self.viewSize.width*0.05,
                                                                self.viewSize.height*0.1)];
     UILabel *title_back = [[UILabel alloc] initWithFrame:CGRectMake(0,
                                                                     NavigationHight,
                                                                     self.viewSize.width,
                                                                     self.viewSize.height*0.1)];
+    title.numberOfLines = 0;
     title.text = self.newsRecipient.title;
     title_back.backgroundColor = [UIColor colorWithRed:0.86 green:0.86 blue:0.86 alpha:1.0];
-    title.font = [UIFont fontWithName:@"GeezaPro" size:22];
+    title.font = [UIFont fontWithName:@"GeezaPro" size:18];
     
     //news_Image生成
     UIImageView *newsIv = [[UIImageView alloc]init];
@@ -108,19 +109,25 @@
         //高さの比率を求める
         float hiritu = newsImg.size.height/newsImg.size.width;
         
-        newsIv.frame = CGRectMake(self.viewSize.width*0.05,
+        if (!isnan(hiritu)) {
+            newsIv.frame = CGRectMake(self.viewSize.width*0.05,
                                       self.viewSize.height*0.23,
                                       self.viewSize.width*0.9,
                                       self.viewSize.width*0.9*hiritu
                                       );
-//        newsIv.backgroundColor = [UIColor flatYellowColor];
-       
+            //        newsIv.backgroundColor = [UIColor flatYellowColor];
+            
+            
+            newsIv.image = newsImg;
+            newsIv.contentMode = UIViewContentModeScaleAspectFit;
+            
+            img_viewSize_width = self.viewSize.width*0.05;
+            img_viewSize_height = self.viewSize.width*0.9*hiritu + self.viewSize.height*0.23 + 10;
+        } else {
+            img_viewSize_width = self.viewSize.width*0.05;
+            img_viewSize_height = NavigationHight + self.viewSize.height*0.1 + 15;
+        }
         
-        newsIv.image = newsImg;
-        newsIv.contentMode = UIViewContentModeScaleAspectFit;
-
-        img_viewSize_width = self.viewSize.width*0.05;
-        img_viewSize_height = self.viewSize.width*0.9*hiritu + self.viewSize.height*0.23 + 10;
         
     }
     
@@ -151,12 +158,12 @@
     textLbl.text = [textLbl.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     textLbl.frame = CGRectMake(img_viewSize_width,
-                                 img_viewSize_height,
-                                 textSize.width,
-                                 textSize.height
-                                 );
+                               img_viewSize_height,
+                               textSize.width,
+                               textSize.height
+                               );
     
-//    textLbl.backgroundColor = [UIColor brownColor];
+    //    textLbl.backgroundColor = [UIColor brownColor];
     textLbl.font = [UIFont fontWithName:@"GeezaPro" size:16];
     textLbl.numberOfLines = 0;
     
@@ -180,10 +187,10 @@
                                             linkHeight
                                             );
                 
-
+                
                 NSMutableAttributedString *attrStr;
                 attrStr = [[NSMutableAttributedString alloc] initWithString:[dc objectForKey:@"link_title"]];
-
+                
                 NSDictionary *attributes = @{
                                              NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
                                              NSForegroundColorAttributeName:[UIColor blueColor]
@@ -192,9 +199,9 @@
                 [link_url setAttributedTitle:attrStr forState:UIControlStateNormal];
                 
                 
-//                [link_url setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-//                [link_url setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-
+                //                [link_url setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+                //                [link_url setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+                
                 link_url.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [link_url addTarget:self
                              action:@selector(news_link_Tapped:)
@@ -235,7 +242,7 @@
     for(UIButton *btn in link_urls){
         [self.uv addSubview:btn];
     }
-
+    
 }
 
 -(void)news_link_Tapped:(id)sender
@@ -246,20 +253,20 @@
     NSString *url = [dc objectForKey:@"link_url"];
     
     if ([Common isNotEmptyString:url]) {
-//        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.link_url];
-//        [self.navigationController pushViewController:itemVc animated:YES];
+        //        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.link_url];
+        //        [self.navigationController pushViewController:itemVc animated:YES];
         if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url ]]) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url ]];
         } else {
             // エラー処理
             
             [[[UIAlertView alloc]
-             initWithTitle:@"エラー"
-             message:@"有効なURLではありません。"
-             delegate:nil
-             cancelButtonTitle:nil
-             otherButtonTitles:@"OK", nil
-             ] show];
+              initWithTitle:@"エラー"
+              message:@"有効なURLではありません。"
+              delegate:nil
+              cancelButtonTitle:nil
+              otherButtonTitles:@"OK", nil
+              ] show];
         }
     }
 }
