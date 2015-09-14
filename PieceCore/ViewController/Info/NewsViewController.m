@@ -62,8 +62,7 @@
     self.newsRecipient = recipient;
     self.titleLbl.text = self.newsRecipient.title;
     self.textTv.text = self.newsRecipient.text;
-    [self set_NewsViewController_item];
-    NSLog(@"%@", self.titleLbl.text);
+    [self setNewsView];
     
 }
 
@@ -71,7 +70,7 @@
     return [NewsRecipient alloc];
 }
 
--(void)set_NewsViewController_item
+-(void)setNewsView
 {
     //subview削除
     for(UIView *view in [self.view subviews]){
@@ -79,224 +78,193 @@
     }
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.05,
-                                                               self.viewSize.height*0.11,
+                                                               NavigationHight,
                                                                self.viewSize.width,
                                                                self.viewSize.height*0.1)];
     UILabel *title_back = [[UILabel alloc] initWithFrame:CGRectMake(0,
-                                                                    self.viewSize.height*0.11,
+                                                                    NavigationHight,
                                                                     self.viewSize.width,
                                                                     self.viewSize.height*0.1)];
     title.text = self.newsRecipient.title;
     title_back.backgroundColor = [UIColor grayColor];
-    //title.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.239 alpha:0.5];
     title.font = [UIFont fontWithName:@"GeezaPro" size:22];
     
     //news_Image生成
-    UIImageView *news_Image = [[UIImageView alloc]init];
-    NSString *str = @"";
+    UIImageView *newsIv = [[UIImageView alloc]init];
+    
     int img_viewSize_width;
     int img_viewSize_height;
-    if([self.newsRecipient.image_url isEqualToString:str]){
+    
+    
+    if (![Common isNotEmptyString:self.newsRecipient.image_url ]) {
         img_viewSize_width = self.viewSize.width*0.05;
-        img_viewSize_height = self.viewSize.height*0.3;
-    }else{
-        news_Image.frame = CGRectMake(self.viewSize.width*0.05,
-                                      self.viewSize.height*0.23,
-                                      self.viewSize.width*0.9,
-                                      self.viewSize.height*0.45
-                                      );
-        //news_Image.backgroundColor = [UIColor flatYellowColor];
+        img_viewSize_height = NavigationHight + self.viewSize.height*0.1 + 15;
+    } else {
+        
         NSURL *imageURL = [NSURL URLWithString:self.newsRecipient.image_url];
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        UIImage *news_img = [UIImage imageWithData:imageData];
-        news_Image.image = news_img;
-        news_Image.contentMode = UIViewContentModeScaleAspectFit;
-        //[self.uv addSubview:news_Image];
+        UIImage *newsImg = [UIImage imageWithData:imageData];
+        
+        //高さの比率を求める
+        float hiritu = newsImg.size.height/newsImg.size.width;
+        
+        newsIv.frame = CGRectMake(self.viewSize.width*0.05,
+                                      self.viewSize.height*0.23,
+                                      self.viewSize.width*0.9,
+                                      self.viewSize.width*0.9*hiritu
+                                      );
+        newsIv.backgroundColor = [UIColor flatYellowColor];
+       
+        
+        newsIv.image = newsImg;
+        newsIv.contentMode = UIViewContentModeScaleAspectFit;
+
         img_viewSize_width = self.viewSize.width*0.05;
-        img_viewSize_height = self.viewSize.height*0.7;
+        img_viewSize_height = self.viewSize.width*0.9*hiritu + self.viewSize.height*0.23 + 10;
         
     }
     
     // news_text生成
-    UILabel *news_text = [[UILabel alloc]init];
-    news_text.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.239 alpha:0.01];
-    news_text.text = self.newsRecipient.text;
-    NSLog(@"%@",self.newsRecipient.text);
-    CGFloat custamLetterSpacing = 2.0f;
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:news_text.text];
-    [attributedText addAttribute:NSKernAttributeName
-                           value:[NSNumber numberWithFloat:custamLetterSpacing]
-                           range:NSMakeRange(0, attributedText.length)];
-    news_text.attributedText = attributedText;
-    int characters_number = 18;
-    float line_size = news_text.text.length / characters_number;
-    if(line_size == 0){
-        line_size = 1.5;
-    }
-    float line = line_size * 0.062;
+    UILabel *textLbl = [[UILabel alloc]init];
+    textLbl.text = self.newsRecipient.text;
     
-    news_text.numberOfLines = line_size+100;
+    CGFloat custamLetterSpacing = 2.0f;
+    UIFont *font = [UIFont fontWithName:@"GeezaPro" size:16];
+    
+    NSDictionary *attributes =@{NSFontAttributeName:font,
+                                [NSNumber numberWithFloat:custamLetterSpacing]:NSKernAttributeName};
+    
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:textLbl.text attributes:attributes];
+    textLbl.attributedText = attributedText;
+    
+    CGSize textSize = [textLbl.text
+                       boundingRectWithSize:CGSizeMake(self.viewSize.width - (img_viewSize_width * 2), CGFLOAT_MAX)
+                       options:(NSStringDrawingUsesLineFragmentOrigin)
+                       attributes:attributes
+                       context:nil].size;
+    
+    if (![Common isNotEmptyString:textLbl.text]) {
+        textSize = CGSizeZero;
+    }
     
     //news_textの空白を消す
-    news_text.text = [news_text.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    textLbl.text = [textLbl.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    news_text.frame = CGRectMake(img_viewSize_width,
+    textLbl.frame = CGRectMake(img_viewSize_width,
                                  img_viewSize_height,
-                                 img_viewSize_width+(self.viewSize.width*0.85),
-                                 (img_viewSize_height*line) //+ (self.viewSize.height*0.7)
+                                 textSize.width,
+                                 textSize.height
                                  );
-    NSLog(@"word:%d, line:%lf", news_text.text.length, line_size);
-    NSLog(@"%@", news_text.text);
+    NSLog(@"%@", textLbl.text);
     
-    //news_text.backgroundColor = [UIColor brownColor];
-    news_text.font = [UIFont fontWithName:@"GeezaPro" size:16];
-    img_viewSize_height = (img_viewSize_height*line) + (self.viewSize.height*0.7);
-    //[self.uv addSubview:news_text];
+    textLbl.backgroundColor = [UIColor brownColor];
+    textLbl.font = [UIFont fontWithName:@"GeezaPro" size:16];
+    textLbl.numberOfLines = 0;
     
+    
+    int linkHeight = self.viewSize.height*0.07;
+    int totalLinkHeight = 10;
+    NSMutableArray *link_urls = [NSMutableArray array];
     //link_url生成
-    if([self.newsRecipient.link_list isEqual:[NSNull null]]){
-    }else{
-        for (NSDictionary *d in self.newsRecipient.link_list) {
-            NSLog(@"title:%@",[d objectForKey:@"link_title"]);
-            NSLog(@"link:%@",[d objectForKey:@"link_url"]);
-            if (self.link_title == nil && self.link_url == nil){
-                self.link_title = [d objectForKey:@"link_title"];
-                self.link_url = [d objectForKey:@"link_url"];
-            }else if(self.link_title_2 == nil && self.link_url_2 == nil){
-                self.link_title_2 = [d objectForKey:@"link_title"];
-                self.link_url_2 = [d objectForKey:@"link_url"];
-            }else if(self.link_title_3 == nil && self.link_url_3 == nil){
-                self.link_title_3 = [d objectForKey:@"link_title"];
-                self.link_url_3 = [d objectForKey:@"link_url"];
+    if (![self.newsRecipient.link_list isEqual:[NSNull null]]){
+        
+        int i = 0;
+        for (NSDictionary *dc in self.newsRecipient.link_list) {
+            
+            if ([Common isNotEmptyString:[dc objectForKey:@"link_title"]]) {
+                UIButton *link_url = [[UIButton alloc]init];
+                
+                link_url.tag = i;
+                link_url.frame = CGRectMake(img_viewSize_width,
+                                            img_viewSize_height + textSize.height +totalLinkHeight,
+                                            self.viewSize.width*0.9,
+                                            linkHeight
+                                            );
+                
+
+                NSMutableAttributedString *attrStr;
+                attrStr = [[NSMutableAttributedString alloc] initWithString:[dc objectForKey:@"link_title"]];
+
+                NSDictionary *attributes = @{
+                                             NSUnderlineStyleAttributeName: @(NSUnderlineStyleSingle),
+                                             NSForegroundColorAttributeName:[UIColor blueColor]
+                                             };
+                [attrStr addAttributes:attributes range:NSMakeRange(0, [attrStr length])];
+                [link_url setAttributedTitle:attrStr forState:UIControlStateNormal];
+                
+                
+                [link_url setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+                [link_url setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+
+                link_url.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+                [link_url addTarget:self
+                             action:@selector(news_link_Tapped:)
+                   forControlEvents:UIControlEventTouchUpInside];
+                [link_url.titleLabel setFont:[UIFont fontWithName:@"GeezaPro" size:16]];
+                [link_urls addObject:link_url];
+                totalLinkHeight += linkHeight;
+                
             }
+            i++;
         }
-    }
-    
-    UIButton *link_url_1 = [[UIButton alloc]init];
-    
-    if([self.newsRecipient.image_url isEqualToString:str]){
-        link_url_1.frame = CGRectMake(img_viewSize_width,
-                                      img_viewSize_height, //+ (self.viewSize.height*0.7),
-                                      self.viewSize.width*0.9,
-                                      self.viewSize.height*0.07
-                                      );
-    }else{
-        link_url_1.frame = CGRectMake(img_viewSize_width,
-                                      img_viewSize_height,
-                                      self.viewSize.width*0.9,
-                                      self.viewSize.height*0.07
-                                      );
+        
+        CGRect screen = [[UIScreen mainScreen] bounds];
+        
+        
+        self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        self.uv = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                           0,
+                                                           screen.size.width,
+                                                           img_viewSize_height + textSize.height + totalLinkHeight + TabbarHight)];
+        self.sv.indicatorStyle = UIScrollViewIndicatorStyleDefault;
+        self.sv.contentSize = self.uv.bounds.size;
+        
+        [self.sv addSubview:self.uv];
+        [self.view addSubview:self.sv];
+        [self.uv addSubview:title_back];
+        [self.uv addSubview:title];
+        
+        if ([Common isNotEmptyString:self.newsRecipient.image_url]) {
+            [self.uv addSubview:newsIv];
+        }
+        
+        if ([Common isNotEmptyString:self.newsRecipient.text]) {
+            [self.uv addSubview:textLbl];
+        }
+
+        
+        for(UIButton *btn in link_urls){
+            [self.uv addSubview:btn];
+        }
+        
         
     }
-    
-    [link_url_1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [link_url_1 setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [link_url_1 setTitle:self.link_title
-                forState:UIControlStateNormal];
-    [link_url_1 addTarget:self
-                   action:@selector(news_link_Tapped:)
-         forControlEvents:UIControlEventTouchUpInside];
-    [link_url_1.titleLabel setFont:[UIFont fontWithName:@"GeezaPro" size:16]];
-    //img_viewSize_height = (img_viewSize_height*line) + (self.viewSize.height*0.7);
-    //link_url_1.backgroundColor = [UIColor whiteColor];
-    link_url_1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    
-    
-    UIButton *link_url_2 = [[UIButton alloc]init];
-    link_url_2.frame = CGRectMake(img_viewSize_width,                                                                        img_viewSize_height + (self.viewSize.height*0.07),
-                                  self.viewSize.width*0.9,
-                                  self.viewSize.height*0.07
-                                  );
-    [link_url_2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [link_url_2 setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [link_url_2 setTitle:self.link_title_2
-                forState:UIControlStateNormal];
-    [link_url_2 addTarget:self
-                   action:@selector(news_link_2_Tapped:)
-         forControlEvents:UIControlEventTouchUpInside];
-    [link_url_2.titleLabel setFont:[UIFont fontWithName:@"GeezaPro" size:16]];
-    //img_viewSize_height = (img_viewSize_height*line) + (self.viewSize.height*0.7);
-    //link_url_2.backgroundColor = [UIColor redColor];
-    link_url_2.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    //[self.uv addSubview:link_url_2];
-    
-    UIButton *link_url_3 = [[UIButton alloc]init];
-    link_url_3.frame = CGRectMake(img_viewSize_width,                                                                        img_viewSize_height + (self.viewSize.height*0.14),
-                                  self.viewSize.width*0.9,
-                                  self.viewSize.height*0.07
-                                  );
-    
-    [link_url_3 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [link_url_3 setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-    [link_url_3 setTitle:self.link_title_3
-                forState:UIControlStateNormal];
-    [link_url_3 addTarget:self
-                   action:@selector(news_link_3_Tapped:)
-         forControlEvents:UIControlEventTouchUpInside];
-    [link_url_3.titleLabel setFont:[UIFont fontWithName:@"GeezaPro" size:16]];
-    //link_url_3.backgroundColor = [UIColor grayColor];
-    link_url_3.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    
-    CGRect screen = [[UIScreen mainScreen] bounds];
-    NSLog(@"%f,%f", screen.size.width, screen.size.height);
-    
-    img_viewSize_height = img_viewSize_height + (self.viewSize.height*0.6);
-    
-    self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                       0,
-                                                       screen.size.width,
-                                                       img_viewSize_height)];
-    self.sv.indicatorStyle = UIScrollViewIndicatorStyleDefault;
-    self.sv.contentSize = self.uv.bounds.size;
-    self.sv.backgroundColor = [UIColor colorWithRed:1 green:0.749 blue:0.239 alpha:0.1];
-    
-    [self.sv addSubview:self.uv];
-    [self.view addSubview:self.sv];
-    [self.uv addSubview:title_back];
-    [self.uv addSubview:title];
-    //[self.uv addSubview:border];
-    if([news_Image isEqual:str]){
-    }else{
-        [self.uv addSubview:news_Image];
-    }
-    [self.uv addSubview:news_text];
-    [self.uv addSubview:link_url_1];
-    [self.uv addSubview:link_url_2];
-    [self.uv addSubview:link_url_3];
-    
 }
 
 -(void)news_link_Tapped:(id)sender
 {
-    if (self.link_title == nil && self.link_url == nil) {
-        
-    }else{
-        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.link_url];
-        [self.navigationController pushViewController:itemVc animated:YES];
-    }
+    UIButton *button = (UIButton *)sender;
     
-}
-
--(void)news_link_2_Tapped:(id)sender
-{
-    if (self.link_title_2 == nil && self.link_url_3 == nil) {
-        
-    }else{
-        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.link_url_2];
-        [self.navigationController pushViewController:itemVc animated:YES];
+    NSDictionary *dc = [self.newsRecipient.link_list objectAtIndex:button.tag];
+    NSString *url = [dc objectForKey:@"link_url"];
+    
+    if ([Common isNotEmptyString:url]) {
+//        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.link_url];
+//        [self.navigationController pushViewController:itemVc animated:YES];
+        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url ]]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url ]];
+        } else {
+            // エラー処理
+            
+            [[[UIAlertView alloc]
+             initWithTitle:@"エラー"
+             message:@"有効なURLではありません。"
+             delegate:nil
+             cancelButtonTitle:nil
+             otherButtonTitles:@"OK", nil
+             ] show];
+        }
     }
 }
-
--(void)news_link_3_Tapped:(id)sender
-{
-    if(self.link_title_3 == nil && self.link_url_3 == nil){
-        
-    }else{
-        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.link_url_3];
-        [self.navigationController pushViewController:itemVc animated:YES];
-    }
-}
-
 
 @end

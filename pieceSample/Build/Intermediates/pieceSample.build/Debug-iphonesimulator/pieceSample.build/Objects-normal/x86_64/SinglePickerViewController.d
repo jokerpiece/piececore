@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/ViewController/CustomPiccker/SinglePickerViewController.m \
-  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/PieceCore/ViewController/CustomPiccker/SinglePickerViewController.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/CustomPiccker/SinglePickerViewController.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/CustomPiccker/SinglePickerViewController.h

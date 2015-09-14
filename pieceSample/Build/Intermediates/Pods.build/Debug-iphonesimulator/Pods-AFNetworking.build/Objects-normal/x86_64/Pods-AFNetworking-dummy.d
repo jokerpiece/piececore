@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/hama/Desktop/iosDev/piece/PieceGit/piececore/pieceSample/Pods/Target\ Support\ Files/Pods-AFNetworking/Pods-AFNetworking-dummy.m
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Target\ Support\ Files/Pods-AFNetworking/Pods-AFNetworking-dummy.m
