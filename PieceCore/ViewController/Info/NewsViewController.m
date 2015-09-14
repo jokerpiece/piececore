@@ -86,7 +86,7 @@
                                                                     self.viewSize.width,
                                                                     self.viewSize.height*0.1)];
     title.text = self.newsRecipient.title;
-    title_back.backgroundColor = [UIColor grayColor];
+    title_back.backgroundColor = [UIColor colorWithRed:0.86 green:0.86 blue:0.86 alpha:1.0];
     title.font = [UIFont fontWithName:@"GeezaPro" size:22];
     
     //news_Image生成
@@ -113,7 +113,7 @@
                                       self.viewSize.width*0.9,
                                       self.viewSize.width*0.9*hiritu
                                       );
-        newsIv.backgroundColor = [UIColor flatYellowColor];
+//        newsIv.backgroundColor = [UIColor flatYellowColor];
        
         
         newsIv.image = newsImg;
@@ -155,9 +155,8 @@
                                  textSize.width,
                                  textSize.height
                                  );
-    NSLog(@"%@", textLbl.text);
     
-    textLbl.backgroundColor = [UIColor brownColor];
+//    textLbl.backgroundColor = [UIColor brownColor];
     textLbl.font = [UIFont fontWithName:@"GeezaPro" size:16];
     textLbl.numberOfLines = 0;
     
@@ -193,8 +192,8 @@
                 [link_url setAttributedTitle:attrStr forState:UIControlStateNormal];
                 
                 
-                [link_url setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-                [link_url setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+//                [link_url setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//                [link_url setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
 
                 link_url.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [link_url addTarget:self
@@ -207,38 +206,36 @@
             }
             i++;
         }
-        
-        CGRect screen = [[UIScreen mainScreen] bounds];
-        
-        
-        self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-        self.uv = [[UIView alloc] initWithFrame:CGRectMake(0,
-                                                           0,
-                                                           screen.size.width,
-                                                           img_viewSize_height + textSize.height + totalLinkHeight + TabbarHight)];
-        self.sv.indicatorStyle = UIScrollViewIndicatorStyleDefault;
-        self.sv.contentSize = self.uv.bounds.size;
-        
-        [self.sv addSubview:self.uv];
-        [self.view addSubview:self.sv];
-        [self.uv addSubview:title_back];
-        [self.uv addSubview:title];
-        
-        if ([Common isNotEmptyString:self.newsRecipient.image_url]) {
-            [self.uv addSubview:newsIv];
-        }
-        
-        if ([Common isNotEmptyString:self.newsRecipient.text]) {
-            [self.uv addSubview:textLbl];
-        }
-
-        
-        for(UIButton *btn in link_urls){
-            [self.uv addSubview:btn];
-        }
-        
-        
     }
+    CGRect screen = [[UIScreen mainScreen] bounds];
+    
+    
+    self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                       0,
+                                                       screen.size.width,
+                                                       img_viewSize_height + textSize.height + totalLinkHeight + TabbarHight)];
+    self.sv.indicatorStyle = UIScrollViewIndicatorStyleDefault;
+    self.sv.contentSize = self.uv.bounds.size;
+    
+    [self.sv addSubview:self.uv];
+    [self.view addSubview:self.sv];
+    [self.uv addSubview:title_back];
+    [self.uv addSubview:title];
+    
+    if ([Common isNotEmptyString:self.newsRecipient.image_url]) {
+        [self.uv addSubview:newsIv];
+    }
+    
+    if ([Common isNotEmptyString:self.newsRecipient.text]) {
+        [self.uv addSubview:textLbl];
+    }
+    
+    
+    for(UIButton *btn in link_urls){
+        [self.uv addSubview:btn];
+    }
+
 }
 
 -(void)news_link_Tapped:(id)sender

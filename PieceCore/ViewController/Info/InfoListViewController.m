@@ -135,6 +135,9 @@
         
         InfoListData *data = [self.fillterList objectAtIndex:indexPath.row];
         
+        if (![Common isNotEmptyString:data.type]) {
+            return;
+        }
         if ([data.type isEqualToString:@"1"]) {
             self.infoId = data.info_id;
             
