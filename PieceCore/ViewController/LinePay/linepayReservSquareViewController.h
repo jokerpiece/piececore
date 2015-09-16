@@ -14,7 +14,7 @@
 #import "ProfileRecipient.h"
 #import "linepay_ViewController.h"
 #import "LinepayRecipient.h"
-#import "Setdata.h"
+#import "LinePayData.h"
 #import "DeterminedLinePayRecipient.h"
 #import "linepay_ViewController.h"
 

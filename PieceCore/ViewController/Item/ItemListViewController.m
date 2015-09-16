@@ -19,7 +19,6 @@
 
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"ItemListViewController" owner:self options:nil];
-       self.linepay_flag = YES;
 }
 
 - (void)viewDidLoadLogic

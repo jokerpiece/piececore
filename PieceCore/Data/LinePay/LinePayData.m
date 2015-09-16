@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
 
-#import "Setdata.h"
+#import "LinePayData.h"
 
 static NSString *get_iteme_name;
 static NSString *get_iteme_price;
@@ -18,7 +18,7 @@ static NSString *get_postage;
 static NSString *get_transaction;
 static NSString *get_lineurl;
 
-@implementation Setdata
+@implementation LinePayData
 
 @synthesize item_name;
 @synthesize item_price;

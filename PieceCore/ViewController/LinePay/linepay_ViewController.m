@@ -46,7 +46,7 @@
     
     //SetDataに商品名を渡す
     NSString *str_item_name = item_Name.text;
-    NSString *get_item_name = [Setdata getname:str_item_name];
+    NSString *get_item_name = [LinePayData getname:str_item_name];
     NSLog(@"%@",get_item_name);
     
     //商品画像
@@ -77,7 +77,7 @@
     
     //Setdataクラスに商品価格を渡す
     NSString *str_item_price = item_Price_2.text;
-    NSString *get_item_price = [Setdata getprice:str_item_price];
+    NSString *get_item_price = [LinePayData getprice:str_item_price];
     NSLog(@"%@",get_item_price);
     
     UILabel *item_Price_3 = [[UILabel alloc] initWithFrame:CGRectMake(screen.size.width*0.85, screen.size.height*0.65, screen.size.width*0.82, screen.size.height*0.74)];
@@ -164,13 +164,13 @@
     //送料取得
     self.postage = self.linepeyrecipent.postage;
     NSString *str_postage = self.postage;
-    NSString *get_postage= [Setdata getpostage:str_postage];
+    NSString *get_postage= [LinePayData getpostage:str_postage];
     NSLog(@"%@", get_postage);
     
     //LinePay取引番号取得
     self.transaction = self.linepeyrecipent.transaction;
     NSString *str_transaction = self.transaction;
-    NSString *get_transaction = [Setdata gettransaction:str_transaction];
+    NSString *get_transaction = [LinePayData gettransaction:str_transaction];
     NSLog(@"%@", get_transaction);
     
     

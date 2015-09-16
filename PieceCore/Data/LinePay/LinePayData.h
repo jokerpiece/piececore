@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Setdata : NSObject
+@interface LinePayData : NSObject
 
 @property (nonatomic, strong) NSString *item_name;
 @property (nonatomic, strong) NSString *item_price;
