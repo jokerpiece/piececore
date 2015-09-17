@@ -169,7 +169,10 @@
             UIImageView *item_Image = [[UIImageView alloc] init];
             NSURL *imageURL = [NSURL URLWithString:[data.img_url stringByAddingPercentEscapesUsingEncoding:
                                                     NSUTF8StringEncoding]];
-            item_Image.frame = CGRectMake(60, 150, 200, 200);
+            item_Image.frame = CGRectMake(self.viewSize.width*0.1,
+                                          self.viewSize.height*0.3,
+                                          self.viewSize.width*0.8,
+                                          self.viewSize.height*0.5);
             [item_Image setImageWithURL:imageURL
                        placeholderImage:nil
                                 options:SDWebImageCacheMemoryOnly
