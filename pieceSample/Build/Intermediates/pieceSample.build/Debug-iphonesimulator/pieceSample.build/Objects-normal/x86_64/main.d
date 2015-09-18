@@ -39,7 +39,7 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/CustomPiccker/DatePickerViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/CustomPiccker/MonthAndDatePickerViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Profile/UcIndexpathData.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/LinePay/Setdata.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/LinePay/LinePayData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/LinePay/linepayReservSquareViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/DeterminedLinePayRecipient.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Survey/SurveyViewController.h \
@@ -51,4 +51,8 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Coupn/CouponData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Tabbar/TabbarData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Base/TabbarViewController.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Theme/ThemeData.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Theme/ThemeData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Nex8Tracking/Nex8Tracking-1.0.1/Nex8Tracking.framework/Headers/Nex8Tracking.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Nex8Tracking/Nex8Tracking-1.0.1/Nex8Tracking.framework/Headers/NEXTracker.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Nex8Tracking/Nex8Tracking-1.0.1/Nex8Tracking.framework/Headers/NEXECItem.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Nex8Tracking/Nex8Tracking-1.0.1/Nex8Tracking.framework/Headers/NEXMember.h

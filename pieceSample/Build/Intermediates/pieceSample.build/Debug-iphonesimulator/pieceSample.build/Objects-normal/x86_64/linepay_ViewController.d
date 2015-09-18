@@ -34,5 +34,5 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/CustomPiccker/DatePickerViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/CustomPiccker/MonthAndDatePickerViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Profile/UcIndexpathData.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/LinePay/Setdata.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/LinePay/LinePayData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/DeterminedLinePayRecipient.h

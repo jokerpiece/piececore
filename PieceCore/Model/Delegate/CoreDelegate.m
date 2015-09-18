@@ -19,7 +19,7 @@
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [self setConfig];
-    
+    [self nex8SendOpenStatus];
     [self setPieceTitle];
     [self setThemeColor];
     [self setNavibarTitleAttributes];
@@ -30,6 +30,13 @@
     return YES;
 }
 -(void)setConfig{
+}
+
+-(void)nex8SendOpenStatus{
+    if ([Common isNotEmptyString:[PieceCoreConfig nex8Key]]) {
+        self.nex8Tracker = [Nex8Tracking trackerWithSdkKey:[PieceCoreConfig nex8Key]];
+        [self.nex8Tracker sendOpenedApp];
+    }
 }
 
 - (void)sendLocalNotificationForMessage:(NSString *)message
@@ -76,7 +83,7 @@
     if ([currentVersion compare:@"8.0" options:NSNumericSearch] == NSOrderedAscending){
         // i0S7以前の処理
         // デバイストークン取得申請
-        #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge|
                                                                                 UIRemoteNotificationTypeSound|
                                                                                 UIRemoteNotificationTypeAlert)];
@@ -178,11 +185,16 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    if (self.nex8Tracker) {
+        [self.nex8Tracker endSession];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    if (self.nex8Tracker) {
+        [self.nex8Tracker startSession]; }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
