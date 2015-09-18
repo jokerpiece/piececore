@@ -17,7 +17,7 @@
 
 
 -(void)setConfig{
-    [PieceCoreConfig setShopId:@"pieceSample"];
+    [PieceCoreConfig setShopId:@"costume_award"];
     [PieceCoreConfig setAppKey:@"1111"];
     [PieceCoreConfig setAppId:@""];
 }

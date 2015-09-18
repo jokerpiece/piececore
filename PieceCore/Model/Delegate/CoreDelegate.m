@@ -34,8 +34,8 @@
 
 -(void)nex8SendOpenStatus{
     if ([Common isNotEmptyString:[PieceCoreConfig nex8Key]]) {
-        self.nex8Tracker = [Nex8Tracking trackerWithSdkKey:[PieceCoreConfig nex8Key]];
-        [self.nex8Tracker sendOpenedApp];
+//        self.nex8Tracker = [Nex8Tracking trackerWithSdkKey:[PieceCoreConfig nex8Key]];
+//        [self.nex8Tracker sendOpenedApp];
     }
 }
 
@@ -183,18 +183,17 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    if (self.nex8Tracker) {
-        [self.nex8Tracker endSession];
-    }
+    
+//    if (self.nex8Tracker) {
+//        [self.nex8Tracker endSession];
+//    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    if (self.nex8Tracker) {
-        [self.nex8Tracker startSession]; }
+//    if (self.nex8Tracker) {
+//        [self.nex8Tracker startSession];
+//    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

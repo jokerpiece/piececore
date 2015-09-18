@@ -52,10 +52,6 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Tabbar/TabbarData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Base/TabbarViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Theme/ThemeData.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Nex8Tracking/Nex8Tracking-1.0.1/Nex8Tracking.framework/Headers/Nex8Tracking.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Nex8Tracking/Nex8Tracking-1.0.1/Nex8Tracking.framework/Headers/NEXTracker.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Nex8Tracking/Nex8Tracking-1.0.1/Nex8Tracking.framework/Headers/NEXECItem.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/Nex8Tracking/Nex8Tracking-1.0.1/Nex8Tracking.framework/Headers/NEXMember.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Info/InfoListViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Info/NewsViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/NewsRecipient.h

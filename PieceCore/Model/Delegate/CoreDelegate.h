@@ -14,7 +14,7 @@
 #import "ThemeData.h"
 #import <CoreLocation/CoreLocation.h>
 #import "GetPointView.h"
-#import <Nex8Tracking/Nex8Tracking.h>
+//#import <Nex8Tracking/Nex8Tracking.h>
 
 @protocol PieceCoreDelegate
 -(void)beaconDidEnterRegion;
@@ -27,7 +27,7 @@
 @property (nonatomic) ThemeData *theme;
 @property (nonatomic) bool isUpdate;
 @property (strong, nonatomic) GetPointView *pointView;
-@property (strong, nonatomic) NEXTracker *nex8Tracker;
+//@property (strong, nonatomic) NEXTracker *nex8Tracker;
 
 @property (strong, nonatomic) CLLocationManager     *manager;
 @property (strong, nonatomic) CLBeaconRegion        *region;

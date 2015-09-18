@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'PieceCore'
-    s.version = '0.0.40'
+    s.version = '0.0.41'
     s.license = { :type => 'GPL v3', :file => 'LICENSE' }
     s.summary = 'This is piece library for iOS.'
     s.homepage = 'https://jokapi.jp'
@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
     s.dependency 'UIActivityIndicator-for-SDWebImage'
     s.dependency 'UIColor+MLPFlatColors'
     s.dependency 'SVProgressHUD', '~> 1.0'
-    s.dependency 'Nex8Tracking'
+    #s.dependency 'Nex8Tracking'
 end
