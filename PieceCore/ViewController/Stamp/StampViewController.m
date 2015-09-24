@@ -55,14 +55,15 @@
     int StampLineCount = ceil(recipient.total_point.intValue/5.0);
     int mod = recipient.total_point.intValue%5;
     int stampCount = 0;
-
+    
     for (int i = 1; i <= StampLineCount; i++) {
-        UIView *stampLineView =[[UIView alloc] initWithFrame:CGRectMake(self.viewSize.width * 0.05, self.stampLineStartHeight + 70*(i -1), self.viewSize.width * 0.9, 30)];
+        UIView *stampLineView =[[UIView alloc] initWithFrame:CGRectMake(self.viewSize.width * 0.05, self.stampLineStartHeight + (self.viewSize.width * 0.21875)*(i -1), self.viewSize.width * 0.9, self.viewSize.width * 0.093)];
+        stampLineView.backgroundColor = [UIColor grayColor];
         //stampLineView.backgroundColor = [UIColor grayColor];
-
+        
         UIImage *stampBarImg = [UIImage imageNamed:@"stampbar.png"];
         UIImageView *stampBariv = [[UIImageView alloc] initWithImage:stampBarImg];
-        stampBariv.frame = CGRectMake(0, 0, stampLineView.frame.size.width, 30);
+        stampBariv.frame = CGRectMake(0, 0, stampLineView.frame.size.width, self.viewSize.width * 0.093);
         [stampLineView addSubview:stampBariv];
         
         int stampLimit = 5;
@@ -73,13 +74,13 @@
             stampCount ++;
             UIImage *stampBaseImg = [UIImage imageNamed:@"stampbase.png"];
             UIImageView *stampBaseIv = [[UIImageView alloc] initWithImage:stampBaseImg];
-            stampBaseIv.frame = CGRectMake(60*ii, -10, 50, 50);
+            stampBaseIv.frame = CGRectMake((self.viewSize.width * 0.187)*ii, -10, self.viewSize.width * 0.156, self.viewSize.width * 0.156);
             [stampLineView addSubview:stampBaseIv];
             if (stampCount <= recipient.get_point.intValue) {
                 
                 UIImage *stampImg = [UIImage imageNamed:@"stamp.png"];
                 UIImageView *stampIv = [[UIImageView alloc] initWithImage:stampImg];
-                stampIv.frame = CGRectMake(0, 0, 50, 50);
+                stampIv.frame = CGRectMake(0, 0, self.viewSize.width * 0.156, self.viewSize.width * 0.156);
                 [stampBaseIv addSubview:stampIv];
                 
                 if (stampCount == recipient.get_point.intValue) {
@@ -129,13 +130,13 @@
         [self.view addSubview:stampLineView];
     }
     
-    self.excengeCouponBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.viewSize.width * 0.1, self.stampLineStartHeight + StampLineCount * 70, self.viewSize.width * 0.8, 45)];
+    self.excengeCouponBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.viewSize.width * 0.1, self.stampLineStartHeight + StampLineCount * (self.viewSize.width * 0.21875), self.viewSize.width * 0.8, 45)];
     [self.excengeCouponBtn.titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
     [self.excengeCouponBtn setTitle:@"クーポンと交換" forState:UIControlStateNormal];
     [self.excengeCouponBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.excengeCouponBtn.backgroundColor = [UIColor colorWithRed:0.28 green:0.24 blue:0.55 alpha:1.0];
     [self.excengeCouponBtn addTarget:self
-            action:@selector(exchangeCouponAction:) forControlEvents:UIControlEventTouchUpInside];
+                              action:@selector(exchangeCouponAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.excengeCouponBtn];
     
     
