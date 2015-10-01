@@ -15,11 +15,7 @@
 @implementation VoteViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    self.twitterTableView.frame = CGRectMake(0,
-//                                             NavigationHight,
-//                                             self.viewSize.width,
-//                                             self.viewSize.height*0.7);
+
     self.twitterTableView.allowsSelection = NO;
     self.twitterTableView.rowHeight = UITableViewAutomaticDimension;
     self.twitterTableView.delegate = self;
@@ -46,13 +42,9 @@
             NSArray *twitterAccounts = [store accountsWithAccountType:twitterAccountType];
             if ([twitterAccounts count] > 0) {
                 ACAccount *account = [twitterAccounts objectAtIndex:0];
-                //                NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-                //                [params setObject:@"1" forKey:@"include_entities"];
-                
-                
                 //screen_nameに登録したユーザーアカウントを入れる
                 //@は必須
-                NSDictionary *params = @{@"screen_name" : @"@SplatoonJP",
+                NSDictionary *params = @{@"screen_name" : @"@ps6963",
                                          @"include_rts" : @"1",
                                          @"count" : @"11"};
                 
@@ -71,12 +63,12 @@
                                                                  options: NSJSONReadingMutableLeaves
                                                                    error:&jsonError];
                         if(tweets){
-                            NSLog(@"%@",tweets);
+                            DLog(@"%@",tweets);
                             dispatch_async(dispatch_get_main_queue(), ^{ // 追加
                                 [self.twitterTableView reloadData]; // 追加
                             });
                         }else{
-                            NSLog(@"%@", error);
+                            DLog(@"%@", error);
                         }
                         //Tweet取得完了に伴い、Table Viewを更新
                     }
@@ -104,7 +96,7 @@
         NSDictionary *attr = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:12.0]};
         CGSize modifiedSize = [tweetText boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil].size;
         
-        return MAX(modifiedSize.height, 70);
+        return MAX(modifiedSize.height + 10, 75);
     }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -124,11 +116,7 @@
        
         VoteViewCellTableViewCell *cell = [self.twitterTableView dequeueReusableCellWithIdentifier:@"Cell1"
                                 forIndexPath:indexPath];
-//        cell.selectedNameLbl.text = @"SelevtedName";
-//        cell.selectedUserPointLbl.text = @"SelectedUserPoint";
-//        cell.selectedUserTextLbl.text = @"SelectedUserText";
-//        cell.keepPointLbl.text = @"10000";
-        
+
         [cell.voteBtn addTarget:self
                          action:@selector(handleTounchButton:event:)
                forControlEvents:UIControlEventTouchUpInside];
@@ -153,20 +141,53 @@
                 [cell layoutSubviews];
             });
         });
-    
         
         NSString *str = @"@";
         NSString *twitterUserIdStr = [str stringByAppendingString:[twitterUser objectForKey:@"screen_name"]];
     
+        
+        //経過時間
+        NSString *dateStr = status[@"created_at"];
+        DLog(@"%@",dateStr);
+        NSDateFormatter *inputFormat = [[NSDateFormatter alloc]init];
+        [inputFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+        [inputFormat setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
+        NSDate *date = [inputFormat dateFromString:dateStr];
+        DLog(@"%@",date);
+        
+        NSDate *nowTime = [NSDate date];
+        float tmp = [nowTime timeIntervalSinceDate:date];
+        int day = (int)(tmp / 86400);
+        int hour = (int)(tmp / 3600);
+        int min = (int)(tmp / 60);
+        int sec = tmp;
+        DLog(@"%@",nowTime);
+        DLog(@"%d日%d時間%d分%d秒前",day,hour,min,sec);
+        
+        NSString *courseTime;
+        if(hour <= 0){
+            courseTime = [NSString stringWithFormat:@"%d 分前",min];
+        }else if(hour >= 24){
+            courseTime = [NSString stringWithFormat:@"%d 日前",day];
+        }else if(min < 0){
+            courseTime = [NSString stringWithFormat:@"1 分以内"];
+        }else{
+            courseTime = [NSString stringWithFormat:@"%d 時間前",hour];
+        }
+        
         // カスタムセルのラベルに値を設定
         cell.twitterTextLbl.text = tweetText;
         cell.twitterUserNameLbl.text = [twitterUser objectForKey:@"name"];
         cell.twitterIdLbl.text = twitterUserIdStr;
-        cell.twitterTimeLbl.text = [twitterUser objectForKey:@"created_at"];
+        cell.twitterTimeLbl.text = courseTime;
         
-        //cell.twitterTextLbl.numberOfLines = 0;
-        [cell.twitterTextLbl sizeToFit];
-        //cell.twitterTextLbl.lineBreakMode = NSLineBreakByCharWrapping;
+
+        
+        //[cell.twitterTextLbl sizeToFit];
+//        cell.twitterTextLbl.numberOfLines = 0;
+//        cell.twitterTextLbl.lineBreakMode = NSLineBreakByCharWrapping;
+        //[cell.twitterTextLbl sizeToFit];
+
         
         return cell;
     }
