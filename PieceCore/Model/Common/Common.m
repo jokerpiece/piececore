@@ -116,4 +116,11 @@
     
     return resizedImage;
 }
++ (NSString *)formatOfCurrencyWithString:(NSString*)str{
+    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+    [fmt setPositiveFormat:@"#,##0"];
+    NSNumber *price = [NSNumber numberWithInt:[str intValue]];
+    NSString *strPrice = [fmt stringFromNumber:price];
+    return strPrice;
+}
 @end

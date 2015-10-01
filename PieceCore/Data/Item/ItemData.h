@@ -14,5 +14,6 @@
 @property (nonatomic,strong) NSString *item_text;
 @property (nonatomic,strong) NSMutableDictionary *item_list;
 @property (nonatomic,strong) NSString *shop_url;
+@property (nonatomic,strong) NSString *stock;
 
 @end

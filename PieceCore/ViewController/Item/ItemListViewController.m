@@ -82,13 +82,33 @@
         }
         
         if ([Common isNotEmptyString:data.item_price]) {
+            
+            
             UILabel *priceLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width - 200,55,180,40)];
-            priceLbl.text = [NSString stringWithFormat:@"%@円",data.item_price];
+            priceLbl.text = [NSString stringWithFormat:@"%@円",[Common formatOfCurrencyWithString:data.item_price] ];
             priceLbl.font = [UIFont fontWithName:@"AppleGothic" size:13];
             priceLbl.alpha = 1.0f;
             priceLbl.textAlignment = NSTextAlignmentRight;
             priceLbl.backgroundColor = [UIColor clearColor];
             [cell.contentView addSubview:priceLbl];
+        }
+        
+        if ([Common isNotEmptyString:data.stock]) {
+            UILabel *stockLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width - 165,65,60,20)];
+            stockLbl.text = [NSString stringWithFormat:@"%@",data.stock];
+            if ([stockLbl.text isEqualToString:@"売り切れ"]) {
+                stockLbl.textColor = [UIColor whiteColor];
+                stockLbl.backgroundColor = [UIColor grayColor];
+                stockLbl.textAlignment = NSTextAlignmentCenter;
+            } else {
+                stockLbl.textColor = [UIColor blackColor];
+                stockLbl.backgroundColor = [UIColor clearColor];
+                stockLbl.textAlignment = NSTextAlignmentRight;
+            }
+            stockLbl.font = [UIFont boldSystemFontOfSize:10];
+            stockLbl.alpha = 1.0f;
+            
+            [cell.contentView addSubview:stockLbl];
         }
         
         //}

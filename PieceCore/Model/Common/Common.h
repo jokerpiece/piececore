@@ -18,4 +18,5 @@
 +(void)initUserDefaults;
 +(bool)isNotEmptyString:(NSString *)string;
 + (UIImage*)resizeAspectFitWithSize:(UIImage *)srcImg size:(CGSize)size;
++ (NSString *)formatOfCurrencyWithString:(NSString*)str;
 @end

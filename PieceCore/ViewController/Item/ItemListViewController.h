@@ -33,6 +33,7 @@ typedef enum {
 @property (nonatomic) itemSearchType searchType;
 @property (strong, nonatomic) NSString *headerImgUrl;
 @property (strong, nonatomic) UILabel *quanitityLbl;
+@property (strong, nonatomic) UILabel *stockLbl;
 @property (nonatomic) float sarchCellHeight;
 @property (nonatomic) float HeaderHeight;
 
