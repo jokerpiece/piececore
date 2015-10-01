@@ -178,11 +178,11 @@
         if(min == 0){
             courseTime = [NSString stringWithFormat:@"now"];
         }else if (hour == 0){
-            courseTime = [NSString stringWithFormat:@"%d min",min];
+            courseTime = [NSString stringWithFormat:@"%d m",min];
         }else if (hour >= 24){
-            courseTime = [NSString stringWithFormat:@"%d days",day];
+            courseTime = [NSString stringWithFormat:@"%d d",day];
         }else{
-            courseTime = [NSString stringWithFormat:@"%d hour",hour];
+            courseTime = [NSString stringWithFormat:@"%d h",hour];
         }
         
         // カスタムセルのラベルに値を設定
