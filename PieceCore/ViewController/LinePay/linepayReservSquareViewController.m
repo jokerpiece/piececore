@@ -38,15 +38,15 @@
     
     //setdataの値を取得(商品名、価格、送料)
     NSString *str = NULL;
-    NSString *get_item_name = [Setdata getname:str];
+    NSString *get_item_name = [LinePayData getname:str];
     self.item_name.text = get_item_name;
     
     NSString *str1 = NULL;
-    NSString *get_item_price = [Setdata getprice:str1];
+    NSString *get_item_price = [LinePayData getprice:str1];
     self.item_price.text = get_item_price;
     
     NSString *str2 = NULL;
-    NSString *get_postage = [Setdata getpostage:str2];
+    NSString *get_postage = [LinePayData getpostage:str2];
     self.postage.text = get_postage;
     
     //送料計算
@@ -77,10 +77,27 @@
     return [DeterminedLinePayRecipient alloc];
 }
 
+//-(void)setDataWithRecipient:(DeterminedLinePayRecipient *)reccipient sendID:(NSString *)sendId
+//{
+//    if([sendId isEqualToString:SendIdDeterminedLinePay])
+//    {
+//        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"注文確定"
+//                                                       message:@"購入ありがとうございます"
+//                                                      delegate:self
+//                                             cancelButtonTitle:nil
+//                                             otherButtonTitles:@"OK", nil];
+//        [alert show];
+//        
+//        NSInteger count = self.navigationController.viewControllers.count - 3;
+//        ItemListViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
+//        [self.navigationController popToViewController:vc animated:YES];
+//    }
+//}
+
 - (IBAction)reserv:(id)sender {
      //LINEPay決済送信、アプリ内決済登録
     NSString *str = NULL;
-    NSString *get_transaction = [Setdata gettransaction:str];
+    NSString *get_transaction = [LinePayData gettransaction:str];
     
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;

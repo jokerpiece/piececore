@@ -12,7 +12,7 @@
 #import "ProfileViewController.h"
 #import "WebViewController.h"
 #import "linepayReservSquareViewController.h"
-#import "SetData.h"
+#import "LinePayData.h"
 
 @interface linepay_ViewController : BaseViewController<UIScrollViewDelegate>
 @property (nonatomic, strong) UIView *uv;

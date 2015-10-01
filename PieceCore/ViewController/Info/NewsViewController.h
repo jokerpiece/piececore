@@ -18,6 +18,7 @@
 
 @property (nonatomic,strong) NSString *news_id;
 @property (strong, nonatomic) NewsRecipient *newsRecipient;
+@property (weak, nonatomic) IBOutlet UIView *titleBG;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 @property (weak, nonatomic) IBOutlet UITextView *textTv;
 @property (nonatomic) NSMutableArray *cellList;

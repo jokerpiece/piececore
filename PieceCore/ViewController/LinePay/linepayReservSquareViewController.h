@@ -14,7 +14,7 @@
 #import "ProfileRecipient.h"
 #import "linepay_ViewController.h"
 #import "LinepayRecipient.h"
-#import "Setdata.h"
+#import "LinePayData.h"
 #import "DeterminedLinePayRecipient.h"
 #import "linepay_ViewController.h"
 
@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) ProfileRecipient *profilerecipient;
 @property (nonatomic, strong) LinepayRecipient *linepayrecipient;
-@property (nonatomic, strong) BaseRecipient *recipient;
+//@property (nonatomic, strong) BaseRecipient *recipient;
 
 @property (nonatomic, strong) UIView *uv;
 @property (nonatomic, strong) UIScrollView *sv;

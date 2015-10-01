@@ -11,6 +11,7 @@
 #import "InfoListViewController.h"
 #import "CategoryViewController.h"
 #import "TabbarViewController.h"
+#import "VoteViewController.h"
 
 
 @implementation AppDelegate
@@ -33,7 +34,7 @@
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[InfoListViewController alloc] initWithNibName:@"InfoListViewController" bundle:nil]
                                                                tabTitle:@"Info"
-                                                                  title:@"INFO"]];
+                                                                  title:@"INFOMATION"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[CategoryViewController alloc] initWithNibName:@"CategoryViewController" bundle:nil]
                                                                tabTitle:@"Shopping"
@@ -42,6 +43,7 @@
                                [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
+
     return tabbarDataList;
 }
 

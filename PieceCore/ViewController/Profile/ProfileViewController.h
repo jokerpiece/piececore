@@ -20,7 +20,7 @@
 #import "ItemListViewController.h"
 #import "LinepayRecipient.h"
 #import "linepay_ViewController.h"
-#import "setData.h"
+#import "LinePayData.h"
 
 @interface ProfileViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate,UITextViewDelegate,ProfileSendBtnDelegate>
 @property (nonatomic) NSMutableArray *cellList;

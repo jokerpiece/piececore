@@ -12,6 +12,7 @@
 #import "InfoListViewController.h"
 #import "CouponViewController.h"
 #import "CategoryViewController.h"
+#import "VoteViewController.h"
 
 @implementation CoreDelegate
 
@@ -19,7 +20,6 @@
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [self setConfig];
-    
     [self setPieceTitle];
     [self setThemeColor];
     [self setNavibarTitleAttributes];
