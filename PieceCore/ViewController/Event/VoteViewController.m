@@ -44,7 +44,7 @@
                 ACAccount *account = [twitterAccounts objectAtIndex:0];
                 //screen_nameに登録したユーザーアカウントを入れる
                 //@は必須
-                NSDictionary *params = @{@"screen_name" : @"@ps6963",
+                NSDictionary *params = @{@"screen_name" : @"@shinatu_real",
                                          @"include_rts" : @"1",
                                          @"count" : @"11"};
                 
@@ -165,14 +165,24 @@
         DLog(@"%d日%d時間%d分%d秒前",day,hour,min,sec);
         
         NSString *courseTime;
-        if(hour <= 0){
-            courseTime = [NSString stringWithFormat:@"%d 分前",min];
-        }else if(hour >= 24){
-            courseTime = [NSString stringWithFormat:@"%d 日前",day];
-        }else if(min < 0){
-            courseTime = [NSString stringWithFormat:@"1 分以内"];
+//        if(hour <= 0){
+//            courseTime = [NSString stringWithFormat:@"%d 分前",min];
+//        }else if(hour >= 24){
+//            courseTime = [NSString stringWithFormat:@"%d 日前",day];
+//        }else if(sec < 360){
+//            courseTime = [NSString stringWithFormat:@"1 分以内"];
+//        }else{
+//            courseTime = [NSString stringWithFormat:@"%d 時間前",hour];
+//        }
+        
+        if(min == 0){
+            courseTime = [NSString stringWithFormat:@"now"];
+        }else if (hour == 0){
+            courseTime = [NSString stringWithFormat:@"%d min",min];
+        }else if (hour >= 24){
+            courseTime = [NSString stringWithFormat:@"%d days",day];
         }else{
-            courseTime = [NSString stringWithFormat:@"%d 時間前",hour];
+            courseTime = [NSString stringWithFormat:@"%d hour",hour];
         }
         
         // カスタムセルのラベルに値を設定
