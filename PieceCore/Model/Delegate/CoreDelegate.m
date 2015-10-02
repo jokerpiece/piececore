@@ -12,7 +12,7 @@
 #import "InfoListViewController.h"
 #import "CouponViewController.h"
 #import "CategoryViewController.h"
-#import "VoteViewController.h"
+#import "TwitterViewController.h"
 
 @implementation CoreDelegate
 

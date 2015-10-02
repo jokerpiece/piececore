@@ -11,7 +11,7 @@
 #import "InfoListViewController.h"
 #import "CategoryViewController.h"
 #import "TabbarViewController.h"
-#import "VoteViewController.h"
+#import "TwitterViewController.h"
 
 
 @implementation AppDelegate

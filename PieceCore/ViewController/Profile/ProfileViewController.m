@@ -439,22 +439,7 @@
     [profile_data setValue:self.profileRecipient.anniversary_name forKey:@"ANNIVERSARY_NAME"];
     [profile_data setValue:self.profileRecipient.anniversary forKey:@"ANNIVERSARY"];
     
-    [profile_data setValue:@"Testだよ！" forKey:@"TEST"];
-    
     [profile_data synchronize];
-    
-    NSString *test = [profile_data stringForKey:@"TEST"];
-    NSLog(@"%@", test);
-    
-    [profile_data setValue:@"あいうえお！" forKey:@"TEST"];
-    [profile_data synchronize];
-    test = [profile_data stringForKey:@"TEST"];
-    NSLog(@"%@", test);
-    
-    [profile_data removeObjectForKey:@"TEST"];
-    test = [profile_data stringForKey:@"TEST"];
-    NSLog(@"%@", test);
-
     
 //    NSString *sei_str = self.profileRecipient.sei;
 //    NSString *get_sei =  [Setdata getsei:sei_str];

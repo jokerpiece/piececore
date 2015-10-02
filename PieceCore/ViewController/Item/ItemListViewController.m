@@ -7,7 +7,7 @@
 //
 
 #import "ItemListViewController.h"
-#import "VoteViewController.h"
+#import "TwitterViewController.h"
 
 @interface ItemListViewController ()
 
@@ -191,7 +191,7 @@
 //            [self.navigationController pushViewController:vc  animated:YES];
 //            return;
 //        
-        VoteViewController *vcc = [[VoteViewController alloc] initWithNibName:@"VoteViewController" bundle:nil];
+        TwitterViewController *vcc = [[TwitterViewController alloc] initWithNibName:@"VoteViewController" bundle:nil];
         [self.navigationController pushViewController:vcc animated:YES];
         
  //       }
