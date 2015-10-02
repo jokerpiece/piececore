@@ -115,8 +115,6 @@
         }
         return cell;
     }
-    
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -129,7 +127,6 @@
     } else {
         return 60.0f;
     }
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -141,9 +138,7 @@
         } else {
             return 0;
         }
-        
     }
-    
 }
 
 
@@ -320,11 +315,5 @@
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     return [ItemRecipient alloc];
 }
-
-
-
-
-
-
 
 @end

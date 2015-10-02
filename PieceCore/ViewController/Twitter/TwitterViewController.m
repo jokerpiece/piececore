@@ -22,7 +22,7 @@
         return nil;
     }
     // write something.
-    self.userAcount = @"@ps6963";
+    self.userAcount = @"@SplatoonJP";
     self.twitterCount = @"10";
     self.keepingpointStr = @"500";
     return self;
@@ -95,6 +95,18 @@
         }
     }];
 }
+
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    //TwitterTableViewレイアウトを自動調整
+    self.twitterTableView.frame = CGRectMake(0,
+                                             NavigationHight,
+                                             self.viewSize.width,
+                                             self.viewSize.height*0.9 - NavigationHight
+                                             );
+    [super.view layoutIfNeeded];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
