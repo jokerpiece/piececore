@@ -18,20 +18,28 @@
     [super setSelected:selected animated:animated];
     //キーボード以外のところをタップするとキーボードが自動的に隠れる。
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
-                                                 initWithTarget:self action:@selector(closeKeyboard)];
+                                                 initWithTarget:self
+                                                 action:@selector(closeKeyboard)];
     [self.viewForBaselineLayout addGestureRecognizer:gestureRecognizer];
+    
+    [self.voteBtn addTarget:self
+                     action:@selector(voteBtnTapped)
+           forControlEvents:UIControlEventAllTouchEvents];
+    
 
     // Configure the view for the selected state
 }
 
 -(void)closeKeyboard{
-    //入力されたpointを保持
-    NSUserDefaults *inputPointData = [NSUserDefaults standardUserDefaults];
-    [inputPointData setObject:self.inputPointTf.text forKey:@"INPUT_POINT"];
-    [inputPointData synchronize];
     //キーボード以外を押された時の処理
     [self.viewForBaselineLayout endEditing:YES];
 }
 
+-(void)voteBtnTapped{
+    //入力されたpointを保持
+    NSUserDefaults *inputPointData = [NSUserDefaults standardUserDefaults];
+    [inputPointData setObject:self.inputPointTf.text forKey:@"INPUT_POINT"];
+    [inputPointData synchronize];
+}
 
 @end

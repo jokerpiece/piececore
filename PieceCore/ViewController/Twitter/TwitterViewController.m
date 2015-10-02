@@ -196,9 +196,6 @@
         cell.twitterIdLbl.text = self.userAcount;
         cell.twitterTimeLbl.text = courseTime;
         
-        //[cell.twitterTextLbl sizeToFit];
-//        cell.twitterTextLbl.numberOfLines = 0;
-//        cell.twitterTextLbl.lineBreakMode = NSLineBreakByCharWrapping;
         return cell;
     }
 }
@@ -217,6 +214,17 @@
                          cancelButtonTitle:@"確認"
                          otherButtonTitles:nil];
         [pointOverAlert show];
+    }else if (inputPointSave.integerValue == 0){
+        //アラート表示
+        UIAlertView *pointEnptyAlert =
+        [[UIAlertView alloc] initWithTitle:@"エラー"
+                                   message:@"Pointを入力してください"
+                                  delegate:self
+                         cancelButtonTitle:@"確認"
+                         otherButtonTitles:nil];
+        [pointEnptyAlert show];
+
+        
     }else{
         NSString *tweetAcountAdd = [self.userAcount stringByAppendingString:@" "];
         SLComposeViewController *vc = [SLComposeViewController
