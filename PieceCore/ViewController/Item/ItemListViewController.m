@@ -191,7 +191,7 @@
 //            [self.navigationController pushViewController:vc  animated:YES];
 //            return;
 //        
-        TwitterViewController *vcc = [[TwitterViewController alloc] initWithNibName:@"VoteViewController" bundle:nil];
+        TwitterViewController *vcc = [[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
         [self.navigationController pushViewController:vcc animated:YES];
         
  //       }
