@@ -151,50 +151,47 @@
     
     if (indexPath.section == 0) {
         
-//        ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
+        ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
         
-//        if(self.linepay_flag == NO)
-//        {
-//            WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-//            // 画面をPUSHで遷移させる
-//            [self.navigationController pushViewController:itemVc animated:YES];
-//        }else{
-//
-//            //linepay_flagがYESの時、ネイティブのビューを作成
-//            linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
-//
-//            //商品の名前を格納
-//            vc.item_name = data.item_name;
-//
-//            //商品画像格納
-//            vc.img_url = data.img_url;
-//            UIImageView *item_Image = [[UIImageView alloc] init];
-//            NSURL *imageURL = [NSURL URLWithString:[data.img_url stringByAddingPercentEscapesUsingEncoding:
-//                                                    NSUTF8StringEncoding]];
-//            item_Image.frame = CGRectMake(self.viewSize.width*0.1,
-//                                          self.viewSize.height*0.3,
-//                                          self.viewSize.width*0.8,
-//                                          self.viewSize.height*0.5);
-//            [item_Image setImageWithURL:imageURL
-//                       placeholderImage:nil
-//                                options:SDWebImageCacheMemoryOnly
-//            usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//            vc.item_image = item_Image;
-//            
-//            //商品説明格納
-//            vc.item_text = data.item_text;
-//            
-//            //商品価格格納
-//            vc.item_price = data.item_price;
-//            
-//            //画面遷移格納
-//            [self.navigationController pushViewController:vc  animated:YES];
-//            return;
-//        
-        TwitterViewController *vcc = [[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
-        [self.navigationController pushViewController:vcc animated:YES];
+        if(self.linepay_flag == NO)
+        {
+            WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
+            // 画面をPUSHで遷移させる
+            [self.navigationController pushViewController:itemVc animated:YES];
+        }else{
+
+            //linepay_flagがYESの時、ネイティブのビューを作成
+            linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
+
+            //商品の名前を格納
+            vc.item_name = data.item_name;
+
+            //商品画像格納
+            vc.img_url = data.img_url;
+            UIImageView *item_Image = [[UIImageView alloc] init];
+            NSURL *imageURL = [NSURL URLWithString:[data.img_url stringByAddingPercentEscapesUsingEncoding:
+                                                    NSUTF8StringEncoding]];
+            item_Image.frame = CGRectMake(self.viewSize.width*0.1,
+                                          self.viewSize.height*0.3,
+                                          self.viewSize.width*0.8,
+                                          self.viewSize.height*0.5);
+            [item_Image setImageWithURL:imageURL
+                       placeholderImage:nil
+                                options:SDWebImageCacheMemoryOnly
+            usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            vc.item_image = item_Image;
+            
+            //商品説明格納
+            vc.item_text = data.item_text;
+            
+            //商品価格格納
+            vc.item_price = data.item_price;
+            
+            //画面遷移格納
+            [self.navigationController pushViewController:vc  animated:YES];
+            return;
         
- //       }
+       }
         
     } else if(indexPath.section == 1) {
         //self.selectPage ++;

@@ -43,6 +43,11 @@
                                [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil]
+                                                               tabTitle:@"Twitter"
+                                                                  title:@"TWITTER"]];
+
 
     return tabbarDataList;
 }
