@@ -1519,7 +1519,7 @@
                   symbolName = "-[NewsViewController table]"
                   moduleName = "pieceSample"
                   urlString = "file:///Users/ohnuma/piece/xcode/piececore_main/PieceCore/ViewController/Info/NewsViewController.h"
-                  timestampString = "465444376.878013"
+                  timestampString = "465459113.124231"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
@@ -1533,7 +1533,7 @@
                   symbolName = "-[NewsViewController setTable:]"
                   moduleName = "pieceSample"
                   urlString = "file:///Users/ohnuma/piece/xcode/piececore_main/PieceCore/ViewController/Info/NewsViewController.h"
-                  timestampString = "465444376.878294"
+                  timestampString = "465459113.124484"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
@@ -1934,6 +1934,100 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "-initWithNibName:bundle:webSetting:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PieceCore/ViewController/Twitter/TwitterViewController.h"
+            timestampString = "465447063.030527"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "twitterCount"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TwitterViewController twitterCount]"
+                  moduleName = "pieceSample"
+                  urlString = "file:///Users/ohnuma/piece/xcode/piececore_main/PieceCore/ViewController/Twitter/TwitterViewController.h"
+                  timestampString = "465445808.956384"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TwitterViewController setTwitterCount:]"
+                  moduleName = "pieceSample"
+                  urlString = "file:///Users/ohnuma/piece/xcode/piececore_main/PieceCore/ViewController/Twitter/TwitterViewController.h"
+                  timestampString = "465445808.956834"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PieceCore/View/VoteViewCellTableViewCell.m"
+            timestampString = "465453143.105313"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-closeKeyboard"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PieceCore/ViewController/Twitter/TwitterViewController.m"
+            timestampString = "465454877.883195"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../PieceCore/ViewController/Twitter/TwitterViewController.m"
+            timestampString = "465455266.43689"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
