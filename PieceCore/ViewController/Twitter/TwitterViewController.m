@@ -23,7 +23,8 @@
     }
     // write something.
     self.userAcount = @"@ps6963";
-    self.twitterCount = @"11";
+    self.twitterCount = @"10";
+    self.keepingpointStr = @"500";
     return self;
 }
 
@@ -33,7 +34,7 @@
     }
     
     [super viewDidLoad];
-
+    
     self.twitterTableView.allowsSelection = NO;
     self.twitterTableView.rowHeight = UITableViewAutomaticDimension;
     self.twitterTableView.delegate = self;
@@ -133,7 +134,8 @@
        
         VoteViewCellTableViewCell *cell = [self.twitterTableView dequeueReusableCellWithIdentifier:@"Cell1"
                                 forIndexPath:indexPath];
-
+        cell.keepPointLbl.text = self.keepingpointStr;
+        
         [cell.voteBtn addTarget:self
                          action:@selector(handleTounchButton:event:)
                forControlEvents:UIControlEventTouchUpInside];
@@ -142,7 +144,7 @@
     }else{
         TwitterTableViewCell *cell = [self.twitterTableView dequeueReusableCellWithIdentifier:@"Cell"
                                                                                  forIndexPath:indexPath];
-        NSDictionary *status = [tweets objectAtIndex:indexPath.row];
+        NSDictionary *status = [tweets objectAtIndex:indexPath.row - 1];
         NSString *tweetText = [status objectForKey:@"text"];
         NSDictionary *twitterUser = [status objectForKey:@"user"];
         NSString *twitterUserImgUrl = [twitterUser objectForKey:@"profile_image_url_https"];
@@ -201,12 +203,54 @@
     }
 }
 -(void)handleTounchButton:(UIButton *)sender event:(UIEvent *)event{
-    NSString *tweetAcountAdd = [self.userAcount stringByAppendingString:@" "];
-    SLComposeViewController *vc = [SLComposeViewController
-                                   composeViewControllerForServiceType:SLServiceTypeTwitter];
-    [vc setInitialText:NSLocalizedString(tweetAcountAdd, nil)];
-    [self presentViewController:vc animated:YES completion:nil];
+    NSUserDefaults *inputPointData = [NSUserDefaults standardUserDefaults];
+    NSString *inputPointSave = [inputPointData stringForKey:@"INPUT_POINT"];
+    DLog(@"%@",inputPointSave);
+    
+    //Point入力判定
+    if(inputPointSave.integerValue > self.keepingpointStr.integerValue){
+        //アラート表示
+        UIAlertView *pointOverAlert =
+        [[UIAlertView alloc] initWithTitle:@"エラー"
+                                   message:@"保持しているPoint以上の値が入力されました。"
+                                  delegate:self
+                         cancelButtonTitle:@"確認"
+                         otherButtonTitles:nil];
+        [pointOverAlert show];
+    }else{
+        NSString *tweetAcountAdd = [self.userAcount stringByAppendingString:@" "];
+        SLComposeViewController *vc = [SLComposeViewController
+                                       composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [vc setInitialText:NSLocalizedString(tweetAcountAdd, nil)];
+        [self presentViewController:vc animated:YES completion:nil];
+        [vc setCompletionHandler:^(SLComposeViewControllerResult result){
+            NSString *tweetResult;
+            switch (result) {
+                case SLComposeViewControllerResultDone:
+                    //成功
+                    tweetResult = @"投票しました";
+                    break;
+                case SLComposeViewControllerResultCancelled:
+                    //失敗
+                    tweetResult = @"投票できませんでした";
+                    break;
+                default:
+                    break;
+            }
+            [self dismissViewControllerAnimated:YES completion:nil];
+            UIAlertView *tweetResultAlert =
+            [[UIAlertView alloc] initWithTitle:tweetResult
+                                       message:@""
+                                      delegate:self
+                             cancelButtonTitle:@"確認"
+                             otherButtonTitles:nil];
+            [tweetResultAlert show];
+            
+        }];
+    }
+      [inputPointData removeObjectForKey:@"INPUT_POINT"];
 }
+
 
 
 @end

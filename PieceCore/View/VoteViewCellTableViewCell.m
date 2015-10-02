@@ -25,6 +25,10 @@
 }
 
 -(void)closeKeyboard{
+    //入力されたpointを保持
+    NSUserDefaults *inputPointData = [NSUserDefaults standardUserDefaults];
+    [inputPointData setObject:self.inputPointTf.text forKey:@"INPUT_POINT"];
+    [inputPointData synchronize];
     //キーボード以外を押された時の処理
     [self.viewForBaselineLayout endEditing:YES];
 }

@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSString *keepingpointStr;
 @property (nonatomic, strong) NSString *userAcount;
 @property (nonatomic, strong) NSString *twitterCount;
+@property (nonatomic, strong) NSString *pointSelect;
 
 -(id)initWithNibName:(NSString*)nibName bundle:bundle;
 

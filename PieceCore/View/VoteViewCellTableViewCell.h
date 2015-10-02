@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TwitterViewController.h"
+
 @interface VoteViewCellTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *selectedNameLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *selectedUserImg;
