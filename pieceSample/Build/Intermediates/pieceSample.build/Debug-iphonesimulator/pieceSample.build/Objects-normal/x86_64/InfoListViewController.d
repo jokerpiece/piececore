@@ -20,13 +20,13 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Item/ItemListViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/ItemRecipient.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Item/ItemData.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/LinepayRecipient.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Item/WebViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Webview/WebViewSettingData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Category/CategoryViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/CategoryRecipient.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Category/CategoryData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/LinePay/linepay_ViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/LinePay/linepayReservSquareViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Profile/ProfileViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/View/ProfileSexTableViewCell.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/View/BaseInputCell.h \
@@ -39,8 +39,8 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/CustomPiccker/DatePickerViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/CustomPiccker/MonthAndDatePickerViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Profile/UcIndexpathData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/LinepayRecipient.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/LinePay/LinePayData.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/LinePay/linepayReservSquareViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/DeterminedLinePayRecipient.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Flyer/FlyerViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/FlyerRecipient.h \

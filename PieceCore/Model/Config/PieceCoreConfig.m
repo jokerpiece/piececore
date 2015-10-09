@@ -20,11 +20,14 @@ static TitleNameData *_titleNameData = nil;
 static NSNumber *_splashIntarval = nil;
 static NSString *_useCouponNum = @"";
 static NSString *_nex8Key = @"";
+static bool _linePay = NO;
+static NSString *_linePayConfirmUrl = @"";
 
 //NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
 NSString * const  SendTokenUrl= @"http://jokapi.jp/manager/html/xml/device_token/";
+//NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
 NSString * const  SendIdItem= @"item/index.php?Action=itemList";
 NSString * const  SendIdItemCoupon= @"item/";
@@ -48,6 +51,8 @@ NSString * const  SendIdGetProfile= @"get_profile/";
 NSString * const  SendIdSendProfile= @"send_profile/";
 NSString * const  SendIdLinePay = @"linepay/index.php?Action=reserve";
 NSString * const  SendIdDeterminedLinePay = @"linepay/index.php?Action=confirm";
+NSString * const  SendIdRegistPay = @"regist_app_payment/";
+NSString * const  SendIdGetOrderId = @"order_id/";
 
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
@@ -141,5 +146,17 @@ const float TabbarHight = 49;
 }
 + (NSString *)nex8Key{
     return _nex8Key;
+}
++ (void)setLinePay:(bool)linePay{
+    _linePay = linePay;
+}
++ (bool)isLinePay{
+    return _linePay;
+}
++ (void)setLinePayConfirmUrl:(NSString *)linePayConfirmUrl{
+    _linePayConfirmUrl = linePayConfirmUrl;
+}
++ (NSString *)linePayConfirmUrl{
+    return _linePayConfirmUrl;
 }
 @end

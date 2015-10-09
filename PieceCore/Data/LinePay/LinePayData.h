@@ -15,13 +15,17 @@
 
 -(id)init;
 
-+ (NSString *)getname:(NSString *)str;
-+ (NSString *)getprice:(NSString *)str;
-+ (NSString *)getaddress:(NSString *)str;
-+ (NSString *)getsei:(NSString *)str;
-+ (NSString *)getmei:(NSString *)str;
-+ (NSString *)getmail:(NSString *)str;
-+ (NSString *)getpostage:(NSString *)str;
-+ (NSString *)gettransaction:(NSString *)str;
-+ (NSString *)getlineurl:(NSString*)str;
++ (void)setOrderId:(NSString*)str;
++ (NSString *)getOrderId;
++ (void)setItemName:(NSString*)str;
++ (NSString *)getItemName;
+
++ (void)setItemPrice:(NSString*)str;
++ (NSString *)getItemPrice;
++ (void)setPostage:(NSString*)str;
++ (NSString *)getPostage;
++ (void)setTransaction:(NSString*)str;
++(NSString *)getTransaction;
++ (void)setProductId:(NSString*)str;
++ (NSString *)getProductId;
 @end

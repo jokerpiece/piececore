@@ -123,4 +123,7 @@
     NSString *strPrice = [fmt stringFromNumber:price];
     return strPrice;
 }
++(float)getOrignYWidhUiView:(UIView *)view margin:(float)magin{
+    return view.frame.origin.y + view.frame.size.height + magin;
+}
 @end

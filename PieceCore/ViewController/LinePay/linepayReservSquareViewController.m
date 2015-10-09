@@ -9,7 +9,7 @@
 #import "linepayReservSquareViewController.h"
 
 @interface linepayReservSquareViewController ()
-
+@property (nonatomic) int payment_price;
 @end
 
 @implementation linepayReservSquareViewController
@@ -37,23 +37,20 @@
     self.address.numberOfLines = 3;
     
     //setdataの値を取得(商品名、価格、送料)
-    NSString *str = NULL;
-    NSString *get_item_name = [LinePayData getname:str];
+    NSString *get_item_name = [LinePayData getItemName];
     self.item_name.text = get_item_name;
     
-    NSString *str1 = NULL;
-    NSString *get_item_price = [LinePayData getprice:str1];
+    NSString *get_item_price = [LinePayData getItemPrice];
     self.item_price.text = get_item_price;
     
-    NSString *str2 = NULL;
-    NSString *get_postage = [LinePayData getpostage:str2];
+    NSString *get_postage = [LinePayData getPostage];
     self.postage.text = get_postage;
     
     //送料計算
-    NSInteger item_price = get_item_price.intValue;
-    NSInteger postage = get_postage.intValue;
-    int amount_sum = item_price + postage;
-    NSString *amount_sum_2 = [NSString stringWithFormat:@"%d",amount_sum];
+    int item_price = [get_item_price stringByReplacingOccurrencesOfString:@"," withString:@""].intValue;
+    int postage = get_postage.intValue;
+    self.payment_price = item_price + postage;
+    NSString *amount_sum_2 = [NSString stringWithFormat:@"%d",self.payment_price];
     self.amount.text = amount_sum_2;
     
     NSLog(@"%@",get_item_name);
@@ -61,6 +58,12 @@
     NSLog(@"%@",get_postage);
     NSLog(@"%@",amount_sum_2);
     
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
+    
+    self.address.text = [NSString stringWithFormat:@"%@%@%@",[profileDec objectForKey:@"ADRESS1"],[profileDec objectForKey:@"ADRESS2"],[profileDec objectForKey:@"ADRESS3"]];
+    self.user_name.text = [NSString stringWithFormat:@"%@%@",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
+    self.mail_address.text = [profileDec objectForKey:@"MAIL_ADDRESS"];
 }
 
 /*
@@ -77,55 +80,79 @@
     return [DeterminedLinePayRecipient alloc];
 }
 
-//-(void)setDataWithRecipient:(DeterminedLinePayRecipient *)reccipient sendID:(NSString *)sendId
-//{
-//    if([sendId isEqualToString:SendIdDeterminedLinePay])
-//    {
+-(void)setDataWithRecipient:(DeterminedLinePayRecipient *)recipient sendId:(NSString *)sendId
+{
+    if([sendId isEqualToString:SendIdDeterminedLinePay])
+    {
+        [self sendRegistPayment];
+        
 //        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"注文確定"
 //                                                       message:@"購入ありがとうございます"
 //                                                      delegate:self
 //                                             cancelButtonTitle:nil
 //                                             otherButtonTitles:@"OK", nil];
 //        [alert show];
-//        
-//        NSInteger count = self.navigationController.viewControllers.count - 3;
-//        ItemListViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
-//        [self.navigationController popToViewController:vc animated:YES];
-//    }
-//}
+        
+        
+    } else if ([sendId isEqualToString:SendIdRegistPay]){
+        [self close];
+    }
+}
 
 - (IBAction)reserv:(id)sender {
      //LINEPay決済送信、アプリ内決済登録
     NSString *str = NULL;
-    NSString *get_transaction = [LinePayData gettransaction:str];
+    NSString *get_transaction = [LinePayData getTransaction];
     
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:get_transaction forKey:@"transaction"];
     [param setValue:self.amount.text forKey:@"amount"];
+    [param setValue:@"JPY" forKey:@"currency"];
     [conecter sendActionSendId:SendIdDeterminedLinePay param:param];
-    
-    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"注文確定"
-                                                   message:@"購入ありがとうございます"
-                                                  delegate:self
-                                         cancelButtonTitle:nil
-                                         otherButtonTitles:@"OK", nil];
-    [alert show];
 }
 
+-(void)sendRegistPayment{
+    NetworkConecter *conecter = [NetworkConecter alloc];
+    conecter.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
+    
+    
+    [param setValue:[LinePayData getOrderId] forKey:@"order_no"];
+    [param setValue:[LinePayData getProductId] forKey:@"product_id"];
+    [param setValue:[NSString stringWithFormat:@"%d",self.payment_price] forKey:@"payment_price"];
+    [param setValue:[LinePayData getTransaction] forKey:@"trans_no"];
+    [param setValue:[LinePayData getItemPrice] forKey:@"item_price"];
+    [param setValue:@"1" forKey:@"amount"];
+    [param setValue:[LinePayData getPostage] forKey:@"fee"];
+    [param setValue:@"1" forKey:@"payment_kbn"];
+    [param setValue:[profileDec objectForKey:@"USER_ID"] forKey:@"user_id"];
+    [param setValue:[profileDec objectForKey:@"MAIL_ADDRESS"] forKey:@"mail_address"];
+    [param setValue:[profileDec objectForKey:@"SEI"] forKey:@"sei"];
+    [param setValue:[profileDec objectForKey:@"MEI"] forKey:@"mei"];
+    [param setValue:[profileDec objectForKey:@"POST"] forKey:@"post"];
+    [param setValue:[profileDec objectForKey:@"ADRESS1"] forKey:@"address_tdfk"];
+    [param setValue:[profileDec objectForKey:@"ADRESS2"] forKey:@"address_city"];
+    [param setValue:[profileDec objectForKey:@"ADRESS3"] forKey:@"address_street"];
+    [param setValue:[profileDec objectForKey:@"TEL"] forKey:@"tel"];
+    [conecter sendActionSendId:SendIdRegistPay param:param];
+}
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSInteger count = self.navigationController.viewControllers.count - 3;
-    ItemListViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
-    [self.navigationController popToViewController:vc animated:YES];
-
+    [self close];
 }
 
     
 - (IBAction)cancel:(id)sender {
-    NSInteger count = self.navigationController.viewControllers.count - 3;
-    ItemListViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
-    [self.navigationController popToViewController:vc animated:YES];
+    [self close];
+    
+}
+-(void)close{
+    [[UIApplication sharedApplication].keyWindow.rootViewController
+     dismissViewControllerAnimated:YES completion:nil];
 }
 @end

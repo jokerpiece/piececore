@@ -33,6 +33,7 @@
     data.item_text = [dec valueForKey:@"text"];
     data.item_price = [dec valueForKey:@"price"];
     data.stock = [dec valueForKey:@"stocks"];
+    data.item_id = [dec valueForKey:@"item_id"];
     return data;
 }
 @end

@@ -18,13 +18,17 @@
 #import "UcIndexpathData.h"
 #import "ProfileRecipient.h"
 #import "ItemListViewController.h"
-#import "LinepayRecipient.h"
-#import "linepay_ViewController.h"
-#import "LinePayData.h"
+//#import "LinepayRecipient.h"
+//#import "linepay_ViewController.h"
+//#import "LinePayData.h"
 
 @interface ProfileViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate,UITextViewDelegate,ProfileSendBtnDelegate>
 @property (nonatomic) NSMutableArray *cellList;
+@property (nonatomic) NSMutableArray *instanceCellList;
 @property (nonatomic) bool isDispDatePicker;
+@property (nonatomic) NSString* message;
+@property (weak, nonatomic) IBOutlet UILabel *messageLbl;
+
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, retain) DatePickerViewController *datePickerViewController;
 @property (nonatomic, retain) MonthAndDatePickerViewController *monthDateViewController;
@@ -34,9 +38,10 @@
 @property (nonatomic) NSMutableArray *monthDayPickerList;
 @property (nonatomic) NSMutableArray *ucIndexpathList;
 @property (nonatomic) ProfileRecipient *profileRecipient;
-@property (nonatomic, strong) LinepayRecipient *linerecipient;
+//@property (nonatomic) LinepayRecipient *linerecipient;
+@property (nonatomic) BaseViewController *nextVc;
 
 @property (strong, nonatomic) UITextField *activeTf;
 @property (strong, nonatomic) UITextView *activeTv;
-
+-(void)nextView;
 @end

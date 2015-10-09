@@ -28,7 +28,7 @@
          success:^(NSURLSessionDataTask *task, id responseObject) {
              [self.delegate receiveSucceed:responseObject sendId:sendId];
              // 通信に成功した場合の処理
-             DLog(@"responseObject: %@", responseObject);
+             DLog(@"url: %@ \n responseObject: %@", sendId, responseObject);
          } failure:^(NSURLSessionDataTask *task, NSError *error) {
              [self.delegate receiveError:error sendId:sendId];
          }];

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *amount;
 @property (nonatomic, strong) NSURL *confirmUrl;
 @property (nonatomic, strong) NSString *paymentUrl;
+@property (nonatomic, strong) NSString *paymentUrlWeb;
 @property (nonatomic, strong) NSString *postage;
 @property (nonatomic, strong) NSString *transaction;
 

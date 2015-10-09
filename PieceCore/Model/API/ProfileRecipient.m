@@ -11,15 +11,17 @@
 @implementation ProfileRecipient
 -(void)setData{
     self.user_id = [self.resultset valueForKey:@"user_id"];
-    self.password = [self.resultset valueForKey:@"password"];
-    self.sei = [self.resultset valueForKey:@"sei"];
-    self.mei = [self.resultset valueForKey:@"mei"];
-    self.berth_day = [self.resultset valueForKey:@"berth_day"];
-    self.post = [self.resultset valueForKey:@"post"];
-    self.address = [self.resultset valueForKey:@"address"];
-    self.sex = [self.resultset valueForKey:@"sex"];
+    self.password = [self.resultset valueForKey:@"Password"];
+    self.sei = [self.resultset valueForKey:@"Sei"];
+    self.mei = [self.resultset valueForKey:@"Mei"];
+    self.berth_day = [self.resultset valueForKey:@"Birthday"];
+    self.post = [self.resultset valueForKey:@"Post"];
+    self.address1 = [self.resultset valueForKey:@"Address_tdfk"];
+    self.address2 = [self.resultset valueForKey:@"Address_city"];
+    self.address3 = [self.resultset valueForKey:@"Address_street"];
+    self.sex = [self.resultset valueForKey:@"Sex"];
     self.mail_address = [self.resultset valueForKey:@"mail_address"];
-    self.tel = [self.resultset valueForKey:@"tel"];
+    self.tel = [self.resultset valueForKey:@"Tel"];
     self.anniversary_name = [self.resultset valueForKey:@"anniversary_name"];
     self.anniversary = [self.resultset valueForKey:@"anniversary"];
 }

@@ -8,15 +8,12 @@
 
 #import "LinePayData.h"
 
-static NSString *get_iteme_name;
-static NSString *get_iteme_price;
-static NSString *get_address;
-static NSString *get_sei;
-static NSString *get_mei;
-static NSString *get_mail;
-static NSString *get_postage;
-static NSString *get_transaction;
-static NSString *get_lineurl;
+static NSString *_itemName;
+static NSString *_itemPrice;
+static NSString *_postage;
+static NSString *_transaction;
+static NSString *_productId;
+static NSString *_orderId;
 
 @implementation LinePayData
 
@@ -30,100 +27,66 @@ static NSString *get_lineurl;
     return self;
 }
 
++ (void)setOrderId:(NSString*)str{
+    _orderId = str;
+}
+
 //商品名を格納
-+(NSString *)getname:(NSString *)str
++ (NSString *)getOrderId
 {
-    if(str != NULL)
-    {
-        get_iteme_name = str;
-        return get_iteme_name;
-        
-    }else{
-        return get_iteme_name;
-    }
+    
+    return _orderId;
     
 }
 
-//商品価格を格納
-+(NSString *)getprice:(NSString *)str
+
++ (void)setItemName:(NSString*)str{
+    _itemName = str;
+}
+
+//商品名を格納
++ (NSString *)getItemName
 {
-    if(str != NULL)
-    {
-        get_iteme_price = str;
-        return get_iteme_price;
-    }else{
-        return get_iteme_price;
-    }
+    
+    return _itemName;
+    
+}
+
++ (void)setItemPrice:(NSString*)str{
+    _itemPrice = str;
+}
+
+//商品価格を格納
++(NSString *)getItemPrice
+{
+    return _itemPrice;
+}
+
++ (void)setPostage:(NSString*)str{
+    _postage = str;
 }
 
 //送料
-+(NSString *)getpostage:(NSString *)str
-{
-    if(str != NULL)
-    {
-        get_postage = str;
-        return get_postage;
-    }else{
-        return get_postage;
-    }
++(NSString *)getPostage{
+    return _postage;
+}
+
++ (void)setTransaction:(NSString*)str{
+    _transaction = str;
 }
 
 //LinePay取引番号
-+(NSString *)gettransaction:(NSString *)str
-{
-    if(str != NULL)
-    {
-        get_transaction = str;
-        return get_transaction;
-    }else{
-        return get_transaction;
-    }
++(NSString *)getTransaction{
+    return _transaction;
 }
 
-//LineUrl
-+(NSString *)getlineurl:(NSString *)str
-{
-    if(str != NULL)
-    {
-        get_lineurl = str;
-        return get_lineurl;
-    }else{
-        return get_lineurl;
-    }
-
++ (void)setProductId:(NSString*)str{
+    _productId = str;
 }
-
-+(NSString *)getaddress:(NSString *)str
++(NSString *)getProductId
 {
-    if(str != NULL)
-    {
-        get_address = str;
-        return get_address;
-    }else{
-        return get_address;
-    }
+    return _productId;
 }
-
-+(NSString *)getmail:(NSString *)str
-{
-    if(str != NULL)
-    {
-        return 0;
-    }else{
-        return 0;
-    }
-}
-
-+(NSString *)getsei:(NSString *)str
-{
-    return 0;
-}
-
-+(NSString *)getmei:(NSString *)str
-{
-    return 0;
-}
-
 
 
 

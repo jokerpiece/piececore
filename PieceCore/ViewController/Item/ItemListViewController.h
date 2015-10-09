@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ItemRecipient.h"
-#import "LinepayRecipient.h"
 #import "WebViewController.h"
 #import "CategoryViewController.h"
 #import "BaseViewController.h"
@@ -23,7 +22,6 @@ typedef enum {
 
 @interface ItemListViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) ItemRecipient *itemRecipient;
-@property (strong, nonatomic) LinepayRecipient *linepayRecipient;
 @property (nonatomic) bool isMore;
 @property (nonatomic) bool isNext;
 @property (nonatomic) bool isSearchedMore;

@@ -12,6 +12,7 @@
 #import "InfoListViewController.h"
 #import "CouponViewController.h"
 #import "CategoryViewController.h"
+#import "linepayReservSquareViewController.h"
 
 @implementation CoreDelegate
 
@@ -452,4 +453,16 @@
     return (iOsVersionMajor >= 7);
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([[url host]isEqualToString:[[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]host]]) {
+    //if ([[url absoluteString] isEqualToString:[PieceCoreConfig linePayConfirmUrl]]) {
+       
+        linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]initWithNibName:@"linepayReservSquareViewController" bundle:nil];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        return NO;
+    }
+    return YES;
+}
 @end

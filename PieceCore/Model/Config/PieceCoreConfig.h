@@ -34,6 +34,8 @@ extern NSString * const SendIdGetProfile;
 extern NSString * const SendIdSendProfile;
 extern NSString * const SendIdLinePay;
 extern NSString * const SendIdDeterminedLinePay;
+extern NSString * const SendIdRegistPay;
+extern NSString * const SendIdGetOrderId;
 
 extern NSString * const UrlYamatoDeliver;
 extern NSString * const UrlSagawaDeliver;
@@ -68,5 +70,10 @@ extern NSString * const nex8Key;
 + (void)setUseCouponNum:(NSString *)useCouponNum;
 + (void)setNex8Key:(NSString *)nex8Key;
 
++ (void)setLinePay:(bool)linePay;
++ (bool)isLinePay;
+
++ (void)setLinePayConfirmUrl:(NSString *)linePayConfirmUrl;
++ (NSString *)linePayConfirmUrl;
 
 @end

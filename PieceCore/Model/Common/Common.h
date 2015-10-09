@@ -19,4 +19,5 @@
 +(bool)isNotEmptyString:(NSString *)string;
 + (UIImage*)resizeAspectFitWithSize:(UIImage *)srcImg size:(CGSize)size;
 + (NSString *)formatOfCurrencyWithString:(NSString*)str;
++(float)getOrignYWidhUiView:(UIView *)view margin:(float)magin;
 @end

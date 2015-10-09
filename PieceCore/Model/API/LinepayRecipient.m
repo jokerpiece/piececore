@@ -18,7 +18,8 @@
     self.productImageUrl = [self.resultset valueForKey:@"productImageUrl"];
     self.amount = [self.resultset valueForKey:@"amount"];
     self.confirmUrl = [self.resultset valueForKey:@"confirmUrl"];
-    self.paymentUrl = [self.resultset valueForKey:@"paymentUrl"];
+    self.paymentUrl = [self.resultset valueForKey:@"paymentUrl.app"];
+    self.paymentUrlWeb = [self.resultset valueForKey:@"paymentUrl.web"];
     self.postage = [self.resultset valueForKey:@"postage"];
     self.transaction = [self.resultset valueForKey:@"transaction"];
 }
