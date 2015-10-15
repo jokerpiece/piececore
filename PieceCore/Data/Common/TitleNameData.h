@@ -23,6 +23,7 @@
 @property (nonatomic) NSString *newsTitle;
 @property (nonatomic) NSString *barcodeTitle;
 @property (nonatomic) NSString *sosialTitle;
+@property (nonatomic) NSString *twitterTitle;
 - (id)initForEnglishDefault;
 - (id)initForJapanaseDefault;
 @end

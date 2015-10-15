@@ -27,6 +27,7 @@
         self.barcodeTitle = @"BARCODE";
         self.historyTitle = @"DELIVERLIST";
         self.sosialTitle = @"SOSIAL";
+        self.twitterTitle = @"TWITTER";
     }
     return self;
 }
@@ -48,6 +49,7 @@
         self.barcodeTitle = @"バーコード";
         self.historyTitle = @"配送状況";
         self.sosialTitle = @"SNS連携";
+        self.twitterTitle = @"Twtter";
     }
     return self;
 }
