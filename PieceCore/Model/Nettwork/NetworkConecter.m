@@ -33,7 +33,30 @@
              [self.delegate receiveError:error sendId:sendId];
          }];
 }
-
+-(void)sendActionUrl:(NSString *)url param:(NSMutableDictionary*)param{
+    if (param == nil) {
+        param = [NSMutableDictionary dictionary];
+    }
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [param setObject:[PieceCoreConfig shopId] forKey:@"app_id"];
+    [param setObject:[PieceCoreConfig appKey] forKey:@"app_key"];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    //SN 新しいAPIを受け取るため追加
+    [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"text/html", nil]];
+    DLog(@"API通信　%@: param%@",url,param);
+    [manager POST:url
+       parameters:param
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              [self.delegate receiveSucceed:responseObject sendId:url];
+              // 通信に成功した場合の処理
+              DLog(@"url: %@ \n responseObject: %@", url, responseObject);
+          } failure:^(NSURLSessionDataTask *task, NSError *error) {
+              [self.delegate receiveError:error sendId:url];
+          }];
+    
+    
+}
 -(void)sendActionWithAFHTTPSessionManager:(AFHTTPSessionManager *)manager url:(NSString *)url  param:(NSMutableDictionary*)param{
     [manager POST:url
        parameters:param

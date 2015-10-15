@@ -18,5 +18,7 @@
 @property (nonatomic) NSDictionary *headerParam;
 
 -(void)sendActionSendId:(NSString *)sendId param:(NSDictionary*)param;
+-(void)sendActionUrl:(NSString *)url param:(NSMutableDictionary*)param;
 -(void)sendActionWithAFHTTPSessionManager:(AFHTTPSessionManager *)manager url:(NSString *)url  param:(NSMutableDictionary*)param;
+
 @end
