@@ -30,7 +30,7 @@
 @property (nonatomic) UIView *headerV;
 
 -(id)initWithNibName:(NSString*)nibName bundle:bundle;
-
+-(void)setDisplayTwitterData;
 
 
 @end

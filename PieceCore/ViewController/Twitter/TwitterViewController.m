@@ -27,12 +27,10 @@
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoadLogic {
     if(self.title.length < 1){
         self.title = [PieceCoreConfig titleNameData].twitterTitle;
     }
-    
-    [super viewDidLoad];
     
     self.twitterTableView.allowsSelection = NO;
     self.twitterTableView.rowHeight = UITableViewAutomaticDimension;
@@ -42,7 +40,14 @@
     self.twitterTableView.tableHeaderView = self.headerV;
     UINib *nib = [UINib nibWithNibName:@"TwitterTableViewCell" bundle:nil];
     [self.twitterTableView registerNib:nib forCellReuseIdentifier:@"Cell"];
+    [self setDisplayTwitterData];
     
+}
+
+-(void)setDisplayTwitterData{
+    if (![Common isNotEmptyString:self.userAcount]) {
+        return;
+    }
     // Do any additional setup after loading the view, typically from a nib.
     
     NSString *apiURL = @"https://api.twitter.com/1.1/statuses/user_timeline.json";
@@ -93,8 +98,6 @@
         }
     }];
 }
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -109,7 +112,12 @@
     NSDictionary *attr = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:12.0]};
     CGSize modifiedSize = [tweetText boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil].size;
     
-    return modifiedSize.height + 28;
+    float cellSize = modifiedSize.height + 28;
+    if (cellSize > 74) {
+        return cellSize;
+    } else {
+        return 74;
+    }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
