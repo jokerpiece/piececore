@@ -303,9 +303,11 @@
     if (self.mode == useCoupon) {
         sendId = SendIdCouponTake;
         [param setValue:[Common getUuid] forKey:@"uuid"];
+        [param setValue:[Common deviceToken] forKey:@"device_token"];
     } else {
         sendId = SendIdCouponGive;
         [param setValue:[Common getUuid] forKey:@"uuid"];
+        [param setValue:[Common deviceToken] forKey:@"device_token"];
     }
     [conecter sendActionSendId:sendId param:param];
     

@@ -20,4 +20,6 @@
 + (UIImage*)resizeAspectFitWithSize:(UIImage *)srcImg size:(CGSize)size;
 + (NSString *)formatOfCurrencyWithString:(NSString*)str;
 +(float)getOrignYWidhUiView:(UIView *)view margin:(float)magin;
++ (void)setDeviceToken:(NSString *)deviceToken;
++ (NSString *)deviceToken;
 @end

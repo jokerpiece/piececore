@@ -246,6 +246,7 @@
     conecter.delegate = self;
     //SN app_idを追加するため宣言してパラメータを渡す
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:[Common deviceToken] forKey:@"device_token"];
     [conecter sendActionSendId:SendIdNewsList param:param];
     
 }

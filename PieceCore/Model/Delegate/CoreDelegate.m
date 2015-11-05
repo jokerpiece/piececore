@@ -218,6 +218,7 @@
                                  stringByReplacingOccurrencesOfString:@">" withString:@""]
                                 stringByReplacingOccurrencesOfString: @" " withString: @""];
     DLog(@"Edited device token to APNS. (%@)", strDeviceToken);
+    [Common setDeviceToken:strDeviceToken];
     [self postDeviceToken:strDeviceToken];
     
     

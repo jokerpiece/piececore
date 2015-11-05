@@ -9,6 +9,16 @@
 #import "Common.h"
 
 @implementation Common
+
+static NSString *_device_token = @"";
+
++ (void)setDeviceToken:(NSString *)deviceToken{
+    _device_token = deviceToken;
+}
++ (NSString *)deviceToken{
+    return _device_token;
+}
+
 + (NSString *)getUuid{
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -23,6 +33,7 @@
 
     return uuidStr;
 }
+
 
 +(bool)saveLoginDate{
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];

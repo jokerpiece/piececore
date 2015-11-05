@@ -36,5 +36,5 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/LinepayRecipient.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/LinePay/LinePayData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/DeterminedLinePayRecipient.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/LinepaySelectAddressViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/LinePay/LinepaySelectAddressViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/LinePay/LinepayProfileViewController.h
