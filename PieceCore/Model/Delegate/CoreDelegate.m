@@ -14,6 +14,7 @@
 #import "CategoryViewController.h"
 #import "linepayReservSquareViewController.h"
 #import "UploadYoutubeViewController.h"
+#import "PlayHologramYoutubeViewController.h"
 
 @implementation CoreDelegate
 
@@ -468,9 +469,14 @@
         [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         return NO;
         
-    } else if ([[url host]isEqualToString:[PieceCoreConfig uploadYoutubeUrlHost]]) {
-        
-        UploadYoutubeViewController *vc = [[UploadYoutubeViewController alloc]initWithNibName:@"MovieUploadViewController" bundle:nil];
+    } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube]) {
+        //動画アップロード
+        UploadYoutubeViewController *vc = [[UploadYoutubeViewController alloc]initWithNibName:@"UploadYoutubeViewController" bundle:nil];
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        return NO;
+    } else if ([[url host]isEqualToString:UrlSchemeHostPlayYoutube]) {
+        //動画再生
+        UploadYoutubeViewController *vc = [[UploadYoutubeViewController alloc]initWithNibName:@"UploadYoutubeViewController" bundle:nil];
         [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         return NO;
     }

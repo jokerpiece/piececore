@@ -25,7 +25,7 @@
     [PieceCoreConfig setAppId:@""];
     [PieceCoreConfig setLinePay:YES];
     [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
-    [PieceCoreConfig setUploadYoutubeUrlHost:@"vdeoupload"];
+    [PieceCoreConfig setCookieDomainName:@"t.otonagokoro.com"];
 }
 
 //UITabBarController初期化

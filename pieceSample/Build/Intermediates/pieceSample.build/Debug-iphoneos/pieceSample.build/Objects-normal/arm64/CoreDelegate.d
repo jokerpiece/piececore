@@ -54,4 +54,6 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Info/InfoListViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Info/NewsViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Model/API/NewsRecipient.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/Upload/UploadYoutubeViewController.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/Upload/UploadYoutubeViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/PlayHologram/PlayHologramYoutubeViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/PlayHologram/PlayHologramView.h

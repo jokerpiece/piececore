@@ -49,6 +49,12 @@ extern const float NavigationHight;
 extern const float TabbarHight;
 extern NSString * const nex8Key;
 
+
+extern NSString * const UrlSchemeHostUploadYoutube;
+extern NSString * const UrlSchemeHostPlayYoutube;
+extern NSString * const UrlSchemeHostInputMessage;
+extern NSString * const UrlSchemeHostShowMessage;
+
 + (NSNumber *)tabnumberFlyer;
 + (NSNumber *)tabnumberInfo;
 + (NSNumber *)tabnumberCoupon;
@@ -78,7 +84,6 @@ extern NSString * const nex8Key;
 + (void)setLinePayConfirmUrl:(NSString *)linePayConfirmUrl;
 + (NSString *)linePayConfirmUrl;
 
-+ (void)setUploadYoutubeUrlHost:(NSString *)uploadYoutubeUrlHost;
-+ (NSString *)uploadYoutubeUrlHost;
-
++ (void)setCookieDomainName:(NSString *)cookieDomainName;
++ (NSString *)cookieDomainName;
 @end

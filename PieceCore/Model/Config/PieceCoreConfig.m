@@ -22,12 +22,12 @@ static NSString *_useCouponNum = @"";
 static NSString *_nex8Key = @"";
 static bool _linePay = NO;
 static NSString *_linePayConfirmUrl = @"";
-static NSString *_uploadYoutubeUrlHost = @"";
+static NSString *_cookieDomainName = @"";
 
 NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
-//NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
+//NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
-//NSString * const  SendTokenUrl= @"http://jokapi.jp/manager/html/xml/device_token/";
+//NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
 NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
 NSString * const  SendIdItem= @"item/index.php?Action=itemList";
@@ -60,6 +60,11 @@ NSString * const  SendIdPostYoutubeMovie = @"https://www.googleapis.com/upload/y
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";
 NSString * const  UrlYubinDeliver= @"http://tracking.post.japanpost.jp/service/singleSearch.do?org.apache.struts.taglib.html.TOKEN=&searchKind=S002&locale=ja&SVID=&reqCodeNo1=";
+
+NSString * const  UrlSchemeHostUploadYoutube= @"videoupload";
+NSString * const  UrlSchemeHostPlayYoutube= @"videoplay";
+NSString * const  UrlSchemeHostInputMessage= @"message";
+NSString * const  UrlSchemeHostShowMessage= @"messageshow";
 
 const int DispSurveyDate = 90;
 const float TimeSlidershow = 5.5;
@@ -158,14 +163,15 @@ const float TabbarHight = 49;
 + (void)setLinePayConfirmUrl:(NSString *)linePayConfirmUrl{
     _linePayConfirmUrl = linePayConfirmUrl;
 }
-+ (NSString *)linePayConfirmUrHost{
++ (NSString *)linePayConfirmUrl{
     return _linePayConfirmUrl;
 }
 
-+ (void)setUploadYoutubeUrlHost:(NSString *)uploadYoutubeUrlHost{
-    _uploadYoutubeUrlHost = uploadYoutubeUrlHost;
++ (void)setCookieDomainName:(NSString *)cookieDomainName{
+    _cookieDomainName = cookieDomainName;
 }
-+ (NSString *)uploadYoutubeUrlHost{
-    return _uploadYoutubeUrlHost;
++ (NSString *)cookieDomainName{
+    return _cookieDomainName;
 }
+
 @end

@@ -60,6 +60,7 @@
         NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.setting.url]];
         [self.webView loadRequest:req];
     }
+    [self addCookies];
 }
 
 -(void)viewWillAppearLogic{
@@ -268,7 +269,23 @@
     return YES;
 }
 
-
+-(void)addCookies
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSString *token = [ud stringForKey:@"uuid"];
+    
+    if (token == nil) {
+        return;
+    }
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSDictionary *properties = @{NSHTTPCookieName   : @"uuid",
+                                 NSHTTPCookieValue  : [Common getUuid],
+                                 NSHTTPCookiePath   : @"/",
+                                 NSHTTPCookieDomain : [PieceCoreConfig cookieDomainName],
+                                 NSHTTPCookieExpires: [[NSDate date] dateByAddingTimeInterval:3600]};
+    NSHTTPCookie* cookie = [NSHTTPCookie cookieWithProperties:properties];
+    [cookieStorage setCookie:cookie];
+}
 
 - (void)dealloc {
     
