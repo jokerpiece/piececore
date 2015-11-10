@@ -13,6 +13,7 @@
 #import "CouponViewController.h"
 #import "CategoryViewController.h"
 #import "linepayReservSquareViewController.h"
+#import "UploadYoutubeViewController.h"
 
 @implementation CoreDelegate
 
@@ -456,11 +457,20 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+     NSDictionary *query = [url query];
+    
     if ([[url host]isEqualToString:[[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]host]]) {
     //if ([[url absoluteString] isEqualToString:[PieceCoreConfig linePayConfirmUrl]]) {
        
         linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]initWithNibName:@"linepayReservSquareViewController" bundle:nil];
         vc.hidesBottomBarWhenPushed = YES;
+        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        return NO;
+        
+    } else if ([[url host]isEqualToString:[PieceCoreConfig uploadYoutubeUrlHost]]) {
+        
+        UploadYoutubeViewController *vc = [[UploadYoutubeViewController alloc]initWithNibName:@"MovieUploadViewController" bundle:nil];
         [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         return NO;
     }

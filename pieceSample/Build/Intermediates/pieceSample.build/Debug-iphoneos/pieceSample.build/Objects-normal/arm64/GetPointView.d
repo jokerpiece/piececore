@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/View/GetPointView.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/View/GetPointView.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/View/GetPointView.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/View/GetPointView.h

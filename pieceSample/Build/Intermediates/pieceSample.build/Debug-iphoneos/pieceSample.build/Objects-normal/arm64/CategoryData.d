@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/Data/Category/CategoryData.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/Data/Category/CategoryData.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/Category/CategoryData.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/Category/CategoryData.h

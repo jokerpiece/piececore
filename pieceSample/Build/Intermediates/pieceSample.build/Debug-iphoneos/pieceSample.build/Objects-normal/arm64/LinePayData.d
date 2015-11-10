@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/Data/LinePay/LinePayData.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/Data/LinePay/LinePayData.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/LinePay/LinePayData.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/LinePay/LinePayData.h

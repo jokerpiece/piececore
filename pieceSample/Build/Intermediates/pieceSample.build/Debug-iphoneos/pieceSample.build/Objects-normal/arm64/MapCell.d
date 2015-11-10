@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/View/MapCell.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/View/MapCell.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/View/MapCell.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/View/MapCell.h

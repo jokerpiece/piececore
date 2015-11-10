@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/NSData+ImageContentType.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/NSData+ImageContentType.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/NSData+ImageContentType.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/NSData+ImageContentType.h

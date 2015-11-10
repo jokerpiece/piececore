@@ -6,15 +6,15 @@
 //  Copyright © 2015年 jokerpiece. All rights reserved.
 //
 
-#import "PlayYoutubeViewController.h"
+#import "PlayHologramYoutubeViewController.h"
 #import "HCYoutubeParser.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface PlayYoutubeViewController ()
+@interface PlayHologramYoutubeViewController ()
 
 @end
 
-@implementation PlayYoutubeViewController
+@implementation PlayHologramYoutubeViewController
 
 -(void)viewDidLoadLogic{
     NSDictionary *dict = [HCYoutubeParser h264videosWithYoutubeID:@"JGlU4r3P3I0"];

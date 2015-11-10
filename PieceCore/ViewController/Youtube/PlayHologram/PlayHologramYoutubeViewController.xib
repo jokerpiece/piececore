@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayYoutubeViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayHologramYoutubeViewController">
             <connections>
                 <outlet property="playView" destination="gZf-Vh-GtY" id="J84-nA-2pj"/>
                 <outlet property="playView2" destination="y0t-Me-Wxy" id="1NQ-sp-bBs"/>
@@ -19,19 +19,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-Vh-GtY" customClass="PlayerView">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gZf-Vh-GtY" customClass="PlayHologramView">
                     <rect key="frame" x="107" y="128" width="106" height="106"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0t-Me-Wxy" customClass="PlayerView">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0t-Me-Wxy" customClass="PlayHologramView">
                     <rect key="frame" x="0.0" y="232" width="106" height="106"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaM-gm-lDu" customClass="PlayerView">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaM-gm-lDu" customClass="PlayHologramView">
                     <rect key="frame" x="214" y="232" width="106" height="106"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLZ-T9-diK" customClass="PlayerView">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLZ-T9-diK" customClass="PlayHologramView">
                     <rect key="frame" x="107" y="339" width="106" height="106"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                 </view>

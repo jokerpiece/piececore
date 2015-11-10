@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface MovieUploadViewController : BaseViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface UploadYoutubeViewController : BaseViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *movieTitleTf;
 @property (weak, nonatomic) IBOutlet UITextView *movieTv;
 @property (weak, nonatomic) IBOutlet UIButton *movieSelectBtn;

@@ -12,8 +12,8 @@
 #import "CategoryViewController.h"
 #import "TabbarViewController.h"
 #import "TwitterViewController.h"
-#import "MovieUploadViewController.h"
-#import "PlayYoutubeViewController.h"
+#import "UploadYoutubeViewController.h"
+#import "PlayHologramYoutubeViewController.h"
 
 
 @implementation AppDelegate
@@ -25,6 +25,7 @@
     [PieceCoreConfig setAppId:@""];
     [PieceCoreConfig setLinePay:YES];
     [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
+    [PieceCoreConfig setUploadYoutubeUrlHost:@"vdeoupload"];
 }
 
 //UITabBarController初期化
@@ -33,8 +34,8 @@
     NSMutableArray *tabbarDataList = [NSMutableArray array];
     
     
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[MovieUploadViewController alloc]initWithNibName:@"MovieUploadViewController" bundle:nil ] tabTitle:@"youtube" title:@"youtube"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[PlayYoutubeViewController alloc]initWithNibName:@"PlayYoutubeViewController" bundle:nil ] tabTitle:@"play" title:@"play"]];
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[UploadYoutubeViewController alloc]initWithNibName:@"UploadYoutubeViewController" bundle:nil ] tabTitle:@"youtube" title:@"youtube"]];
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[PlayHologramYoutubeViewController alloc]initWithNibName:@"PlayHologramYoutubeViewController" bundle:nil ] tabTitle:@"play" title:@"play"]];
     
     
     

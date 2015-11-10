@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/SDWebImageDecoder.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/SDWebImageDecoder.h \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/SDWebImageCompat.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/SDWebImageDecoder.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/SDWebImageDecoder.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/SDWebImage/SDWebImage/SDWebImageCompat.h

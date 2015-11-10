@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.h \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.h \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFSecurityPolicy.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFSecurityPolicy.h

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/Reachability/Reachability.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/Reachability/Reachability.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/Reachability/Reachability.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/Reachability/Reachability.h

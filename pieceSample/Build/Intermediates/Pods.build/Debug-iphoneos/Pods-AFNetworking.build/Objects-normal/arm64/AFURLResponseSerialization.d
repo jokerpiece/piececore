@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h

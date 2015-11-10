@@ -22,6 +22,7 @@ static NSString *_useCouponNum = @"";
 static NSString *_nex8Key = @"";
 static bool _linePay = NO;
 static NSString *_linePayConfirmUrl = @"";
+static NSString *_uploadYoutubeUrlHost = @"";
 
 NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 //NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
@@ -157,7 +158,14 @@ const float TabbarHight = 49;
 + (void)setLinePayConfirmUrl:(NSString *)linePayConfirmUrl{
     _linePayConfirmUrl = linePayConfirmUrl;
 }
-+ (NSString *)linePayConfirmUrl{
++ (NSString *)linePayConfirmUrHost{
     return _linePayConfirmUrl;
+}
+
++ (void)setUploadYoutubeUrlHost:(NSString *)uploadYoutubeUrlHost{
+    _uploadYoutubeUrlHost = uploadYoutubeUrlHost;
+}
++ (NSString *)uploadYoutubeUrlHost{
+    return _uploadYoutubeUrlHost;
 }
 @end

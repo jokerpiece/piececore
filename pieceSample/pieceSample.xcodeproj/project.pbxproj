@@ -67,11 +67,11 @@
 		37949AA01ABBE7DC002E5194 /* ProfileNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37949A9E1ABBE7DC002E5194 /* ProfileNameTableViewCell.xib */; };
 		37949AA31ABFEEAE002E5194 /* BaseInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37949AA21ABFEEAE002E5194 /* BaseInputCell.m */; };
 		37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB131AA45F8C00EA7CB9 /* MonthAndDatePickerViewController.xib */; };
-		379EB5871BF06F3400DE8DDB /* MovieUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EB5851BF06F3400DE8DDB /* MovieUploadViewController.m */; };
-		379EB5881BF06F3400DE8DDB /* MovieUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379EB5861BF06F3400DE8DDB /* MovieUploadViewController.xib */; };
-		379EB58C1BF06F5F00DE8DDB /* PlayYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EB58A1BF06F5F00DE8DDB /* PlayYoutubeViewController.m */; };
-		379EB58D1BF06F5F00DE8DDB /* PlayYoutubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379EB58B1BF06F5F00DE8DDB /* PlayYoutubeViewController.xib */; };
-		379EB5901BF0798D00DE8DDB /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EB58F1BF0798D00DE8DDB /* PlayerView.m */; };
+		379EB5871BF06F3400DE8DDB /* UploadYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EB5851BF06F3400DE8DDB /* UploadYoutubeViewController.m */; };
+		379EB5881BF06F3400DE8DDB /* UploadYoutubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379EB5861BF06F3400DE8DDB /* UploadYoutubeViewController.xib */; };
+		379EB5971BF1D28100DE8DDB /* PlayHologramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EB5931BF1D28100DE8DDB /* PlayHologramView.m */; };
+		379EB5981BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EB5951BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m */; };
+		379EB5991BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379EB5961BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib */; };
 		37B4E1501AE73BD200A082A3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E14E1AE73BD200A082A3 /* MapViewController.m */; };
 		37B4E1511AE73BD200A082A3 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B4E14F1AE73BD200A082A3 /* MapViewController.xib */; };
 		37D16F881BCF4BC600341B88 /* SCSimpleSLRequestDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D16F841BCF4BC600341B88 /* SCSimpleSLRequestDemo.m */; };
@@ -284,14 +284,14 @@
 		37949A9E1ABBE7DC002E5194 /* ProfileNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileNameTableViewCell.xib; sourceTree = "<group>"; };
 		37949AA11ABFEEAE002E5194 /* BaseInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInputCell.h; sourceTree = "<group>"; };
 		37949AA21ABFEEAE002E5194 /* BaseInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInputCell.m; sourceTree = "<group>"; };
-		379EB5841BF06F3400DE8DDB /* MovieUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieUploadViewController.h; sourceTree = "<group>"; };
-		379EB5851BF06F3400DE8DDB /* MovieUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieUploadViewController.m; sourceTree = "<group>"; };
-		379EB5861BF06F3400DE8DDB /* MovieUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieUploadViewController.xib; sourceTree = "<group>"; };
-		379EB5891BF06F5F00DE8DDB /* PlayYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayYoutubeViewController.h; sourceTree = "<group>"; };
-		379EB58A1BF06F5F00DE8DDB /* PlayYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayYoutubeViewController.m; sourceTree = "<group>"; };
-		379EB58B1BF06F5F00DE8DDB /* PlayYoutubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayYoutubeViewController.xib; sourceTree = "<group>"; };
-		379EB58E1BF0798D00DE8DDB /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
-		379EB58F1BF0798D00DE8DDB /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		379EB5841BF06F3400DE8DDB /* UploadYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadYoutubeViewController.h; sourceTree = "<group>"; };
+		379EB5851BF06F3400DE8DDB /* UploadYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadYoutubeViewController.m; sourceTree = "<group>"; };
+		379EB5861BF06F3400DE8DDB /* UploadYoutubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadYoutubeViewController.xib; sourceTree = "<group>"; };
+		379EB5921BF1D28100DE8DDB /* PlayHologramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayHologramView.h; sourceTree = "<group>"; };
+		379EB5931BF1D28100DE8DDB /* PlayHologramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayHologramView.m; sourceTree = "<group>"; };
+		379EB5941BF1D28100DE8DDB /* PlayHologramYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayHologramYoutubeViewController.h; sourceTree = "<group>"; };
+		379EB5951BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayHologramYoutubeViewController.m; sourceTree = "<group>"; };
+		379EB5961BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayHologramYoutubeViewController.xib; sourceTree = "<group>"; };
 		37B4E14D1AE73BD200A082A3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		37B4E14E1AE73BD200A082A3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		37B4E14F1AE73BD200A082A3 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -599,6 +599,7 @@
 		379EB5811BF06F3400DE8DDB /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
+				379EB5911BF1D28100DE8DDB /* PlayHologram */,
 				379EB5821BF06F3400DE8DDB /* Play */,
 				379EB5831BF06F3400DE8DDB /* Upload */,
 			);
@@ -608,11 +609,6 @@
 		379EB5821BF06F3400DE8DDB /* Play */ = {
 			isa = PBXGroup;
 			children = (
-				379EB5891BF06F5F00DE8DDB /* PlayYoutubeViewController.h */,
-				379EB58A1BF06F5F00DE8DDB /* PlayYoutubeViewController.m */,
-				379EB58B1BF06F5F00DE8DDB /* PlayYoutubeViewController.xib */,
-				379EB58E1BF0798D00DE8DDB /* PlayerView.h */,
-				379EB58F1BF0798D00DE8DDB /* PlayerView.m */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -620,11 +616,23 @@
 		379EB5831BF06F3400DE8DDB /* Upload */ = {
 			isa = PBXGroup;
 			children = (
-				379EB5841BF06F3400DE8DDB /* MovieUploadViewController.h */,
-				379EB5851BF06F3400DE8DDB /* MovieUploadViewController.m */,
-				379EB5861BF06F3400DE8DDB /* MovieUploadViewController.xib */,
+				379EB5841BF06F3400DE8DDB /* UploadYoutubeViewController.h */,
+				379EB5851BF06F3400DE8DDB /* UploadYoutubeViewController.m */,
+				379EB5861BF06F3400DE8DDB /* UploadYoutubeViewController.xib */,
 			);
 			path = Upload;
+			sourceTree = "<group>";
+		};
+		379EB5911BF1D28100DE8DDB /* PlayHologram */ = {
+			isa = PBXGroup;
+			children = (
+				379EB5921BF1D28100DE8DDB /* PlayHologramView.h */,
+				379EB5931BF1D28100DE8DDB /* PlayHologramView.m */,
+				379EB5941BF1D28100DE8DDB /* PlayHologramYoutubeViewController.h */,
+				379EB5951BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m */,
+				379EB5961BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib */,
+			);
+			path = PlayHologram;
 			sourceTree = "<group>";
 		};
 		37D16F821BCF4BC600341B88 /* Twitter */ = {
@@ -1400,7 +1408,7 @@
 				379129741AB2B40B001237C7 /* camera@2x.png in Resources */,
 				37668BBB1AC28DC500D08368 /* ProfileSendBtnTableViewCell.xib in Resources */,
 				376A47EA1AAFCE19002A25D3 /* stampbar@2x.png in Resources */,
-				379EB58D1BF06F5F00DE8DDB /* PlayYoutubeViewController.xib in Resources */,
+				379EB5991BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib in Resources */,
 				37E3EB651AA45F8C00EA7CB9 /* CabinSketch-Bold.otf in Resources */,
 				37949A961ABBE5CE002E5194 /* ProfileAnniversaryTableViewCell.xib in Resources */,
 				37E3EB831AA45F8C00EA7CB9 /* stamp_base.png in Resources */,
@@ -1460,7 +1468,7 @@
 				37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */,
 				37949A7E1ABAC534002E5194 /* icon_history@2x.png in Resources */,
 				3791297A1AB2CCD6001237C7 /* sns@2x.png in Resources */,
-				379EB5881BF06F3400DE8DDB /* MovieUploadViewController.xib in Resources */,
+				379EB5881BF06F3400DE8DDB /* UploadYoutubeViewController.xib in Resources */,
 				37D758521AB27E6600E6B421 /* Twitter@2x.png in Resources */,
 				37E3EB8D1AA45F8C00EA7CB9 /* tab_icon_shopping.png in Resources */,
 				37E3EB761AA45F8C00EA7CB9 /* coupon_get_btn.png in Resources */,
@@ -1518,7 +1526,6 @@
 				37E3EB9F1AA45F8C00EA7CB9 /* DatePickerViewController.m in Sources */,
 				37668BBA1AC28DC500D08368 /* ProfileSendBtnTableViewCell.m in Sources */,
 				37E3EBB31AA45F8C00EA7CB9 /* WebViewController.m in Sources */,
-				379EB58C1BF06F5F00DE8DDB /* PlayYoutubeViewController.m in Sources */,
 				37E3EBA71AA45F8C00EA7CB9 /* FlyerViewController.m in Sources */,
 				37E3EB9A1AA45F8C00EA7CB9 /* TabbarViewController.m in Sources */,
 				37949AA31ABFEEAE002E5194 /* BaseInputCell.m in Sources */,
@@ -1549,8 +1556,9 @@
 				37E3EB691AA45F8C00EA7CB9 /* CeckinRecipient.m in Sources */,
 				37E3EB971AA45F8C00EA7CB9 /* BarcodeReaderViewController.m in Sources */,
 				37E3EB921AA45F8C00EA7CB9 /* CustomAnnotation.m in Sources */,
-				379EB5871BF06F3400DE8DDB /* MovieUploadViewController.m in Sources */,
+				379EB5871BF06F3400DE8DDB /* UploadYoutubeViewController.m in Sources */,
 				37E3EBAF1AA45F8C00EA7CB9 /* NewsViewController.m in Sources */,
+				379EB5981BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m in Sources */,
 				37D758421AB1738900E6B421 /* SosialViewController.m in Sources */,
 				37E3EB621AA45F8C00EA7CB9 /* KinenbiData.m in Sources */,
 				37E3EB961AA45F8C00EA7CB9 /* RoundView.m in Sources */,
@@ -1572,6 +1580,7 @@
 				37E3EB701AA45F8C00EA7CB9 /* SpotRecipient.m in Sources */,
 				37949A6A1ABA8D4B002E5194 /* WebViewSettingData.m in Sources */,
 				376A47F31AAFE450002A25D3 /* StampRecipient.m in Sources */,
+				379EB5971BF1D28100DE8DDB /* PlayHologramView.m in Sources */,
 				37E3EB751AA45F8C00EA7CB9 /* NetworkConecter.m in Sources */,
 				37E3EBA11AA45F8C00EA7CB9 /* MonthAndDatePickerViewController.m in Sources */,
 				37D7584D1AB278E700E6B421 /* FBActivity.m in Sources */,
@@ -1593,7 +1602,6 @@
 				37949A551AB819BF002E5194 /* DeliverRecipient.m in Sources */,
 				37E3EBA51AA45F8C00EA7CB9 /* FittingViewController.m in Sources */,
 				37949A771ABAB42A002E5194 /* SosialSettingData.m in Sources */,
-				379EB5901BF0798D00DE8DDB /* PlayerView.m in Sources */,
 				37E3EA581AA45F6800EA7CB9 /* main.m in Sources */,
 				37EA5E2A1BBE2F9D0003A0E7 /* LinepayProfileViewController.m in Sources */,
 				37E3EB611AA45F8C00EA7CB9 /* SpotData.m in Sources */,

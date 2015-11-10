@@ -78,4 +78,7 @@ extern NSString * const nex8Key;
 + (void)setLinePayConfirmUrl:(NSString *)linePayConfirmUrl;
 + (NSString *)linePayConfirmUrl;
 
++ (void)setUploadYoutubeUrlHost:(NSString *)uploadYoutubeUrlHost;
++ (NSString *)uploadYoutubeUrlHost;
+
 @end

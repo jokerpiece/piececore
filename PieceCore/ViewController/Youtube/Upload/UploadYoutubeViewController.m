@@ -6,18 +6,18 @@
 //  Copyright © 2015年 jokerpiece. All rights reserved.
 //
 
-#import "MovieUploadViewController.h"
+#import "UploadYoutubeViewController.h"
 
 @import Photos;
 #import <AVFoundation/AVFoundation.h>
 
-@interface MovieUploadViewController ()
+@interface UploadYoutubeViewController ()
 @property (nonatomic) NSURL *movieURL;
 
 
 @end
 
-@implementation MovieUploadViewController
+@implementation UploadYoutubeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -3,16 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>MCM25T6BXG.jp.co.jokerpiece.pieceSample</string>
-	<key>aps-environment</key>
-	<string>development</string>
+	<string>G8W8L2A2E8.jp.co.jokerpiece.pieceSample</string>
 	<key>com.apple.developer.team-identifier</key>
 	<string>MCM25T6BXG</string>
 	<key>get-task-allow</key>
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>MCM25T6BXG.jp.co.jokerpiece.pieceSample</string>
+		<string>G8W8L2A2E8.jp.co.jokerpiece.pieceSample</string>
 	</array>
 </dict>
 </plist>

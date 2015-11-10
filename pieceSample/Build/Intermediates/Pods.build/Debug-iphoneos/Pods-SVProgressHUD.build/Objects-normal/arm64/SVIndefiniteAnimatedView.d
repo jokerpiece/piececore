@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/SVProgressHUD/SVProgressHUD/SVIndefiniteAnimatedView.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/pieceSample/Pods/SVProgressHUD/SVProgressHUD/SVIndefiniteAnimatedView.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/SVProgressHUD/SVProgressHUD/SVIndefiniteAnimatedView.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/pieceSample/Pods/SVProgressHUD/SVProgressHUD/SVIndefiniteAnimatedView.h

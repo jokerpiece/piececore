@@ -6,9 +6,9 @@
 //  Copyright © 2015年 jokerpiece. All rights reserved.
 //
 
-#import "PlayerView.h"
+#import "PlayHologramView.h"
 
-@implementation PlayerView
+@implementation PlayHologramView
 
 +(Class)layerClass
 {

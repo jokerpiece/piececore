@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/ViewController/Twitter/SCSimpleSLRequestDemo.m \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/ViewController/Twitter/SCSimpleSLRequestDemo.h \
-  /Users/shinden/Desktop/jp_work/piece/pieceSample_youtube/piececore/PieceCore/View/TwitterTableViewCell.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Twitter/SCSimpleSLRequestDemo.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Twitter/SCSimpleSLRequestDemo.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/View/TwitterTableViewCell.h
