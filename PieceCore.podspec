@@ -15,4 +15,6 @@ Pod::Spec.new do |s|
     s.dependency 'UIColor+MLPFlatColors'
     s.dependency 'SVProgressHUD', '~> 1.0'
     #s.dependency 'Nex8Tracking'
+    s.dependency 'HCYoutubeParser'
+
 end

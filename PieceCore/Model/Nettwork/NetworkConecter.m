@@ -24,14 +24,14 @@
     [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"text/html", nil]];
     DLog(@"API通信　%@%@: param%@",ServerUrl,sendId,param);
     [manager POST:[NSString stringWithFormat:@"%@%@",ServerUrl,sendId]
-      parameters:param
-         success:^(NSURLSessionDataTask *task, id responseObject) {
-             [self.delegate receiveSucceed:responseObject sendId:sendId];
-             // 通信に成功した場合の処理
-             DLog(@"url: %@ \n responseObject: %@", sendId, responseObject);
-         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-             [self.delegate receiveError:error sendId:sendId];
-         }];
+       parameters:param
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              [self.delegate receiveSucceed:responseObject sendId:sendId];
+              // 通信に成功した場合の処理
+              DLog(@"url: %@ \n responseObject: %@", sendId, responseObject);
+          } failure:^(NSURLSessionDataTask *task, NSError *error) {
+              [self.delegate receiveError:error sendId:sendId];
+          }];
 }
 -(void)sendActionUrl:(NSString *)url param:(NSMutableDictionary*)param{
     if (param == nil) {
@@ -68,4 +68,36 @@
               [self.delegate receiveError:error sendId:url];
           }];
 }
+
+-(void)uploadActionUrl:(NSString *)url
+           headerParam:(NSMutableDictionary*)headerParam
+                 param:(NSMutableDictionary*)param
+              fileData:(NSData *)fileData
+              pramName:(NSString *)parmName
+              fileName:(NSString *)fileName
+              mineTipe:(NSString *)mineTipe{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    for (id key in headerParam) {
+        NSLog(@"Key:%@ Value:%@", key, [headerParam valueForKey:key]);
+        [manager.requestSerializer setValue:[headerParam valueForKey:key] forHTTPHeaderField:key];
+    }
+    [manager POST:url
+       parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+     {
+         [formData appendPartWithFileData:fileData name:parmName fileName:fileName mimeType:mineTipe];
+         
+     }
+          success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         [self.delegate receiveSucceed:responseObject sendId:url];
+         NSLog(@"response is :  %@",responseObject);
+     }
+          failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+        [self.delegate receiveError:error sendId:url];
+     }];
+}
+
+
 @end

@@ -36,6 +36,8 @@ extern NSString * const SendIdLinePay;
 extern NSString * const SendIdDeterminedLinePay;
 extern NSString * const SendIdRegistPay;
 extern NSString * const SendIdGetOrderId;
+extern NSString * const SendIdGetYoutubeToken;
+extern NSString * const SendIdPostYoutubeMovie;
 
 extern NSString * const UrlYamatoDeliver;
 extern NSString * const UrlSagawaDeliver;

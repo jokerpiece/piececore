@@ -11,27 +11,45 @@
 #import "InfoListViewController.h"
 #import "CategoryViewController.h"
 #import "TabbarViewController.h"
+#import "TwitterViewController.h"
+#import "MovieUploadViewController.h"
+#import "PlayYoutubeViewController.h"
 
 
 @implementation AppDelegate
 
 
 -(void)setConfig{
-    [PieceCoreConfig setShopId:@"costume_award"];
-    [PieceCoreConfig setAppKey:@"1111"];
+    [PieceCoreConfig setShopId:@"kodomogokoro"];
+    [PieceCoreConfig setAppKey:@""];
     [PieceCoreConfig setAppId:@""];
+    [PieceCoreConfig setLinePay:YES];
+    [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
 }
 
 //UITabBarController初期化
 - (NSMutableArray *)getTabbarDataList
 {
     NSMutableArray *tabbarDataList = [NSMutableArray array];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil]
+    
+    
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[MovieUploadViewController alloc]initWithNibName:@"MovieUploadViewController" bundle:nil ] tabTitle:@"youtube" title:@"youtube"]];
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[PlayYoutubeViewController alloc]initWithNibName:@"PlayYoutubeViewController" bundle:nil ] tabTitle:@"play" title:@"play"]];
+    
+    
+    
+    
+    FlyerViewController *flyerVc = [[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil];
+    flyerVc.titleImgName = @"sample_logo.png";
+    
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:flyerVc
                                                                tabTitle:@"Flyer"
                                                                   title:@"FLYER"]];
+    
+    InfoListViewController *infoVc = [[InfoListViewController alloc]initWithNibName:@"InfoListViewController" bundle:nil];
+    infoVc.titleImgName= @"sample_logo.png";
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[InfoListViewController alloc] initWithNibName:@"InfoListViewController" bundle:nil]
+                               infoVc
                                                                tabTitle:@"Info"
                                                                   title:@"INFOMATION"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
@@ -42,6 +60,13 @@
                                [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
+    
+    TwitterViewController *twitterVc =[[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
+    twitterVc.userAcount = @"@SplatoonJP";
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:twitterVc
+//                               
+//                                                               tabTitle:@"Twitter"
+//                                                                  title:@"TWITTER"]];
     return tabbarDataList;
 }
 

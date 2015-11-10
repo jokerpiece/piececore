@@ -23,11 +23,11 @@ static NSString *_nex8Key = @"";
 static bool _linePay = NO;
 static NSString *_linePayConfirmUrl = @"";
 
-//NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
-NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
+NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
+//NSString * const  ServerUrl= @"http://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
-NSString * const  SendTokenUrl= @"http://jokapi.jp/manager/html/xml/device_token/";
-//NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
+//NSString * const  SendTokenUrl= @"http://jokapi.jp/manager/html/xml/device_token/";
+NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
 NSString * const  SendIdItem= @"item/index.php?Action=itemList";
 NSString * const  SendIdItemCoupon= @"item/";
@@ -53,7 +53,8 @@ NSString * const  SendIdLinePay = @"linepay/index.php?Action=reserve";
 NSString * const  SendIdDeterminedLinePay = @"linepay/index.php?Action=confirm";
 NSString * const  SendIdRegistPay = @"regist_app_payment/";
 NSString * const  SendIdGetOrderId = @"order_id/";
-
+NSString * const  SendIdGetYoutubeToken = @"order/?Action=check";
+NSString * const  SendIdPostYoutubeMovie = @"https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";
