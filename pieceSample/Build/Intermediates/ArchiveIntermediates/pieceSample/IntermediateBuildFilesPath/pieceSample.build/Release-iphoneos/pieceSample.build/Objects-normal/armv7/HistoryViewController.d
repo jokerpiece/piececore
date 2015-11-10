@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/History/HistoryViewController.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/History/HistoryViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Base/BaseViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/Nettwork/NetworkConecter.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/Log/DLog.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/BaseRecipient.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/View/RoundBtn.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/Common/Common.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Setting/SettingData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/Config/PieceCoreConfig.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Common/TitleNameData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Sns/SosialSettingData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/View/GetPointView.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/History/HistoryOrderData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/History/HistoryItemData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Item/ItemData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/View/HistoryTableViewCell.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/ViewController/Item/WebViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Data/Webview/WebViewSettingData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/PieceCore/Model/API/DeliverRecipient.h

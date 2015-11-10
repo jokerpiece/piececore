@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Authentication/AWSIdentityProvider.m \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/AWSCore.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Service/AWSService.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Networking/AWSNetworking.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Utility/AWSModel.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/AWSMantle.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/AWSMTLJSONAdapter.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/AWSMTLManagedObjectAdapter.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/AWSMTLModel.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/AWSMTLModel+NSCoding.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/AWSMTLValueTransformer.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/NSArray+AWSMTLManipulationAdditions.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/NSDictionary+AWSMTLManipulationAdditions.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/NSObject+AWSMTLComparisonAdditions.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/NSValueTransformer+AWSMTLInversionAdditions.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Mantle/NSValueTransformer+AWSMTLPredefinedTransformerAdditions.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Authentication/AWSCredentialsProvider.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Service/AWSServiceEnum.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Authentication/AWSIdentityProvider.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Serialization/AWSValidation.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Serialization/AWSURLRequestSerialization.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Serialization/AWSSerialization.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Serialization/AWSURLResponseSerialization.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Utility/AWSCategory.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Utility/AWSLogging.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Service/AWSClientContext.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/STS/AWSSTS.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/STS/AWSSTSService.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/STS/AWSSTSModel.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/CognitoIdentity/AWSCognitoIdentity.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/CognitoIdentity/AWSCognitoIdentityService.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/CognitoIdentity/AWSCognitoIdentityModel.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Bolts/AWSBolts.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Bolts/AWSExecutor.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Bolts/AWSTask.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreGit2/piececore/pieceSample/Pods/AWSCore/AWSCore/Bolts/AWSTaskCompletionSource.h
