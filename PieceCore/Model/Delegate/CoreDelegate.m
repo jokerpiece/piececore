@@ -459,7 +459,6 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-     NSDictionary *query = [url query];
     
     if ([[url host]isEqualToString:[[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]host]]) {
     //if ([[url absoluteString] isEqualToString:[PieceCoreConfig linePayConfirmUrl]]) {
@@ -475,11 +474,64 @@
         [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         return NO;
     } else if ([[url host]isEqualToString:UrlSchemeHostPlayYoutube]) {
-        //動画再生
-        UploadYoutubeViewController *vc = [[UploadYoutubeViewController alloc]initWithNibName:@"UploadYoutubeViewController" bundle:nil];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        
+        NSDictionary *params = [self dictionaryFromQueryString:[url query]];
+        if ([params[@"type"] isEqualToString:@"2"]) {
+            //動画再生
+            PlayHologramYoutubeViewController *vc = [[PlayHologramYoutubeViewController alloc]initWithNibName:@"PlayHologramYoutubeViewController" bundle:nil];
+            vc.youtubeId = params[@"url"];
+            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+            return NO;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         return NO;
     }
     return YES;
+}
+
+- (NSDictionary*)dictionaryFromQueryString:(NSString *)query
+{
+    // クエリ文字列が設定されている場合だけ、解析処理をします。
+    if (query)
+    {
+        // 解析しながら、名前と値をここに蓄えて行きます。
+        NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
+        
+        // クエリ文字列を "&" で分割して、ひとつひとつの "名前=値" の組に分解します。
+        NSArray* parameters = [query componentsSeparatedByString:@"&"];
+        
+        for (NSString* parameter in parameters)
+        {
+            // "&" で区切られた文字列が、空文字ではないものを解析します。
+            if (parameter.length > 0)
+            {
+                // 名前と値を分解します。
+                NSArray* elements = [parameter componentsSeparatedByString:@"="];
+                
+                // 名前は UTF8 でエンコードされているものとしてデコードします。
+                id key = [elements[0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                
+                // 値があればそれを UTF8 でデコードして取得します。名前だけで値の指定が無い場合は、ここでは値を @YES とみなします。
+                id value = (elements.count == 1 ? @YES : [elements[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
+                
+                // 取得した名前と値を保存します。重複は考慮していません。
+                [result setObject:value forKey:key];
+            }
+        }
+    // 取得した値と名前の組を、読み取り専用のインスタンスで返します。
+        return [result copy];
+    }
+    else
+    {
+        // クエリ文字列が nil だった場合は、結果も nil を返します。
+        return nil;
+    }
 }
 @end

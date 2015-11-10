@@ -17,24 +17,46 @@
 @implementation PlayHologramYoutubeViewController
 
 -(void)viewDidLoadLogic{
-    NSDictionary *dict = [HCYoutubeParser h264videosWithYoutubeID:@"JGlU4r3P3I0"];
+    float startY = 150;
+    float sideSize = self.viewSize.width / 3;
+    float insize = sideSize * 0.15;
+    
+    NSDictionary *dict = [HCYoutubeParser h264videosWithYoutubeID:self.youtubeId];
     NSURL *url = [NSURL URLWithString:dict[@"medium"]];
     
-    CGFloat angle1 = 45.0 * M_PI / 180.0;
+    //上
+    self.playView1 = [[PlayHologramView alloc]initWithFrame:CGRectMake(sideSize, startY + insize, sideSize, sideSize)];
+    
+    CGFloat angle1 = 270.0 * M_PI / 180.0;
+    //左
+    self.playView2 = [[PlayHologramView alloc]initWithFrame:CGRectMake(0 + insize, startY + sideSize, sideSize, sideSize)];
     self.playView2.transform = CGAffineTransformMakeRotation(angle1);
+    //self.playView2.backgroundColor = [UIColor orangeColor];
     
     CGFloat angle2 = 90.0 * M_PI / 180.0;
+    //右
+    self.playView3 = [[PlayHologramView alloc]initWithFrame:CGRectMake(sideSize * 2 - insize, startY + sideSize , sideSize, sideSize)];
     self.playView3.transform = CGAffineTransformMakeRotation(angle2);
+    //self.playView3.backgroundColor = [UIColor blueColor];
     
-    CGFloat angle3 = 135.0 * M_PI / 180.0;
+    CGFloat angle3 = 180.0 * M_PI / 180.0;
+    //下
+    self.playView4 = [[PlayHologramView alloc]initWithFrame:CGRectMake(sideSize, startY + sideSize *2 -insize, sideSize, sideSize)];
     self.playView4.transform = CGAffineTransformMakeRotation(angle3);
     
-   self.player = [[AVPlayer alloc]initWithURL:url];
-    [(AVPlayerLayer*)self.playView.layer setPlayer:self.player];
+    self.player = [[AVPlayer alloc]initWithURL:url];
+    
+    
+    
+    [(AVPlayerLayer*)self.playView1.layer setPlayer:self.player];
     [(AVPlayerLayer*)self.playView2.layer setPlayer:self.player];
     [(AVPlayerLayer*)self.playView3.layer setPlayer:self.player];
     [(AVPlayerLayer*)self.playView4.layer setPlayer:self.player];
     
+    [self.view addSubview:self.playView1];
+    [self.view addSubview:self.playView2];
+    [self.view addSubview:self.playView3];
+    [self.view addSubview:self.playView4];
     [self.player addObserver:self
              forKeyPath:@"status"
                 options:NSKeyValueObservingOptionNew

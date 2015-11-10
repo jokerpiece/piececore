@@ -34,9 +34,9 @@
     NSMutableArray *tabbarDataList = [NSMutableArray array];
     
     
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[UploadYoutubeViewController alloc]initWithNibName:@"UploadYoutubeViewController" bundle:nil ] tabTitle:@"youtube" title:@"youtube"]];
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[PlayHologramYoutubeViewController alloc]initWithNibName:@"PlayHologramYoutubeViewController" bundle:nil ] tabTitle:@"play" title:@"play"]];
-    
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[UploadYoutubeViewController alloc]initWithNibName:@"UploadYoutubeViewController" bundle:nil ] tabTitle:@"youtube" title:@"youtube"]];
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[PlayHologramYoutubeViewController alloc]initWithNibName:@"PlayHologramYoutubeViewController" bundle:nil ] tabTitle:@"play" title:@"play"]];
+//    
     
     
     

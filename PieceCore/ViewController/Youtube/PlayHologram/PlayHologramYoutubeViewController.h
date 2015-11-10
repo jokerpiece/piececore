@@ -9,10 +9,11 @@
 #import "BaseViewController.h"
 #import "PlayHologramView.h"
 @interface PlayHologramYoutubeViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet PlayHologramView *playView;
-@property (weak, nonatomic) IBOutlet PlayHologramView *playView2;
-@property (weak, nonatomic) IBOutlet PlayHologramView *playView3;
-@property (weak, nonatomic) IBOutlet PlayHologramView *playView4;
+@property (nonatomic) PlayHologramView *playView1;
+@property (nonatomic) PlayHologramView *playView2;
+@property (nonatomic) PlayHologramView *playView3;
+@property (nonatomic) PlayHologramView *playView4;
+@property (nonatomic) NSString *youtubeId;
 @property (nonatomic) AVPlayer *player;
 
 @end
