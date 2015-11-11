@@ -18,6 +18,9 @@
 		37505B541BF30DA9001CEA3B /* RappingBarcodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B4E1BF30DA9001CEA3B /* RappingBarcodeViewController.xib */; };
 		37505B551BF30DA9001CEA3B /* RappingSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B511BF30DA9001CEA3B /* RappingSelectViewController.m */; };
 		37505B561BF30DA9001CEA3B /* RappingSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B521BF30DA9001CEA3B /* RappingSelectViewController.xib */; };
+		37505B5B1BF32571001CEA3B /* RappingMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B591BF32571001CEA3B /* RappingMessageViewController.m */; };
+		37505B5C1BF32571001CEA3B /* RappingMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B5A1BF32571001CEA3B /* RappingMessageViewController.xib */; };
+		37505B5F1BF3279B001CEA3B /* illust1344.png in Resources */ = {isa = PBXBuildFile; fileRef = 37505B5E1BF3279B001CEA3B /* illust1344.png */; };
 		37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */; };
 		37668BB61AC2804500D08368 /* ProfileRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB51AC2804500D08368 /* ProfileRecipient.m */; };
 		37668BBA1AC28DC500D08368 /* ProfileSendBtnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB81AC28DC500D08368 /* ProfileSendBtnTableViewCell.m */; };
@@ -225,6 +228,10 @@
 		37505B501BF30DA9001CEA3B /* RappingSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RappingSelectViewController.h; sourceTree = "<group>"; };
 		37505B511BF30DA9001CEA3B /* RappingSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RappingSelectViewController.m; sourceTree = "<group>"; };
 		37505B521BF30DA9001CEA3B /* RappingSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RappingSelectViewController.xib; sourceTree = "<group>"; };
+		37505B581BF32571001CEA3B /* RappingMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RappingMessageViewController.h; sourceTree = "<group>"; };
+		37505B591BF32571001CEA3B /* RappingMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RappingMessageViewController.m; sourceTree = "<group>"; };
+		37505B5A1BF32571001CEA3B /* RappingMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RappingMessageViewController.xib; sourceTree = "<group>"; };
+		37505B5E1BF3279B001CEA3B /* illust1344.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = illust1344.png; sourceTree = "<group>"; };
 		37668BAE1AC13ADF00D08368 /* UcIndexpathData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcIndexpathData.h; sourceTree = "<group>"; };
 		37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UcIndexpathData.m; sourceTree = "<group>"; };
 		37668BB41AC2804500D08368 /* ProfileRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileRecipient.h; sourceTree = "<group>"; };
@@ -575,6 +582,7 @@
 		37505B3C1BF30917001CEA3B /* Rapping */ = {
 			isa = PBXGroup;
 			children = (
+				37505B571BF32549001CEA3B /* Message */,
 				37505B4B1BF30DA9001CEA3B /* RappingBarcode */,
 				37505B4F1BF30DA9001CEA3B /* RappingSelect */,
 			);
@@ -599,6 +607,24 @@
 				37505B521BF30DA9001CEA3B /* RappingSelectViewController.xib */,
 			);
 			path = RappingSelect;
+			sourceTree = "<group>";
+		};
+		37505B571BF32549001CEA3B /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				37505B581BF32571001CEA3B /* RappingMessageViewController.h */,
+				37505B591BF32571001CEA3B /* RappingMessageViewController.m */,
+				37505B5A1BF32571001CEA3B /* RappingMessageViewController.xib */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		37505B5D1BF3279B001CEA3B /* Rapping */ = {
+			isa = PBXGroup;
+			children = (
+				37505B5E1BF3279B001CEA3B /* illust1344.png */,
+			);
+			path = Rapping;
 			sourceTree = "<group>";
 		};
 		376FDAA91B99779C00D842F5 /* LinePay */ = {
@@ -1028,6 +1054,7 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				37505B5D1BF3279B001CEA3B /* Rapping */,
 				37949A6B1ABA9670002E5194 /* Webview */,
 				37D7584E1AB27E6600E6B421 /* Sosial */,
 				37E3EAD01AA45F8C00EA7CB9 /* coupon_get_btn.png */,
@@ -1456,6 +1483,7 @@
 				37E3EB7C1AA45F8C00EA7CB9 /* kinenbi.png in Resources */,
 				37E3EBB21AA45F8C00EA7CB9 /* ItemListViewController.xib in Resources */,
 				37949A9B1ABBE793002E5194 /* ProfileAdressTableViewCell.xib in Resources */,
+				37505B5F1BF3279B001CEA3B /* illust1344.png in Resources */,
 				37949A711ABA9670002E5194 /* backBtn@2x.png in Resources */,
 				37E3EBA41AA45F8C00EA7CB9 /* SinglePickerViewController.xib in Resources */,
 				37E3EB8B1AA45F8C00EA7CB9 /* tab_icon_news.png in Resources */,
@@ -1465,6 +1493,7 @@
 				379129741AB2B40B001237C7 /* camera@2x.png in Resources */,
 				37668BBB1AC28DC500D08368 /* ProfileSendBtnTableViewCell.xib in Resources */,
 				376A47EA1AAFCE19002A25D3 /* stampbar@2x.png in Resources */,
+				37505B5C1BF32571001CEA3B /* RappingMessageViewController.xib in Resources */,
 				379EB5991BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib in Resources */,
 				37E3EB651AA45F8C00EA7CB9 /* CabinSketch-Bold.otf in Resources */,
 				37949A961ABBE5CE002E5194 /* ProfileAnniversaryTableViewCell.xib in Resources */,
@@ -1656,6 +1685,7 @@
 				37E3EB6F1AA45F8C00EA7CB9 /* NewsRecipient.m in Sources */,
 				37E3EB561AA45F8C00EA7CB9 /* CategoryData.m in Sources */,
 				37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */,
+				37505B5B1BF32571001CEA3B /* RappingMessageViewController.m in Sources */,
 				37E3EB5B1AA45F8C00EA7CB9 /* FlyerItemData.m in Sources */,
 				37E3EBB11AA45F8C00EA7CB9 /* ItemListViewController.m in Sources */,
 				37E3EBA31AA45F8C00EA7CB9 /* SinglePickerViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "RappingSelectViewController.h"
 #import "PlayYoutubeViewController.h"
 #import "PlayHologramYoutubeViewController.h"
+#import "RappingMessageViewController.h"
 
 @interface RappingSelectViewController ()
 
@@ -17,7 +18,7 @@
 @implementation RappingSelectViewController
 
 - (void)viewDidAppearLogic {
-    [self setTestDAta];
+    [self setTestMessageDAta];
     
 }
 -(void)setTestDAta{
@@ -27,6 +28,16 @@
     [dic setObject:@"" forKey:@"error_msg"];
     [dic setObject:@"1" forKey:@"type_code"];
     [dic setObject:@"8Ro5G0ZXpcA" forKey:@"file_data"];
+    recipient.resultset = dic;
+    [self setDataWithRecipient:recipient sendId:SendIdGetPlaydata];
+}
+-(void)setTestMessageDAta{
+    BaseRecipient *recipient = [BaseRecipient alloc];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:@"00" forKey:@"status_code"];
+    [dic setObject:@"" forKey:@"error_msg"];
+    [dic setObject:@"3" forKey:@"type_code"];
+    [dic setObject:@"お誕生日おめでとう！" forKey:@"file_data"];
     recipient.resultset = dic;
     [self setDataWithRecipient:recipient sendId:SendIdGetPlaydata];
 }
@@ -60,7 +71,9 @@
             
         } else if ([recipient.resultset[@"type_code"] isEqualToString:@"3"]) {
             //メッセージ
-            
+            RappingMessageViewController *vc = [[RappingMessageViewController alloc]initWithNibName:@"RappingMessageViewController" bundle:nil];
+            vc.message = recipient.resultset[@"file_data"];
+            [self presentViewController:vc animated:YES completion:nil];
         }
         
         [self dismissViewControllerAnimated:NO completion:nil];
