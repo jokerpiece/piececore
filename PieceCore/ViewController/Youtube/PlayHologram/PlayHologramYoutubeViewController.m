@@ -22,7 +22,7 @@
     float insize = sideSize * 0.15;
     
     NSDictionary *dict = [HCYoutubeParser h264videosWithYoutubeID:self.youtubeId];
-    NSURL *url = [NSURL URLWithString:dict[@"medium"]];
+    NSURL *url = [NSURL URLWithString:dict[@"small"]];
     
     //上
     self.playView1 = [[PlayHologramView alloc]initWithFrame:CGRectMake(sideSize, startY + insize, sideSize, sideSize)];

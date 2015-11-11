@@ -12,6 +12,8 @@
 		370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561921ACE2717002E7F1B /* MapKit.framework */; };
 		370561951ACE2A00002E7F1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561941ACE2A00002E7F1B /* CoreLocation.framework */; };
 		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
+		37505B341BF2D53B001CEA3B /* PlayYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */; };
+		37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */; };
 		37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */; };
 		37668BB61AC2804500D08368 /* ProfileRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB51AC2804500D08368 /* ProfileRecipient.m */; };
 		37668BBA1AC28DC500D08368 /* ProfileSendBtnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB81AC28DC500D08368 /* ProfileSendBtnTableViewCell.m */; };
@@ -210,6 +212,9 @@
 		370561941ACE2A00002E7F1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		371941F71AC549700033FBCA /* TitleNameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNameData.h; sourceTree = "<group>"; };
 		371941F81AC549700033FBCA /* TitleNameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleNameData.m; sourceTree = "<group>"; };
+		37505B311BF2D53B001CEA3B /* PlayYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayYoutubeViewController.h; sourceTree = "<group>"; };
+		37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayYoutubeViewController.m; sourceTree = "<group>"; };
+		37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayYoutubeViewController.xib; sourceTree = "<group>"; };
 		37668BAE1AC13ADF00D08368 /* UcIndexpathData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcIndexpathData.h; sourceTree = "<group>"; };
 		37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UcIndexpathData.m; sourceTree = "<group>"; };
 		37668BB41AC2804500D08368 /* ProfileRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileRecipient.h; sourceTree = "<group>"; };
@@ -549,6 +554,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		37505B2D1BF2D1D8001CEA3B /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Youtube;
+			path = ../../../../PieceCoreGit2/piececore/PieceCore/Model/Youtube;
+			sourceTree = "<group>";
+		};
 		376FDAA91B99779C00D842F5 /* LinePay */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +622,9 @@
 		379EB5821BF06F3400DE8DDB /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				37505B311BF2D53B001CEA3B /* PlayYoutubeViewController.h */,
+				37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */,
+				37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -876,6 +892,7 @@
 		37E3EAA91AA45F8C00EA7CB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				37505B2D1BF2D1D8001CEA3B /* Youtube */,
 				37E3EAAA1AA45F8C00EA7CB9 /* API */,
 				37E3EAC11AA45F8C00EA7CB9 /* Common */,
 				37E3EAC41AA45F8C00EA7CB9 /* Config */,
@@ -1418,6 +1435,7 @@
 				37949A731ABA9670002E5194 /* nextBtn@2x.png in Resources */,
 				37E3EB901AA45F8C00EA7CB9 /* wait.jpg in Resources */,
 				378F31841AC533AA0068224A /* news_03.png in Resources */,
+				37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */,
 				37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */,
 				376FDAB61B99791800D842F5 /* linepay_ViewController.xib in Resources */,
 				37E3EB911AA45F8C00EA7CB9 /* wait@2x.jpg in Resources */,
@@ -1609,6 +1627,7 @@
 				37E3EB731AA45F8C00EA7CB9 /* PieceCoreConfig.m in Sources */,
 				37E3EB5F1AA45F8C00EA7CB9 /* InfoListData.m in Sources */,
 				37E3EB941AA45F8C00EA7CB9 /* MapCell.m in Sources */,
+				37505B341BF2D53B001CEA3B /* PlayYoutubeViewController.m in Sources */,
 				37949A861ABBD8C2002E5194 /* ProfileViewController.m in Sources */,
 				37E3EBC71AA45F8C00EA7CB9 /* SurveyViewController.m in Sources */,
 				37E3EB5C1AA45F8C00EA7CB9 /* DeliveryInfoData.m in Sources */,

@@ -15,6 +15,7 @@
 #import "linepayReservSquareViewController.h"
 #import "UploadYoutubeViewController.h"
 #import "PlayHologramYoutubeViewController.h"
+#import "PlayYoutubeViewController.h"
 
 @implementation CoreDelegate
 
@@ -476,7 +477,14 @@
     } else if ([[url host]isEqualToString:UrlSchemeHostPlayYoutube]) {
         
         NSDictionary *params = [self dictionaryFromQueryString:[url query]];
-        if ([params[@"type"] isEqualToString:@"2"]) {
+        if ([params[@"type"] isEqualToString:@"1"]) {
+            PlayYoutubeViewController *vc = [[PlayYoutubeViewController alloc]initWithNibName:@"PlayYoutubeViewController" bundle:nil
+                                             ];
+            vc.youtubeId = params[@"url"];
+            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+            return NO;
+            
+        } else if ([params[@"type"] isEqualToString:@"2"]) {
             //動画再生
             PlayHologramYoutubeViewController *vc = [[PlayHologramYoutubeViewController alloc]initWithNibName:@"PlayHologramYoutubeViewController" bundle:nil];
             vc.youtubeId = params[@"url"];
