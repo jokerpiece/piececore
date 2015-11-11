@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		10B66B071B6B6D3F00AF524B /* DeterminedLinePayRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B66B061B6B6D3F00AF524B /* DeterminedLinePayRecipient.m */; };
 		10EF4FC31B58D317009066C2 /* LinepayRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 10EF4FC21B58D317009066C2 /* LinepayRecipient.m */; };
+		2F55E8B01BF308DD00525089 /* OrderDataCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */; };
+		2F55E8B11BF308DD00525089 /* OrderDataCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */; };
+		2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8B31BF30A2300525089 /* OrderDataFailedViewController.m */; };
+		2F55E8B61BF30A2300525089 /* OrderDataFailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8B41BF30A2300525089 /* OrderDataFailedViewController.xib */; };
+		2F55E8BA1BF31BA300525089 /* YoutubeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8B91BF31BA300525089 /* YoutubeData.m */; };
+		2F55E8BE1BF3282A00525089 /* FinishYoutubeUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8BC1BF3282A00525089 /* FinishYoutubeUploadViewController.m */; };
+		2F55E8BF1BF3282A00525089 /* FinishYoutubeUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8BD1BF3282A00525089 /* FinishYoutubeUploadViewController.xib */; };
 		370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561921ACE2717002E7F1B /* MapKit.framework */; };
 		370561951ACE2A00002E7F1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561941ACE2A00002E7F1B /* CoreLocation.framework */; };
 		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
@@ -208,6 +215,17 @@
 		10B66B061B6B6D3F00AF524B /* DeterminedLinePayRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeterminedLinePayRecipient.m; sourceTree = "<group>"; };
 		10EF4FC11B58D317009066C2 /* LinepayRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinepayRecipient.h; sourceTree = "<group>"; };
 		10EF4FC21B58D317009066C2 /* LinepayRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinepayRecipient.m; sourceTree = "<group>"; };
+		2F55E8AD1BF308DD00525089 /* OrderDataCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDataCheckViewController.h; path = Order/OrderDataCheckViewController.h; sourceTree = "<group>"; };
+		2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDataCheckViewController.m; path = Order/OrderDataCheckViewController.m; sourceTree = "<group>"; };
+		2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDataCheckViewController.xib; path = Order/OrderDataCheckViewController.xib; sourceTree = "<group>"; };
+		2F55E8B21BF30A2300525089 /* OrderDataFailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDataFailedViewController.h; path = Order/OrderDataFailedViewController.h; sourceTree = "<group>"; };
+		2F55E8B31BF30A2300525089 /* OrderDataFailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDataFailedViewController.m; path = Order/OrderDataFailedViewController.m; sourceTree = "<group>"; };
+		2F55E8B41BF30A2300525089 /* OrderDataFailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDataFailedViewController.xib; path = Order/OrderDataFailedViewController.xib; sourceTree = "<group>"; };
+		2F55E8B81BF31BA300525089 /* YoutubeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YoutubeData.h; path = Youtube/YoutubeData.h; sourceTree = "<group>"; };
+		2F55E8B91BF31BA300525089 /* YoutubeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YoutubeData.m; path = Youtube/YoutubeData.m; sourceTree = "<group>"; };
+		2F55E8BB1BF3282A00525089 /* FinishYoutubeUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinishYoutubeUploadViewController.h; path = Finish/FinishYoutubeUploadViewController.h; sourceTree = "<group>"; };
+		2F55E8BC1BF3282A00525089 /* FinishYoutubeUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FinishYoutubeUploadViewController.m; path = Finish/FinishYoutubeUploadViewController.m; sourceTree = "<group>"; };
+		2F55E8BD1BF3282A00525089 /* FinishYoutubeUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FinishYoutubeUploadViewController.xib; path = Finish/FinishYoutubeUploadViewController.xib; sourceTree = "<group>"; };
 		370561921ACE2717002E7F1B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		370561941ACE2A00002E7F1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		371941F71AC549700033FBCA /* TitleNameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNameData.h; sourceTree = "<group>"; };
@@ -545,6 +563,38 @@
 			path = ../../pieceSample;
 			sourceTree = "<group>";
 		};
+		2F55E8AC1BF3089500525089 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				2F55E8AD1BF308DD00525089 /* OrderDataCheckViewController.h */,
+				2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */,
+				2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */,
+				2F55E8B21BF30A2300525089 /* OrderDataFailedViewController.h */,
+				2F55E8B31BF30A2300525089 /* OrderDataFailedViewController.m */,
+				2F55E8B41BF30A2300525089 /* OrderDataFailedViewController.xib */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		2F55E8B71BF31B1600525089 /* Youtube */ = {
+			isa = PBXGroup;
+			children = (
+				2F55E8B81BF31BA300525089 /* YoutubeData.h */,
+				2F55E8B91BF31BA300525089 /* YoutubeData.m */,
+			);
+			name = Youtube;
+			sourceTree = "<group>";
+		};
+		2F55E8C01BF3283400525089 /* Finish */ = {
+			isa = PBXGroup;
+			children = (
+				2F55E8BB1BF3282A00525089 /* FinishYoutubeUploadViewController.h */,
+				2F55E8BC1BF3282A00525089 /* FinishYoutubeUploadViewController.m */,
+				2F55E8BD1BF3282A00525089 /* FinishYoutubeUploadViewController.xib */,
+			);
+			name = Finish;
+			sourceTree = "<group>";
+		};
 		371941F61AC549450033FBCA /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +662,7 @@
 		379EB5811BF06F3400DE8DDB /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
+				2F55E8C01BF3283400525089 /* Finish */,
 				379EB5911BF1D28100DE8DDB /* PlayHologram */,
 				379EB5821BF06F3400DE8DDB /* Play */,
 				379EB5831BF06F3400DE8DDB /* Upload */,
@@ -751,6 +802,7 @@
 		37E3EA7C1AA45F8C00EA7CB9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2F55E8B71BF31B1600525089 /* Youtube */,
 				376FDAA91B99779C00D842F5 /* LinePay */,
 				371941F61AC549450033FBCA /* Common */,
 				37949A741ABAB40A002E5194 /* Sns */,
@@ -1121,6 +1173,7 @@
 		37E3EAFB1AA45F8C00EA7CB9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2F55E8AC1BF3089500525089 /* Order */,
 				379EB5811BF06F3400DE8DDB /* Youtube */,
 				37D16F821BCF4BC600341B88 /* Twitter */,
 				37E3EAFC1AA45F8C00EA7CB9 /* Barcode */,
@@ -1411,6 +1464,7 @@
 				37668BBF1AC2A96E00D08368 /* tab_icon_profile@2x.png in Resources */,
 				37949A911ABBE590002E5194 /* ProfileBirthdayTableViewCell.xib in Resources */,
 				37D758511AB27E6600E6B421 /* FB@2x.png in Resources */,
+				2F55E8B11BF308DD00525089 /* OrderDataCheckViewController.xib in Resources */,
 				378F31821AC533AA0068224A /* news_01.png in Resources */,
 				37E3EB7B1AA45F8C00EA7CB9 /* coin.png in Resources */,
 				37E3EB7C1AA45F8C00EA7CB9 /* kinenbi.png in Resources */,
@@ -1420,6 +1474,7 @@
 				37E3EBA41AA45F8C00EA7CB9 /* SinglePickerViewController.xib in Resources */,
 				37E3EB8B1AA45F8C00EA7CB9 /* tab_icon_news.png in Resources */,
 				37E3EB8E1AA45F8C00EA7CB9 /* tab_icon_sosial.png in Resources */,
+				2F55E8BF1BF3282A00525089 /* FinishYoutubeUploadViewController.xib in Resources */,
 				37949A7D1ABAC534002E5194 /* icon_fitting@2x.png in Resources */,
 				37949A8C1ABBE551002E5194 /* ProfileSexTableViewCell.xib in Resources */,
 				379129741AB2B40B001237C7 /* camera@2x.png in Resources */,
@@ -1436,6 +1491,7 @@
 				37E3EB901AA45F8C00EA7CB9 /* wait.jpg in Resources */,
 				378F31841AC533AA0068224A /* news_03.png in Resources */,
 				37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */,
+				2F55E8B61BF30A2300525089 /* OrderDataFailedViewController.xib in Resources */,
 				37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */,
 				376FDAB61B99791800D842F5 /* linepay_ViewController.xib in Resources */,
 				37E3EB911AA45F8C00EA7CB9 /* wait@2x.jpg in Resources */,
@@ -1547,6 +1603,7 @@
 				37E3EBA71AA45F8C00EA7CB9 /* FlyerViewController.m in Sources */,
 				37E3EB9A1AA45F8C00EA7CB9 /* TabbarViewController.m in Sources */,
 				37949AA31ABFEEAE002E5194 /* BaseInputCell.m in Sources */,
+				2F55E8BE1BF3282A00525089 /* FinishYoutubeUploadViewController.m in Sources */,
 				37E3EB6C1AA45F8C00EA7CB9 /* FlyerRecipient.m in Sources */,
 				37949A951ABBE5CE002E5194 /* ProfileAnniversaryTableViewCell.m in Sources */,
 				37E3EB991AA45F8C00EA7CB9 /* BaseViewController.m in Sources */,
@@ -1572,6 +1629,7 @@
 				37949A9F1ABBE7DC002E5194 /* ProfileNameTableViewCell.m in Sources */,
 				37D16FA01BCF86A700341B88 /* LinepaySelectAddressViewController.m in Sources */,
 				37E3EB691AA45F8C00EA7CB9 /* CeckinRecipient.m in Sources */,
+				2F55E8B01BF308DD00525089 /* OrderDataCheckViewController.m in Sources */,
 				37E3EB971AA45F8C00EA7CB9 /* BarcodeReaderViewController.m in Sources */,
 				37E3EB921AA45F8C00EA7CB9 /* CustomAnnotation.m in Sources */,
 				379EB5871BF06F3400DE8DDB /* UploadYoutubeViewController.m in Sources */,
@@ -1582,9 +1640,11 @@
 				37E3EB961AA45F8C00EA7CB9 /* RoundView.m in Sources */,
 				376FDAAC1B99779C00D842F5 /* LinePayData.m in Sources */,
 				37B4E1501AE73BD200A082A3 /* MapViewController.m in Sources */,
+				2F55E8BA1BF31BA300525089 /* YoutubeData.m in Sources */,
 				37E3EB5A1AA45F8C00EA7CB9 /* FlyerHeaderData.m in Sources */,
 				37E3EB571AA45F8C00EA7CB9 /* CouponData.m in Sources */,
 				37E3EB721AA45F8C00EA7CB9 /* Common.m in Sources */,
+				2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */,
 				371941F91AC549700033FBCA /* TitleNameData.m in Sources */,
 				37E3EB741AA45F8C00EA7CB9 /* CoreDelegate.m in Sources */,
 				37949A4D1AB6C497002E5194 /* HistoryTableViewCell.m in Sources */,
@@ -1758,7 +1818,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = pieceSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.jokerpiece.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.otonagokoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1773,7 +1833,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = pieceSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.jokerpiece.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.otonagokoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
