@@ -14,6 +14,7 @@
 #import "TwitterViewController.h"
 #import "UploadYoutubeViewController.h"
 #import "PlayHologramYoutubeViewController.h"
+#import "RappingBarcodeViewController.h"
 
 
 @implementation AppDelegate
@@ -39,6 +40,13 @@
 //    
     
     
+    
+    RappingBarcodeViewController *vc = [[RappingBarcodeViewController alloc] initWithNibName:@"RappingBarcodeViewController" bundle:nil];
+    vc.barcodeTitle = @"プレゼントのメッセージがあります\nQRコードを読み取って下さい。";
+    
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:vc
+                                                               tabTitle:@"Barcode"
+                                                                  title:@"Barcode"]];
     
     FlyerViewController *flyerVc = [[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil];
     flyerVc.titleImgName = @"sample_logo.png";

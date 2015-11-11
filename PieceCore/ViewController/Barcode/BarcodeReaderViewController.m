@@ -56,7 +56,7 @@
     [self.session startRunning];
     
     self.prevLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
-    self.prevLayer.frame = CGRectMake(0, 0, 320, 514);
+    self.prevLayer.frame = CGRectMake(0, 0, self.viewSize.width, self.viewSize.height);
     self.prevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.view.layer addSublayer:self.prevLayer];
     [self drowLine];
@@ -142,7 +142,15 @@
     CGContextAddLineToPoint(context, x2 - cornerSize, y2);
     CGContextStrokePath(context);
     
-    NSString *label = @"バーコードを\n読み取ってください";
+    NSString *label;
+    
+    if (self.barcodeTitle.length == 0) {
+        label = @"バーコードを\n読み取ってください";
+    } else {
+        label = self.barcodeTitle;
+    }
+    
+
     [[UIColor whiteColor]set];
     
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
@@ -151,11 +159,11 @@
     
     NSDictionary *attributes = @{
                                  NSForegroundColorAttributeName : [UIColor whiteColor],
-                                 NSFontAttributeName : [UIFont systemFontOfSize:16],
+                                 NSFontAttributeName : [UIFont systemFontOfSize:21],
                                  NSParagraphStyleAttributeName : style
                                  };
     
-    [label drawInRect:CGRectMake(0, 100, 320, 50) withAttributes:attributes];
+    [label drawInRect:CGRectMake(self.viewSize.width * 0.1, 100, self.viewSize.width * 0.8, 80) withAttributes:attributes];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
@@ -172,7 +180,7 @@
     CGRect highlightViewRect = CGRectZero;
     AVMetadataMachineReadableCodeObject *barCodeObject;
     NSString *detectionString = nil;
-    NSArray *barCodeTypes = @[AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code];
+    NSArray *barCodeTypes = @[AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeQRCode];
     for (AVMetadataObject *metadata in metadataObjects) {
         
         for (NSString *type in barCodeTypes) {

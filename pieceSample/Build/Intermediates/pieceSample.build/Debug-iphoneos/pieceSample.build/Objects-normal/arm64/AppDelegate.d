@@ -59,4 +59,6 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/View/TwitterTableViewCell.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/Upload/UploadYoutubeViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/PlayHologram/PlayHologramYoutubeViewController.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/PlayHologram/PlayHologramView.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/PlayHologram/PlayHologramView.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Rapping/RappingBarcode/RappingBarcodeViewController.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Barcode/BarcodeReaderViewController.h
