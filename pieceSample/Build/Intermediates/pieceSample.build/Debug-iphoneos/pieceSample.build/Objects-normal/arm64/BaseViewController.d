@@ -51,4 +51,5 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/Coupn/CouponData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/Tabbar/TabbarData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Base/TabbarViewController.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/Theme/ThemeData.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/Theme/ThemeData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Rapping/RappingSelect/RappingSelectController.h

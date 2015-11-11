@@ -14,7 +14,7 @@
 #import "CategoryViewController.h"
 #import "linepayReservSquareViewController.h"
 #import "UploadYoutubeViewController.h"
-#import "RappingSelectViewController.h"
+
 
 @implementation CoreDelegate
 
@@ -475,11 +475,18 @@
         return NO;
     } else if ([[url host]isEqualToString:UrlSchemeHostRapping]) {
         //ラッピング用バーコードから起動
+        
         NSDictionary *params = [Common dictionaryFromQueryString:[url query]];
-            RappingSelectViewController *vc = [[RappingSelectViewController alloc]initWithNibName:@"RappingSelectViewController" bundle:nil
-                                             ];
-            vc.order_id = params[@"order_id"];
-            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        
+        self.rappingSelectController = [RappingSelectController alloc];
+        [self.rappingSelectController presentViewWithOrderId:params[@"order_id"] parnentVc:self.window.rootViewController];
+        
+        
+        
+//            RappingSelectViewController *vc = [[RappingSelectViewController alloc]initWithNibName:@"RappingSelectViewController" bundle:nil
+//                                             ];
+//            vc.order_id = params[@"order_id"];
+//            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
             return NO;
             
     }

@@ -7,10 +7,10 @@
 //
 
 #import "RappingBarcodeViewController.h"
-#import "RappingSelectViewController.h"
+#import "RappingSelectController.h"
 
 @interface RappingBarcodeViewController ()
-
+@property (nonatomic) RappingSelectController *rappingSelectController;
 @end
 
 @implementation RappingBarcodeViewController
@@ -21,11 +21,9 @@
     if ([[url host]isEqualToString:UrlSchemeHostRapping]) {
         //ラッピング用バーコードから起動
         NSDictionary *params = [Common dictionaryFromQueryString:[url query]];
-        RappingSelectViewController *vc = [[RappingSelectViewController alloc]initWithNibName:@"RappingSelectViewController" bundle:nil
-                                           ];
-        vc.order_id = params[@"order_id"];
-        [self presentViewController:vc animated:NO completion:nil];
         
+        self.rappingSelectController = [RappingSelectController alloc];
+        [self.rappingSelectController presentViewWithOrderId:params[@"order_id"] parnentVc:self];
     }
 }
 @end

@@ -51,8 +51,8 @@ dependencies: \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/Tabbar/TabbarData.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Base/TabbarViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Data/Theme/ThemeData.h \
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Rapping/RappingSelect/RappingSelectController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Info/InfoListViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Info/NewsViewController.h \
   /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/Model/API/NewsRecipient.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/Upload/UploadYoutubeViewController.h \
-  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Rapping/RappingSelect/RappingSelectViewController.h
+  /Users/hama/Desktop/iosDev/piece/PieceCoreYoutube/piececore/PieceCore/ViewController/Youtube/Upload/UploadYoutubeViewController.h
