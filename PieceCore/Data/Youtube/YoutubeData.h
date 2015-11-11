@@ -10,7 +10,7 @@
 
 @interface YoutubeData : NSObject
 @property (nonatomic,strong) NSString *token;
-@property (nonatomic,strong) NSString *order_id;
+@property (nonatomic,strong) NSString *order_num;
 @property (nonatomic,strong) NSString *scheme_str_flg;
 @property (nonatomic,strong) NSString *type;
 
@@ -19,8 +19,8 @@
 + (NSString *)getToken;
 + (void)setSchemeStrFlg:(NSString*)str;
 + (NSString *)getSchemeStrFlg;
-+ (void)setOrderId:(NSString*)str;
-+ (NSString *)getOrderId;
++ (void)setOrderNum:(NSString*)str;
++ (NSString *)getOrderNum;
 + (void)setType:(NSString*)str;
 + (NSString *)getType;
 @end

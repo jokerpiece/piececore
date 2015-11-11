@@ -13,7 +13,7 @@
 #import "CouponViewController.h"
 #import "CategoryViewController.h"
 #import "linepayReservSquareViewController.h"
-#import "UploadYoutubeViewController.h"
+#import "OrderDataCheckViewController.h"
 #import "PlayHologramYoutubeViewController.h"
 #import "PlayYoutubeViewController.h"
 
@@ -471,8 +471,11 @@
         
     } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube]) {
         //動画アップロード
-        UploadYoutubeViewController *vc = [[UploadYoutubeViewController alloc]initWithNibName:@"UploadYoutubeViewController" bundle:nil];
-        [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        OrderDataCheckViewController *vc = [[OrderDataCheckViewController alloc]initWithNibName:@"OrderDataCheckViewController" bundle:nil];
+        NSDictionary *params = [self dictionaryFromQueryString:[url query]];
+        vc.order_num = params[@"order_num"];
+        UINavigationController* rootController = [[UINavigationController alloc]initWithRootViewController:vc];//追加
+        [self.window.rootViewController presentViewController:rootController animated:YES completion:nil];
         return NO;
     } else if ([[url host]isEqualToString:UrlSchemeHostPlayYoutube]) {
         
@@ -491,13 +494,6 @@
             [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
             return NO;
         }
-        
-        
-        
-        
-        
-        
-        
         
         return NO;
     }
