@@ -33,6 +33,11 @@
 
 //    [self sendGetYoutubeWithToken];
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
+    [self.navigationController pushViewController:fyu animated:YES];
+}
 -(void)endTextEdit:(id)sender{
     [self.view endEditing:YES];
 }
@@ -41,20 +46,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    
+    [self.scrView setContentSize:CGSizeMake(0, self.viewSize.height)];
+    [self.scrView setContentOffset:CGPointMake(0, 100)];
 }
-*/
+
+-(void)textViewShouldEndEditing: (UITextView*)textView{
+    [self.scrView setContentSize:CGSizeMake(0, 0)];
+}
 - (IBAction)messageRegistAction:(id)sender {
     if(self.messageTV.text.length == 0){
         [self showAlert:@"エラー" message:@"メッセージが登録されていません。"];
     }else{
-        [self uploadMovieInfo:nil];
+        [self uploadMovieInfo:@""];
     }
 }
 
@@ -78,7 +83,7 @@
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    [param setValue:@"1" forKeyPath:@"order_num"];
+    [param setValue:@"20" forKeyPath:@"order_num"];
     [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
     [conecter sendActionSendId:SendIdGetYoutubeToken param:param];
 }
@@ -205,7 +210,7 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     //    [param setValue:[Common getUuid] forKeyPath:@"uuid"];
     [param setValue:movieId forKeyPath:@"youtube_id"];
-    [param setValue:[YoutubeData getOrderId] forKey:@"order_id"];
+    [param setValue:[YoutubeData getOrderNum] forKey:@"order_num"];
     [param setValue:self.messageTV.text forKey:@"message"];
     [conecter sendActionSendId:SendIdPostMovieOrMessage param:param];
 }
@@ -222,7 +227,7 @@
             [self uploadMovieInfo:recipient.resultset[@"id"]];
         }else if([sendId isEqualToString:SendIdPostMovieOrMessage]){
             FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
-            [self presentViewController:fyu animated:YES completion:nil];
+            [self.navigationController pushViewController:fyu animated:YES];
         }
     }
 }

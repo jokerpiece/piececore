@@ -8,7 +8,7 @@
 
 #import "YoutubeData.h"
 static NSString *_token;
-static NSString *_order_id;
+static NSString *_order_num;
 static NSString *_scheme_str_flg;
 static NSString *_type;
 @implementation YoutubeData
@@ -45,14 +45,14 @@ static NSString *_type;
     
 }
 
-+ (void)setOrderId:(NSString *)str{
-    _order_id = str;
++ (void)setOrderNum:(NSString *)str{
+    _order_num = str;
 }
 
-+ (NSString *)getOrderId
++ (NSString *)getOrderNum
 {
     
-    return _order_id;
+    return _order_num;
     
 }
 
