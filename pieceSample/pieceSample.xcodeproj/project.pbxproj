@@ -14,6 +14,10 @@
 		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
 		37505B341BF2D53B001CEA3B /* PlayYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */; };
 		37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */; };
+		37505B531BF30DA9001CEA3B /* RappingBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B4D1BF30DA9001CEA3B /* RappingBarcodeViewController.m */; };
+		37505B541BF30DA9001CEA3B /* RappingBarcodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B4E1BF30DA9001CEA3B /* RappingBarcodeViewController.xib */; };
+		37505B551BF30DA9001CEA3B /* RappingSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B511BF30DA9001CEA3B /* RappingSelectViewController.m */; };
+		37505B561BF30DA9001CEA3B /* RappingSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B521BF30DA9001CEA3B /* RappingSelectViewController.xib */; };
 		37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */; };
 		37668BB61AC2804500D08368 /* ProfileRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB51AC2804500D08368 /* ProfileRecipient.m */; };
 		37668BBA1AC28DC500D08368 /* ProfileSendBtnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37668BB81AC28DC500D08368 /* ProfileSendBtnTableViewCell.m */; };
@@ -215,6 +219,12 @@
 		37505B311BF2D53B001CEA3B /* PlayYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayYoutubeViewController.h; sourceTree = "<group>"; };
 		37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayYoutubeViewController.m; sourceTree = "<group>"; };
 		37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayYoutubeViewController.xib; sourceTree = "<group>"; };
+		37505B4C1BF30DA9001CEA3B /* RappingBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RappingBarcodeViewController.h; sourceTree = "<group>"; };
+		37505B4D1BF30DA9001CEA3B /* RappingBarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RappingBarcodeViewController.m; sourceTree = "<group>"; };
+		37505B4E1BF30DA9001CEA3B /* RappingBarcodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RappingBarcodeViewController.xib; sourceTree = "<group>"; };
+		37505B501BF30DA9001CEA3B /* RappingSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RappingSelectViewController.h; sourceTree = "<group>"; };
+		37505B511BF30DA9001CEA3B /* RappingSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RappingSelectViewController.m; sourceTree = "<group>"; };
+		37505B521BF30DA9001CEA3B /* RappingSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RappingSelectViewController.xib; sourceTree = "<group>"; };
 		37668BAE1AC13ADF00D08368 /* UcIndexpathData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UcIndexpathData.h; sourceTree = "<group>"; };
 		37668BAF1AC13ADF00D08368 /* UcIndexpathData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UcIndexpathData.m; sourceTree = "<group>"; };
 		37668BB41AC2804500D08368 /* ProfileRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileRecipient.h; sourceTree = "<group>"; };
@@ -560,6 +570,35 @@
 			);
 			name = Youtube;
 			path = ../../../../PieceCoreGit2/piececore/PieceCore/Model/Youtube;
+			sourceTree = "<group>";
+		};
+		37505B3C1BF30917001CEA3B /* Rapping */ = {
+			isa = PBXGroup;
+			children = (
+				37505B4B1BF30DA9001CEA3B /* RappingBarcode */,
+				37505B4F1BF30DA9001CEA3B /* RappingSelect */,
+			);
+			path = Rapping;
+			sourceTree = "<group>";
+		};
+		37505B4B1BF30DA9001CEA3B /* RappingBarcode */ = {
+			isa = PBXGroup;
+			children = (
+				37505B4C1BF30DA9001CEA3B /* RappingBarcodeViewController.h */,
+				37505B4D1BF30DA9001CEA3B /* RappingBarcodeViewController.m */,
+				37505B4E1BF30DA9001CEA3B /* RappingBarcodeViewController.xib */,
+			);
+			path = RappingBarcode;
+			sourceTree = "<group>";
+		};
+		37505B4F1BF30DA9001CEA3B /* RappingSelect */ = {
+			isa = PBXGroup;
+			children = (
+				37505B501BF30DA9001CEA3B /* RappingSelectViewController.h */,
+				37505B511BF30DA9001CEA3B /* RappingSelectViewController.m */,
+				37505B521BF30DA9001CEA3B /* RappingSelectViewController.xib */,
+			);
+			path = RappingSelect;
 			sourceTree = "<group>";
 		};
 		376FDAA91B99779C00D842F5 /* LinePay */ = {
@@ -1121,6 +1160,7 @@
 		37E3EAFB1AA45F8C00EA7CB9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				37505B3C1BF30917001CEA3B /* Rapping */,
 				379EB5811BF06F3400DE8DDB /* Youtube */,
 				37D16F821BCF4BC600341B88 /* Twitter */,
 				37E3EAFC1AA45F8C00EA7CB9 /* Barcode */,
@@ -1447,6 +1487,7 @@
 				37E3EBA01AA45F8C00EA7CB9 /* DatePickerViewController.xib in Resources */,
 				37E3EB861AA45F8C00EA7CB9 /* tab_icon_fitting.png in Resources */,
 				37949A7C1ABAC534002E5194 /* icon_eye@2x.png in Resources */,
+				37505B541BF30DA9001CEA3B /* RappingBarcodeViewController.xib in Resources */,
 				37E3EBAC1AA45F8C00EA7CB9 /* HistoryViewController.xib in Resources */,
 				37E3EB9E1AA45F8C00EA7CB9 /* CouponViewController.xib in Resources */,
 				37668BBE1AC2A96E00D08368 /* tab_icon_profile.png in Resources */,
@@ -1489,6 +1530,7 @@
 				379EB5881BF06F3400DE8DDB /* UploadYoutubeViewController.xib in Resources */,
 				37D758521AB27E6600E6B421 /* Twitter@2x.png in Resources */,
 				37E3EB8D1AA45F8C00EA7CB9 /* tab_icon_shopping.png in Resources */,
+				37505B561BF30DA9001CEA3B /* RappingSelectViewController.xib in Resources */,
 				37E3EB761AA45F8C00EA7CB9 /* coupon_get_btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1570,6 +1612,7 @@
 				37E3EB951AA45F8C00EA7CB9 /* RoundBtn.m in Sources */,
 				37949A9A1ABBE793002E5194 /* ProfileAdressTableViewCell.m in Sources */,
 				37949A9F1ABBE7DC002E5194 /* ProfileNameTableViewCell.m in Sources */,
+				37505B551BF30DA9001CEA3B /* RappingSelectViewController.m in Sources */,
 				37D16FA01BCF86A700341B88 /* LinepaySelectAddressViewController.m in Sources */,
 				37E3EB691AA45F8C00EA7CB9 /* CeckinRecipient.m in Sources */,
 				37E3EB971AA45F8C00EA7CB9 /* BarcodeReaderViewController.m in Sources */,
@@ -1625,6 +1668,7 @@
 				37E3EB611AA45F8C00EA7CB9 /* SpotData.m in Sources */,
 				10EF4FC31B58D317009066C2 /* LinepayRecipient.m in Sources */,
 				37E3EB731AA45F8C00EA7CB9 /* PieceCoreConfig.m in Sources */,
+				37505B531BF30DA9001CEA3B /* RappingBarcodeViewController.m in Sources */,
 				37E3EB5F1AA45F8C00EA7CB9 /* InfoListData.m in Sources */,
 				37E3EB941AA45F8C00EA7CB9 /* MapCell.m in Sources */,
 				37505B341BF2D53B001CEA3B /* PlayYoutubeViewController.m in Sources */,

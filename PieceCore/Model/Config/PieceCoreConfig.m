@@ -56,6 +56,7 @@ NSString * const  SendIdRegistPay = @"regist_app_payment/";
 NSString * const  SendIdGetOrderId = @"order_id/";
 NSString * const  SendIdGetYoutubeToken = @"order/?Action=check";
 NSString * const  SendIdPostYoutubeMovie = @"https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status";
+NSString * const  SendIdGetPlaydata = @"order/?Action=getFileData";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";
@@ -65,6 +66,7 @@ NSString * const  UrlSchemeHostUploadYoutube= @"videoupload";
 NSString * const  UrlSchemeHostPlayYoutube= @"videoplay";
 NSString * const  UrlSchemeHostInputMessage= @"message";
 NSString * const  UrlSchemeHostShowMessage= @"messageshow";
+NSString * const  UrlSchemeHostRapping= @"rapping";
 
 const int DispSurveyDate = 90;
 const float TimeSlidershow = 5.5;
