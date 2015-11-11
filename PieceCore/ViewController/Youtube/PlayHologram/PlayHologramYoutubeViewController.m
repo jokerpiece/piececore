@@ -62,6 +62,15 @@
                 options:NSKeyValueObservingOptionNew
                 context:(__bridge void * _Nullable)(self.player)];
     
+    // 終了通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerDidPlayToEndTime:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:self.player];
+
+
+    [self setupSeekBar];
+    
     //[self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -85,4 +94,58 @@
                            change:change
                           context:context];
 }
+
+
+- (void) playerDidPlayToEndTime:(NSNotification*)notfication
+{
+    
+    if (self.player)
+    {
+        
+            //リピート再生
+            [self.player seekToTime:kCMTimeZero];
+            [self.player play];
+        
+    }
+}
+
+- (void)setupSeekBar
+{
+    self.seekBar.minimumValue = 0;
+    self.seekBar.maximumValue = CMTimeGetSeconds( self.player.currentItem.asset.duration );
+    self.seekBar.value        = 0;
+    [self.seekBar addTarget:self action:@selector(seekBarValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    // 再生時間とシークバー位置を連動させるためのタイマー
+    const double interval = ( 0.5f * self.seekBar.maximumValue ) / self.seekBar.bounds.size.width;
+    const CMTime time     = CMTimeMakeWithSeconds( interval, NSEC_PER_SEC );
+    self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:time
+                                                                           queue:NULL
+                                                                      usingBlock:^( CMTime time ) { [self syncSeekBar]; }];
+    
+    self.durationLabel.text = [self timeToString:self.seekBar.maximumValue];
+}
+
+- (void)syncSeekBar
+{
+    const double duration = CMTimeGetSeconds( [self.player.currentItem duration] );
+    const double time     = CMTimeGetSeconds([self.player currentTime]);
+    const float  value    = ( self.seekBar.maximumValue - self.seekBar.minimumValue ) * time / duration + self.seekBar.minimumValue;
+    
+    [self.seekBar setValue:value];
+    self.currentTimeLabel.text = [self timeToString:self.seekBar.value];
+}
+
+- (void)seekBarValueChanged:(UISlider *)slider
+{
+    [self.player seekToTime:CMTimeMakeWithSeconds( slider.value, NSEC_PER_SEC )];
+    [self.player play];
+}
+
+- (NSString* )timeToString:(float)value
+{
+    const NSInteger time = value;
+    return [NSString stringWithFormat:@"%d:%02d", ( int )( time / 60 ), ( int )( time % 60 )];
+}
+
 @end

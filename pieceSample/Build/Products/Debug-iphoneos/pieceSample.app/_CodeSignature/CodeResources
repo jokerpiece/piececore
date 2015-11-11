@@ -6,11 +6,11 @@
 	<dict>
 		<key>BarcodeReaderViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		DETBko9G2FiTTiwIS/SCYKePKik=
+		p7Hz7zEU/ihMsyr4DB7G0Q6Yl5M=
 		</data>
 		<key>BarcodeReaderViewController~iphone.nib/objects.nib</key>
 		<data>
-		5H5ePnh7nsJvxpDRDXop4Sbf/mw=
+		qwHd8LSKxpU8oq7x8CUrfp/rjs0=
 		</data>
 		<key>CabinSketch-Bold.otf</key>
 		<data>
@@ -22,15 +22,15 @@
 		</data>
 		<key>CategoryViewController.nib</key>
 		<data>
-		syxkbSnsL9/Cuh3OeqG1DmDWC/w=
+		0nBQQBO6EyYshya6HKo/FYhlV64=
 		</data>
 		<key>CouponViewController.nib</key>
 		<data>
-		dBqCzkOyHUTjt2EJc5iT0odpn/Q=
+		qSJRLEnNQE62TKrmvxERZ9Xewcw=
 		</data>
 		<key>DatePickerViewController.nib</key>
 		<data>
-		a+I1cs8hJ6DMYrLz/LyP7MEoIlE=
+		2MjVHkVsTmU9MXqk6jFx+D7oZ3w=
 		</data>
 		<key>FB@2x.png</key>
 		<data>
@@ -38,23 +38,23 @@
 		</data>
 		<key>FittingViewController.nib</key>
 		<data>
-		ljodRXFNKSiErD4OiK3UaY8fId8=
+		LkdATXrccD11pQWD8UToeskJkfc=
 		</data>
 		<key>FlyerViewController.nib</key>
 		<data>
-		fqPUhhJAWQHY0n+HNC910aoM1jA=
+		7EpJ81ik0uIAvf9rZt6ntK72jlk=
 		</data>
 		<key>HistoryTableViewCell~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		vsGvZDKcUJeNE7LSIsK1Qw9/lP0=
+		eVg04U10CB9TQ0CELIOSMbPT4xU=
 		</data>
 		<key>HistoryTableViewCell~iphone.nib/objects.nib</key>
 		<data>
-		t9HwgZqlatGuFvS+eT/hcwMCfXM=
+		xTEzXJUpZJy6h+krXcLLKWqMLdM=
 		</data>
 		<key>HistoryViewController.nib</key>
 		<data>
-		P4p1FM+0PnLX6FFj1BhCcseghU4=
+		F7j987iCrb+ePxIMSuqzFev4Gn0=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -62,79 +62,83 @@
 		</data>
 		<key>InfoListViewController.nib</key>
 		<data>
-		J1EHgcMucFEDjKIousfbuG+4nmc=
+		PjFPWVu54u/LvHB+1Lz9bppiKE8=
 		</data>
 		<key>ItemListViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		ivA86zDYG/+4S7c9DN6pFXaytM0=
+		G3vJW0sfWByQvnH7JCanxCyx7/I=
 		</data>
 		<key>ItemListViewController~iphone.nib/objects.nib</key>
 		<data>
-		b0167qpk20FmQLJtjMtkW49mlP0=
+		yEHpoCJUH4bwSqnxoYpGWwcin6c=
 		</data>
 		<key>LinepayProfileViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		SpswSxYPTFItI9raqtC9aH/tu84=
+		XNMPib+AWRoIiv/nButzZZ/pL0I=
 		</data>
 		<key>LinepayProfileViewController~iphone.nib/objects.nib</key>
 		<data>
-		PpHuaT8BOeVPJjwzx+aIi29YnMo=
+		zpL7/U33IzUGrcFY8M952kRyHuQ=
 		</data>
 		<key>LinepaySelectAddressViewController.nib</key>
 		<data>
-		IiHUfXasHjPRQIiwaldK6R3BZBI=
+		zX+aXKNTXEw46giGXlKYkdnAr2A=
 		</data>
 		<key>MapViewController.nib</key>
 		<data>
-		Ojp16zGD2psukJkALKY8GwdWR4o=
+		5oEuTRvlvWBs6WtqGJqjhY2PUJc=
 		</data>
 		<key>MonthAndDatePickerViewController.nib</key>
 		<data>
-		HsOkY6FQ3sv9WRfGPYQ/HO5REoM=
+		7+XNQzbtpcVAZsAhBrHObCofiD8=
 		</data>
 		<key>NewsViewController.nib</key>
 		<data>
-		/GsW9tmrOZYcVkDuOpZcM57moV4=
+		iD/+v+YFSVASYby1+XKg9d/8WBk=
 		</data>
 		<key>PkgInfo</key>
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
-		<key>PlayHologramYoutubeViewController~iphone.nib/objects-8.0+.nib</key>
+		<key>PlayHologramYoutubeViewController.nib</key>
 		<data>
-		fCHW0pqSDU+AEWOO3iS+9OqdDQU=
+		IvBHI2WzRiIBSN86zdjaRvIaBAs=
 		</data>
-		<key>PlayHologramYoutubeViewController~iphone.nib/objects.nib</key>
+		<key>PlayYoutubeViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		3o+hNfx65Moi/6AQYa2Uo0Q6gnw=
+		QQ/FrENthfyHCAbEM8EamkOqfLE=
+		</data>
+		<key>PlayYoutubeViewController~iphone.nib/objects.nib</key>
+		<data>
+		mm3+NC++6CmE2TEkJaNRuZwBYQs=
 		</data>
 		<key>ProfileAdressTableViewCell.nib</key>
 		<data>
-		9ByCsx904mlFfnahPJda3WD4j9s=
+		4ma32zuw2X5072kjlrPSs5wi+FE=
 		</data>
 		<key>ProfileAnniversaryTableViewCell.nib</key>
 		<data>
-		DN+YFdmJPpxYii534NMoXh4IcLs=
+		Aqim0lEJTcdcaclzt7BccrEaXqw=
 		</data>
 		<key>ProfileBirthdayTableViewCell.nib</key>
 		<data>
-		VeVUYhkmnz6taR8crs15HAppA9Y=
+		hzFnzfsXq9AquTlEV6XkWkogotc=
 		</data>
 		<key>ProfileNameTableViewCell.nib</key>
 		<data>
-		d2FYFrbAvZi5M6XCk8IRfN5Rv1w=
+		3WJaF+9cSI8q7oUWG1ObVBnr7bY=
 		</data>
 		<key>ProfileSendBtnTableViewCell.nib</key>
 		<data>
-		CBQH5iASItatpsW3rZBHp8YVvzA=
+		6s9fV4vqTyYB+5pT04v4q1cmyFg=
 		</data>
 		<key>ProfileSexTableViewCell.nib</key>
 		<data>
-		UTF74CwOS09fgZr9WUWTdiTSKk0=
+		d6T09pg4n0XuzpCOkp8Y64EcS4I=
 		</data>
 		<key>ProfileViewController.nib</key>
 		<data>
-		fIftUkWKWDhyMij7IVjgevtVKvU=
+		iofIKNhl9CnmIVUyppBzItSyoVY=
 		</data>
 		<key>SVProgressHUD.bundle/angle-mask.png</key>
 		<data>
@@ -186,15 +190,15 @@
 		</data>
 		<key>SinglePickerViewController.nib</key>
 		<data>
-		NdYcLtliTsazuLbwkqseKMqOD5s=
+		nFQ87n8qHNocmin/bmLYKs650/M=
 		</data>
 		<key>SosialViewController.nib</key>
 		<data>
-		P70FmoJMv+DPpNg/1E6Or2bWbuQ=
+		3rjoA179AXHUz8s1LWJJZlLAMY0=
 		</data>
 		<key>StampViewController.nib</key>
 		<data>
-		RysH0UwBxjV/lcT3MbqQzdSTMZM=
+		sFalsC+YUaR25GtDODAl0N14y9M=
 		</data>
 		<key>Twitter@2x.png</key>
 		<data>
@@ -202,27 +206,27 @@
 		</data>
 		<key>TwitterTableViewCell.nib</key>
 		<data>
-		6Oo01HOnMgLrRwcYnBwLI2TOPQc=
+		ecnTtMvyBDcrUTstn/KU046Db/I=
 		</data>
 		<key>TwitterViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		OlHq9ZEiK/sxzIiw7zjkyJB2MGY=
+		3Ij06iSrHH/vNIJUzNVQ51UEGGs=
 		</data>
 		<key>TwitterViewController~iphone.nib/objects.nib</key>
 		<data>
-		ufxkqdECTAflTE7DFa9Gu1ONu80=
+		1cyOd7OfpVQhVWNcgax3RVz7IJs=
 		</data>
 		<key>UploadYoutubeViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		S3zsRFAnOP2JlHtkqOeLLROYbfo=
+		kquaxjJb+NcUCZWV9JZdnh8ua68=
 		</data>
 		<key>UploadYoutubeViewController~iphone.nib/objects.nib</key>
 		<data>
-		7R7eL19/iXIkbLGNkiB67U5fNjo=
+		kR6/erQX2YYRSY5899Wa6yIxvNc=
 		</data>
 		<key>WebViewController.nib</key>
 		<data>
-		ofEnGs5oibJBeyEWbZGAM5nl9wA=
+		lqhS/8KM6ZG+MDLY7YV/ItWsGNA=
 		</data>
 		<key>backBtn.png</key>
 		<data>
@@ -278,15 +282,15 @@
 		</data>
 		<key>linepayReservSquareViewController.nib</key>
 		<data>
-		vqbYF/k2GRJ9Q+uqyWXEMLr5MdE=
+		CSxrf/AQQluE89VvSUQ4/0rBw40=
 		</data>
 		<key>linepay_ViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		UTV+MVJUiDLUXC7wG8UxcNo/na0=
+		B4wdMkpmlN3obCLZ/xjPpmq9F/4=
 		</data>
 		<key>linepay_ViewController~iphone.nib/objects.nib</key>
 		<data>
-		Izxhr55MwVKUv2spCmzY+G8z97g=
+		6xGcn4z2pHhZgFojnrvPapMVBRM=
 		</data>
 		<key>man.gif</key>
 		<data>
@@ -433,11 +437,11 @@
 	<dict>
 		<key>BarcodeReaderViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		DETBko9G2FiTTiwIS/SCYKePKik=
+		p7Hz7zEU/ihMsyr4DB7G0Q6Yl5M=
 		</data>
 		<key>BarcodeReaderViewController~iphone.nib/objects.nib</key>
 		<data>
-		5H5ePnh7nsJvxpDRDXop4Sbf/mw=
+		qwHd8LSKxpU8oq7x8CUrfp/rjs0=
 		</data>
 		<key>CabinSketch-Bold.otf</key>
 		<data>
@@ -449,15 +453,15 @@
 		</data>
 		<key>CategoryViewController.nib</key>
 		<data>
-		syxkbSnsL9/Cuh3OeqG1DmDWC/w=
+		0nBQQBO6EyYshya6HKo/FYhlV64=
 		</data>
 		<key>CouponViewController.nib</key>
 		<data>
-		dBqCzkOyHUTjt2EJc5iT0odpn/Q=
+		qSJRLEnNQE62TKrmvxERZ9Xewcw=
 		</data>
 		<key>DatePickerViewController.nib</key>
 		<data>
-		a+I1cs8hJ6DMYrLz/LyP7MEoIlE=
+		2MjVHkVsTmU9MXqk6jFx+D7oZ3w=
 		</data>
 		<key>FB@2x.png</key>
 		<data>
@@ -465,95 +469,99 @@
 		</data>
 		<key>FittingViewController.nib</key>
 		<data>
-		ljodRXFNKSiErD4OiK3UaY8fId8=
+		LkdATXrccD11pQWD8UToeskJkfc=
 		</data>
 		<key>FlyerViewController.nib</key>
 		<data>
-		fqPUhhJAWQHY0n+HNC910aoM1jA=
+		7EpJ81ik0uIAvf9rZt6ntK72jlk=
 		</data>
 		<key>HistoryTableViewCell~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		vsGvZDKcUJeNE7LSIsK1Qw9/lP0=
+		eVg04U10CB9TQ0CELIOSMbPT4xU=
 		</data>
 		<key>HistoryTableViewCell~iphone.nib/objects.nib</key>
 		<data>
-		t9HwgZqlatGuFvS+eT/hcwMCfXM=
+		xTEzXJUpZJy6h+krXcLLKWqMLdM=
 		</data>
 		<key>HistoryViewController.nib</key>
 		<data>
-		P4p1FM+0PnLX6FFj1BhCcseghU4=
+		F7j987iCrb+ePxIMSuqzFev4Gn0=
 		</data>
 		<key>InfoListViewController.nib</key>
 		<data>
-		J1EHgcMucFEDjKIousfbuG+4nmc=
+		PjFPWVu54u/LvHB+1Lz9bppiKE8=
 		</data>
 		<key>ItemListViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		ivA86zDYG/+4S7c9DN6pFXaytM0=
+		G3vJW0sfWByQvnH7JCanxCyx7/I=
 		</data>
 		<key>ItemListViewController~iphone.nib/objects.nib</key>
 		<data>
-		b0167qpk20FmQLJtjMtkW49mlP0=
+		yEHpoCJUH4bwSqnxoYpGWwcin6c=
 		</data>
 		<key>LinepayProfileViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		SpswSxYPTFItI9raqtC9aH/tu84=
+		XNMPib+AWRoIiv/nButzZZ/pL0I=
 		</data>
 		<key>LinepayProfileViewController~iphone.nib/objects.nib</key>
 		<data>
-		PpHuaT8BOeVPJjwzx+aIi29YnMo=
+		zpL7/U33IzUGrcFY8M952kRyHuQ=
 		</data>
 		<key>LinepaySelectAddressViewController.nib</key>
 		<data>
-		IiHUfXasHjPRQIiwaldK6R3BZBI=
+		zX+aXKNTXEw46giGXlKYkdnAr2A=
 		</data>
 		<key>MapViewController.nib</key>
 		<data>
-		Ojp16zGD2psukJkALKY8GwdWR4o=
+		5oEuTRvlvWBs6WtqGJqjhY2PUJc=
 		</data>
 		<key>MonthAndDatePickerViewController.nib</key>
 		<data>
-		HsOkY6FQ3sv9WRfGPYQ/HO5REoM=
+		7+XNQzbtpcVAZsAhBrHObCofiD8=
 		</data>
 		<key>NewsViewController.nib</key>
 		<data>
-		/GsW9tmrOZYcVkDuOpZcM57moV4=
+		iD/+v+YFSVASYby1+XKg9d/8WBk=
 		</data>
-		<key>PlayHologramYoutubeViewController~iphone.nib/objects-8.0+.nib</key>
+		<key>PlayHologramYoutubeViewController.nib</key>
 		<data>
-		fCHW0pqSDU+AEWOO3iS+9OqdDQU=
+		IvBHI2WzRiIBSN86zdjaRvIaBAs=
 		</data>
-		<key>PlayHologramYoutubeViewController~iphone.nib/objects.nib</key>
+		<key>PlayYoutubeViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		3o+hNfx65Moi/6AQYa2Uo0Q6gnw=
+		QQ/FrENthfyHCAbEM8EamkOqfLE=
+		</data>
+		<key>PlayYoutubeViewController~iphone.nib/objects.nib</key>
+		<data>
+		mm3+NC++6CmE2TEkJaNRuZwBYQs=
 		</data>
 		<key>ProfileAdressTableViewCell.nib</key>
 		<data>
-		9ByCsx904mlFfnahPJda3WD4j9s=
+		4ma32zuw2X5072kjlrPSs5wi+FE=
 		</data>
 		<key>ProfileAnniversaryTableViewCell.nib</key>
 		<data>
-		DN+YFdmJPpxYii534NMoXh4IcLs=
+		Aqim0lEJTcdcaclzt7BccrEaXqw=
 		</data>
 		<key>ProfileBirthdayTableViewCell.nib</key>
 		<data>
-		VeVUYhkmnz6taR8crs15HAppA9Y=
+		hzFnzfsXq9AquTlEV6XkWkogotc=
 		</data>
 		<key>ProfileNameTableViewCell.nib</key>
 		<data>
-		d2FYFrbAvZi5M6XCk8IRfN5Rv1w=
+		3WJaF+9cSI8q7oUWG1ObVBnr7bY=
 		</data>
 		<key>ProfileSendBtnTableViewCell.nib</key>
 		<data>
-		CBQH5iASItatpsW3rZBHp8YVvzA=
+		6s9fV4vqTyYB+5pT04v4q1cmyFg=
 		</data>
 		<key>ProfileSexTableViewCell.nib</key>
 		<data>
-		UTF74CwOS09fgZr9WUWTdiTSKk0=
+		d6T09pg4n0XuzpCOkp8Y64EcS4I=
 		</data>
 		<key>ProfileViewController.nib</key>
 		<data>
-		fIftUkWKWDhyMij7IVjgevtVKvU=
+		iofIKNhl9CnmIVUyppBzItSyoVY=
 		</data>
 		<key>SVProgressHUD.bundle/angle-mask.png</key>
 		<data>
@@ -605,15 +613,15 @@
 		</data>
 		<key>SinglePickerViewController.nib</key>
 		<data>
-		NdYcLtliTsazuLbwkqseKMqOD5s=
+		nFQ87n8qHNocmin/bmLYKs650/M=
 		</data>
 		<key>SosialViewController.nib</key>
 		<data>
-		P70FmoJMv+DPpNg/1E6Or2bWbuQ=
+		3rjoA179AXHUz8s1LWJJZlLAMY0=
 		</data>
 		<key>StampViewController.nib</key>
 		<data>
-		RysH0UwBxjV/lcT3MbqQzdSTMZM=
+		sFalsC+YUaR25GtDODAl0N14y9M=
 		</data>
 		<key>Twitter@2x.png</key>
 		<data>
@@ -621,27 +629,27 @@
 		</data>
 		<key>TwitterTableViewCell.nib</key>
 		<data>
-		6Oo01HOnMgLrRwcYnBwLI2TOPQc=
+		ecnTtMvyBDcrUTstn/KU046Db/I=
 		</data>
 		<key>TwitterViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		OlHq9ZEiK/sxzIiw7zjkyJB2MGY=
+		3Ij06iSrHH/vNIJUzNVQ51UEGGs=
 		</data>
 		<key>TwitterViewController~iphone.nib/objects.nib</key>
 		<data>
-		ufxkqdECTAflTE7DFa9Gu1ONu80=
+		1cyOd7OfpVQhVWNcgax3RVz7IJs=
 		</data>
 		<key>UploadYoutubeViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		S3zsRFAnOP2JlHtkqOeLLROYbfo=
+		kquaxjJb+NcUCZWV9JZdnh8ua68=
 		</data>
 		<key>UploadYoutubeViewController~iphone.nib/objects.nib</key>
 		<data>
-		7R7eL19/iXIkbLGNkiB67U5fNjo=
+		kR6/erQX2YYRSY5899Wa6yIxvNc=
 		</data>
 		<key>WebViewController.nib</key>
 		<data>
-		ofEnGs5oibJBeyEWbZGAM5nl9wA=
+		lqhS/8KM6ZG+MDLY7YV/ItWsGNA=
 		</data>
 		<key>backBtn.png</key>
 		<data>
@@ -697,15 +705,15 @@
 		</data>
 		<key>linepayReservSquareViewController.nib</key>
 		<data>
-		vqbYF/k2GRJ9Q+uqyWXEMLr5MdE=
+		CSxrf/AQQluE89VvSUQ4/0rBw40=
 		</data>
 		<key>linepay_ViewController~iphone.nib/objects-8.0+.nib</key>
 		<data>
-		UTV+MVJUiDLUXC7wG8UxcNo/na0=
+		B4wdMkpmlN3obCLZ/xjPpmq9F/4=
 		</data>
 		<key>linepay_ViewController~iphone.nib/objects.nib</key>
 		<data>
-		Izxhr55MwVKUv2spCmzY+G8z97g=
+		6xGcn4z2pHhZgFojnrvPapMVBRM=
 		</data>
 		<key>man.gif</key>
 		<data>
