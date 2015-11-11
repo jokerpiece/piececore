@@ -56,6 +56,7 @@ NSString * const  SendIdRegistPay = @"regist_app_payment/";
 NSString * const  SendIdGetOrderId = @"order_id/";
 NSString * const  SendIdGetYoutubeToken = @"order/?Action=check";
 NSString * const  SendIdPostYoutubeMovie = @"https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status";
+NSString * const  SendIdPostMovieOrMessage = @"order/?Action=upload";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";

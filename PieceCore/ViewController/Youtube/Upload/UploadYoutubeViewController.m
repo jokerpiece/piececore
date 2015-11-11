@@ -7,7 +7,7 @@
 //
 
 #import "UploadYoutubeViewController.h"
-
+#import "FinishYoutubeUploadViewController.h"
 @import Photos;
 #import <AVFoundation/AVFoundation.h>
 
@@ -25,6 +25,13 @@
     UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(endTextEdit:)];
     [self.view addGestureRecognizer:ges];
     
+    if([self.type isEqualToString:@"message"]){
+        self.messageView.hidden = NO;
+        self.messageView.layer.borderColor = [UIColor blackColor].CGColor;
+        
+    }
+
+//    [self sendGetYoutubeWithToken];
 }
 -(void)endTextEdit:(id)sender{
     [self.view endEditing:YES];
@@ -43,6 +50,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)messageRegistAction:(id)sender {
+    if(self.messageTV.text.length == 0){
+        [self showAlert:@"エラー" message:@"メッセージが登録されていません。"];
+    }else{
+        [self uploadMovieInfo:nil];
+    }
+}
 
 - (IBAction)movieSelectAction:(id)sender {
     [self chooseMovie];
@@ -53,24 +67,11 @@
     if (self.movieURL == nil) {
         return;
     }
-    [self sendGetYoutubeWithToken];
+    [self getYoutubeMovieWithToken:self.token];
 }
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     return [BaseRecipient alloc];
 }
-
-
-//認証
-//-(void)sendGetYoutubeAuthSub{
-//    NetworkConecter *conecter = [NetworkConecter alloc];
-//    conecter.delegate = self;
-//    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-//    [param setValue:@"1" forKeyPath:@"order_num"];
-//    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
-//    [conecter AuthActionUrl:@"https://accounts.google.com/o/oauth2/auth?client_id=367759414941-n88igj3uocu5ds6qj30r42c4ssomjvnu.apps.googleusercontent.com&redirect_uri=urn:ietf:wg:oauth:2.0:oob&scope=https://www.googleapis.com/auth/youtube&response_type=code&access_type=offline"
-//                headerParam:(NSMutableDictionary*)headerParam
-//                      param:(NSMutableDictionary*)paramparam:param];
-//}
 
 //アップロード２
 -(void)sendGetYoutubeWithToken{
@@ -89,20 +90,12 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
 
     [param setObject:@"snippet"forKey:@"part"];
-//    [param setObject:@"test" forKey:@"title"];
-//    [param setObject:@"test" forKey:@"description"];
-//    [param setObject:@"22" forKey:@"categoryId"];
-//    [param setObject:@"private" forKey:@"privacyStatus"];
     NSMutableDictionary *headerParam = [NSMutableDictionary dictionary];
     
     //https://developers.google.com/youtube/v3/guides/using_resumable_upload_protocol?hl=ja_
     
-//    [headerParam setValue:token forKeyPath:@"authorization"];
     [headerParam setValue:[NSString stringWithFormat:@"Bearer %@",token] forKeyPath:@"Authorization"];
-    //[headerParam setValue:token forKeyPath:@"content-length"];
     [headerParam setValue:@"application/otet-stream" forKeyPath:@"Content-Type"];
-    //[headerParam setValue:token forKeyPath:@"x-upload-content-length"];
-//    [headerParam setValue:@"video/*" forKeyPath:@"X-Upload-Content-Type"];
 
     
     [conecter uploadActionUrl:SendIdPostYoutubeMovie headerParam:headerParam
@@ -205,15 +198,33 @@
     
     
 }
+
+-(void)uploadMovieInfo:(NSString*)movieId{
+    NetworkConecter *conecter = [NetworkConecter alloc];
+    conecter.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    //    [param setValue:[Common getUuid] forKeyPath:@"uuid"];
+    [param setValue:movieId forKeyPath:@"youtube_id"];
+    [param setValue:[YoutubeData getOrderId] forKey:@"order_id"];
+    [param setValue:self.messageTV.text forKey:@"message"];
+    [conecter sendActionSendId:SendIdPostMovieOrMessage param:param];
+}
+
 -(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
 
     DLog(@"%@",recipient.resultset);
-    if([sendId isEqualToString:SendIdGetYoutubeToken]){
-        [self getYoutubeMovieWithToken:recipient.resultset[@"token"]];
-    }else if([sendId isEqualToString:SendIdPostYoutubeMovie]){
-        [self showAlert:@"アップロード" message:@"アップロード完了"];
+    if(recipient.resultset[@"error_message"]){
+        [self showAlert:@"エラー" message:recipient.resultset[@"error_message"]];
+    }else{
+        if([sendId isEqualToString:SendIdGetYoutubeToken]){
+            [self getYoutubeMovieWithToken:recipient.resultset[@"token"]];
+        }else if([sendId isEqualToString:SendIdPostYoutubeMovie]){
+            [self uploadMovieInfo:recipient.resultset[@"id"]];
+        }else if([sendId isEqualToString:SendIdPostMovieOrMessage]){
+            FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
+            [self presentViewController:fyu animated:YES completion:nil];
+        }
     }
-    
 }
 
 /*--------------------------------------------------------------------------------

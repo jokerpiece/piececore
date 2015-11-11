@@ -1,0 +1,98 @@
+//
+//  OrderDataCheckViewController.m
+//  pieceSample
+//
+//  Created by shinden nobuyuki on 2015/11/11.
+//  Copyright © 2015年 jokerpiece. All rights reserved.
+//
+
+#import "OrderDataCheckViewController.h"
+#import "OrderDataFailedViewController.h"
+#import "UploadYoutubeViewController.h"
+
+
+
+@interface OrderDataCheckViewController ()
+
+@end
+
+@implementation OrderDataCheckViewController
+
+- (void)viewDidAppearLogic {
+    [super viewDidAppearLogic];
+    // Do any additional setup after loading the view from its nib.
+
+    [self schemePresentViewController];
+}
+
+- (IBAction)sendOrderNumAction:(id)sender {
+    if(![Common isNotEmptyString:self.mailAddressTxt.text]){
+        [self showAlert:@"エラー" message:@"メールアドレスを入力して下さい"];
+    }else if(![Common isNotEmptyString:self.orderNumTxt.text]){
+        [self showAlert:@"エラー" message:@"注文番号を入力して下さい"];
+    }else{
+        [self checkOrder];
+    }
+}
+
+-(void)checkOrder{
+    NetworkConecter *conecter = [NetworkConecter alloc];
+    conecter.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    //    [param setValue:[Common getUuid] forKeyPath:@"uuid"];
+    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
+    [param setValue:self.orderNumTxt.text forKey:@"order_id"];
+    [param setValue:self.mailAddressTxt.text forKey:@"mail_address"];
+    [conecter sendActionSendId:SendIdGetYoutubeToken param:param];
+}
+
+-(void)receiveSucceed:(NSDictionary *)receivedData sendId:(NSString *)sendId{
+    self.isResponse = YES;
+    BaseRecipient *recipient = [[self getDataWithSendId:sendId] initWithResponseData:receivedData];
+    if([sendId isEqualToString:SendIdGetYoutubeToken]){
+        [YoutubeData setToken:[receivedData objectForKey:@"token"]];
+        [YoutubeData setOrderId:[receivedData objectForKey:@"order_id"]];
+        [YoutubeData setOrderId:@"1"];
+        self.type = [receivedData objectForKey:@"type"];
+        if([[receivedData objectForKey:@"code"] isEqualToString:@"00"]){
+            [YoutubeData setSchemeStrFlg:UrlSchemeHostUploadYoutube];
+        }else{
+            [YoutubeData setSchemeStrFlg:@"error"];
+        }
+        
+        [self schemePresentViewController];
+        [YoutubeData setSchemeStrFlg:@""];
+    }
+}
+
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return nil;
+}
+
+
+-(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
+
+}
+
+-(void)schemePresentViewController{
+    NSString *str = [YoutubeData getSchemeStrFlg];
+    if([str isEqualToString:@"error"]){
+        OrderDataFailedViewController *odf = [[OrderDataFailedViewController alloc]init];
+
+        [self presentViewController:odf animated:YES completion:nil];
+        return;
+    }
+    if([str isEqualToString:UrlSchemeHostUploadYoutube]){
+        UploadYoutubeViewController *uy = [[UploadYoutubeViewController alloc]init];
+        if([self.type isEqualToString:@"message"]){
+            uy.title = @"message";
+        }else{
+            uy.title = @"youtube";
+        }
+        uy.token = [YoutubeData getToken];
+        uy.type = self.type;
+        [self.navigationController pushViewController:uy animated:YES];
+    }
+}
+
+@end

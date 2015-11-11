@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadYoutubeViewController">
             <connections>
+                <outlet property="messageRegistBtn" destination="YlJ-O2-09y" id="cZp-g0-5nn"/>
+                <outlet property="messageTV" destination="FE2-3s-hI0" id="BGs-ec-CJd"/>
+                <outlet property="messageView" destination="ggz-Yi-J2e" id="tny-FX-5Bd"/>
                 <outlet property="movieSelectBtn" destination="PRO-Fq-kcp" id="DNv-Tp-TyL"/>
                 <outlet property="movieTitleTf" destination="P95-Sx-f9s" id="Dqt-Bs-YV7"/>
                 <outlet property="movieTv" destination="Aru-AA-LVy" id="gwe-Sd-0fy"/>
@@ -71,8 +74,36 @@
                         <action selector="movieUploadAction:" destination="-1" eventType="touchUpInside" id="j9b-TX-oiV"/>
                     </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggz-Yi-J2e">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FE2-3s-hI0">
+                            <rect key="frame" x="16" y="84" width="289" height="265"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlJ-O2-09y">
+                            <rect key="frame" x="70" y="369" width="180" height="66"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="メッセージの登録">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="messageRegistAction:" destination="-1" eventType="touchUpInside" id="So8-L4-PzE"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メッセージを入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdp-m2-Qx8">
+                            <rect key="frame" x="24" y="32" width="248" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="0.85433799340000005" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eaG-nd-oZp">
-                    <rect key="frame" x="0.0" y="29" width="320" height="74"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                     <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
