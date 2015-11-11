@@ -10,7 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "YoutubeData.h"
 
-@interface UploadYoutubeViewController : BaseViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface UploadYoutubeViewController : BaseViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *movieTitleTf;
 @property (weak, nonatomic) IBOutlet UITextView *movieTv;
 @property (weak, nonatomic) IBOutlet UIButton *movieSelectBtn;
@@ -23,5 +23,6 @@
 @property (strong,nonatomic) NSString *movieId;
 - (IBAction)movieSelectAction:(id)sender;
 - (IBAction)movieUploadAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrView;
 
 @end
