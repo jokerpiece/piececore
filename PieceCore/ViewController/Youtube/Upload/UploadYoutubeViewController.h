@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *messageRegistBtn;
 @property (nonatomic) NSString *token;
 @property (nonatomic) NSString *type;
+@property (nonatomic) NSString *order_id;
 @property (strong,nonatomic) NSString *movieId;
 - (IBAction)movieSelectAction:(id)sender;
 - (IBAction)movieUploadAction:(id)sender;

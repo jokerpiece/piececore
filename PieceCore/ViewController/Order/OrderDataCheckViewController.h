@@ -15,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *orderNumTxt;
 @property (weak, nonatomic) IBOutlet UITextField *mailAddressTxt;
 @property (nonatomic) NSString *type;
+@property (nonatomic) NSString *token;
 @property (nonatomic) NSString *order_num;
+@property (nonatomic) NSString *order_id;
 @end
