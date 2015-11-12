@@ -43,6 +43,8 @@
 		376A47EC1AAFD6E3002A25D3 /* stampbase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A47EB1AAFD6E3002A25D3 /* stampbase@2x.png */; };
 		376A47F31AAFE450002A25D3 /* StampRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A47F21AAFE450002A25D3 /* StampRecipient.m */; };
 		376A47F61AB02BC0002A25D3 /* ExcengeCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A47F51AB02BC0002A25D3 /* ExcengeCouponViewController.m */; };
+		376A4EE91BF48800001B9537 /* btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A4EE81BF48800001B9537 /* btn_close@2x.png */; };
+		376A4EEB1BF49F1C001B9537 /* horogram_preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A4EEA1BF49F1C001B9537 /* horogram_preview.png */; };
 		376FDAAC1B99779C00D842F5 /* LinePayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 376FDAAB1B99779C00D842F5 /* LinePayData.m */; };
 		376FDAB01B99780800D842F5 /* linepayReservSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376FDAAE1B99780800D842F5 /* linepayReservSquareViewController.m */; };
 		376FDAB11B99780800D842F5 /* linepayReservSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376FDAAF1B99780800D842F5 /* linepayReservSquareViewController.xib */; };
@@ -269,6 +271,8 @@
 		376A47F21AAFE450002A25D3 /* StampRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StampRecipient.m; sourceTree = "<group>"; };
 		376A47F41AB02BC0002A25D3 /* ExcengeCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExcengeCouponViewController.h; sourceTree = "<group>"; };
 		376A47F51AB02BC0002A25D3 /* ExcengeCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExcengeCouponViewController.m; sourceTree = "<group>"; };
+		376A4EE81BF48800001B9537 /* btn_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_close@2x.png"; sourceTree = "<group>"; };
+		376A4EEA1BF49F1C001B9537 /* horogram_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horogram_preview.png; sourceTree = "<group>"; };
 		376FDAAA1B99779C00D842F5 /* LinePayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinePayData.h; sourceTree = "<group>"; };
 		376FDAAB1B99779C00D842F5 /* LinePayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinePayData.m; sourceTree = "<group>"; };
 		376FDAAD1B99780800D842F5 /* linepayReservSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linepayReservSquareViewController.h; path = ../PieceCore/ViewController/LinePay/linepayReservSquareViewController.h; sourceTree = "<group>"; };
@@ -652,6 +656,7 @@
 		37505B5D1BF3279B001CEA3B /* Rapping */ = {
 			isa = PBXGroup;
 			children = (
+				376A4EEA1BF49F1C001B9537 /* horogram_preview.png */,
 				37505B5E1BF3279B001CEA3B /* illust1344.png */,
 			);
 			path = Rapping;
@@ -1094,6 +1099,7 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				376A4EE81BF48800001B9537 /* btn_close@2x.png */,
 				37505B5D1BF3279B001CEA3B /* Rapping */,
 				37949A6B1ABA9670002E5194 /* Webview */,
 				37D7584E1AB27E6600E6B421 /* Sosial */,
@@ -1541,6 +1547,7 @@
 				37E3EB651AA45F8C00EA7CB9 /* CabinSketch-Bold.otf in Resources */,
 				37949A961ABBE5CE002E5194 /* ProfileAnniversaryTableViewCell.xib in Resources */,
 				37E3EB831AA45F8C00EA7CB9 /* stamp_base.png in Resources */,
+				376A4EEB1BF49F1C001B9537 /* horogram_preview.png in Resources */,
 				37949AA01ABBE7DC002E5194 /* ProfileNameTableViewCell.xib in Resources */,
 				37E3EB981AA45F8C00EA7CB9 /* BarcodeReaderViewController.xib in Resources */,
 				37D16FA11BCF86A700341B88 /* LinepaySelectAddressViewController.xib in Resources */,
@@ -1595,6 +1602,7 @@
 				37E3EB8C1AA45F8C00EA7CB9 /* tab_icon_setting.png in Resources */,
 				37E3EB811AA45F8C00EA7CB9 /* sample_logo.png in Resources */,
 				37E3EB891AA45F8C00EA7CB9 /* tab_icon_map.png in Resources */,
+				376A4EE91BF48800001B9537 /* btn_close@2x.png in Resources */,
 				37E3EB801AA45F8C00EA7CB9 /* work.png in Resources */,
 				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
 				37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */,

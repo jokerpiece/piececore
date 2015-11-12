@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="currentTimeLabel" destination="EnF-6i-SGG" id="KNW-co-U0d"/>
                 <outlet property="durationLabel" destination="6JP-3C-m2G" id="0FP-4S-3JH"/>
+                <outlet property="previewIv" destination="zdF-vn-ndJ" id="LtA-sp-F5J"/>
                 <outlet property="seekBar" destination="saT-Og-Qos" id="QCW-PV-QOb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="iL6-32-kvu"/>
             </connections>
@@ -43,10 +44,26 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="770-Th-c6p">
+                    <rect key="frame" x="271" y="33" width="35" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="btn_close.png"/>
+                    <connections>
+                        <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="Y1y-sj-wKR"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horogram_preview.png" id="zdF-vn-ndJ">
+                    <rect key="frame" x="-19" y="33" width="357" height="535"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="473" y="301"/>
         </view>
     </objects>
+    <resources>
+        <image name="btn_close.png" width="21" height="20"/>
+        <image name="horogram_preview.png" width="640" height="960"/>
+    </resources>
 </document>

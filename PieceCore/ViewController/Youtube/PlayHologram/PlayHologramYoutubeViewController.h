@@ -13,6 +13,7 @@
 @property (nonatomic) PlayHologramView *playView2;
 @property (nonatomic) PlayHologramView *playView3;
 @property (nonatomic) PlayHologramView *playView4;
+@property (weak, nonatomic) IBOutlet UIImageView *previewIv;
 @property (nonatomic) NSString *youtubeId;
 @property (nonatomic) AVPlayer *player;
 //@property (nonatomic) AVPlayerItem *playerItem;
@@ -20,5 +21,6 @@
 @property (nonatomic, assign) id playTimeObserver;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UISlider *seekBar;
+- (IBAction)closeAction:(id)sender;
 
 @end

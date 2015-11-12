@@ -480,8 +480,6 @@
         return NO;
     } else if ([[url host]isEqualToString:UrlSchemeHostRapping]) {
         //ラッピング用バーコードから起動
-        
-        return NO;
         NSDictionary *params = [Common dictionaryFromQueryString:[url query]];
         
         self.rappingSelectController = [RappingSelectController alloc];
@@ -489,12 +487,6 @@
         
         
         
-//            RappingSelectViewController *vc = [[RappingSelectViewController alloc]initWithNibName:@"RappingSelectViewController" bundle:nil
-//                                             ];
-//            vc.order_id = params[@"order_id"];
-//            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
-            return NO;
-            
     }
     return YES;
 }

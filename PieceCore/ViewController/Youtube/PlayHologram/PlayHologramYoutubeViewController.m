@@ -16,7 +16,17 @@
 
 @implementation PlayHologramYoutubeViewController
 
+
 -(void)viewDidLoadLogic{
+    UITapGestureRecognizer *tapGesture =
+    [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(view_Tapped:)];
+    [self.view addGestureRecognizer:tapGesture];
+    
+    
+    
+    //[self presentViewController:vc animated:YES completion:nil];
+}
+-(void)setPlayViews{
     float startY = 150;
     float sideSize = self.viewSize.width / 3;
     float insize = sideSize * 0.15;
@@ -58,22 +68,19 @@
     [self.view addSubview:self.playView3];
     [self.view addSubview:self.playView4];
     [self.player addObserver:self
-             forKeyPath:@"status"
-                options:NSKeyValueObservingOptionNew
-                context:(__bridge void * _Nullable)(self.player)];
+                  forKeyPath:@"status"
+                     options:NSKeyValueObservingOptionNew
+                     context:(__bridge void * _Nullable)(self.player)];
     
     // 終了通知
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(playerDidPlayToEndTime:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
                                                object:self.player];
-
-
-    [self setupSeekBar];
     
-    //[self presentViewController:vc animated:YES completion:nil];
+    
+    [self setupSeekBar];
 }
-
 -(void)observeValueForKeyPath:(NSString *)keyPath
                      ofObject:(id)object
                        change:(NSDictionary *)change
@@ -142,10 +149,23 @@
     [self.player play];
 }
 
+- (void)view_Tapped:(UITapGestureRecognizer *)sender
+{
+    [self.previewIv removeFromSuperview];
+    [self setPlayViews];
+    
+}
+
 - (NSString* )timeToString:(float)value
 {
     const NSInteger time = value;
     return [NSString stringWithFormat:@"%d:%02d", ( int )( time / 60 ), ( int )( time % 60 )];
 }
 
+- (IBAction)closeAction:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:^{
+//        [[UIApplication sharedApplication].delegate.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+        ;
+    }];
+}
 @end

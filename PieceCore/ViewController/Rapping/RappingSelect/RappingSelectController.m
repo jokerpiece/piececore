@@ -102,8 +102,6 @@
         
         
         
-    } else {
-        [self setTestDAta];
     }
 }
 

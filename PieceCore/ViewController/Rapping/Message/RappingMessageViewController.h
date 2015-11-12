@@ -11,4 +11,5 @@
 @interface RappingMessageViewController : BaseViewController
 @property (nonatomic) NSString *message;
 @property (weak, nonatomic) IBOutlet UILabel *messageLbl;
+- (IBAction)closeAction:(id)sender;
 @end
