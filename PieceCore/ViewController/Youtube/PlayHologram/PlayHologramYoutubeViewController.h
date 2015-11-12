@@ -15,5 +15,10 @@
 @property (nonatomic) PlayHologramView *playView4;
 @property (nonatomic) NSString *youtubeId;
 @property (nonatomic) AVPlayer *player;
+//@property (nonatomic) AVPlayerItem *playerItem;
+@property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
+@property (nonatomic, assign) id playTimeObserver;
+@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) IBOutlet UISlider *seekBar;
 
 @end

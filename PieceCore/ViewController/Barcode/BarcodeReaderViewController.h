@@ -18,5 +18,6 @@
 @property (nonatomic,weak) id delegate;
 @property (nonatomic,strong) NSString *barcodeNum;
 @property (nonatomic) bool isReaded;
-
+@property (nonatomic) NSString *barcodeTitle;
+-(void)searchItem:(NSString *)detectionString;
 @end

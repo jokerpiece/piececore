@@ -22,4 +22,5 @@
 +(float)getOrignYWidhUiView:(UIView *)view margin:(float)magin;
 + (void)setDeviceToken:(NSString *)deviceToken;
 + (NSString *)deviceToken;
++ (NSDictionary*)dictionaryFromQueryString:(NSString *)query;
 @end

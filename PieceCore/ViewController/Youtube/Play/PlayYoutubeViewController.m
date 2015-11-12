@@ -22,7 +22,7 @@
     NSURL *url = [NSURL URLWithString:dict[@"small"]];
     
     MPMoviePlayerController *moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-    moviePlayer.view.frame = CGRectMake(0,0,320,480);
+    moviePlayer.view.frame = CGRectMake(0,0,self.viewSize.width,self.viewSize.height);
     moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
     moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
     [self.view addSubview:moviePlayer.view];

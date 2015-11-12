@@ -14,6 +14,7 @@
 #import "ThemeData.h"
 #import <CoreLocation/CoreLocation.h>
 #import "GetPointView.h"
+#import "RappingSelectController.h"
 //#import <Nex8Tracking/Nex8Tracking.h>
 
 @protocol PieceCoreDelegate
@@ -27,6 +28,7 @@
 @property (nonatomic) ThemeData *theme;
 @property (nonatomic) bool isUpdate;
 @property (strong, nonatomic) GetPointView *pointView;
+@property (nonatomic) RappingSelectController *rappingSelectController;
 //@property (strong, nonatomic) NEXTracker *nex8Tracker;
 
 @property (strong, nonatomic) CLLocationManager     *manager;

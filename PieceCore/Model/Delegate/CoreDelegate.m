@@ -16,6 +16,7 @@
 #import "OrderDataCheckViewController.h"
 #import "PlayHologramYoutubeViewController.h"
 #import "PlayYoutubeViewController.h"
+#import "UploadYoutubeViewController.h"
 
 @implementation CoreDelegate
 
@@ -477,65 +478,26 @@
         UINavigationController* rootController = [[UINavigationController alloc]initWithRootViewController:vc];//追加
         [self.window.rootViewController presentViewController:rootController animated:YES completion:nil];
         return NO;
-    } else if ([[url host]isEqualToString:UrlSchemeHostPlayYoutube]) {
-        
-        NSDictionary *params = [self dictionaryFromQueryString:[url query]];
-        if ([params[@"type"] isEqualToString:@"1"]) {
-            PlayYoutubeViewController *vc = [[PlayYoutubeViewController alloc]initWithNibName:@"PlayYoutubeViewController" bundle:nil
-                                             ];
-            vc.youtubeId = params[@"url"];
-            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
-            return NO;
-            
-        } else if ([params[@"type"] isEqualToString:@"2"]) {
-            //動画再生
-            PlayHologramYoutubeViewController *vc = [[PlayHologramYoutubeViewController alloc]initWithNibName:@"PlayHologramYoutubeViewController" bundle:nil];
-            vc.youtubeId = params[@"url"];
-            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
-            return NO;
-        }
+    } else if ([[url host]isEqualToString:UrlSchemeHostRapping]) {
+        //ラッピング用バーコードから起動
         
         return NO;
+        NSDictionary *params = [Common dictionaryFromQueryString:[url query]];
+        
+        self.rappingSelectController = [RappingSelectController alloc];
+        [self.rappingSelectController presentViewWithOrderId:params[@"order_id"] parnentVc:self.window.rootViewController];
+        
+        
+        
+//            RappingSelectViewController *vc = [[RappingSelectViewController alloc]initWithNibName:@"RappingSelectViewController" bundle:nil
+//                                             ];
+//            vc.order_id = params[@"order_id"];
+//            [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+            return NO;
+            
     }
     return YES;
 }
 
-- (NSDictionary*)dictionaryFromQueryString:(NSString *)query
-{
-    // クエリ文字列が設定されている場合だけ、解析処理をします。
-    if (query)
-    {
-        // 解析しながら、名前と値をここに蓄えて行きます。
-        NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
-        
-        // クエリ文字列を "&" で分割して、ひとつひとつの "名前=値" の組に分解します。
-        NSArray* parameters = [query componentsSeparatedByString:@"&"];
-        
-        for (NSString* parameter in parameters)
-        {
-            // "&" で区切られた文字列が、空文字ではないものを解析します。
-            if (parameter.length > 0)
-            {
-                // 名前と値を分解します。
-                NSArray* elements = [parameter componentsSeparatedByString:@"="];
-                
-                // 名前は UTF8 でエンコードされているものとしてデコードします。
-                id key = [elements[0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-                
-                // 値があればそれを UTF8 でデコードして取得します。名前だけで値の指定が無い場合は、ここでは値を @YES とみなします。
-                id value = (elements.count == 1 ? @YES : [elements[1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
-                
-                // 取得した名前と値を保存します。重複は考慮していません。
-                [result setObject:value forKey:key];
-            }
-        }
-    // 取得した値と名前の組を、読み取り専用のインスタンスで返します。
-        return [result copy];
-    }
-    else
-    {
-        // クエリ文字列が nil だった場合は、結果も nil を返します。
-        return nil;
-    }
-}
+
 @end
