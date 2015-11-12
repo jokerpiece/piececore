@@ -473,7 +473,7 @@
     } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube]) {
         //動画アップロード
         OrderDataCheckViewController *vc = [[OrderDataCheckViewController alloc]initWithNibName:@"OrderDataCheckViewController" bundle:nil];
-        NSDictionary *params = [self dictionaryFromQueryString:[url query]];
+        NSDictionary *params = [Common dictionaryFromQueryString:[url query]];
         vc.order_num = params[@"order_num"];
         UINavigationController* rootController = [[UINavigationController alloc]initWithRootViewController:vc];//追加
         [self.window.rootViewController presentViewController:rootController animated:YES completion:nil];
