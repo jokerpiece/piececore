@@ -25,7 +25,6 @@
 - (void)viewDidAppearLogic {
     [super viewDidAppearLogic];
     // Do any additional setup after loading the view from its nib.
-    [self schemePresentViewController];
 }
 
 - (IBAction)sendOrderNumAction:(id)sender {
@@ -35,7 +34,6 @@
         [self showAlert:@"エラー" message:@"注文番号を入力して下さい"];
     }else{
         [self checkOrder];
-        [self schemePresentViewController];
     }
 }
 
@@ -43,8 +41,8 @@
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
+
     [param setValue:[Common getUuid] forKeyPath:@"uuid"];
-//    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
     [param setValue:self.orderNumTxt.text forKey:@"order_num"];
     [param setValue:self.mailAddressTxt.text forKey:@"mail_address"];
     [conecter sendActionSendId:SendIdGetYoutubeToken param:param];
@@ -54,8 +52,10 @@
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
+
+//    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
+//    [param setValue:@"10" forKey:@"order_num"];
     [param setValue:[Common getUuid] forKeyPath:@"uuid"];
-    //    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
     [param setValue:self.order_num forKey:@"order_num"];
     [param setValue:self.mailAddressTxt.text forKey:@"mail_address"];
     [conecter sendActionSendId:SendIdGetYoutubeToken param:param];
@@ -65,15 +65,16 @@
     self.isResponse = YES;
     BaseRecipient *recipient = [[self getDataWithSendId:sendId] initWithResponseData:receivedData];
     if([sendId isEqualToString:SendIdGetYoutubeToken]){
-        [YoutubeData setToken:[receivedData objectForKey:@"token"]];
-        [YoutubeData setOrderNum:[receivedData objectForKey:@"order_num"]];
+        self.token = [receivedData objectForKey:@"token"];
+        self.order_id = [receivedData objectForKey:@"order_id"];
 //        [YoutubeData setOrderId:@"20"];
-        self.type = [receivedData objectForKey:@"type"];
-        if([[receivedData objectForKey:@"code"] isEqualToString:@"00"]){
+        self.type = [receivedData objectForKey:@"type_code"];
+        if([[receivedData objectForKey:@"status_code"] isEqualToString:@"00"]){
             [YoutubeData setSchemeStrFlg:UrlSchemeHostUploadYoutube];
         }else{
             [YoutubeData setSchemeStrFlg:@"error"];
         }
+        [self schemePresentViewController];
     }
 }
 
@@ -87,21 +88,23 @@
 }
 
 -(void)schemePresentViewController{
-    if([self.type isEqualToString:@"error"]){
+    if([[YoutubeData getSchemeStrFlg] isEqualToString:@"error"]){
         OrderDataFailedViewController *odf = [[OrderDataFailedViewController alloc]init];
         [YoutubeData setSchemeStrFlg:@""];
         [self presentViewController:odf animated:YES completion:nil];
         return;
     }
-    if([self.type isEqualToString:UrlSchemeHostUploadYoutube]){
+    if([[YoutubeData getSchemeStrFlg] isEqualToString:UrlSchemeHostUploadYoutube]){
+        [YoutubeData setSchemeStrFlg:@""];
         UploadYoutubeViewController *uy = [[UploadYoutubeViewController alloc]init];
-        if([self.type isEqualToString:@"message"]){
+        if([self.type isEqualToString:@"3"]){
             uy.title = @"message";
         }else{
             uy.title = @"youtube";
         }
-        uy.token = [YoutubeData getToken];
+        uy.token = self.token;
         uy.type = self.type;
+        uy.order_id = self.order_id;
         [self.navigationController pushViewController:uy animated:YES];
     }
 }

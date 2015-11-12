@@ -19,6 +19,11 @@
     // Do any additional setup after loading the view from its nib.
     UITapGestureRecognizer *get = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backAction)];
     [self.view addGestureRecognizer:get];
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"戻る" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+
+    self.navigationItem.leftBarButtonItem = barButton;
+//    self.navigationController.navigationBar.topItem.backBarButtonItem = nil;
+//    self.navigationItem.backBarButtonItem = nil;
 }
 
 -(void)backAction{

@@ -24,19 +24,18 @@
     // Do any additional setup after loading the view from its nib.
     UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(endTextEdit:)];
     [self.view addGestureRecognizer:ges];
-    
-    if([self.type isEqualToString:@"message"]){
+//    self.type = @"1";
+//    self.order_id = @"10";
+    if([self.type isEqualToString:@"3"]){
         self.messageView.hidden = NO;
         self.messageView.layer.borderColor = [UIColor blackColor].CGColor;
         
     }
-
-//    [self sendGetYoutubeWithToken];
+    
+    //    [self sendGetYoutubeWithToken];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
-    [self.navigationController pushViewController:fyu animated:YES];
 }
 -(void)endTextEdit:(id)sender{
     [self.view endEditing:YES];
@@ -73,6 +72,7 @@
         return;
     }
     [self getYoutubeMovieWithToken:self.token];
+//    [self sendGetYoutubeWithToken];
 }
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     return [BaseRecipient alloc];
@@ -83,8 +83,12 @@
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    [param setValue:@"20" forKeyPath:@"order_num"];
-    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
+    
+    [param setValue:self.order_id forKeyPath:@"order_num"];
+    [param setValue:[Common getUuid] forKeyPath:@"uuid"];
+    
+//    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
+
     [conecter sendActionSendId:SendIdGetYoutubeToken param:param];
 }
 
@@ -93,7 +97,7 @@
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-
+    
     [param setObject:@"snippet"forKey:@"part"];
     NSMutableDictionary *headerParam = [NSMutableDictionary dictionary];
     
@@ -101,12 +105,13 @@
     
     [headerParam setValue:[NSString stringWithFormat:@"Bearer %@",token] forKeyPath:@"Authorization"];
     [headerParam setValue:@"application/otet-stream" forKeyPath:@"Content-Type"];
-
+    
     
     [conecter uploadActionUrl:SendIdPostYoutubeMovie headerParam:headerParam
                         param:param fileData:videoData pramName:@"file" fileName:[self.movieURL lastPathComponent] mineTipe:@"video/quicktime"];
     
 }
+
 
 //　アップロード３
 -(void)getYoutubeMovieWithToken:(NSString *)token{
@@ -134,71 +139,71 @@
     
     
     
-/*
-    //NSData
-    ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];
-    
-    [assetLibrary assetForURL:self.movieURL resultBlock:^(ALAsset *asset) {
-        if (asset) {
-            DLog(@"ほげほげ");
-        } else {
-            [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-                
-                if (group) {
-                    DLog(@"グループ：%@",group);
-                    [group setAssetsFilter:[ALAssetsFilter allVideos]];
-                    [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-                        if (result == nil) {
-                            DLog(@"result nil");
-                        }
-                        DLog(@"%@",result.defaultRepresentation.url);
-                        if ([result.defaultRepresentation.url isEqual:self.movieURL]){
-                            
-                            // フォトストリームのALAsset取得成功
-                            *stop = YES;
-                            ALAssetRepresentation *rep = [result defaultRepresentation];
-                            Byte *buffer = (Byte*)malloc(rep.size);
-                            NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];
-                            NSData *videoData = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];
-                            
-                            
-                            NetworkConecter *conecter = [NetworkConecter alloc];
-                            conecter.delegate = self;
-                            NSMutableDictionary *param = [NSMutableDictionary dictionary];
-                            [param setValue:@"1" forKeyPath:@"order_num"];
-                            [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
-                            
-                            NSMutableDictionary *headerParam = [NSMutableDictionary dictionary];
-                            
-                            //https://developers.google.com/youtube/v3/guides/using_resumable_upload_protocol?hl=ja_
-                            
-                            [headerParam setValue:token forKeyPath:@"authorization"];
-                            //[headerParam setValue:token forKeyPath:@"content-length"];
-                            [headerParam setValue:@"application/json; charset=UTF-8" forKeyPath:@"content-type"];
-                            //[headerParam setValue:token forKeyPath:@"x-upload-content-length"];
-                            [headerParam setValue:@"video/*" forKeyPath:@"X-Upload-Content-Type"];
-                            [param setObject:@"snippet" forKey:@"part"];
-                            
-                            
-                            [conecter uploadActionUrl:SendIdPostYoutubeMovie headerParam:headerParam
-                                                param:param fileData:videoData pramName:@"file" fileName:[self.movieURL lastPathComponent] mineTipe:@"video/quicktime"];
-                            
-                        }
-                    }];
-                }
-
-            } failureBlock:^(NSError *error) {
-                DLog(@"フォトストリームのALAsset取得失敗");
-            }];
-        }
-        ALAssetRepresentation *rep = [asset defaultRepresentation];
-       
-    
-    } failureBlock:^(NSError *err) {
-        DLog(@"エラー%@",err.localizedDescription);
-    }];
-    
-*/
+    /*
+     //NSData
+     ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];
+     
+     [assetLibrary assetForURL:self.movieURL resultBlock:^(ALAsset *asset) {
+     if (asset) {
+     DLog(@"ほげほげ");
+     } else {
+     [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+     
+     if (group) {
+     DLog(@"グループ：%@",group);
+     [group setAssetsFilter:[ALAssetsFilter allVideos]];
+     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+     if (result == nil) {
+     DLog(@"result nil");
+     }
+     DLog(@"%@",result.defaultRepresentation.url);
+     if ([result.defaultRepresentation.url isEqual:self.movieURL]){
+     
+     // フォトストリームのALAsset取得成功
+     *stop = YES;
+     ALAssetRepresentation *rep = [result defaultRepresentation];
+     Byte *buffer = (Byte*)malloc(rep.size);
+     NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];
+     NSData *videoData = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];
+     
+     
+     NetworkConecter *conecter = [NetworkConecter alloc];
+     conecter.delegate = self;
+     NSMutableDictionary *param = [NSMutableDictionary dictionary];
+     [param setValue:@"1" forKeyPath:@"order_num"];
+     [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
+     
+     NSMutableDictionary *headerParam = [NSMutableDictionary dictionary];
+     
+     //https://developers.google.com/youtube/v3/guides/using_resumable_upload_protocol?hl=ja_
+     
+     [headerParam setValue:token forKeyPath:@"authorization"];
+     //[headerParam setValue:token forKeyPath:@"content-length"];
+     [headerParam setValue:@"application/json; charset=UTF-8" forKeyPath:@"content-type"];
+     //[headerParam setValue:token forKeyPath:@"x-upload-content-length"];
+     [headerParam setValue:@"video/*" forKeyPath:@"X-Upload-Content-Type"];
+     [param setObject:@"snippet" forKey:@"part"];
+     
+     
+     [conecter uploadActionUrl:SendIdPostYoutubeMovie headerParam:headerParam
+     param:param fileData:videoData pramName:@"file" fileName:[self.movieURL lastPathComponent] mineTipe:@"video/quicktime"];
+     
+     }
+     }];
+     }
+     
+     } failureBlock:^(NSError *error) {
+     DLog(@"フォトストリームのALAsset取得失敗");
+     }];
+     }
+     ALAssetRepresentation *rep = [asset defaultRepresentation];
+     
+     
+     } failureBlock:^(NSError *err) {
+     DLog(@"エラー%@",err.localizedDescription);
+     }];
+     
+     */
     
     
     
@@ -210,23 +215,26 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     //    [param setValue:[Common getUuid] forKeyPath:@"uuid"];
     [param setValue:movieId forKeyPath:@"youtube_id"];
-    [param setValue:[YoutubeData getOrderNum] forKey:@"order_num"];
+    
+    [param setValue:self.order_id forKey:@"order_id"];
     [param setValue:self.messageTV.text forKey:@"message"];
     [conecter sendActionSendId:SendIdPostMovieOrMessage param:param];
 }
 
 -(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
-
+    
     DLog(@"%@",recipient.resultset);
     if(recipient.resultset[@"error_message"]){
         [self showAlert:@"エラー" message:recipient.resultset[@"error_message"]];
     }else{
         if([sendId isEqualToString:SendIdGetYoutubeToken]){
+            self.order_id = recipient.resultset[@"order_id"];
             [self getYoutubeMovieWithToken:recipient.resultset[@"token"]];
         }else if([sendId isEqualToString:SendIdPostYoutubeMovie]){
             [self uploadMovieInfo:recipient.resultset[@"id"]];
         }else if([sendId isEqualToString:SendIdPostMovieOrMessage]){
             FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
+
             [self.navigationController pushViewController:fyu animated:YES];
         }
     }

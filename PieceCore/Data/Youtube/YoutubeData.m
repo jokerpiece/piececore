@@ -8,6 +8,7 @@
 
 #import "YoutubeData.h"
 static NSString *_token;
+static NSString *_update_token;
 static NSString *_order_num;
 static NSString *_scheme_str_flg;
 static NSString *_type;
@@ -32,6 +33,19 @@ static NSString *_type;
     return _token;
     
 }
+
++ (void)setUpdateToken:(NSString*)str{
+    _update_token = str;
+}
+
+
++ (NSString *)getUpdateToken
+{
+    
+    return _update_token;
+    
+}
+
 
 + (void)setSchemeStrFlg:(NSString*)str{
     _scheme_str_flg = str;

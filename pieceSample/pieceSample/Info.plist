@@ -24,15 +24,20 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>jp.co.jokerpiece.piece</string>
+			<string>jp.co.jokerpiece.pieceSample</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>piece</string>
+				<string>otonagokoro</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>line</string>
+		<string>lineb</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -56,10 +61,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>line</string>
-        <string>lineb</string>
-    </array>
 </dict>
 </plist>
