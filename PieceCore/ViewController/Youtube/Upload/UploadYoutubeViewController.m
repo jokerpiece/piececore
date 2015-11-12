@@ -25,7 +25,7 @@
     UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(endTextEdit:)];
     [self.view addGestureRecognizer:ges];
     
-    if([self.type isEqualToString:@"message"]){
+    if([self.type isEqualToString:@"3"]){
         self.messageView.hidden = NO;
         self.messageView.layer.borderColor = [UIColor blackColor].CGColor;
         
