@@ -42,7 +42,7 @@
     
     
     RappingBarcodeViewController *vc = [[RappingBarcodeViewController alloc] initWithNibName:@"RappingBarcodeViewController" bundle:nil];
-    vc.barcodeTitle = @"プレゼントのメッセージがあります\nQRコードを読み取って下さい。";
+    vc.barcodeTitle = @"プレゼントのメッセージがあります。\nQRコードを読み取って下さい。";
     
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:vc
                                                                tabTitle:@"Barcode"

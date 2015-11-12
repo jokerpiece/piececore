@@ -159,11 +159,11 @@
     
     NSDictionary *attributes = @{
                                  NSForegroundColorAttributeName : [UIColor whiteColor],
-                                 NSFontAttributeName : [UIFont systemFontOfSize:21],
+                                 NSFontAttributeName : [UIFont systemFontOfSize:20],
                                  NSParagraphStyleAttributeName : style
                                  };
     
-    [label drawInRect:CGRectMake(self.viewSize.width * 0.1, 100, self.viewSize.width * 0.8, 80) withAttributes:attributes];
+    [label drawInRect:CGRectMake(self.viewSize.width * 0.05, 100, self.viewSize.width * 0.9, 80) withAttributes:attributes];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
