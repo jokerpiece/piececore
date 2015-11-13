@@ -71,7 +71,6 @@
     BaseRecipient *recipient = [[self getDataWithSendId:sendId] initWithResponseData:receivedData];
     if([sendId isEqualToString:SendIdGetYoutubeToken]){
         self.token = [receivedData objectForKey:@"token"];
-        self.update_token = [receivedData objectForKey:@"upload_token"];
         self.order_id = [receivedData objectForKey:@"order_id"];
         //        [YoutubeData setOrderId:@"20"];
         self.type = [receivedData objectForKey:@"type_code"];
