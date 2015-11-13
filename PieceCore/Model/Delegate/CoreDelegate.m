@@ -461,6 +461,8 @@
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
+    [[UIApplication sharedApplication].delegate.window.rootViewController
+     dismissViewControllerAnimated:YES completion:nil];
     
     if ([[url host]isEqualToString:[[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]host]]) {
     //if ([[url absoluteString] isEqualToString:[PieceCoreConfig linePayConfirmUrl]]) {
