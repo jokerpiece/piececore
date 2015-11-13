@@ -159,7 +159,7 @@
     
     NSDictionary *attributes = @{
                                  NSForegroundColorAttributeName : [UIColor whiteColor],
-                                 NSFontAttributeName : [UIFont systemFontOfSize:20],
+                                 NSFontAttributeName : [UIFont systemFontOfSize:18],
                                  NSParagraphStyleAttributeName : style
                                  };
     
