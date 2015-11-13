@@ -20,7 +20,7 @@
 
 -(void)viewDidLoadLogic{
     [super viewDidLoadLogic];
-    [self firstCheckOrder];
+    [self checkOrder];
 }
 - (void)viewDidAppearLogic {
     [super viewDidAppearLogic];
@@ -41,9 +41,14 @@
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-
+    
     [param setValue:[Common getUuid] forKeyPath:@"uuid"];
-    [param setValue:self.orderNumTxt.text forKey:@"order_num"];
+    if(self.order_num.length > 0){
+        [param setValue:self.order_num forKey:@"order_num"];
+    }
+    if (self.orderNumTxt.text.length > 0) {
+        [param setValue:self.orderNumTxt.text forKey:@"order_num"];
+    }
     [param setValue:self.mailAddressTxt.text forKey:@"mail_address"];
     [conecter sendActionSendId:SendIdGetYoutubeToken param:param];
 }
@@ -52,9 +57,9 @@
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-
-//    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
-//    [param setValue:@"10" forKey:@"order_num"];
+    
+    //    [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
+    //    [param setValue:@"10" forKey:@"order_num"];
     [param setValue:[Common getUuid] forKeyPath:@"uuid"];
     [param setValue:self.order_num forKey:@"order_num"];
     [param setValue:self.mailAddressTxt.text forKey:@"mail_address"];
@@ -66,8 +71,9 @@
     BaseRecipient *recipient = [[self getDataWithSendId:sendId] initWithResponseData:receivedData];
     if([sendId isEqualToString:SendIdGetYoutubeToken]){
         self.token = [receivedData objectForKey:@"token"];
+        self.update_token = [receivedData objectForKey:@"upload_token"];
         self.order_id = [receivedData objectForKey:@"order_id"];
-//        [YoutubeData setOrderId:@"20"];
+        //        [YoutubeData setOrderId:@"20"];
         self.type = [receivedData objectForKey:@"type_code"];
         if([[receivedData objectForKey:@"status_code"] isEqualToString:@"00"]){
             [YoutubeData setSchemeStrFlg:UrlSchemeHostUploadYoutube];
@@ -84,7 +90,7 @@
 
 
 -(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
-
+    
 }
 
 -(void)schemePresentViewController{

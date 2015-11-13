@@ -472,7 +472,8 @@
         [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         return NO;
         
-    } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube]) {
+    } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube] || [[url host]isEqualToString:UrlSchemeHostInputMessage]) {
+
         //動画アップロード
         OrderDataCheckViewController *vc = [[OrderDataCheckViewController alloc]initWithNibName:@"OrderDataCheckViewController" bundle:nil];
         NSDictionary *params = [Common dictionaryFromQueryString:[url query]];
