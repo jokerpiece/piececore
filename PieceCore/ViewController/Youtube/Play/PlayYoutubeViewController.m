@@ -49,11 +49,7 @@
     switch([[userInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey] intValue]) {
         case MPMovieFinishReasonPlaybackEnded:
             NSLog(@"playback ended");
-            [self dismissViewControllerAnimated:NO completion:^{
-                //        [[UIApplication sharedApplication].delegate.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-                ;
-            }];
-
+            
             break;
         case MPMovieFinishReasonPlaybackError:
             NSLog(@"playback error");
@@ -61,13 +57,6 @@
                 //        [[UIApplication sharedApplication].delegate.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
                 ;
             }];
-        case MPMovieFinishReasonUserExited:
-            NSLog(@"playback error");
-            [self dismissViewControllerAnimated:NO completion:^{
-                //        [[UIApplication sharedApplication].delegate.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-                ;
-            }];
-            break;
     }
 }
 
