@@ -45,6 +45,9 @@
 		376A47F61AB02BC0002A25D3 /* ExcengeCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A47F51AB02BC0002A25D3 /* ExcengeCouponViewController.m */; };
 		376A4EE91BF48800001B9537 /* btn_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A4EE81BF48800001B9537 /* btn_close@2x.png */; };
 		376A4EEB1BF49F1C001B9537 /* horogram_preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 376A4EEA1BF49F1C001B9537 /* horogram_preview.png */; };
+		376A4EF01BF9B9F6001B9537 /* RappingQuizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A4EEE1BF9B9F6001B9537 /* RappingQuizeViewController.m */; };
+		376A4EF11BF9B9F6001B9537 /* RappingQuizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376A4EEF1BF9B9F6001B9537 /* RappingQuizeViewController.xib */; };
+		376A4EF41BF9CD57001B9537 /* RappingQuizeRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A4EF31BF9CD57001B9537 /* RappingQuizeRecipient.m */; };
 		376FDAAC1B99779C00D842F5 /* LinePayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 376FDAAB1B99779C00D842F5 /* LinePayData.m */; };
 		376FDAB01B99780800D842F5 /* linepayReservSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376FDAAE1B99780800D842F5 /* linepayReservSquareViewController.m */; };
 		376FDAB11B99780800D842F5 /* linepayReservSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376FDAAF1B99780800D842F5 /* linepayReservSquareViewController.xib */; };
@@ -273,6 +276,11 @@
 		376A47F51AB02BC0002A25D3 /* ExcengeCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExcengeCouponViewController.m; sourceTree = "<group>"; };
 		376A4EE81BF48800001B9537 /* btn_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_close@2x.png"; sourceTree = "<group>"; };
 		376A4EEA1BF49F1C001B9537 /* horogram_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horogram_preview.png; sourceTree = "<group>"; };
+		376A4EED1BF9B9F6001B9537 /* RappingQuizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RappingQuizeViewController.h; sourceTree = "<group>"; };
+		376A4EEE1BF9B9F6001B9537 /* RappingQuizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RappingQuizeViewController.m; sourceTree = "<group>"; };
+		376A4EEF1BF9B9F6001B9537 /* RappingQuizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RappingQuizeViewController.xib; sourceTree = "<group>"; };
+		376A4EF21BF9CD57001B9537 /* RappingQuizeRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RappingQuizeRecipient.h; sourceTree = "<group>"; };
+		376A4EF31BF9CD57001B9537 /* RappingQuizeRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RappingQuizeRecipient.m; sourceTree = "<group>"; };
 		376FDAAA1B99779C00D842F5 /* LinePayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinePayData.h; sourceTree = "<group>"; };
 		376FDAAB1B99779C00D842F5 /* LinePayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinePayData.m; sourceTree = "<group>"; };
 		376FDAAD1B99780800D842F5 /* linepayReservSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linepayReservSquareViewController.h; path = ../PieceCore/ViewController/LinePay/linepayReservSquareViewController.h; sourceTree = "<group>"; };
@@ -626,6 +634,7 @@
 		37505B3C1BF30917001CEA3B /* Rapping */ = {
 			isa = PBXGroup;
 			children = (
+				376A4EEC1BF9B9BE001B9537 /* RappingQuize */,
 				37505B641BF34D44001CEA3B /* RappingSelect */,
 				37505B571BF32549001CEA3B /* Message */,
 				37505B4B1BF30DA9001CEA3B /* RappingBarcode */,
@@ -669,6 +678,16 @@
 				37505B661BF34D44001CEA3B /* RappingSelectController.m */,
 			);
 			path = RappingSelect;
+			sourceTree = "<group>";
+		};
+		376A4EEC1BF9B9BE001B9537 /* RappingQuize */ = {
+			isa = PBXGroup;
+			children = (
+				376A4EED1BF9B9F6001B9537 /* RappingQuizeViewController.h */,
+				376A4EEE1BF9B9F6001B9537 /* RappingQuizeViewController.m */,
+				376A4EEF1BF9B9F6001B9537 /* RappingQuizeViewController.xib */,
+			);
+			path = RappingQuize;
 			sourceTree = "<group>";
 		};
 		376FDAA91B99779C00D842F5 /* LinePay */ = {
@@ -1048,6 +1067,8 @@
 				10EF4FC21B58D317009066C2 /* LinepayRecipient.m */,
 				10B66B051B6B6D3F00AF524B /* DeterminedLinePayRecipient.h */,
 				10B66B061B6B6D3F00AF524B /* DeterminedLinePayRecipient.m */,
+				376A4EF21BF9CD57001B9537 /* RappingQuizeRecipient.h */,
+				376A4EF31BF9CD57001B9537 /* RappingQuizeRecipient.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1604,6 +1625,7 @@
 				37E3EB891AA45F8C00EA7CB9 /* tab_icon_map.png in Resources */,
 				376A4EE91BF48800001B9537 /* btn_close@2x.png in Resources */,
 				37E3EB801AA45F8C00EA7CB9 /* work.png in Resources */,
+				376A4EF11BF9B9F6001B9537 /* RappingQuizeViewController.xib in Resources */,
 				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
 				37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */,
 				37949A7E1ABAC534002E5194 /* icon_history@2x.png in Resources */,
@@ -1734,6 +1756,7 @@
 				37E3EBAD1AA45F8C00EA7CB9 /* InfoListViewController.m in Sources */,
 				37E3EB6E1AA45F8C00EA7CB9 /* ItemRecipient.m in Sources */,
 				3791297E1AB2DC45001237C7 /* ThemeData.m in Sources */,
+				376A4EF41BF9CD57001B9537 /* RappingQuizeRecipient.m in Sources */,
 				37E3EB5E1AA45F8C00EA7CB9 /* HistoryOrderData.m in Sources */,
 				37E3EBC51AA45F8C00EA7CB9 /* StampViewController.m in Sources */,
 				37E3EB6F1AA45F8C00EA7CB9 /* NewsRecipient.m in Sources */,
@@ -1754,6 +1777,7 @@
 				37E3EB731AA45F8C00EA7CB9 /* PieceCoreConfig.m in Sources */,
 				37505B531BF30DA9001CEA3B /* RappingBarcodeViewController.m in Sources */,
 				37E3EB5F1AA45F8C00EA7CB9 /* InfoListData.m in Sources */,
+				376A4EF01BF9B9F6001B9537 /* RappingQuizeViewController.m in Sources */,
 				37E3EB941AA45F8C00EA7CB9 /* MapCell.m in Sources */,
 				37505B341BF2D53B001CEA3B /* PlayYoutubeViewController.m in Sources */,
 				37949A861ABBD8C2002E5194 /* ProfileViewController.m in Sources */,
@@ -1886,8 +1910,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = pieceSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.otonagokoro;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.pieceSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1901,8 +1926,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = pieceSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.otonagokoro;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.pieceSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
