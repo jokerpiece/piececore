@@ -48,6 +48,8 @@
 		376A4EF01BF9B9F6001B9537 /* RappingQuizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A4EEE1BF9B9F6001B9537 /* RappingQuizeViewController.m */; };
 		376A4EF11BF9B9F6001B9537 /* RappingQuizeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376A4EEF1BF9B9F6001B9537 /* RappingQuizeViewController.xib */; };
 		376A4EF41BF9CD57001B9537 /* RappingQuizeRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A4EF31BF9CD57001B9537 /* RappingQuizeRecipient.m */; };
+		376A4EFC1BFB0869001B9537 /* RappingQuizeFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376A4EFA1BFB0869001B9537 /* RappingQuizeFinishViewController.m */; };
+		376A4EFD1BFB0869001B9537 /* RappingQuizeFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376A4EFB1BFB0869001B9537 /* RappingQuizeFinishViewController.xib */; };
 		376FDAAC1B99779C00D842F5 /* LinePayData.m in Sources */ = {isa = PBXBuildFile; fileRef = 376FDAAB1B99779C00D842F5 /* LinePayData.m */; };
 		376FDAB01B99780800D842F5 /* linepayReservSquareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376FDAAE1B99780800D842F5 /* linepayReservSquareViewController.m */; };
 		376FDAB11B99780800D842F5 /* linepayReservSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376FDAAF1B99780800D842F5 /* linepayReservSquareViewController.xib */; };
@@ -281,6 +283,9 @@
 		376A4EEF1BF9B9F6001B9537 /* RappingQuizeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RappingQuizeViewController.xib; sourceTree = "<group>"; };
 		376A4EF21BF9CD57001B9537 /* RappingQuizeRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RappingQuizeRecipient.h; sourceTree = "<group>"; };
 		376A4EF31BF9CD57001B9537 /* RappingQuizeRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RappingQuizeRecipient.m; sourceTree = "<group>"; };
+		376A4EF91BFB0869001B9537 /* RappingQuizeFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RappingQuizeFinishViewController.h; sourceTree = "<group>"; };
+		376A4EFA1BFB0869001B9537 /* RappingQuizeFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RappingQuizeFinishViewController.m; sourceTree = "<group>"; };
+		376A4EFB1BFB0869001B9537 /* RappingQuizeFinishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RappingQuizeFinishViewController.xib; sourceTree = "<group>"; };
 		376FDAAA1B99779C00D842F5 /* LinePayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinePayData.h; sourceTree = "<group>"; };
 		376FDAAB1B99779C00D842F5 /* LinePayData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinePayData.m; sourceTree = "<group>"; };
 		376FDAAD1B99780800D842F5 /* linepayReservSquareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linepayReservSquareViewController.h; path = ../PieceCore/ViewController/LinePay/linepayReservSquareViewController.h; sourceTree = "<group>"; };
@@ -686,6 +691,9 @@
 				376A4EED1BF9B9F6001B9537 /* RappingQuizeViewController.h */,
 				376A4EEE1BF9B9F6001B9537 /* RappingQuizeViewController.m */,
 				376A4EEF1BF9B9F6001B9537 /* RappingQuizeViewController.xib */,
+				376A4EF91BFB0869001B9537 /* RappingQuizeFinishViewController.h */,
+				376A4EFA1BFB0869001B9537 /* RappingQuizeFinishViewController.m */,
+				376A4EFB1BFB0869001B9537 /* RappingQuizeFinishViewController.xib */,
 			);
 			path = RappingQuize;
 			sourceTree = "<group>";
@@ -1604,6 +1612,7 @@
 				37E3EB7F1AA45F8C00EA7CB9 /* woman.gif in Resources */,
 				378F31831AC533AA0068224A /* news_02.png in Resources */,
 				37E3EB8F1AA45F8C00EA7CB9 /* tab_icon_stamp.png in Resources */,
+				376A4EFD1BFB0869001B9537 /* RappingQuizeFinishViewController.xib in Resources */,
 				37D16F8F1BCF4C3200341B88 /* TwitterTableViewCell.xib in Resources */,
 				37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */,
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
@@ -1724,6 +1733,7 @@
 				37E3EBAF1AA45F8C00EA7CB9 /* NewsViewController.m in Sources */,
 				379EB5981BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m in Sources */,
 				37D758421AB1738900E6B421 /* SosialViewController.m in Sources */,
+				376A4EFC1BFB0869001B9537 /* RappingQuizeFinishViewController.m in Sources */,
 				37E3EB621AA45F8C00EA7CB9 /* KinenbiData.m in Sources */,
 				37E3EB961AA45F8C00EA7CB9 /* RoundView.m in Sources */,
 				376FDAAC1B99779C00D842F5 /* LinePayData.m in Sources */,

@@ -8,41 +8,44 @@
 
 #import "RappingQuizeViewController.h"
 #import "RappingQuizeRecipient.h"
+#import "RappingQuizeFinishViewController.h"
 
 @interface RappingQuizeViewController ()
 @property (nonatomic) RappingQuizeRecipient *rappingRecipient;
+@property (nonatomic) NSString *questionId;
+@property (nonatomic) NSString *selectAnswerId;
+
+
 @end
 
 @implementation RappingQuizeViewController
+-(void)viewDidAppearLogic{
+    self.table.allowsMultipleSelection = NO;
+    [self sendGetQuizeData];
+}
 
 -(void)sendGetQuizeData{
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:self.orderId forKey:@"order_id"];
-    [conecter sendActionSendId:SendIdGetQuizedata param:param];
+    if ([Common isNotEmptyString:self.questionId]) {
+        [param setValue:self.questionId forKey:@"question_id"];
+    }
+    //[conecter sendActionSendId:SendIdGetQuizedata param:param];
+    [conecter sendActionUrl:[NSString stringWithFormat:@"http://192.168.77.200/piece_stab/manager/html/xml/%@",SendIdGetQuizedata] param:param];
 }
 
 -(RappingQuizeRecipient *)getDataWithSendId:(NSString *)sendId{
     return [RappingQuizeRecipient alloc];
 }
 
--(void)setTestData{
-    BaseRecipient *recipient = [BaseRecipient alloc];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"00" forKey:@"status_code"];
-    [dic setObject:@"" forKey:@"error_msg"];
-    [dic setObject:@"3" forKey:@"type_code"];
-    [dic setObject:@"3" forKey:@"type_code"];
-    [dic setObject:@"3" forKey:@"type_code"];
-    [dic setObject:@"3" forKey:@"type_code"];
-    [dic setObject:@"お誕生日おめでとう！" forKey:@"file_data"];
-    recipient.resultset = dic;
-    [self setDataWithRecipient:recipient sendId:SendIdGetPlaydata];
-}
 
 -(void)setDataWithRecipient:(RappingQuizeRecipient *)recipient sendId:(NSString *)sendId{
     self.rappingRecipient = recipient;
+    self.questionNoLbl.text = recipient.questionNum;
+    self.questionLbl.text = recipient.questionText;
+    
     [self.table reloadData];
 }
 
@@ -53,7 +56,19 @@
     //if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
-    NSString *answer = [self.rappingRecipient.answerList objectAtIndex:indexPath.row];
+    
+    NSString *answer;
+    
+    if (indexPath.row == 0) {
+        answer = self.rappingRecipient.answer1[@"text"];
+    } else if (indexPath.row == 1) {
+        answer = self.rappingRecipient.answer2[@"text"];
+    } else if (indexPath.row == 2) {
+        answer = self.rappingRecipient.answer3[@"text"];
+    } else if (indexPath.row == 3) {
+        answer = self.rappingRecipient.answer4[@"text"];
+    }
+    
     
     
     UILabel *textLbl = [[UILabel alloc] initWithFrame:CGRectMake(30,15,self.viewSize.width - 80,40)];
@@ -85,7 +100,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        return self.rappingRecipient.answerList.count;
+        return 4;
     } else {
         return 0;
     }
@@ -94,7 +109,46 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    if (indexPath.row == 0) {
+        self.selectAnswerId = self.rappingRecipient.answer1[@"id"];
+    } else if (indexPath.row == 1) {
+        self.selectAnswerId = self.rappingRecipient.answer2[@"id"];
+    } else if (indexPath.row == 2) {
+        self.selectAnswerId = self.rappingRecipient.answer3[@"id"];
+    } else if (indexPath.row == 3) {
+        self.selectAnswerId = self.rappingRecipient.answer4[@"id"];
+    }
+
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 選択がはずれたセルを取得
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    // セルのアクセサリを解除する（チェックマークを外す）
+    cell.accessoryType = UITableViewCellAccessoryNone;
+}
+
+- (IBAction)nextAction:(id)sender {
+    if (![self.rappingRecipient.correct isEqualToString:self.selectAnswerId]) {
+        [self showAlert:@"間違いです！" message:@"ハズレ"];
+    } else {
+        
+        if ([Common isNotEmptyString:self.rappingRecipient.pinCode]) {
+            RappingQuizeFinishViewController * vc = [[RappingQuizeFinishViewController alloc] initWithNibName:@"RappingQuizeFinishViewController" bundle:nil ];
+            vc.pinCd = self.rappingRecipient.pinCode;
+            [self presentViewController:vc animated:YES completion:nil];
+            return;
+        }
+        
+        
+        [self.table deselectRowAtIndexPath:[self.table indexPathForSelectedRow] animated:YES];
+        UITableViewCell *cell = [self.table cellForRowAtIndexPath:[self.table indexPathForSelectedRow]];
+        // セルのアクセサリを解除する（チェックマークを外す）
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        self.questionId = self.rappingRecipient.questionId;
+        [self sendGetQuizeData];
+    }
+}
 @end

@@ -9,8 +9,13 @@
 #import "BaseRecipient.h"
 
 @interface RappingQuizeRecipient : BaseRecipient
-@property (nonatomic,strong) NSString *lockCode;
-@property (nonatomic,strong) NSString *question;
-@property (nonatomic)NSString *answerNum;
-@property (nonatomic,strong) NSMutableArray *answerList;
+@property (nonatomic,strong) NSString *questionId;
+@property (nonatomic,strong) NSString *questionText;
+@property (nonatomic) NSString *questionNum;
+@property (nonatomic) NSDictionary *answer1;
+@property (nonatomic) NSDictionary *answer2;
+@property (nonatomic) NSDictionary *answer3;
+@property (nonatomic) NSDictionary *answer4;
+@property (nonatomic) NSString *correct;
+@property (nonatomic) NSString *pinCode;
 @end
