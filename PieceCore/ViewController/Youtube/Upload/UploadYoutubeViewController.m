@@ -8,6 +8,7 @@
 
 #import "UploadYoutubeViewController.h"
 #import "FinishYoutubeUploadViewController.h"
+#import "CoreDelegate.h"
 @import Photos;
 #import <AVFoundation/AVFoundation.h>
 
@@ -31,7 +32,6 @@
         self.messageView.layer.borderColor = [UIColor blackColor].CGColor;
         
     }
-    
     //    [self sendGetYoutubeWithToken];
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -209,6 +209,51 @@
     
 }
 
+//動画情報更新
+//-(void)sendMovieUpdate:(NSString*)moveId{
+//    NetworkConecter *conecter = [NetworkConecter alloc];
+//    conecter.delegate = self;
+//    
+////    [param setObject:@"snippet"forKey:@"part"];
+//    NSMutableDictionary *headerParam = [NSMutableDictionary dictionary];
+//    
+//    //https://developers.google.com/youtube/v3/guides/using_resumable_upload_protocol?hl=ja_
+//    
+//    [headerParam setValue:[NSString stringWithFormat:@"Bearer %@",self.update_token] forKeyPath:@"Authorization"];
+//
+////    NSMutableDictionary *param = [[NSMutableDictionary alloc]initWithDictionary:
+////                                                                            @{@"id":moveId,
+////                                                                              @"snippet":@{@"title":self.movieTitleTf.text,
+////                                                                                           @"categoryId":@"22",
+////                                                                                           @"description":self.movieTv.text},
+////                                                                              @"status":@{@"privacyStatus":@"private",
+////                                                                                            @"embeddable":@"true",
+////                                                                                          @"license":@"youtube",
+////                                                                                          @"publicStasViewable":@"true"}}];
+//    
+//    NSString *param = [NSString stringWithFormat:@"{'id':'%@','snippet':{'title':'%@','categoryId':'22','description':'%@'},'status':{'privacyStatus':'private','embeddable':'true','license':'youtube','publicStasViewable':'true'}}",moveId,self.movieTitleTf.text,self.movieTv.text];
+//
+////    NSData *parameter = [NSJSONSerialization dataWithJSONObject:param options:kNilOptions error:nil];
+//    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    for (id key in headerParam) { 
+//        NSLog(@"Key:%@ Value:%@", key, [headerParam valueForKey:key]);
+//        [manager.requestSerializer setValue:[headerParam valueForKey:key] forHTTPHeaderField:key];
+//    }
+//
+//    [manager PUT:SendIdPostYoutubeMovieInfo
+//       parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject)
+//     {
+//         [self uploadMovieInfo:moveId];
+//     }
+//          failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         DLog(@"%@",error);
+//         [super receiveError:error sendId:SendIdPostYoutubeMovie];
+//     }];
+//    
+//}
+
 -(void)uploadMovieInfo:(NSString*)movieId{
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
@@ -240,6 +285,41 @@
     }
 }
 
+-(void)receiveError:(NSError *)error sendId:(NSString *)sendId{
+    CoreDelegate *delegate = (CoreDelegate *)[[UIApplication sharedApplication] delegate];
+    if (!delegate.isUpdate) {
+        NSString *errMsg;
+        if([sendId isEqualToString:SendIdPostYoutubeMovie]){
+            errMsg = @"動画のアップロードに失敗しました。";
+        }else{
+            switch (error.code) {
+                case NSURLErrorBadServerResponse:
+                    errMsg = @"現在メンテナンス中です。\n大変申し訳ありませんがしばらくお待ち下さい。";
+                    break;
+                case NSURLErrorTimedOut:
+                    errMsg = @"通信が混み合っています。\nしばらくしてからアクセスして下さい。";
+                    break;
+                    
+                case kCFURLErrorNotConnectedToInternet:
+                    errMsg = @"通信できませんでした。\n電波状態をお確かめ下さい。";
+                    break;
+                default:
+                    errMsg = [NSString stringWithFormat:@"エラーコード：%ld",(long)error.code];
+                    break;
+            }
+        }
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"お知らせ"
+                                                        message:errMsg
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
+}
+
+
+
 /*--------------------------------------------------------------------------------
  カメラロールからムービーを選択する
  --------------------------------------------------------------------------------*/
@@ -265,6 +345,7 @@
     }
 }
 
+
 /*--------------------------------------------------------------------------------
  UIImagePickerControllerで選択されたとき
  --------------------------------------------------------------------------------*/
@@ -274,6 +355,13 @@
     if([mediaType isEqualToString:(NSString*)kUTTypeMovie]){
         // 動画のURLを取得
         NSURL *url=[info objectForKey:UIImagePickerControllerReferenceURL];
+        
+        AVURLAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+        AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+        gen.appliesPreferredTrackTransform = YES;
+        CGImageRef image = [gen copyCGImageAtTime:CMTimeMakeWithSeconds(0.0, 300) actualTime:nil error:nil];
+        self.thumbnail.image = [UIImage imageWithCGImage:image];
+        
         NSLog(@"動画の場所：%@",url.absoluteString);
         self.movieURL=url;
     }

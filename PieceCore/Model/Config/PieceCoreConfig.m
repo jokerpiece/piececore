@@ -24,11 +24,11 @@ static bool _linePay = NO;
 static NSString *_linePayConfirmUrl = @"";
 static NSString *_cookieDomainName = @"";
 
-//NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
-NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
+NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
+//NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
 NSString * const  OsType= @"1";
-NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
-//NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
+//NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
+NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
 NSString * const  SendIdItem= @"item/index.php?Action=itemList";
 NSString * const  SendIdItemCoupon= @"item/";
@@ -58,6 +58,7 @@ NSString * const  SendIdGetYoutubeToken = @"order/?Action=check";
 NSString * const  SendIdPostYoutubeMovie = @"https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status";
 NSString * const  SendIdPostMovieOrMessage = @"order/?Action=upload";
 NSString * const  SendIdGetPlaydata = @"order/?Action=getFileData";
+NSString * const  SendIdRegistQuestion = @"order/?Action=registQuestion";
 NSString * const  SendIdGetQuizedata = @"order/?Action=getQuestion";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
@@ -69,6 +70,7 @@ NSString * const  UrlSchemeHostPlayYoutube= @"videoplay";
 NSString * const  UrlSchemeHostInputMessage= @"message";
 NSString * const  UrlSchemeHostShowMessage= @"messageshow";
 NSString * const  UrlSchemeHostRapping= @"rapping";
+NSString * const  UrlSchemeHostQuestion= @"padlock";
 
 const int DispSurveyDate = 90;
 const float TimeSlidershow = 5.5;

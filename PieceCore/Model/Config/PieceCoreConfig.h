@@ -40,8 +40,10 @@ extern NSString * const SendIdGetYoutubeToken;
 extern NSString * const SendIdPostYoutubeMovie;
 extern NSString * const SendIdPostMovieOrMessage;
 extern NSString * const SendIdGetPlaydata;
+extern NSString * const SendIdRegistQuestion;
 extern NSString * const SendIdGetQuizedata;
 extern NSString * const UrlSchemeHostRapping;
+extern NSString * const UrlSchemeHostQuestion;
 
 extern NSString * const UrlYamatoDeliver;
 extern NSString * const UrlSagawaDeliver;

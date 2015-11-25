@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface FinishYoutubeUploadViewController : BaseViewController
-
+@property (weak, nonatomic) IBOutlet UILabel *messageLbl;
+@property (nonatomic) NSString *whereFrom;
 @end

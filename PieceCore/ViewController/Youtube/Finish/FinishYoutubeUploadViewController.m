@@ -22,8 +22,10 @@
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"戻る" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
 
     self.navigationItem.leftBarButtonItem = barButton;
-//    self.navigationController.navigationBar.topItem.backBarButtonItem = nil;
-//    self.navigationItem.backBarButtonItem = nil;
+
+    if([self.whereFrom isEqualToString:@"RappingRegist"]){
+        self.messageLbl.text = @"問題の登録が完了しました。\nお届けする商品に問題回答用のQRコードを同梱します。";
+    }
 }
 
 -(void)backAction{

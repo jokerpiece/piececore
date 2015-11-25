@@ -9,7 +9,7 @@
 #import "OrderDataCheckViewController.h"
 #import "OrderDataFailedViewController.h"
 #import "UploadYoutubeViewController.h"
-
+#import "RappingResistViewController.h"
 
 
 @interface OrderDataCheckViewController ()
@@ -21,10 +21,23 @@
 -(void)viewDidLoadLogic{
     [super viewDidLoadLogic];
     [self checkOrder];
+    
+    UITapGestureRecognizer *get = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
+    [self.view addGestureRecognizer:get];
 }
-- (void)viewDidAppearLogic {
-    [super viewDidAppearLogic];
-    // Do any additional setup after loading the view from its nib.
+
+-(void)tapAction{
+    [self.view endEditing:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if(textField == self.mailAddressTxt){
+        [self.orderNumTxt becomeFirstResponder];
+    }
+    if(textField == self.orderNumTxt){
+        [self.view endEditing:YES];
+    }
+    return NO;
 }
 
 - (IBAction)sendOrderNumAction:(id)sender {
@@ -74,10 +87,8 @@
         self.order_id = [receivedData objectForKey:@"order_id"];
         //        [YoutubeData setOrderId:@"20"];
         self.type = [receivedData objectForKey:@"type_code"];
-        if([[receivedData objectForKey:@"status_code"] isEqualToString:@"00"]){
-            [YoutubeData setSchemeStrFlg:UrlSchemeHostUploadYoutube];
-        }else{
-            [YoutubeData setSchemeStrFlg:@"error"];
+        if(![[receivedData objectForKey:@"status_code"] isEqualToString:@"00"]){
+            self.type = @"-1";
         }
         [self schemePresentViewController];
     }
@@ -93,14 +104,12 @@
 }
 
 -(void)schemePresentViewController{
-    if([[YoutubeData getSchemeStrFlg] isEqualToString:@"error"]){
+    if([self.type integerValue] < 0){
         OrderDataFailedViewController *odf = [[OrderDataFailedViewController alloc]init];
-        [YoutubeData setSchemeStrFlg:@""];
         [self presentViewController:odf animated:YES completion:nil];
         return;
     }
-    if([[YoutubeData getSchemeStrFlg] isEqualToString:UrlSchemeHostUploadYoutube]){
-        [YoutubeData setSchemeStrFlg:@""];
+    if([self.type integerValue] >= 1 && [self.type integerValue] <= 3){
         UploadYoutubeViewController *uy = [[UploadYoutubeViewController alloc]init];
         if([self.type isEqualToString:@"3"]){
             uy.title = @"message";
@@ -111,6 +120,14 @@
         uy.type = self.type;
         uy.order_id = self.order_id;
         [self.navigationController pushViewController:uy animated:YES];
+        self.type = 0;
+    }
+    if([self.type integerValue] == 4){
+        RappingResistViewController *rr = [[RappingResistViewController alloc]init];
+        rr.title = @"Q&A";
+        rr.orderId = self.order_id;
+        [self.navigationController pushViewController:rr animated:YES];
+        self.type = 0;
     }
 }
 

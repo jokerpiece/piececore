@@ -16,6 +16,8 @@
 		2F55E8BA1BF31BA300525089 /* YoutubeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8B91BF31BA300525089 /* YoutubeData.m */; };
 		2F55E8BE1BF3282A00525089 /* FinishYoutubeUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8BC1BF3282A00525089 /* FinishYoutubeUploadViewController.m */; };
 		2F55E8BF1BF3282A00525089 /* FinishYoutubeUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8BD1BF3282A00525089 /* FinishYoutubeUploadViewController.xib */; };
+		2FB208C81C05B1A0000C75BB /* RappingResistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB208C61C05B1A0000C75BB /* RappingResistViewController.m */; };
+		2FB208C91C05B1A0000C75BB /* RappingResistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB208C71C05B1A0000C75BB /* RappingResistViewController.xib */; };
 		370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561921ACE2717002E7F1B /* MapKit.framework */; };
 		370561951ACE2A00002E7F1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561941ACE2A00002E7F1B /* CoreLocation.framework */; };
 		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
@@ -239,6 +241,9 @@
 		2F55E8BB1BF3282A00525089 /* FinishYoutubeUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinishYoutubeUploadViewController.h; path = Finish/FinishYoutubeUploadViewController.h; sourceTree = "<group>"; };
 		2F55E8BC1BF3282A00525089 /* FinishYoutubeUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FinishYoutubeUploadViewController.m; path = Finish/FinishYoutubeUploadViewController.m; sourceTree = "<group>"; };
 		2F55E8BD1BF3282A00525089 /* FinishYoutubeUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FinishYoutubeUploadViewController.xib; path = Finish/FinishYoutubeUploadViewController.xib; sourceTree = "<group>"; };
+		2FB208C51C05B1A0000C75BB /* RappingResistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RappingResistViewController.h; path = RappingRegist/RappingResistViewController.h; sourceTree = "<group>"; };
+		2FB208C61C05B1A0000C75BB /* RappingResistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RappingResistViewController.m; path = RappingRegist/RappingResistViewController.m; sourceTree = "<group>"; };
+		2FB208C71C05B1A0000C75BB /* RappingResistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RappingResistViewController.xib; path = RappingRegist/RappingResistViewController.xib; sourceTree = "<group>"; };
 		370561921ACE2717002E7F1B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		370561941ACE2A00002E7F1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		371941F71AC549700033FBCA /* TitleNameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNameData.h; sourceTree = "<group>"; };
@@ -627,6 +632,16 @@
 			name = Finish;
 			sourceTree = "<group>";
 		};
+		2FB208C41C05B183000C75BB /* RappingRegist */ = {
+			isa = PBXGroup;
+			children = (
+				2FB208C51C05B1A0000C75BB /* RappingResistViewController.h */,
+				2FB208C61C05B1A0000C75BB /* RappingResistViewController.m */,
+				2FB208C71C05B1A0000C75BB /* RappingResistViewController.xib */,
+			);
+			name = RappingRegist;
+			sourceTree = "<group>";
+		};
 		371941F61AC549450033FBCA /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +654,7 @@
 		37505B3C1BF30917001CEA3B /* Rapping */ = {
 			isa = PBXGroup;
 			children = (
+				2FB208C41C05B183000C75BB /* RappingRegist */,
 				376A4EEC1BF9B9BE001B9537 /* RappingQuize */,
 				37505B641BF34D44001CEA3B /* RappingSelect */,
 				37505B571BF32549001CEA3B /* Message */,
@@ -1606,6 +1622,7 @@
 				37E3EBA61AA45F8C00EA7CB9 /* FittingViewController.xib in Resources */,
 				37E3EB8A1AA45F8C00EA7CB9 /* tab_icon_more.png in Resources */,
 				37E3EB661AA45F8C00EA7CB9 /* CabinSketch-Regular.otf in Resources */,
+				2FB208C91C05B1A0000C75BB /* RappingResistViewController.xib in Resources */,
 				376FDAB11B99780800D842F5 /* linepayReservSquareViewController.xib in Resources */,
 				37E3EB871AA45F8C00EA7CB9 /* tab_icon_flyer.png in Resources */,
 				37E3EBB41AA45F8C00EA7CB9 /* WebViewController.xib in Resources */,
@@ -1733,6 +1750,7 @@
 				37E3EBAF1AA45F8C00EA7CB9 /* NewsViewController.m in Sources */,
 				379EB5981BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m in Sources */,
 				37D758421AB1738900E6B421 /* SosialViewController.m in Sources */,
+				2FB208C81C05B1A0000C75BB /* RappingResistViewController.m in Sources */,
 				376A4EFC1BFB0869001B9537 /* RappingQuizeFinishViewController.m in Sources */,
 				37E3EB621AA45F8C00EA7CB9 /* KinenbiData.m in Sources */,
 				37E3EB961AA45F8C00EA7CB9 /* RoundView.m in Sources */,

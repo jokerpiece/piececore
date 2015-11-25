@@ -8,7 +8,6 @@
 
 #import "BaseViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-#import "YoutubeData.h"
 
 @interface UploadYoutubeViewController : BaseViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *movieTitleTf;
@@ -19,11 +18,15 @@
 @property (weak, nonatomic) IBOutlet UITextView *messageTV;
 @property (weak, nonatomic) IBOutlet UIButton *messageRegistBtn;
 @property (nonatomic) NSString *token;
+@property (nonatomic) NSString *update_token;
 @property (nonatomic) NSString *type;
 @property (nonatomic) NSString *order_id;
 @property (strong,nonatomic) NSString *movieId;
 - (IBAction)movieSelectAction:(id)sender;
 - (IBAction)movieUploadAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrView;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnail;
+
+
 
 @end
