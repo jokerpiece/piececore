@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *questionLbl;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic) NSString *orderId;
+@property (nonatomic) NSString *questionId;
 - (IBAction)nextAction:(id)sender;
 @end

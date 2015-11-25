@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *twoLbl;
 @property (weak, nonatomic) IBOutlet UILabel *treeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *forLbl;
+- (IBAction)closeAction:(id)sender;
 @end

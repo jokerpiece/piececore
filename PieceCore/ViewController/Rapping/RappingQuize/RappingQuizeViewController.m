@@ -12,7 +12,7 @@
 
 @interface RappingQuizeViewController ()
 @property (nonatomic) RappingQuizeRecipient *rappingRecipient;
-@property (nonatomic) NSString *questionId;
+
 @property (nonatomic) NSString *selectAnswerId;
 
 
@@ -21,6 +21,7 @@
 @implementation RappingQuizeViewController
 -(void)viewDidAppearLogic{
     self.table.allowsMultipleSelection = NO;
+    self.questionId = @"0";
     [self sendGetQuizeData];
 }
 
@@ -33,7 +34,7 @@
         [param setValue:self.questionId forKey:@"question_id"];
     }
     //[conecter sendActionSendId:SendIdGetQuizedata param:param];
-    [conecter sendActionUrl:[NSString stringWithFormat:@"http://192.168.77.200/piece_stab/manager/html/xml/%@",SendIdGetQuizedata] param:param];
+    [conecter sendActionUrl:[NSString stringWithFormat:@"http://192.168.77.200/piece_dev/manager/html/xml/%@",SendIdGetQuizedata] param:param];
 }
 
 -(RappingQuizeRecipient *)getDataWithSendId:(NSString *)sendId{
@@ -43,6 +44,14 @@
 
 -(void)setDataWithRecipient:(RappingQuizeRecipient *)recipient sendId:(NSString *)sendId{
     self.rappingRecipient = recipient;
+    
+    if ([Common isNotEmptyString:self.rappingRecipient.pinCode]) {
+        RappingQuizeFinishViewController * vc = [[RappingQuizeFinishViewController alloc] initWithNibName:@"RappingQuizeFinishViewController" bundle:nil ];
+        vc.pinCd = self.rappingRecipient.pinCode;
+        [self presentViewController:vc animated:YES completion:nil];
+        return;
+    }
+    
     self.questionNoLbl.text = recipient.questionNum;
     self.questionLbl.text = recipient.questionText;
     
@@ -135,12 +144,7 @@
         [self showAlert:@"間違いです！" message:@"ハズレ"];
     } else {
         
-        if ([Common isNotEmptyString:self.rappingRecipient.pinCode]) {
-            RappingQuizeFinishViewController * vc = [[RappingQuizeFinishViewController alloc] initWithNibName:@"RappingQuizeFinishViewController" bundle:nil ];
-            vc.pinCd = self.rappingRecipient.pinCode;
-            [self presentViewController:vc animated:YES completion:nil];
-            return;
-        }
+        
         
         
         [self.table deselectRowAtIndexPath:[self.table indexPathForSelectedRow] animated:YES];

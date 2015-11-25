@@ -18,6 +18,13 @@
     self.oneLbl.text = [self.pinCd substringWithRange:NSMakeRange(0, 1)];
     self.twoLbl.text = [self.pinCd substringWithRange:NSMakeRange(1, 1)];
     self.treeLbl.text = [self.pinCd substringWithRange:NSMakeRange(2, 1)];
+    self.forLbl.text = [self.pinCd substringWithRange:NSMakeRange(3, 1)];
 }
 
+- (IBAction)closeAction:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:^{
+        //        [[UIApplication sharedApplication].delegate.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
+        ;
+    }];
+}
 @end
