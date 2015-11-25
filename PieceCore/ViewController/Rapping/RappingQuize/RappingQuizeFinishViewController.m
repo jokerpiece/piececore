@@ -22,9 +22,7 @@
 }
 
 - (IBAction)closeAction:(id)sender {
-    [self dismissViewControllerAnimated:NO completion:^{
-        //        [[UIApplication sharedApplication].delegate.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
-        ;
-    }];
+    [[UIApplication sharedApplication].delegate.window.rootViewController
+     dismissViewControllerAnimated:YES completion:nil];
 }
 @end

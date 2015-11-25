@@ -14,6 +14,7 @@
 #import "PlayYoutubeViewController.h"
 #import "PlayHologramYoutubeViewController.h"
 #import "RappingMessageViewController.h"
+#import "RappingQuizeViewController.h"
 
 @implementation RappingSelectController
 
@@ -76,6 +77,8 @@
 -(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
     if ([recipient.resultset[@"status_code"] isEqualToString:@"00"]) {
         
+        NSString *substrOrderId = [self.orderId substringWithRange:NSMakeRange(0, 6)];
+        NSString *orderId = [NSString stringWithFormat:@"%d",substrOrderId.intValue];
         
         
         if ([recipient.resultset[@"type_code"] isEqualToString:@"1"]) {
@@ -97,6 +100,10 @@
             //メッセージ
             RappingMessageViewController *vc = [[RappingMessageViewController alloc]initWithNibName:@"RappingMessageViewController" bundle:nil];
             vc.message = recipient.resultset[@"file_data"];
+            [self.parnentVc presentViewController:vc animated:YES completion:nil];
+        } else {
+            RappingQuizeViewController *vc = [[RappingQuizeViewController alloc]initWithNibName:@"RappingQuizeViewController" bundle:nil];
+            vc.orderId = orderId;
             [self.parnentVc presentViewController:vc animated:YES completion:nil];
         }
         
