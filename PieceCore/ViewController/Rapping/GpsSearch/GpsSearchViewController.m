@@ -105,8 +105,6 @@
     strLatitude = [NSString stringWithFormat:@"%f", latitude];
     strLongitude = [NSString stringWithFormat:@"%f", longitude];
     
-    NSLog(strLatitude);
-
     if (firstFlg == 0) {
         firstFlg = 1;
         [self sendGetLocationData];
