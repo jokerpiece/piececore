@@ -17,11 +17,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="treasure1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DxP-b9-DWD">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="treasure5.png" translatesAutoresizingMaskIntoConstraints="NO" id="DxP-b9-DWD">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0r-ke-KTX">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0r-ke-KTX">
                     <rect key="frame" x="54" y="230" width="206" height="124"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="48"/>
@@ -33,21 +33,11 @@
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="J0r-ke-KTX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="230" id="0x5-7T-qex"/>
-                <constraint firstAttribute="bottom" secondItem="J0r-ke-KTX" secondAttribute="bottom" constant="214" id="17M-pm-SIU"/>
-                <constraint firstAttribute="bottom" secondItem="DxP-b9-DWD" secondAttribute="bottom" id="G7g-9G-8Qi"/>
-                <constraint firstAttribute="trailing" secondItem="DxP-b9-DWD" secondAttribute="trailing" id="RaK-Kw-YDs"/>
-                <constraint firstItem="DxP-b9-DWD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TVd-ei-l24"/>
-                <constraint firstItem="DxP-b9-DWD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UuK-6h-WgK"/>
-                <constraint firstAttribute="trailing" secondItem="J0r-ke-KTX" secondAttribute="trailing" constant="60" id="ZbU-tS-0ew"/>
-                <constraint firstItem="J0r-ke-KTX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="54" id="dUQ-YE-Fpe"/>
-            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="348" y="314"/>
         </view>
     </objects>
     <resources>
-        <image name="treasure1.jpg" width="206" height="291"/>
+        <image name="treasure5.png" width="206" height="291"/>
     </resources>
 </document>

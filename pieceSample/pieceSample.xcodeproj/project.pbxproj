@@ -14,14 +14,14 @@
 		146824011C06E2EE00F663CE /* GpsSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146823FD1C06E2EE00F663CE /* GpsSearchViewController.m */; };
 		146824021C06E2EE00F663CE /* GpsSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146823FE1C06E2EE00F663CE /* GpsSearchViewController.xib */; };
 		146824061C06E30300F663CE /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 146824051C06E30300F663CE /* Beacon.m */; };
-		146824111C06E31500F663CE /* treasure1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 146824081C06E31500F663CE /* treasure1.jpg */; };
-		146824121C06E31500F663CE /* treasure2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 146824091C06E31500F663CE /* treasure2.jpg */; };
-		146824131C06E31500F663CE /* treasure3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1468240A1C06E31500F663CE /* treasure3.jpg */; };
-		146824141C06E31500F663CE /* treasure4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1468240B1C06E31500F663CE /* treasure4.jpg */; };
-		146824151C06E31500F663CE /* treasure5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1468240C1C06E31500F663CE /* treasure5.jpg */; };
 		146824161C06E31500F663CE /* footprints.png in Resources */ = {isa = PBXBuildFile; fileRef = 1468240E1C06E31500F663CE /* footprints.png */; };
 		146824171C06E31500F663CE /* my.png in Resources */ = {isa = PBXBuildFile; fileRef = 1468240F1C06E31500F663CE /* my.png */; };
 		146824181C06E31500F663CE /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824101C06E31500F663CE /* other.png */; };
+		146824291C07107900F663CE /* treasure1.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824241C07107900F663CE /* treasure1.png */; };
+		1468242A1C07107900F663CE /* treasure2.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824251C07107900F663CE /* treasure2.png */; };
+		1468242B1C07107900F663CE /* treasure3.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824261C07107900F663CE /* treasure3.png */; };
+		1468242C1C07107900F663CE /* treasure4.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824271C07107900F663CE /* treasure4.png */; };
+		1468242D1C07107900F663CE /* treasure5.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824281C07107900F663CE /* treasure5.png */; };
 		2F55E8B01BF308DD00525089 /* OrderDataCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */; };
 		2F55E8B11BF308DD00525089 /* OrderDataCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */; };
 		2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8B31BF30A2300525089 /* OrderDataFailedViewController.m */; };
@@ -251,15 +251,15 @@
 		146823FE1C06E2EE00F663CE /* GpsSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GpsSearchViewController.xib; sourceTree = "<group>"; };
 		146824041C06E30300F663CE /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
 		146824051C06E30300F663CE /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
-		146824081C06E31500F663CE /* treasure1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = treasure1.jpg; sourceTree = "<group>"; };
-		146824091C06E31500F663CE /* treasure2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = treasure2.jpg; sourceTree = "<group>"; };
-		1468240A1C06E31500F663CE /* treasure3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = treasure3.jpg; sourceTree = "<group>"; };
-		1468240B1C06E31500F663CE /* treasure4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = treasure4.jpg; sourceTree = "<group>"; };
-		1468240C1C06E31500F663CE /* treasure5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = treasure5.jpg; sourceTree = "<group>"; };
 		1468240E1C06E31500F663CE /* footprints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprints.png; sourceTree = "<group>"; };
 		1468240F1C06E31500F663CE /* my.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my.png; sourceTree = "<group>"; };
 		146824101C06E31500F663CE /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other.png; sourceTree = "<group>"; };
 		146824191C06E33B00F663CE /* CustomAnnotationImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotationImage.h; sourceTree = "<group>"; };
+		146824241C07107900F663CE /* treasure1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treasure1.png; sourceTree = "<group>"; };
+		146824251C07107900F663CE /* treasure2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treasure2.png; sourceTree = "<group>"; };
+		146824261C07107900F663CE /* treasure3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treasure3.png; sourceTree = "<group>"; };
+		146824271C07107900F663CE /* treasure4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treasure4.png; sourceTree = "<group>"; };
+		146824281C07107900F663CE /* treasure5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treasure5.png; sourceTree = "<group>"; };
 		2F55E8AD1BF308DD00525089 /* OrderDataCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDataCheckViewController.h; path = Order/OrderDataCheckViewController.h; sourceTree = "<group>"; };
 		2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDataCheckViewController.m; path = Order/OrderDataCheckViewController.m; sourceTree = "<group>"; };
 		2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDataCheckViewController.xib; path = Order/OrderDataCheckViewController.xib; sourceTree = "<group>"; };
@@ -662,11 +662,11 @@
 		146824071C06E31500F663CE /* Beacon */ = {
 			isa = PBXGroup;
 			children = (
-				146824081C06E31500F663CE /* treasure1.jpg */,
-				146824091C06E31500F663CE /* treasure2.jpg */,
-				1468240A1C06E31500F663CE /* treasure3.jpg */,
-				1468240B1C06E31500F663CE /* treasure4.jpg */,
-				1468240C1C06E31500F663CE /* treasure5.jpg */,
+				146824241C07107900F663CE /* treasure1.png */,
+				146824251C07107900F663CE /* treasure2.png */,
+				146824261C07107900F663CE /* treasure3.png */,
+				146824271C07107900F663CE /* treasure4.png */,
+				146824281C07107900F663CE /* treasure5.png */,
 			);
 			path = Beacon;
 			sourceTree = "<group>";
@@ -1651,6 +1651,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1468242D1C07107900F663CE /* treasure5.png in Resources */,
 				146824181C06E31500F663CE /* other.png in Resources */,
 				37949A7F1ABAC534002E5194 /* icon_stamp@2x.png in Resources */,
 				37E3EB841AA45F8C00EA7CB9 /* tab_icon_barcode.png in Resources */,
@@ -1663,14 +1664,14 @@
 				37E3EB7B1AA45F8C00EA7CB9 /* coin.png in Resources */,
 				37E3EB7C1AA45F8C00EA7CB9 /* kinenbi.png in Resources */,
 				37E3EBB21AA45F8C00EA7CB9 /* ItemListViewController.xib in Resources */,
+				146824291C07107900F663CE /* treasure1.png in Resources */,
 				37949A9B1ABBE793002E5194 /* ProfileAdressTableViewCell.xib in Resources */,
 				37505B5F1BF3279B001CEA3B /* illust1344.png in Resources */,
 				37949A711ABA9670002E5194 /* backBtn@2x.png in Resources */,
-				146824151C06E31500F663CE /* treasure5.jpg in Resources */,
 				37E3EBA41AA45F8C00EA7CB9 /* SinglePickerViewController.xib in Resources */,
 				37E3EB8B1AA45F8C00EA7CB9 /* tab_icon_news.png in Resources */,
+				1468242C1C07107900F663CE /* treasure4.png in Resources */,
 				37E3EB8E1AA45F8C00EA7CB9 /* tab_icon_sosial.png in Resources */,
-				146824121C06E31500F663CE /* treasure2.jpg in Resources */,
 				2F55E8BF1BF3282A00525089 /* FinishYoutubeUploadViewController.xib in Resources */,
 				37949A7D1ABAC534002E5194 /* icon_fitting@2x.png in Resources */,
 				37949A8C1ABBE551002E5194 /* ProfileSexTableViewCell.xib in Resources */,
@@ -1690,7 +1691,6 @@
 				37E3EB901AA45F8C00EA7CB9 /* wait.jpg in Resources */,
 				146824001C06E2EE00F663CE /* BeaconSearchViewController.xib in Resources */,
 				378F31841AC533AA0068224A /* news_03.png in Resources */,
-				146824131C06E31500F663CE /* treasure3.jpg in Resources */,
 				37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */,
 				2F55E8B61BF30A2300525089 /* OrderDataFailedViewController.xib in Resources */,
 				37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */,
@@ -1699,6 +1699,7 @@
 				37949A4E1AB6C497002E5194 /* HistoryTableViewCell.xib in Resources */,
 				376A47AD1AADAEC3002A25D3 /* coupon_search@2x.png in Resources */,
 				37E3EBB01AA45F8C00EA7CB9 /* NewsViewController.xib in Resources */,
+				1468242B1C07107900F663CE /* treasure3.png in Resources */,
 				376A47EC1AAFD6E3002A25D3 /* stampbase@2x.png in Resources */,
 				37949A701ABA9670002E5194 /* backBtn.png in Resources */,
 				146824161C06E31500F663CE /* footprints.png in Resources */,
@@ -1713,7 +1714,6 @@
 				37E3EB7E1AA45F8C00EA7CB9 /* sex.png in Resources */,
 				37D16F8A1BCF4BC600341B88 /* TwitterViewController.xib in Resources */,
 				37E3EBA61AA45F8C00EA7CB9 /* FittingViewController.xib in Resources */,
-				146824111C06E31500F663CE /* treasure1.jpg in Resources */,
 				37E3EB8A1AA45F8C00EA7CB9 /* tab_icon_more.png in Resources */,
 				37E3EB661AA45F8C00EA7CB9 /* CabinSketch-Regular.otf in Resources */,
 				2FB208C91C05B1A0000C75BB /* RappingResistViewController.xib in Resources */,
@@ -1723,7 +1723,6 @@
 				37E3EB7F1AA45F8C00EA7CB9 /* woman.gif in Resources */,
 				378F31831AC533AA0068224A /* news_02.png in Resources */,
 				37E3EB8F1AA45F8C00EA7CB9 /* tab_icon_stamp.png in Resources */,
-				146824141C06E31500F663CE /* treasure4.jpg in Resources */,
 				376A4EFD1BFB0869001B9537 /* RappingQuizeFinishViewController.xib in Resources */,
 				37D16F8F1BCF4C3200341B88 /* TwitterTableViewCell.xib in Resources */,
 				37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */,
@@ -1747,6 +1746,7 @@
 				37E3EB891AA45F8C00EA7CB9 /* tab_icon_map.png in Resources */,
 				376A4EE91BF48800001B9537 /* btn_close@2x.png in Resources */,
 				37E3EB801AA45F8C00EA7CB9 /* work.png in Resources */,
+				1468242A1C07107900F663CE /* treasure2.png in Resources */,
 				376A4EF11BF9B9F6001B9537 /* RappingQuizeViewController.xib in Resources */,
 				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
 				37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */,
