@@ -74,6 +74,13 @@
     }
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [locationManager stopUpdatingLocation];
+    if ([timer isValid]) {
+        [timer invalidate];
+    }
+}
+
 - (IBAction)closeActionBtn:(UIButton *)sender {
     if ([timer isValid]) {
         [timer invalidate];
@@ -97,6 +104,8 @@
     // 自分の緯度経度を設定（送信用）
     strLatitude = [NSString stringWithFormat:@"%f", latitude];
     strLongitude = [NSString stringWithFormat:@"%f", longitude];
+    
+    NSLog(strLatitude);
 
     if (firstFlg == 0) {
         firstFlg = 1;

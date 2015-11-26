@@ -38,7 +38,7 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidDisappear:(BOOL)animated {
     [beacon stopBeaconMonitoring];
     if ([timer isValid]) {
         [timer invalidate];
