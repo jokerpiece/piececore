@@ -15,6 +15,8 @@
 #import "PlayHologramYoutubeViewController.h"
 #import "RappingMessageViewController.h"
 #import "RappingQuizeViewController.h"
+#import "BeaconSearchViewController.h"
+#import "GpsSearchViewController.h"
 
 @implementation RappingSelectController
 
@@ -100,6 +102,18 @@
             //メッセージ
             RappingMessageViewController *vc = [[RappingMessageViewController alloc]initWithNibName:@"RappingMessageViewController" bundle:nil];
             vc.message = recipient.resultset[@"file_data"];
+            [self.parnentVc presentViewController:vc animated:YES completion:nil];
+        } else if ([recipient.resultset[@"type_code"] isEqualToString:@"5"]) {
+            // 宝探し
+            BeaconSearchViewController *vc = [[BeaconSearchViewController alloc]initWithNibName:@"BeaconSearchViewController" bundle:nil];
+            vc.uuid = recipient.resultset[@"file_data"][@"uuid"];
+            vc.major = recipient.resultset[@"file_data"][@"major_id"];
+            vc.minor = recipient.resultset[@"file_data"][@"minor_id"];
+            [self.parnentVc presentViewController:vc animated:YES completion:nil];
+        } else if ([recipient.resultset[@"type_code"] isEqualToString:@"6"]) {
+            // GPS
+            GpsSearchViewController *vc = [[GpsSearchViewController alloc]initWithNibName:@"GpsSearchViewController" bundle:nil];
+            vc.takeOrderId = self.orderId;
             [self.parnentVc presentViewController:vc animated:YES completion:nil];
         } else {
             RappingQuizeViewController *vc = [[RappingQuizeViewController alloc]initWithNibName:@"RappingQuizeViewController" bundle:nil];

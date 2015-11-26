@@ -60,6 +60,7 @@ NSString * const  SendIdPostMovieOrMessage = @"order/?Action=upload";
 NSString * const  SendIdGetPlaydata = @"order/?Action=getFileData";
 NSString * const  SendIdRegistQuestion = @"order/?Action=registQuestion";
 NSString * const  SendIdGetQuizedata = @"order/?Action=getQuestion";
+NSString * const  SendIdGetLocation = @"order/?Action=getLocation";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";
