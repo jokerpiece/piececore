@@ -45,8 +45,14 @@
     // 位置情報サービスが利用できるかどうかをチェック
     if ([CLLocationManager locationServicesEnabled]) {
         locationManager.delegate = self;
-        // 測位開始
-        [locationManager startUpdatingLocation];
+
+        if ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+            // iOS バージョンが 8 以上
+            [self.locationManager requestAlwaysAuthorization];
+        } else {
+            // iOS バージョンが 8 未満
+            [self.locationManager startUpdatingLocation];
+        }
 
         // mapViewのdelegate
         self.mapView.delegate = self;
@@ -111,11 +117,19 @@
     }
 }
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"位置情報利用不可" message:@"位置情報の取得に失敗しました。" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+- (void)locationManager:(CLLocationManager *)manager
+didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     
-    [alert show];
+    if (status == kCLAuthorizationStatusAuthorizedAlways ||
+        status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.locationManager startUpdatingLocation];
+    } else {
+        if ([timer isValid]) {
+            [timer invalidate];
+        }
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"位置情報利用不可" message:@"位置情報サービスから許可を設定して下さい。" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
 }
 
 - (void)loopTimer:(NSTimer*)timer{
@@ -252,7 +266,9 @@
 - (IBAction)locationCurrentBtn:(UIButton *)sender {
     [self.mapView setCenterCoordinate:locationCurrentCoordinate2D animated:NO];
 }
+
 - (IBAction)locationOtherBtn:(UIButton *)sender {
     [self.mapView setCenterCoordinate:locationOtherCoordinate2D animated:NO];
 }
+
 @end
