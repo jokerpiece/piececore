@@ -10,6 +10,7 @@
 
 @interface RappingSelectController : NSObject
 @property (nonatomic) NSString *orderId;
+@property (nonatomic) NSDictionary *params;
 @property (nonatomic) UIViewController *parnentVc;
--(void)presentViewWithOrderId:(NSString *)orderId parnentVc:(UIViewController *)parnentVc;
+-(void)presentViewWithOrderId:(NSDictionary *)params parnentVc:(UIViewController *)parnentVc;
 @end

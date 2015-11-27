@@ -23,7 +23,7 @@
         NSDictionary *params = [Common dictionaryFromQueryString:[url query]];
         
         self.rappingSelectController = [RappingSelectController alloc];
-        [self.rappingSelectController presentViewWithOrderId:params[@"order_id"] parnentVc:self];
+        [self.rappingSelectController presentViewWithOrderId:params parnentVc:self];
     }
 }
 @end

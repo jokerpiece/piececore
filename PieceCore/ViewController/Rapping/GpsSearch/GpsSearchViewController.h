@@ -11,6 +11,7 @@
 
 @interface GpsSearchViewController : BaseViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 @property (nonatomic) NSString *takeOrderId;
+@property (nonatomic) NSString *takeType;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 - (IBAction)closeActionBtn:(UIButton *)sender;

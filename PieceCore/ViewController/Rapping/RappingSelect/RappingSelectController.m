@@ -20,9 +20,10 @@
 
 @implementation RappingSelectController
 
--(void)presentViewWithOrderId:(NSString *)orderId parnentVc:(UIViewController *)parnentVc{
+-(void)presentViewWithOrderId:(NSDictionary *)params parnentVc:(UIViewController *)parnentVc{
     self.parnentVc = parnentVc;
-    self.orderId = orderId;
+    self.params = params;
+    self.orderId = params[@"order_id"];
     [self sendGetPlayData];
 }
 
@@ -114,6 +115,7 @@
             // GPS
             GpsSearchViewController *vc = [[GpsSearchViewController alloc]initWithNibName:@"GpsSearchViewController" bundle:nil];
             vc.takeOrderId = self.orderId;
+            vc.takeType = self.params[@"type"];
             [self.parnentVc presentViewController:vc animated:YES completion:nil];
         } else {
             RappingQuizeViewController *vc = [[RappingQuizeViewController alloc]initWithNibName:@"RappingQuizeViewController" bundle:nil];

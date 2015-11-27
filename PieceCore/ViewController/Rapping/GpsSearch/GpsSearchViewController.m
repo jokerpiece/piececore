@@ -145,7 +145,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     [param setValue:strOrderId forKey:@"order_id"];
     [param setValue:strLatitude forKey:@"lat"];
     [param setValue:strLongitude forKey:@"long"];
-    [param setValue:@"1" forKey:@"type"];
+    [param setValue:self.takeType forKey:@"type"];
     [conecter sendActionSendId:SendIdGetLocation param:param];
 }
 
