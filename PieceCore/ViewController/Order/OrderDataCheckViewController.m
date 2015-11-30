@@ -114,7 +114,7 @@
         if([self.type isEqualToString:@"3"]){
             uy.title = @"message";
         }else{
-            uy.title = @"youtube";
+            uy.title = @"動画アップロード";
         }
         uy.token = self.token;
         uy.type = self.type;
