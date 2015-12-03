@@ -25,6 +25,8 @@
 
     if([self.whereFrom isEqualToString:@"RappingRegist"]){
         self.messageLbl.text = @"問題の登録が完了しました。\nお届けする商品に問題回答用のQRコードを同梱します。";
+    }else if([self.whereFrom isEqualToString:@"message"]){
+        self.messageLbl.text = @"メッセージの登録が完了しました。\nお届けする商品にメッセージ表示用のQRコードを同梱します。";
     }
 }
 

@@ -138,8 +138,8 @@
 }
 
 - (IBAction)finishRegist:(id)sender {
-    if(self.questionNum == 1){
-        [self showAlert:@"お知らせ" message:@"問題が登録されていません。"];
+    if(self.questionNum < 5){
+        [self showAlert:@"お知らせ" message:@"４問まで登録してください。"];
         return;
     }
     NetworkConecter *conecter = [NetworkConecter alloc];
@@ -175,7 +175,11 @@
             self.secondAnswerTxt.text = @"";
             self.thirdAnswerTxt.text = @"";
             self.forthAnswerTxt.text = @"";
-            [self showAlert:@"お知らせ" message:@"登録しました。４問まで登録できます。"];
+            if(self.questionNum <= 4){
+                [self showAlert:@"お知らせ" message:@"登録しました。４問まで登録してください。"];
+            }else{
+                [self showAlert:@"お知らせ" message:@"登録しました。終了ボタンを押してください。"];
+            }
         }
     }else{
         FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
