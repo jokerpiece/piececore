@@ -279,7 +279,9 @@
             [self uploadMovieInfo:recipient.resultset[@"id"]];
         }else if([sendId isEqualToString:SendIdPostMovieOrMessage]){
             FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
-
+            if([Common isNotEmptyString:self.messageTV.text]){
+                fyu.whereFrom = @"message";
+            }
             [self.navigationController pushViewController:fyu animated:YES];
         }
     }

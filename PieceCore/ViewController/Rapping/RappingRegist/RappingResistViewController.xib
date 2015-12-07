@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="68" width="320" height="500"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftf-gC-yEJ">
-                            <rect key="frame" x="13" y="395" width="140" height="48"/>
+                            <rect key="frame" x="13" y="395" width="137" height="47"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="登録">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

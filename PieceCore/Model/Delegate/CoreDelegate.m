@@ -472,7 +472,7 @@
         [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
         return NO;
         
-    } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube] || [[url host]isEqualToString:UrlSchemeHostInputMessage]) {
+    } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube] || [[url host]isEqualToString:UrlSchemeHostInputMessage] || [[url host]isEqualToString:UrlSchemeHostQuestion]) {
 
         //動画アップロード
         OrderDataCheckViewController *vc = [[OrderDataCheckViewController alloc]initWithNibName:@"OrderDataCheckViewController" bundle:nil];
