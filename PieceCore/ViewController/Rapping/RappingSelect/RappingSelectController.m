@@ -80,10 +80,14 @@
 -(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
     if ([recipient.resultset[@"status_code"] isEqualToString:@"00"]) {
         
-        NSString *substrOrderId = [self.orderId substringWithRange:NSMakeRange(0, 6)];
-        NSString *orderId = [NSString stringWithFormat:@"%d",substrOrderId.intValue];
-        
-        
+        NSString *orderId;
+        if (self.orderId.length >= 6){
+            NSString *substrOrderId = [self.orderId substringWithRange:NSMakeRange(0, 6)];
+            orderId = [NSString stringWithFormat:@"%d",substrOrderId.intValue];
+        } else {
+            orderId = self.orderId;
+        }
+
         if ([recipient.resultset[@"type_code"] isEqualToString:@"1"]) {
             //動画
             PlayYoutubeViewController *vc = [[PlayYoutubeViewController alloc]initWithNibName:@"PlayYoutubeViewController" bundle:nil
