@@ -33,8 +33,7 @@
     if ([Common isNotEmptyString:self.questionId]) {
         [param setValue:self.questionId forKey:@"question_id"];
     }
-    //[conecter sendActionSendId:SendIdGetQuizedata param:param];
-    [conecter sendActionUrl:[NSString stringWithFormat:@"http://192.168.77.200/piece_dev/manager/html/xml/%@",SendIdGetQuizedata] param:param];
+    [conecter sendActionSendId:SendIdGetQuizedata param:param];
 }
 
 -(RappingQuizeRecipient *)getDataWithSendId:(NSString *)sendId{
