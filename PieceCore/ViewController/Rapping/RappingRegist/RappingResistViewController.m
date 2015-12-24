@@ -180,12 +180,13 @@
             }else{
                 [self showAlert:@"お知らせ" message:@"登録しました。終了ボタンを押してください。"];
             }
+        }else if([recipient.resultset[@"err_code"] isEqualToString:@"01"]){
+            [self showAlert:@"お知らせ" message:recipient.resultset[@"error_message"]];
         }
     }else{
         FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
         fyu.whereFrom = @"RappingRegist";
         [self.navigationController pushViewController:fyu animated:YES];
-
     }
     
 }
