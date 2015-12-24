@@ -180,46 +180,19 @@
             }else{
                 [self showAlert:@"お知らせ" message:@"登録しました。終了ボタンを押してください。"];
             }
+        }else{
+             [self showAlert:@"エラー" message:recipient.resultset[@"error_message"]];
         }
     }else{
         FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
         fyu.whereFrom = @"RappingRegist";
         [self.navigationController pushViewController:fyu animated:YES];
-
     }
     
 }
--(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
-    return nil;
-}
 
--(void)receiveError:(NSError *)error sendId:(NSString *)sendId{
-    CoreDelegate *delegate = (CoreDelegate *)[[UIApplication sharedApplication] delegate];
-    if (!delegate.isUpdate) {
-        NSString *errMsg;
-        switch (error.code) {
-            case NSURLErrorBadServerResponse:
-                errMsg = @"現在メンテナンス中です。\n大変申し訳ありませんがしばらくお待ち下さい。";
-                break;
-            case NSURLErrorTimedOut:
-                errMsg = @"通信が混み合っています。\nしばらくしてからアクセスして下さい。";
-                break;
-                
-            case kCFURLErrorNotConnectedToInternet:
-                errMsg = @"通信できませんでした。\n電波状態をお確かめ下さい。";
-                break;
-            default:
-                errMsg = [NSString stringWithFormat:@"エラーコード：%ld",(long)error.code];
-                break;
-        }
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"お知らせ"
-                                                        message:errMsg
-                                                       delegate:self
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
-    }
+-(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
+    return [BaseRecipient alloc];
 }
 
 @end

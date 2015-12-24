@@ -39,14 +39,12 @@
 //    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[PlayHologramYoutubeViewController alloc]initWithNibName:@"PlayHologramYoutubeViewController" bundle:nil ] tabTitle:@"play" title:@"play"]];
 //    
     
-    
-    
-    RappingBarcodeViewController *vc = [[RappingBarcodeViewController alloc] initWithNibName:@"RappingBarcodeViewController" bundle:nil];
-    vc.barcodeTitle = @"プレゼントのメッセージがあります。\nQRコードを読み取って下さい。";
-    
-    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:vc
-                                                               tabTitle:@"Barcode"
-                                                                  title:@"Barcode"]];
+//    RappingBarcodeViewController *vc = [[RappingBarcodeViewController alloc] initWithNibName:@"RappingBarcodeViewController" bundle:nil];
+//    vc.barcodeTitle = @"プレゼントのメッセージがあります。\nQRコードを読み取って下さい。";
+//    
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:vc
+//                                                               tabTitle:@"Barcode"
+//                                                                  title:@"Barcode"]];
     
     FlyerViewController *flyerVc = [[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil];
     flyerVc.titleImgName = @"sample_logo.png";
