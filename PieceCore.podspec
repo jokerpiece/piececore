@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     s.source_files = "PieceCore/**/*.{h,m}"
     s.resources = "PieceCore/Resources/**/*.{png, jpg,gif}","PieceCore/**/*.xib"
     s.frameworks = 'IOKit', 'QuartzCore','CoreLocation','MapKit','Social','Accounts'
-    s.dependency 'AFNetworking', '> 2'
+    s.dependency 'AFNetworking', '2.6.3'
     s.dependency 'UIActivityIndicator-for-SDWebImage'
     s.dependency 'UIColor+MLPFlatColors'
     s.dependency 'SVProgressHUD', '~> 1.0'
