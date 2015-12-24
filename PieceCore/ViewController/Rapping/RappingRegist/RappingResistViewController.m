@@ -181,7 +181,7 @@
                 [self showAlert:@"お知らせ" message:@"登録しました。終了ボタンを押してください。"];
             }
         }else{
-            [self showAlert:@"エラー" message:recipient.resultset[@"error_message"]];
+             [self showAlert:@"エラー" message:recipient.resultset[@"error_message"]];
         }
     }else{
         FinishYoutubeUploadViewController *fyu = [[FinishYoutubeUploadViewController alloc]init];
