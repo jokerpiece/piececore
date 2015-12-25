@@ -47,4 +47,4 @@ SPEC CHECKSUMS:
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UIColor+MLPFlatColors: 14deb8f28da06ab8918c14231d4ff49ca7cd384a
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

@@ -486,7 +486,7 @@
         NSDictionary *params = [Common dictionaryFromQueryString:[url query]];
         
         self.rappingSelectController = [RappingSelectController alloc];
-        [self.rappingSelectController presentViewWithOrderId:params[@"order_id"] parnentVc:self.window.rootViewController];
+        [self.rappingSelectController presentViewWithOrderId:params parnentVc:self.window.rootViewController];
         
         
         

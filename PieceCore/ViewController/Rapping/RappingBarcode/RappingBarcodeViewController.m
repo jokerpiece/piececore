@@ -8,6 +8,8 @@
 
 #import "RappingBarcodeViewController.h"
 #import "RappingSelectController.h"
+#import "ModalWebViewViewController.h"
+#import "ModalTextViewController.h"
 
 @interface RappingBarcodeViewController ()
 @property (nonatomic) RappingSelectController *rappingSelectController;
@@ -24,6 +26,17 @@
         
         self.rappingSelectController = [RappingSelectController alloc];
         [self.rappingSelectController presentViewWithOrderId:params parnentVc:self];
+    } else {
+        DLog(@"%@",[url host]);
+        if ([[url scheme] isEqualToString:@"http"] ||
+            [[url scheme] isEqualToString:@"https"]) {
+            ModalWebViewViewController *modalVc = [[ModalWebViewViewController alloc]initWithNibName:@"ModalWebViewViewController" bundle:nil url:url.absoluteString];
+            [self presentViewController:modalVc animated:YES completion:nil];
+        } else {
+            ModalTextViewController *modalVc = [[ModalTextViewController alloc]initWithNibName:@"ModalTextViewController" bundle:nil];
+            modalVc.text = detectionString;
+            [self presentViewController:modalVc animated:YES completion:nil];
+        }
     }
 }
 @end

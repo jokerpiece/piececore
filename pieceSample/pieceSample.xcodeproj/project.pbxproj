@@ -34,6 +34,10 @@
 		370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561921ACE2717002E7F1B /* MapKit.framework */; };
 		370561951ACE2A00002E7F1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561941ACE2A00002E7F1B /* CoreLocation.framework */; };
 		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
+		372653361C2CE28500C4F77C /* ModalWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372653341C2CE28500C4F77C /* ModalWebViewViewController.m */; };
+		372653371C2CE28500C4F77C /* ModalWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 372653351C2CE28500C4F77C /* ModalWebViewViewController.xib */; };
+		3726533B1C2CF72A00C4F77C /* ModalTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372653391C2CF72A00C4F77C /* ModalTextViewController.m */; };
+		3726533C1C2CF72A00C4F77C /* ModalTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3726533A1C2CF72A00C4F77C /* ModalTextViewController.xib */; };
 		37505B341BF2D53B001CEA3B /* PlayYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */; };
 		37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */; };
 		37505B531BF30DA9001CEA3B /* RappingBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B4D1BF30DA9001CEA3B /* RappingBarcodeViewController.m */; };
@@ -278,6 +282,12 @@
 		370561941ACE2A00002E7F1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		371941F71AC549700033FBCA /* TitleNameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNameData.h; sourceTree = "<group>"; };
 		371941F81AC549700033FBCA /* TitleNameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleNameData.m; sourceTree = "<group>"; };
+		372653331C2CE28500C4F77C /* ModalWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalWebViewViewController.h; sourceTree = "<group>"; };
+		372653341C2CE28500C4F77C /* ModalWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalWebViewViewController.m; sourceTree = "<group>"; };
+		372653351C2CE28500C4F77C /* ModalWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalWebViewViewController.xib; sourceTree = "<group>"; };
+		372653381C2CF72A00C4F77C /* ModalTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalTextViewController.h; sourceTree = "<group>"; };
+		372653391C2CF72A00C4F77C /* ModalTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalTextViewController.m; sourceTree = "<group>"; };
+		3726533A1C2CF72A00C4F77C /* ModalTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalTextViewController.xib; sourceTree = "<group>"; };
 		37505B311BF2D53B001CEA3B /* PlayYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayYoutubeViewController.h; sourceTree = "<group>"; };
 		37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayYoutubeViewController.m; sourceTree = "<group>"; };
 		37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayYoutubeViewController.xib; sourceTree = "<group>"; };
@@ -752,6 +762,12 @@
 				37505B4C1BF30DA9001CEA3B /* RappingBarcodeViewController.h */,
 				37505B4D1BF30DA9001CEA3B /* RappingBarcodeViewController.m */,
 				37505B4E1BF30DA9001CEA3B /* RappingBarcodeViewController.xib */,
+				372653331C2CE28500C4F77C /* ModalWebViewViewController.h */,
+				372653341C2CE28500C4F77C /* ModalWebViewViewController.m */,
+				372653351C2CE28500C4F77C /* ModalWebViewViewController.xib */,
+				372653381C2CF72A00C4F77C /* ModalTextViewController.h */,
+				372653391C2CF72A00C4F77C /* ModalTextViewController.m */,
+				3726533A1C2CF72A00C4F77C /* ModalTextViewController.xib */,
 			);
 			path = RappingBarcode;
 			sourceTree = "<group>";
@@ -1574,6 +1590,7 @@
 				37E3EA4F1AA45F6800EA7CB9 /* Frameworks */,
 				37E3EA501AA45F6800EA7CB9 /* Resources */,
 				94900214E9FAA1BA68C10E34 /* Copy Pods Resources */,
+				85B850A9E1FB7603A8843080 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1744,6 +1761,7 @@
 				37E3EB8C1AA45F8C00EA7CB9 /* tab_icon_setting.png in Resources */,
 				37E3EB811AA45F8C00EA7CB9 /* sample_logo.png in Resources */,
 				37E3EB891AA45F8C00EA7CB9 /* tab_icon_map.png in Resources */,
+				3726533C1C2CF72A00C4F77C /* ModalTextViewController.xib in Resources */,
 				376A4EE91BF48800001B9537 /* btn_close@2x.png in Resources */,
 				37E3EB801AA45F8C00EA7CB9 /* work.png in Resources */,
 				1468242A1C07107900F663CE /* treasure2.png in Resources */,
@@ -1752,6 +1770,7 @@
 				37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */,
 				37949A7E1ABAC534002E5194 /* icon_history@2x.png in Resources */,
 				3791297A1AB2CCD6001237C7 /* sns@2x.png in Resources */,
+				372653371C2CE28500C4F77C /* ModalWebViewViewController.xib in Resources */,
 				146824171C06E31500F663CE /* my.png in Resources */,
 				379EB5881BF06F3400DE8DDB /* UploadYoutubeViewController.xib in Resources */,
 				37D758521AB27E6600E6B421 /* Twitter@2x.png in Resources */,
@@ -1770,6 +1789,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		85B850A9E1FB7603A8843080 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		94900214E9FAA1BA68C10E34 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1868,7 +1902,9 @@
 				37E3EB5D1AA45F8C00EA7CB9 /* HistoryItemData.m in Sources */,
 				37E3EB641AA45F8C00EA7CB9 /* TabbarData.m in Sources */,
 				37D16F891BCF4BC600341B88 /* TwitterViewController.m in Sources */,
+				3726533B1C2CF72A00C4F77C /* ModalTextViewController.m in Sources */,
 				37E3EB6A1AA45F8C00EA7CB9 /* CouponRecipient.m in Sources */,
+				372653361C2CE28500C4F77C /* ModalWebViewViewController.m in Sources */,
 				37E3EB701AA45F8C00EA7CB9 /* SpotRecipient.m in Sources */,
 				37949A6A1ABA8D4B002E5194 /* WebViewSettingData.m in Sources */,
 				376A47F31AAFE450002A25D3 /* StampRecipient.m in Sources */,
