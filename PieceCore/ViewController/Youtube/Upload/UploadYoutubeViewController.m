@@ -30,6 +30,7 @@
     if([self.type isEqualToString:@"3"]){
         self.messageView.hidden = NO;
         self.messageView.layer.borderColor = [UIColor blackColor].CGColor;
+        [self.scrView setContentSize:CGSizeMake(0, 568)];
         
     }
     //    [self sendGetYoutubeWithToken];
@@ -47,12 +48,12 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     
-    [self.scrView setContentSize:CGSizeMake(0, self.viewSize.height)];
+    [self.scrView setContentSize:CGSizeMake(0, 568)];
     [self.scrView setContentOffset:CGPointMake(0, 100)];
 }
 
 -(void)textViewShouldEndEditing: (UITextView*)textView{
-    [self.scrView setContentSize:CGSizeMake(0, 0)];
+    [self.scrView setContentSize:CGSizeMake(0, 568)];
 }
 - (IBAction)messageRegistAction:(id)sender {
     if(self.messageTV.text.length == 0){
@@ -139,120 +140,8 @@
     
     
     
-    /*
-     //NSData
-     ALAssetsLibrary *assetLibrary=[[ALAssetsLibrary alloc] init];
-     
-     [assetLibrary assetForURL:self.movieURL resultBlock:^(ALAsset *asset) {
-     if (asset) {
-     DLog(@"ほげほげ");
-     } else {
-     [assetLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-     
-     if (group) {
-     DLog(@"グループ：%@",group);
-     [group setAssetsFilter:[ALAssetsFilter allVideos]];
-     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-     if (result == nil) {
-     DLog(@"result nil");
-     }
-     DLog(@"%@",result.defaultRepresentation.url);
-     if ([result.defaultRepresentation.url isEqual:self.movieURL]){
-     
-     // フォトストリームのALAsset取得成功
-     *stop = YES;
-     ALAssetRepresentation *rep = [result defaultRepresentation];
-     Byte *buffer = (Byte*)malloc(rep.size);
-     NSUInteger buffered = [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];
-     NSData *videoData = [NSData dataWithBytesNoCopy:buffer length:buffered freeWhenDone:YES];
-     
-     
-     NetworkConecter *conecter = [NetworkConecter alloc];
-     conecter.delegate = self;
-     NSMutableDictionary *param = [NSMutableDictionary dictionary];
-     [param setValue:@"1" forKeyPath:@"order_num"];
-     [param setValue:@"6AA5E044-E002-4193-A4DB-BE583C501CC4" forKeyPath:@"uuid"];
-     
-     NSMutableDictionary *headerParam = [NSMutableDictionary dictionary];
-     
-     //https://developers.google.com/youtube/v3/guides/using_resumable_upload_protocol?hl=ja_
-     
-     [headerParam setValue:token forKeyPath:@"authorization"];
-     //[headerParam setValue:token forKeyPath:@"content-length"];
-     [headerParam setValue:@"application/json; charset=UTF-8" forKeyPath:@"content-type"];
-     //[headerParam setValue:token forKeyPath:@"x-upload-content-length"];
-     [headerParam setValue:@"video/*" forKeyPath:@"X-Upload-Content-Type"];
-     [param setObject:@"snippet" forKey:@"part"];
-     
-     
-     [conecter uploadActionUrl:SendIdPostYoutubeMovie headerParam:headerParam
-     param:param fileData:videoData pramName:@"file" fileName:[self.movieURL lastPathComponent] mineTipe:@"video/quicktime"];
-     
-     }
-     }];
-     }
-     
-     } failureBlock:^(NSError *error) {
-     DLog(@"フォトストリームのALAsset取得失敗");
-     }];
-     }
-     ALAssetRepresentation *rep = [asset defaultRepresentation];
-     
-     
-     } failureBlock:^(NSError *err) {
-     DLog(@"エラー%@",err.localizedDescription);
-     }];
-     
-     */
-    
-    
     
 }
-
-//動画情報更新
-//-(void)sendMovieUpdate:(NSString*)moveId{
-//    NetworkConecter *conecter = [NetworkConecter alloc];
-//    conecter.delegate = self;
-//    
-////    [param setObject:@"snippet"forKey:@"part"];
-//    NSMutableDictionary *headerParam = [NSMutableDictionary dictionary];
-//    
-//    //https://developers.google.com/youtube/v3/guides/using_resumable_upload_protocol?hl=ja_
-//    
-//    [headerParam setValue:[NSString stringWithFormat:@"Bearer %@",self.update_token] forKeyPath:@"Authorization"];
-//
-////    NSMutableDictionary *param = [[NSMutableDictionary alloc]initWithDictionary:
-////                                                                            @{@"id":moveId,
-////                                                                              @"snippet":@{@"title":self.movieTitleTf.text,
-////                                                                                           @"categoryId":@"22",
-////                                                                                           @"description":self.movieTv.text},
-////                                                                              @"status":@{@"privacyStatus":@"private",
-////                                                                                            @"embeddable":@"true",
-////                                                                                          @"license":@"youtube",
-////                                                                                          @"publicStasViewable":@"true"}}];
-//    
-//    NSString *param = [NSString stringWithFormat:@"{'id':'%@','snippet':{'title':'%@','categoryId':'22','description':'%@'},'status':{'privacyStatus':'private','embeddable':'true','license':'youtube','publicStasViewable':'true'}}",moveId,self.movieTitleTf.text,self.movieTv.text];
-//
-////    NSData *parameter = [NSJSONSerialization dataWithJSONObject:param options:kNilOptions error:nil];
-//    
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    for (id key in headerParam) { 
-//        NSLog(@"Key:%@ Value:%@", key, [headerParam valueForKey:key]);
-//        [manager.requestSerializer setValue:[headerParam valueForKey:key] forHTTPHeaderField:key];
-//    }
-//
-//    [manager PUT:SendIdPostYoutubeMovieInfo
-//       parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject)
-//     {
-//         [self uploadMovieInfo:moveId];
-//     }
-//          failure:^(AFHTTPRequestOperation *operation, NSError *error)
-//     {
-//         DLog(@"%@",error);
-//         [super receiveError:error sendId:SendIdPostYoutubeMovie];
-//     }];
-//    
-//}
 
 -(void)uploadMovieInfo:(NSString*)movieId{
     NetworkConecter *conecter = [NetworkConecter alloc];
