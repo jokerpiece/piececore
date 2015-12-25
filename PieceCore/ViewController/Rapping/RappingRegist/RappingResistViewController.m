@@ -22,7 +22,7 @@
     
     UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction)];
     [self.view addGestureRecognizer:ges];
-    [self.scrView setContentSize:self.scrView.frame.size];
+    [self.scrView setContentSize:CGSizeMake(self.viewSize.width, 568)];
 }
 
 -(void)tapAction{

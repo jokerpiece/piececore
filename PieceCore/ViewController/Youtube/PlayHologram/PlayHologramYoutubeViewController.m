@@ -27,7 +27,7 @@
     //[self presentViewController:vc animated:YES completion:nil];
 }
 -(void)setPlayViews{
-    float startY = 150;
+    float startY = self.viewSize.width * 0.26;
     float sideSize = self.viewSize.width / 3;
     float insize = sideSize * 0.15;
     
