@@ -38,6 +38,14 @@
 		372653371C2CE28500C4F77C /* ModalWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 372653351C2CE28500C4F77C /* ModalWebViewViewController.xib */; };
 		3726533B1C2CF72A00C4F77C /* ModalTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372653391C2CF72A00C4F77C /* ModalTextViewController.m */; };
 		3726533C1C2CF72A00C4F77C /* ModalTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3726533A1C2CF72A00C4F77C /* ModalTextViewController.xib */; };
+		3726E65E1C4C929F00405ED1 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3726E65C1C4C929F00405ED1 /* ReminderViewController.m */; };
+		3726E65F1C4C929F00405ED1 /* ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3726E65D1C4C929F00405ED1 /* ReminderViewController.xib */; };
+		3726E6621C4C9F9900405ED1 /* check_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 3726E6601C4C9F9900405ED1 /* check_off.png */; };
+		3726E6631C4C9F9900405ED1 /* check_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 3726E6611C4C9F9900405ED1 /* check_on.png */; };
+		3726E6661C4CA7E900405ED1 /* icon_birthday.png in Resources */ = {isa = PBXBuildFile; fileRef = 3726E6641C4CA7E800405ED1 /* icon_birthday.png */; };
+		3726E6671C4CA7E900405ED1 /* icon_birthday@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3726E6651C4CA7E900405ED1 /* icon_birthday@2x.png */; };
+		3726E66A1C4CA96F00405ED1 /* CheckBoxBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 3726E6691C4CA96F00405ED1 /* CheckBoxBtn.m */; };
+		3726E66E1C4CE5CC00405ED1 /* ReminderData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3726E66D1C4CE5CC00405ED1 /* ReminderData.m */; };
 		37505B341BF2D53B001CEA3B /* PlayYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */; };
 		37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */; };
 		37505B531BF30DA9001CEA3B /* RappingBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37505B4D1BF30DA9001CEA3B /* RappingBarcodeViewController.m */; };
@@ -288,6 +296,17 @@
 		372653381C2CF72A00C4F77C /* ModalTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalTextViewController.h; sourceTree = "<group>"; };
 		372653391C2CF72A00C4F77C /* ModalTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalTextViewController.m; sourceTree = "<group>"; };
 		3726533A1C2CF72A00C4F77C /* ModalTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalTextViewController.xib; sourceTree = "<group>"; };
+		3726E65B1C4C929F00405ED1 /* ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderViewController.h; sourceTree = "<group>"; };
+		3726E65C1C4C929F00405ED1 /* ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderViewController.m; sourceTree = "<group>"; };
+		3726E65D1C4C929F00405ED1 /* ReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReminderViewController.xib; sourceTree = "<group>"; };
+		3726E6601C4C9F9900405ED1 /* check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_off.png; sourceTree = "<group>"; };
+		3726E6611C4C9F9900405ED1 /* check_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_on.png; sourceTree = "<group>"; };
+		3726E6641C4CA7E800405ED1 /* icon_birthday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_birthday.png; sourceTree = "<group>"; };
+		3726E6651C4CA7E900405ED1 /* icon_birthday@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_birthday@2x.png"; sourceTree = "<group>"; };
+		3726E6681C4CA96F00405ED1 /* CheckBoxBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBoxBtn.h; sourceTree = "<group>"; };
+		3726E6691C4CA96F00405ED1 /* CheckBoxBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckBoxBtn.m; sourceTree = "<group>"; };
+		3726E66C1C4CE5CC00405ED1 /* ReminderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderData.h; sourceTree = "<group>"; };
+		3726E66D1C4CE5CC00405ED1 /* ReminderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderData.m; sourceTree = "<group>"; };
 		37505B311BF2D53B001CEA3B /* PlayYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayYoutubeViewController.h; sourceTree = "<group>"; };
 		37505B321BF2D53B001CEA3B /* PlayYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayYoutubeViewController.m; sourceTree = "<group>"; };
 		37505B331BF2D53B001CEA3B /* PlayYoutubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayYoutubeViewController.xib; sourceTree = "<group>"; };
@@ -742,6 +761,25 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		3726E65A1C4C925D00405ED1 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				3726E65B1C4C929F00405ED1 /* ReminderViewController.h */,
+				3726E65C1C4C929F00405ED1 /* ReminderViewController.m */,
+				3726E65D1C4C929F00405ED1 /* ReminderViewController.xib */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
+		3726E66B1C4CE5AA00405ED1 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				3726E66C1C4CE5CC00405ED1 /* ReminderData.h */,
+				3726E66D1C4CE5CC00405ED1 /* ReminderData.m */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
 		37505B3C1BF30917001CEA3B /* Rapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -1145,6 +1183,7 @@
 		37E3EAA91AA45F8C00EA7CB9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3726E66B1C4CE5AA00405ED1 /* Reminder */,
 				146824031C06E30300F663CE /* Beacon */,
 				37E3EAAA1AA45F8C00EA7CB9 /* API */,
 				37E3EAC11AA45F8C00EA7CB9 /* Common */,
@@ -1244,6 +1283,8 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3726E6601C4C9F9900405ED1 /* check_off.png */,
+				3726E6611C4C9F9900405ED1 /* check_on.png */,
 				146824071C06E31500F663CE /* Beacon */,
 				1468240D1C06E31500F663CE /* Gps */,
 				376A4EE81BF48800001B9537 /* btn_close@2x.png */,
@@ -1302,6 +1343,8 @@
 		37E3EAE11AA45F8C00EA7CB9 /* tab */ = {
 			isa = PBXGroup;
 			children = (
+				3726E6641C4CA7E800405ED1 /* icon_birthday.png */,
+				3726E6651C4CA7E900405ED1 /* icon_birthday@2x.png */,
 				37668BBC1AC2A96E00D08368 /* tab_icon_profile.png */,
 				37668BBD1AC2A96E00D08368 /* tab_icon_profile@2x.png */,
 				37949A781ABAC534002E5194 /* icon_eye@2x.png */,
@@ -1374,6 +1417,8 @@
 				37D16F8B1BCF4C3200341B88 /* TwitterTableViewCell.h */,
 				37D16F8C1BCF4C3200341B88 /* TwitterTableViewCell.m */,
 				37D16F8D1BCF4C3200341B88 /* TwitterTableViewCell.xib */,
+				3726E6681C4CA96F00405ED1 /* CheckBoxBtn.h */,
+				3726E6691C4CA96F00405ED1 /* CheckBoxBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1381,6 +1426,7 @@
 		37E3EAFB1AA45F8C00EA7CB9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3726E65A1C4C925D00405ED1 /* Reminder */,
 				2F55E8AC1BF3089500525089 /* Order */,
 				37505B3C1BF30917001CEA3B /* Rapping */,
 				379EB5811BF06F3400DE8DDB /* Youtube */,
@@ -1671,11 +1717,13 @@
 				1468242D1C07107900F663CE /* treasure5.png in Resources */,
 				146824181C06E31500F663CE /* other.png in Resources */,
 				37949A7F1ABAC534002E5194 /* icon_stamp@2x.png in Resources */,
+				3726E6661C4CA7E900405ED1 /* icon_birthday.png in Resources */,
 				37E3EB841AA45F8C00EA7CB9 /* tab_icon_barcode.png in Resources */,
 				37949A721ABA9670002E5194 /* nextBtn.png in Resources */,
 				37668BBF1AC2A96E00D08368 /* tab_icon_profile@2x.png in Resources */,
 				37949A911ABBE590002E5194 /* ProfileBirthdayTableViewCell.xib in Resources */,
 				37D758511AB27E6600E6B421 /* FB@2x.png in Resources */,
+				3726E6621C4C9F9900405ED1 /* check_off.png in Resources */,
 				2F55E8B11BF308DD00525089 /* OrderDataCheckViewController.xib in Resources */,
 				378F31821AC533AA0068224A /* news_01.png in Resources */,
 				37E3EB7B1AA45F8C00EA7CB9 /* coin.png in Resources */,
@@ -1729,6 +1777,7 @@
 				37668BBE1AC2A96E00D08368 /* tab_icon_profile.png in Resources */,
 				376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */,
 				37E3EB7E1AA45F8C00EA7CB9 /* sex.png in Resources */,
+				3726E6631C4C9F9900405ED1 /* check_on.png in Resources */,
 				37D16F8A1BCF4BC600341B88 /* TwitterViewController.xib in Resources */,
 				37E3EBA61AA45F8C00EA7CB9 /* FittingViewController.xib in Resources */,
 				37E3EB8A1AA45F8C00EA7CB9 /* tab_icon_more.png in Resources */,
@@ -1750,6 +1799,7 @@
 				376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */,
 				37E3EB851AA45F8C00EA7CB9 /* tab_icon_coupon.png in Resources */,
 				37E3EBA81AA45F8C00EA7CB9 /* FlyerViewController.xib in Resources */,
+				3726E65F1C4C929F00405ED1 /* ReminderViewController.xib in Resources */,
 				376A47B41AADAEE1002A25D3 /* tab_icon_flyer@2x.png in Resources */,
 				37E3EB7D1AA45F8C00EA7CB9 /* man.gif in Resources */,
 				37949A571AB83B84002E5194 /* stamp.png in Resources */,
@@ -1767,6 +1817,7 @@
 				1468242A1C07107900F663CE /* treasure2.png in Resources */,
 				376A4EF11BF9B9F6001B9537 /* RappingQuizeViewController.xib in Resources */,
 				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
+				3726E6671C4CA7E900405ED1 /* icon_birthday@2x.png in Resources */,
 				37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */,
 				37949A7E1ABAC534002E5194 /* icon_history@2x.png in Resources */,
 				3791297A1AB2CCD6001237C7 /* sns@2x.png in Resources */,
@@ -1885,6 +1936,7 @@
 				2FB208C81C05B1A0000C75BB /* RappingResistViewController.m in Sources */,
 				376A4EFC1BFB0869001B9537 /* RappingQuizeFinishViewController.m in Sources */,
 				37E3EB621AA45F8C00EA7CB9 /* KinenbiData.m in Sources */,
+				3726E65E1C4C929F00405ED1 /* ReminderViewController.m in Sources */,
 				37E3EB961AA45F8C00EA7CB9 /* RoundView.m in Sources */,
 				376FDAAC1B99779C00D842F5 /* LinePayData.m in Sources */,
 				37B4E1501AE73BD200A082A3 /* MapViewController.m in Sources */,
@@ -1919,6 +1971,8 @@
 				37E3EB6E1AA45F8C00EA7CB9 /* ItemRecipient.m in Sources */,
 				3791297E1AB2DC45001237C7 /* ThemeData.m in Sources */,
 				376A4EF41BF9CD57001B9537 /* RappingQuizeRecipient.m in Sources */,
+				3726E66E1C4CE5CC00405ED1 /* ReminderData.m in Sources */,
+				3726E66A1C4CA96F00405ED1 /* CheckBoxBtn.m in Sources */,
 				37E3EB5E1AA45F8C00EA7CB9 /* HistoryOrderData.m in Sources */,
 				37E3EBC51AA45F8C00EA7CB9 /* StampViewController.m in Sources */,
 				37E3EB6F1AA45F8C00EA7CB9 /* NewsRecipient.m in Sources */,

@@ -15,6 +15,7 @@
 #import "BarcodeReaderViewController.h"
 #import "ProfileViewController.h"
 #import "HistoryViewController.h"
+#import "ReminderViewController.h"
 
 @implementation TabbarData
 -(id)initWithViewController:(BaseViewController *)viewController
@@ -78,6 +79,10 @@
         } else if ([viewController isKindOfClass:[HistoryViewController class]]) {
             self.selectImgName = @"icon_history.png";
             self.imgName = @"icon_history.png";
+            
+        }  else if ([viewController isKindOfClass:[ReminderViewController class]]) {
+            self.selectImgName = @"icon_birthday.png";
+            self.imgName = @"icon_birthday.png";
             
         }
         self.tabTitle = tabTitle;
