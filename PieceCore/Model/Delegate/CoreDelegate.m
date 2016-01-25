@@ -474,6 +474,11 @@
         
     } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube] || [[url host]isEqualToString:UrlSchemeHostInputMessage] || [[url host]isEqualToString:UrlSchemeHostQuestion]) {
 
+        
+        UITabBarController *tabController = (UITabBarController *)self.window.rootViewController;
+        UINavigationController* nc = [tabController.viewControllers objectAtIndex:tabController.selectedIndex];
+        [nc popToRootViewControllerAnimated:YES];
+        
         //動画アップロード
         OrderDataCheckViewController *vc = [[OrderDataCheckViewController alloc]initWithNibName:@"OrderDataCheckViewController" bundle:nil];
         NSDictionary *params = [Common dictionaryFromQueryString:[url query]];

@@ -256,7 +256,8 @@
         //        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.link_url];
         //        [self.navigationController pushViewController:itemVc animated:YES];
         if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url ]]) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url ]];
+            WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:url];
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             // エラー処理
             

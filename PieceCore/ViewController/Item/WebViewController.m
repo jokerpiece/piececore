@@ -15,6 +15,10 @@
 
 @implementation WebViewController
 
+typedef enum {
+    loadStop = 0,
+    Reload
+} alertBtn;
 
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"WebViewController" owner:self options:nil];
@@ -54,6 +58,14 @@
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
     
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapped:)];
+//    tap.numberOfTapsRequired = 1;
+//    tap.delegate = self;
+//    [self.webView addGestureRecognizer:tap];
+    
+//    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapped:)];
+//    [self.webView addGestureRecognizer:recognizer];
+    
     [self setBlowserBtn];
     
     if ([Common isNotEmptyString:self.setting.url]) {
@@ -61,6 +73,20 @@
         [self.webView loadRequest:req];
     }
     [self addCookies];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
+}
+- (void)onTapped:(UITapGestureRecognizer *)recognizer {
+    
+    self.alertBtn = Reload;
+    if (self.isCancel) {
+        [[[UIAlertView alloc] initWithTitle:@"読み込みが途中で中止しました。"
+                                    message:@"再読み込みしますか？"
+                                   delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"OK", nil] show];
+    }
 }
 
 -(void)viewWillAppearLogic{
@@ -71,13 +97,9 @@
             [self.webView loadRequest:req];
         }
     }
-    if (self.isCancel) {
-        [[[UIAlertView alloc] initWithTitle:@"読み込みが途中で中止しました。"
-                                    message:@"再読み込みしますか？"
-                                   delegate:self
-                          cancelButtonTitle:@"Cancel"
-                          otherButtonTitles:@"OK", nil] show];
-    }
+    
+    
+    
 }
 
 //スクロールビューをドラッグし始めた際に一度実行される
@@ -112,8 +134,15 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
-        self.isCancel = NO;
-        [self.webView reload];
+        if (self.alertBtn == Reload) {
+            self.isCancel = NO;
+            [self.webView reload];
+        } else {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
+            [SVProgressHUD dismiss];
+            [self.webView stopLoading];
+            self.isCancel = YES;
+        }
     }
 }
 
@@ -166,35 +195,51 @@
 // ページ読込開始直後に呼ばれるデリゲートメソッド
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    self.loadCount ++;
-    if (self.setting.maskType != 0) {
+
+    if (self.setting.maskType != 0 && self.loadCount == 0) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hudTapped:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
         [SVProgressHUD showWithMaskType:self.setting.maskType];
     }
+    self.loadCount ++;
     
 }
 - (void)hudTapped:(NSNotification *)notification
 {
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
-    [SVProgressHUD dismiss];
-    [self.webView stopLoading];
-    self.isCancel = YES;
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"お知らせ"
-                                                    message:@"読み込みを中止しました"
-                                                   delegate:nil
-                                          cancelButtonTitle:nil
-                                          otherButtonTitles:@"OK", nil];
-    [alert show];
+
+    if (self.loadCount <= 0) {
+        return;
+    }
+    
+    
+    if (self.isCancel) {
+        self.alertBtn = Reload;
+        [[[UIAlertView alloc] initWithTitle:@"読み込みが途中で中止しました。"
+                                    message:@"再読み込みしますか？"
+                                   delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"OK", nil] show];
+    } else {
+        self.alertBtn = loadStop;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
+                                                        message:@"読み込みを中止しますか？"
+                                                       delegate:self
+                                              cancelButtonTitle:@"いいえ"
+                                              otherButtonTitles:@"はい", nil];
+        [alert show];
+
+    }
+    
 }
 
 // ページ読込終了直後に呼ばれるデリゲートメソッド
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    
+
     self.loadCount --;
     if (self.setting.maskType != 0 && self.loadCount <= 0) {
         [SVProgressHUD dismiss];
+        [NSNotificationCenter.defaultCenter removeObserver:self];
     }
     
     //    if (self.sosialSetting == nil) {
@@ -287,12 +332,20 @@
     [cookieStorage setCookie:cookie];
 }
 
-- (void)dealloc {
-    
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     [self.webView setDelegate:nil];
     [self.webView stopLoading];
     [self.webView.layer removeAllAnimations];
     [self.webView removeFromSuperview];
     [NSNotificationCenter.defaultCenter removeObserver:self];
 }
+//- (void)dealloc {
+//    
+//    [self.webView setDelegate:nil];
+//    [self.webView stopLoading];
+//    [self.webView.layer removeAllAnimations];
+//    [self.webView removeFromSuperview];
+//    [NSNotificationCenter.defaultCenter removeObserver:self];
+//}
 @end

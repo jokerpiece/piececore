@@ -22,6 +22,7 @@
 
 - (void)viewDidLoadLogic
 {
+    [self setCartBtn];
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].itemListTitle;
     }
@@ -34,6 +35,33 @@
     //[self setSearchBar];
     [self setHeaderImg];
 }
+
+
+-(void)setCartBtn{
+    
+    if ([Common isNotEmptyString:[PieceCoreConfig cartUrl]]) {
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:@"cart.png"] forState:UIControlStateNormal];
+        [button sizeToFit];
+        [button addTarget:self action:@selector(cartTapp:) forControlEvents:UIControlEventTouchUpInside];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    }
+    
+}
+
+- (void)cartTapp:(UITapGestureRecognizer *)sender
+{
+    
+    if ([Common isNotEmptyString:[PieceCoreConfig cartUrl]]) {
+        
+        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:[PieceCoreConfig cartUrl]];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+}
+
 -(void)viewWillAppearLogic{
     self.itemRecipient.list = [NSMutableArray array];
     if (self.searchType == category) {

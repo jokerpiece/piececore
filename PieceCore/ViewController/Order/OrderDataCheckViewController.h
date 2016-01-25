@@ -18,4 +18,5 @@
 @property (nonatomic) NSString *token;
 @property (nonatomic) NSString *order_num;
 @property (nonatomic) NSString *order_id;
+- (IBAction)onCancel:(id)sender;
 @end

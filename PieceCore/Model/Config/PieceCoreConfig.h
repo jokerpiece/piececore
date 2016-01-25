@@ -93,4 +93,7 @@ extern NSString * const UrlSchemeHostShowMessage;
 
 + (void)setCookieDomainName:(NSString *)cookieDomainName;
 + (NSString *)cookieDomainName;
+
++ (void)setCartUrl:(NSString *)cartUrl;
++ (NSString *)cartUrl;
 @end

@@ -23,6 +23,7 @@ static NSString *_nex8Key = @"";
 static bool _linePay = NO;
 static NSString *_linePayConfirmUrl = @"";
 static NSString *_cookieDomainName = @"";
+static NSString *_cartUrl = @"";
 
 //NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
@@ -179,6 +180,13 @@ const float TabbarHight = 49;
 }
 + (NSString *)cookieDomainName{
     return _cookieDomainName;
+}
+
++ (void)setCartUrl:(NSString *)cartUrl{
+    _cartUrl = cartUrl;
+}
++ (NSString *)cartUrl{
+    return _cartUrl;
 }
 
 @end

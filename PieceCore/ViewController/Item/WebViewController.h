@@ -11,7 +11,7 @@
 #import "WebViewSettingData.h"
 #import "SVProgressHUD.h"
 
-@interface WebViewController : BaseViewController<UIWebViewDelegate,UIScrollViewDelegate>
+@interface WebViewController : BaseViewController<UIWebViewDelegate,UIScrollViewDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic) WebViewSettingData *setting;
 @property (nonatomic) float browserPositionY;
 @property (nonatomic) UIButton *backBtn;
@@ -19,6 +19,7 @@
 @property (nonatomic) bool isCancel;
 @property (nonatomic) int loadCount;
 @property (nonatomic) float beginScrollOffsetY;
+@property (nonatomic) int alertBtn;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle webSetting:(WebViewSettingData *)setting;

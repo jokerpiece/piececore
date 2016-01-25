@@ -18,4 +18,5 @@
 @property (strong, nonatomic) CategoryData *selectCategory;
 @property (nonatomic) float cellHeight;
 @property (nonatomic) bool isStaticPage;
+-(void)setCartBtn;
 @end

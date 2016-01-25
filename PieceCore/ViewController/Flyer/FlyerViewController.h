@@ -32,4 +32,5 @@
 - (void)view_Tapped:(UITapGestureRecognizer *)sender;
 
 -(void)createSlider;
+-(void)setCartBtn;
 @end

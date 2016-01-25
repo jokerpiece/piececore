@@ -15,18 +15,20 @@
 #import "UploadYoutubeViewController.h"
 #import "PlayHologramYoutubeViewController.h"
 #import "RappingBarcodeViewController.h"
+#import "ReminderViewController.h"
 
 
 @implementation AppDelegate
 
 
 -(void)setConfig{
-    [PieceCoreConfig setShopId:@"kodomogokoro"];
+    [PieceCoreConfig setShopId:@"pieceSample"];
     [PieceCoreConfig setAppKey:@""];
     [PieceCoreConfig setAppId:@""];
-    [PieceCoreConfig setLinePay:YES];
+    //[PieceCoreConfig setLinePay:YES];
     [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
-    [PieceCoreConfig setCookieDomainName:@"t.otonagokoro.com"];
+    [PieceCoreConfig setCookieDomainName:@"otonagokoro.com"];
+    [PieceCoreConfig setCartUrl:@"https://otonagokoro.com/cart/"];
 }
 
 //UITabBarController初期化
@@ -67,6 +69,10 @@
                                [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[ReminderViewController alloc] initWithNibName:@"ReminderViewController" bundle:nil]
+                                                               tabTitle:@"Reminder"
+                                                                  title:@"REMINDER"]];
     
     TwitterViewController *twitterVc =[[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
     twitterVc.userAcount = @"@SplatoonJP";
