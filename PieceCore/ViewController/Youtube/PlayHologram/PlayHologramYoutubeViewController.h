@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
 @property (weak, nonatomic) IBOutlet UISlider *seekBar;
 - (IBAction)closeAction:(id)sender;
+- (IBAction)downloadAction:(id)sender;
 
 @end

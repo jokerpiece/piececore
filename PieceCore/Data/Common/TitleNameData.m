@@ -28,6 +28,7 @@
         self.historyTitle = @"DELIVERLIST";
         self.sosialTitle = @"SOSIAL";
         self.twitterTitle = @"TWITTER";
+        self.movieListTitle = @"MOVIELIST";
     }
     return self;
 }
@@ -50,6 +51,7 @@
         self.historyTitle = @"配送状況";
         self.sosialTitle = @"SNS連携";
         self.twitterTitle = @"Twtter";
+        self.movieListTitle = @"動画リスト";
     }
     return self;
 }

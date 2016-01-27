@@ -24,6 +24,7 @@
 @property (nonatomic) NSString *barcodeTitle;
 @property (nonatomic) NSString *sosialTitle;
 @property (nonatomic) NSString *twitterTitle;
+@property (nonatomic) NSString *movieListTitle;
 - (id)initForEnglishDefault;
 - (id)initForJapanaseDefault;
 @end

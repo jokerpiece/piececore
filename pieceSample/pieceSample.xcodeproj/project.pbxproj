@@ -34,6 +34,8 @@
 		370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561921ACE2717002E7F1B /* MapKit.framework */; };
 		370561951ACE2A00002E7F1B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561941ACE2A00002E7F1B /* CoreLocation.framework */; };
 		371941F91AC549700033FBCA /* TitleNameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 371941F81AC549700033FBCA /* TitleNameData.m */; };
+		372345261C577CC6007C3452 /* MovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372345241C577CC6007C3452 /* MovieListViewController.m */; };
+		372345271C577CC6007C3452 /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 372345251C577CC6007C3452 /* MovieListViewController.xib */; };
 		372653361C2CE28500C4F77C /* ModalWebViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372653341C2CE28500C4F77C /* ModalWebViewViewController.m */; };
 		372653371C2CE28500C4F77C /* ModalWebViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 372653351C2CE28500C4F77C /* ModalWebViewViewController.xib */; };
 		3726533B1C2CF72A00C4F77C /* ModalTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 372653391C2CF72A00C4F77C /* ModalTextViewController.m */; };
@@ -83,6 +85,10 @@
 		376FDAB11B99780800D842F5 /* linepayReservSquareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376FDAAF1B99780800D842F5 /* linepayReservSquareViewController.xib */; };
 		376FDAB51B99791800D842F5 /* linepay_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 376FDAB31B99791800D842F5 /* linepay_ViewController.m */; };
 		376FDAB61B99791800D842F5 /* linepay_ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 376FDAB41B99791800D842F5 /* linepay_ViewController.xib */; };
+		377F40E51C578AD500C7D2C0 /* movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40E41C578AD500C7D2C0 /* movie.png */; };
+		377F40E71C578D5F00C7D2C0 /* 3dmovie.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40E61C578D5F00C7D2C0 /* 3dmovie.png */; };
+		377F40E91C5855F800C7D2C0 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40E81C5855F800C7D2C0 /* download.png */; };
+		377F40EB1C58568200C7D2C0 /* download_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40EA1C58568200C7D2C0 /* download_white.png */; };
 		378F31821AC533AA0068224A /* news_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F317F1AC533AA0068224A /* news_01.png */; };
 		378F31831AC533AA0068224A /* news_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F31801AC533AA0068224A /* news_02.png */; };
 		378F31841AC533AA0068224A /* news_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F31811AC533AA0068224A /* news_03.png */; };
@@ -291,6 +297,9 @@
 		370561941ACE2A00002E7F1B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		371941F71AC549700033FBCA /* TitleNameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNameData.h; sourceTree = "<group>"; };
 		371941F81AC549700033FBCA /* TitleNameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleNameData.m; sourceTree = "<group>"; };
+		372345231C577CC6007C3452 /* MovieListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieListViewController.h; sourceTree = "<group>"; };
+		372345241C577CC6007C3452 /* MovieListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieListViewController.m; sourceTree = "<group>"; };
+		372345251C577CC6007C3452 /* MovieListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
 		372653331C2CE28500C4F77C /* ModalWebViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalWebViewViewController.h; sourceTree = "<group>"; };
 		372653341C2CE28500C4F77C /* ModalWebViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalWebViewViewController.m; sourceTree = "<group>"; };
 		372653351C2CE28500C4F77C /* ModalWebViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalWebViewViewController.xib; sourceTree = "<group>"; };
@@ -360,6 +369,10 @@
 		376FDAB21B99791800D842F5 /* linepay_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = linepay_ViewController.h; path = ../PieceCore/ViewController/LinePay/linepay_ViewController.h; sourceTree = "<group>"; };
 		376FDAB31B99791800D842F5 /* linepay_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = linepay_ViewController.m; path = ../PieceCore/ViewController/LinePay/linepay_ViewController.m; sourceTree = "<group>"; };
 		376FDAB41B99791800D842F5 /* linepay_ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = linepay_ViewController.xib; path = ../PieceCore/ViewController/LinePay/linepay_ViewController.xib; sourceTree = "<group>"; };
+		377F40E41C578AD500C7D2C0 /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie.png; sourceTree = "<group>"; };
+		377F40E61C578D5F00C7D2C0 /* 3dmovie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dmovie.png; sourceTree = "<group>"; };
+		377F40E81C5855F800C7D2C0 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
+		377F40EA1C58568200C7D2C0 /* download_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download_white.png; sourceTree = "<group>"; };
 		378F317F1AC533AA0068224A /* news_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_01.png; sourceTree = "<group>"; };
 		378F31801AC533AA0068224A /* news_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_02.png; sourceTree = "<group>"; };
 		378F31811AC533AA0068224A /* news_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_03.png; sourceTree = "<group>"; };
@@ -763,6 +776,16 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		372345221C577CC6007C3452 /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				372345231C577CC6007C3452 /* MovieListViewController.h */,
+				372345241C577CC6007C3452 /* MovieListViewController.m */,
+				372345251C577CC6007C3452 /* MovieListViewController.xib */,
+			);
+			path = MovieList;
+			sourceTree = "<group>";
+		};
 		3726E65A1C4C925D00405ED1 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
@@ -903,6 +926,7 @@
 		379EB5811BF06F3400DE8DDB /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
+				372345221C577CC6007C3452 /* MovieList */,
 				2F55E8C01BF3283400525089 /* Finish */,
 				379EB5911BF1D28100DE8DDB /* PlayHologram */,
 				379EB5821BF06F3400DE8DDB /* Play */,
@@ -1285,6 +1309,10 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				377F40EA1C58568200C7D2C0 /* download_white.png */,
+				377F40E81C5855F800C7D2C0 /* download.png */,
+				377F40E61C578D5F00C7D2C0 /* 3dmovie.png */,
+				377F40E41C578AD500C7D2C0 /* movie.png */,
 				37566E421C56105D001EA816 /* cart@2x.png */,
 				3726E6601C4C9F9900405ED1 /* check_off.png */,
 				3726E6611C4C9F9900405ED1 /* check_on.png */,
@@ -1756,18 +1784,22 @@
 				37E3EB981AA45F8C00EA7CB9 /* BarcodeReaderViewController.xib in Resources */,
 				37D16FA11BCF86A700341B88 /* LinepaySelectAddressViewController.xib in Resources */,
 				37949A731ABA9670002E5194 /* nextBtn@2x.png in Resources */,
+				377F40E71C578D5F00C7D2C0 /* 3dmovie.png in Resources */,
 				37E3EB901AA45F8C00EA7CB9 /* wait.jpg in Resources */,
 				146824001C06E2EE00F663CE /* BeaconSearchViewController.xib in Resources */,
 				378F31841AC533AA0068224A /* news_03.png in Resources */,
 				37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */,
 				2F55E8B61BF30A2300525089 /* OrderDataFailedViewController.xib in Resources */,
+				372345271C577CC6007C3452 /* MovieListViewController.xib in Resources */,
 				37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */,
 				376FDAB61B99791800D842F5 /* linepay_ViewController.xib in Resources */,
 				37E3EB911AA45F8C00EA7CB9 /* wait@2x.jpg in Resources */,
+				377F40EB1C58568200C7D2C0 /* download_white.png in Resources */,
 				37949A4E1AB6C497002E5194 /* HistoryTableViewCell.xib in Resources */,
 				376A47AD1AADAEC3002A25D3 /* coupon_search@2x.png in Resources */,
 				37E3EBB01AA45F8C00EA7CB9 /* NewsViewController.xib in Resources */,
 				1468242B1C07107900F663CE /* treasure3.png in Resources */,
+				377F40E51C578AD500C7D2C0 /* movie.png in Resources */,
 				376A47EC1AAFD6E3002A25D3 /* stampbase@2x.png in Resources */,
 				37949A701ABA9670002E5194 /* backBtn.png in Resources */,
 				146824161C06E31500F663CE /* footprints.png in Resources */,
@@ -1795,6 +1827,7 @@
 				37E3EB8F1AA45F8C00EA7CB9 /* tab_icon_stamp.png in Resources */,
 				376A4EFD1BFB0869001B9537 /* RappingQuizeFinishViewController.xib in Resources */,
 				37D16F8F1BCF4C3200341B88 /* TwitterTableViewCell.xib in Resources */,
+				377F40E91C5855F800C7D2C0 /* download.png in Resources */,
 				37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */,
 				146824021C06E2EE00F663CE /* GpsSearchViewController.xib in Resources */,
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
@@ -1993,6 +2026,7 @@
 				37E3EA581AA45F6800EA7CB9 /* main.m in Sources */,
 				37EA5E2A1BBE2F9D0003A0E7 /* LinepayProfileViewController.m in Sources */,
 				37E3EB611AA45F8C00EA7CB9 /* SpotData.m in Sources */,
+				372345261C577CC6007C3452 /* MovieListViewController.m in Sources */,
 				10EF4FC31B58D317009066C2 /* LinepayRecipient.m in Sources */,
 				37E3EB731AA45F8C00EA7CB9 /* PieceCoreConfig.m in Sources */,
 				146823FF1C06E2EE00F663CE /* BeaconSearchViewController.m in Sources */,

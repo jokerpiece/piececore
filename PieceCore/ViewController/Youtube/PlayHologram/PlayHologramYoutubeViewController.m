@@ -10,8 +10,9 @@
 #import "HCYoutubeParser.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface PlayHologramYoutubeViewController ()
 
+@interface PlayHologramYoutubeViewController ()
+@property (nonatomic) NSURL *url;
 @end
 
 @implementation PlayHologramYoutubeViewController
@@ -26,7 +27,102 @@
     
     //[self presentViewController:vc animated:YES completion:nil];
 }
+
+-(void)getMovieURLWithUrl:(NSURL *)url{
+    NSFileManager *fileMgr=[NSFileManager defaultManager];
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    if (!documentsDirectory) {
+        DLog(@"Documents directory not found!");
+    }
+    NSString *appFile = [self getAppFile];
+    
+    
+    if ([fileMgr fileExistsAtPath:appFile]) {   // ローカルに動画が存在する時
+        self.url = [NSURL fileURLWithPath:appFile];
+        
+       
+    }else{
+        
+        self.url = url;
+    }
+}
+-(NSString *)getAppFile{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    if (!documentsDirectory) {
+        DLog(@"Documents directory not found!");
+    }
+    return [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp4",self.youtubeId]];
+}
+
+-(void)saveMovie
+{
+    
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"]];
+    [format setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
+    NSString *StTime = [format stringFromDate:[NSDate date]];
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    
+    
+    NSData *moveListData = [[NSUserDefaults standardUserDefaults] objectForKey:@"MOVE_LIST"];
+    NSMutableArray *movieList;
+    if (moveListData) {
+        movieList = [NSKeyedUnarchiver unarchiveObjectWithData:moveListData];
+    }
+    
+    if (movieList.count == 0) {
+        movieList = [NSMutableArray array];
+    }
+    
+    for (NSMutableDictionary *dc in movieList) {
+        if ([[dc valueForKey:@"YOUTUBEID"]isEqualToString:self.youtubeId]) {
+            [self showAlert:@"確認" message:@"すでにダウンロードされている動画です。"];
+            return;
+        }
+    }
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (self.url) {
+            NSData *imageData;
+            imageData = [NSData dataWithContentsOfURL:self.url];
+            [imageData writeToFile:[self getAppFile] atomically:YES];
+            
+            NSMutableDictionary* movieDic = [NSMutableDictionary dictionary];
+            [movieDic setObject:self.youtubeId forKey:@"YOUTUBEID"];
+            [movieDic setValue:StTime forKey:@"DATE"];
+            [movieDic setValue:@"2" forKey:@"TYPE"];
+            
+            [movieList addObject:movieDic];
+            
+            
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:movieList];
+            [ud setObject:data forKey:@"MOVE_LIST"];
+            
+            [ud synchronize];
+            UIAlertView *alert =
+            [[UIAlertView alloc]
+             initWithTitle:@"確認"
+             message:@"ダウンロードが完了しました。"
+             delegate:nil
+             cancelButtonTitle:nil
+             otherButtonTitles:@"はい", nil
+             ];
+            [alert show];
+        }
+        
+    });
+    
+}
+
 -(void)setPlayViews{
+    
     float startY = self.viewSize.width * 0.26;
     float sideSize = self.viewSize.width / 3;
     float insize = sideSize * 0.15;
@@ -34,6 +130,7 @@
     NSDictionary *dict = [HCYoutubeParser h264videosWithYoutubeID:self.youtubeId];
     NSURL *url = [NSURL URLWithString:dict[@"small"]];
     
+    [self getMovieURLWithUrl:url];
     //上
     self.playView1 = [[PlayHologramView alloc]initWithFrame:CGRectMake(sideSize, startY + insize, sideSize, sideSize)];
     
@@ -54,7 +151,7 @@
     self.playView4 = [[PlayHologramView alloc]initWithFrame:CGRectMake(sideSize, startY + sideSize *2 -insize, sideSize, sideSize)];
     self.playView4.transform = CGAffineTransformMakeRotation(angle3);
     
-    self.player = [[AVPlayer alloc]initWithURL:url];
+    self.player = [[AVPlayer alloc]initWithURL:self.url];
     
     
     
@@ -79,7 +176,7 @@
                                                object:self.player];
     
     
-    [self setupSeekBar];
+   [self setupSeekBar];
 }
 -(void)observeValueForKeyPath:(NSString *)keyPath
                      ofObject:(id)object
@@ -119,7 +216,9 @@
 - (void)setupSeekBar
 {
     self.seekBar.minimumValue = 0;
-    self.seekBar.maximumValue = CMTimeGetSeconds( self.player.currentItem.asset.duration );
+    float maxValue = CMTimeGetSeconds( self.player.currentItem.asset.duration );
+    
+    self.seekBar.maximumValue = maxValue;
     self.seekBar.value        = 0;
     [self.seekBar addTarget:self action:@selector(seekBarValueChanged:) forControlEvents:UIControlEventValueChanged];
     
@@ -168,4 +267,35 @@
         ;
     }];
 }
+
+- (IBAction)downloadAction:(id)sender {
+    UIAlertView *alert =
+    [[UIAlertView alloc]
+     initWithTitle:@"確認"
+     message:@"ダウンロードには時間がかかる場合があります。\nダウンロードをしますか？"
+     delegate:self
+     cancelButtonTitle:@"いいえ"
+     otherButtonTitles:@"はい", nil
+     ];
+    [alert show];
+    alert.tag = 1;
+}
+
+-(void)alertView:(UIAlertView*)alertView
+clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    switch (buttonIndex) {
+        case 0:
+            
+            break;
+        case 1:
+            if (alertView.tag == 1) {
+                [self saveMovie];
+            }
+            break;
+    }
+    
+}
+
 @end
