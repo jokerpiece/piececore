@@ -16,6 +16,7 @@
 #import "PlayHologramYoutubeViewController.h"
 #import "RappingBarcodeViewController.h"
 #import "ReminderViewController.h"
+#import "MovieListViewController.h"
 
 
 @implementation AppDelegate
@@ -70,7 +71,7 @@
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[ReminderViewController alloc] initWithNibName:@"ReminderViewController" bundle:nil]
+                               [[MovieListViewController alloc] initWithNibName:@"MovieListViewController" bundle:nil]
                                                                tabTitle:@"Reminder"
                                                                   title:@"REMINDER"]];
     
