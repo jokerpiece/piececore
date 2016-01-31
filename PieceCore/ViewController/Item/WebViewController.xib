@@ -3,10 +3,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController">
             <connections>
+                <outlet property="backBtn" destination="2yM-QK-2eO" id="hKM-sY-Z3X"/>
+                <outlet property="closeBtn" destination="jGt-QP-bIf" id="pYr-NY-k16"/>
+                <outlet property="navigation" destination="Scl-1i-Uxs" id="HAE-zm-BfG"/>
+                <outlet property="nextBtn" destination="Zwo-Vz-c0T" id="AU6-dj-9Ku"/>
+                <outlet property="reloadBtn" destination="vVZ-oB-0Gu" id="q4N-Zz-3ar"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kSO-jC-WHX"/>
                 <outlet property="webView" destination="8Cn-d1-U5n" id="bYW-2M-NYz"/>
             </connections>
@@ -20,16 +26,41 @@
                     <rect key="frame" x="0.0" y="16" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Title" id="Scl-1i-Uxs"/>
+                        <navigationItem title="Title" id="Scl-1i-Uxs">
+                            <leftBarButtonItems>
+                                <barButtonItem image="btn_close.png" id="jGt-QP-bIf">
+                                    <connections>
+                                        <action selector="closeAction:" destination="-1" id="E1k-l4-bff"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem image="btn_back.png" id="2yM-QK-2eO">
+                                    <connections>
+                                        <action selector="backAction:" destination="-1" id="gEr-OF-yLu"/>
+                                    </connections>
+                                </barButtonItem>
+                            </leftBarButtonItems>
+                            <rightBarButtonItems>
+                                <barButtonItem image="btn_reload.png" id="vVZ-oB-0Gu">
+                                    <connections>
+                                        <action selector="reloadAction:" destination="-1" id="h7k-O1-MuE"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem image="btn_next.png" id="Zwo-Vz-c0T">
+                                    <connections>
+                                        <action selector="nextAction:" destination="-1" id="pfE-Je-MBs"/>
+                                    </connections>
+                                </barButtonItem>
+                            </rightBarButtonItems>
+                        </navigationItem>
                     </items>
                 </navigationBar>
                 <webView clipsSubviews="YES" contentMode="scaleToFill" id="8Cn-d1-U5n">
-                    <rect key="frame" x="0.0" y="60" width="375" height="566"/>
+                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xwi-w9-BnM">
-                    <rect key="frame" x="164.000006028466" y="368.00000188499689" width="46" height="46"/>
+                    <rect key="frame" x="164.00000093035123" y="368.00000492193624" width="46" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                     <state key="normal" backgroundImage="sns.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,6 +73,10 @@
         </view>
     </objects>
     <resources>
+        <image name="btn_back.png" width="19" height="21"/>
+        <image name="btn_close.png" width="21" height="20"/>
+        <image name="btn_next.png" width="19" height="21"/>
+        <image name="btn_reload.png" width="22" height="22"/>
         <image name="sns.png" width="75" height="75"/>
     </resources>
 </document>

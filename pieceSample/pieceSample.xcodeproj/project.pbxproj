@@ -89,6 +89,9 @@
 		377F40E71C578D5F00C7D2C0 /* 3dmovie.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40E61C578D5F00C7D2C0 /* 3dmovie.png */; };
 		377F40E91C5855F800C7D2C0 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40E81C5855F800C7D2C0 /* download.png */; };
 		377F40EB1C58568200C7D2C0 /* download_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40EA1C58568200C7D2C0 /* download_white.png */; };
+		377F40F31C5C7FA700C7D2C0 /* btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40F21C5C7FA700C7D2C0 /* btn_back@2x.png */; };
+		377F40F51C5C7FAF00C7D2C0 /* btn_next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40F41C5C7FAF00C7D2C0 /* btn_next@2x.png */; };
+		377F40F71C5C80D600C7D2C0 /* btn_reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 377F40F61C5C80D600C7D2C0 /* btn_reload@2x.png */; };
 		378F31821AC533AA0068224A /* news_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F317F1AC533AA0068224A /* news_01.png */; };
 		378F31831AC533AA0068224A /* news_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F31801AC533AA0068224A /* news_02.png */; };
 		378F31841AC533AA0068224A /* news_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 378F31811AC533AA0068224A /* news_03.png */; };
@@ -373,6 +376,9 @@
 		377F40E61C578D5F00C7D2C0 /* 3dmovie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dmovie.png; sourceTree = "<group>"; };
 		377F40E81C5855F800C7D2C0 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		377F40EA1C58568200C7D2C0 /* download_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download_white.png; sourceTree = "<group>"; };
+		377F40F21C5C7FA700C7D2C0 /* btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_back@2x.png"; sourceTree = "<group>"; };
+		377F40F41C5C7FAF00C7D2C0 /* btn_next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_next@2x.png"; sourceTree = "<group>"; };
+		377F40F61C5C80D600C7D2C0 /* btn_reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_reload@2x.png"; sourceTree = "<group>"; };
 		378F317F1AC533AA0068224A /* news_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_01.png; sourceTree = "<group>"; };
 		378F31801AC533AA0068224A /* news_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_02.png; sourceTree = "<group>"; };
 		378F31811AC533AA0068224A /* news_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_03.png; sourceTree = "<group>"; };
@@ -1309,6 +1315,9 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				377F40F61C5C80D600C7D2C0 /* btn_reload@2x.png */,
+				377F40F21C5C7FA700C7D2C0 /* btn_back@2x.png */,
+				377F40F41C5C7FAF00C7D2C0 /* btn_next@2x.png */,
 				377F40EA1C58568200C7D2C0 /* download_white.png */,
 				377F40E81C5855F800C7D2C0 /* download.png */,
 				377F40E61C578D5F00C7D2C0 /* 3dmovie.png */,
@@ -1745,6 +1754,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377F40F31C5C7FA700C7D2C0 /* btn_back@2x.png in Resources */,
 				1468242D1C07107900F663CE /* treasure5.png in Resources */,
 				146824181C06E31500F663CE /* other.png in Resources */,
 				37949A7F1ABAC534002E5194 /* icon_stamp@2x.png in Resources */,
@@ -1786,6 +1796,7 @@
 				37949A731ABA9670002E5194 /* nextBtn@2x.png in Resources */,
 				377F40E71C578D5F00C7D2C0 /* 3dmovie.png in Resources */,
 				37E3EB901AA45F8C00EA7CB9 /* wait.jpg in Resources */,
+				377F40F51C5C7FAF00C7D2C0 /* btn_next@2x.png in Resources */,
 				146824001C06E2EE00F663CE /* BeaconSearchViewController.xib in Resources */,
 				378F31841AC533AA0068224A /* news_03.png in Resources */,
 				37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */,
@@ -1809,6 +1820,7 @@
 				37505B541BF30DA9001CEA3B /* RappingBarcodeViewController.xib in Resources */,
 				37E3EBAC1AA45F8C00EA7CB9 /* HistoryViewController.xib in Resources */,
 				37E3EB9E1AA45F8C00EA7CB9 /* CouponViewController.xib in Resources */,
+				377F40F71C5C80D600C7D2C0 /* btn_reload@2x.png in Resources */,
 				37668BBE1AC2A96E00D08368 /* tab_icon_profile.png in Resources */,
 				376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */,
 				37E3EB7E1AA45F8C00EA7CB9 /* sex.png in Resources */,
@@ -2098,7 +2110,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: jp.co.jokerpiece.pieceSample";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -2140,7 +2152,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: jp.co.jokerpiece.pieceSample";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

@@ -57,7 +57,7 @@
     if ([Common isNotEmptyString:[PieceCoreConfig cartUrl]]) {
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:[PieceCoreConfig cartUrl]];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
     }
     
 }
@@ -329,9 +329,10 @@
 -(void)pushNextViewWidhData:(ItemData*)data{
     
     if (![PieceCoreConfig isLinePay]) {
-        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-        // 画面をPUSHで遷移させる
-        [self.navigationController pushViewController:itemVc animated:YES];
+
+        
+        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
+        [self presentViewController:vc animated:YES completion:nil];
     } else {
         
         //linepay_flagがYESの時、ネイティブのビューを作成

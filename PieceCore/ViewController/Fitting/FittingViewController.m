@@ -73,9 +73,9 @@
     self.fittingRecipient = recipient;
     if (self.fittingRecipient.data.item_url.length > 0) {
         
-        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.fittingRecipient.data.item_url];
-        // 画面をPUSHで遷移させる
-        [self.navigationController pushViewController:itemVc animated:YES];
+        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.fittingRecipient.data.item_url];
+        [self presentViewController:vc animated:YES completion:nil];
+        
         UIAlertView *alertView = [[UIAlertView alloc] init];
         [alertView setTitle:@"検索結果"];
         [alertView setMessage:@"あなたにオススメの商品はこちらです！"];

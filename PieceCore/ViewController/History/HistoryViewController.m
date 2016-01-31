@@ -107,10 +107,12 @@
         } else if(data.deliverCampany == yubin){
             url = [NSString stringWithFormat:@"%@%@",UrlYubinDeliver,data.deliverNum];
         }
-        WebViewController *webVc = [[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil url:url];
-        webVc.title = @"配送状況";
-        [self.navigationController pushViewController:webVc animated:YES];
-        
+//        WebViewController *webVc = [[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil url:url];
+//        webVc.title = @"配送状況";
+//        [self.navigationController pushViewController:webVc animated:YES];
+        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:url];
+        vc.title =@"配送状況";
+        [self presentViewController:vc animated:YES completion:nil];
     }
     
 }

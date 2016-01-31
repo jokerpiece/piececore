@@ -14,14 +14,25 @@
 @interface WebViewController : BaseViewController<UIWebViewDelegate,UIScrollViewDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic) WebViewSettingData *setting;
 @property (nonatomic) float browserPositionY;
-@property (nonatomic) UIButton *backBtn;
-@property (nonatomic) UIButton *nextBtn;
+//@property (nonatomic) UIButton *backBtn;
+//@property (nonatomic) UIButton *nextBtn;
 @property (nonatomic) bool isCancel;
 @property (nonatomic) int loadCount;
 @property (nonatomic) float beginScrollOffsetY;
 @property (nonatomic) int alertBtn;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigation;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *closeBtn;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextBtn;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *reloadBtn;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle webSetting:(WebViewSettingData *)setting;
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle url:(NSString*)url;
+- (IBAction)closeAction:(id)sender;
+- (IBAction)backAction:(id)sender;
+- (IBAction)nextAction:(id)sender;
+- (IBAction)reloadAction:(id)sender;
+
 @end

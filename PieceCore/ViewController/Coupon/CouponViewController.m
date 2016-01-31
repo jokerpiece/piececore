@@ -214,10 +214,9 @@
         //[self itemSyncAction];
         CouponData *couponData = [self.couponRecipient.list objectAtIndex:self.getPage];
         if ([Common isNotEmptyString:couponData.coupon_url]) {
-            WebViewController *webVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:couponData.coupon_url];
-            webVc.title = [PieceCoreConfig titleNameData].useCouponTitle;;
-            // 画面をPUSHで遷移させる
-            [self.navigationController pushViewController:webVc animated:YES];
+            
+            WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:couponData.coupon_url];
+            [self presentViewController:vc animated:YES completion:nil];
             return;
         }
         [self setCouponNum];

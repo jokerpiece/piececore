@@ -24,6 +24,22 @@ typedef enum {
     [[NSBundle mainBundle] loadNibNamed:@"WebViewController" owner:self options:nil];
 }
 
+-(void)setNavigationBtn{
+    
+    UIBarButtonItem *closeBtn = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_close"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                                             style:UIBarButtonItemStylePlain
+                                                            target:self
+                                                                action:@selector(closeAction:)];
+    
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"btn_back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(backAction:)];
+    
+    
+    
+    self.navigationItem.leftBarButtonItems = @[closeBtn, backBtn];
+}
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle webSetting:(WebViewSettingData *)setting
 {
     self = [super initWithNibName:nibName bundle:nil];
@@ -48,12 +64,29 @@ typedef enum {
     return self;
 }
 
+- (IBAction)closeAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)backAction:(id)sender {
+    [self.webView goBack];
+}
+
+- (IBAction)nextAction:(id)sender {
+    [self.webView goForward];
+}
+
+- (IBAction)reloadAction:(id)sender {
+    [self.webView reload];
+}
+
 
 - (void)viewDidLoadLogic
 {
     if (self.title.length < 1) {
-        self.title = [PieceCoreConfig titleNameData].webViewTitle;
+        self.navigation.title = [PieceCoreConfig titleNameData].webViewTitle;
     }
+    //[self setNavigationBtn];
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
@@ -66,7 +99,7 @@ typedef enum {
 //    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapped:)];
 //    [self.webView addGestureRecognizer:recognizer];
     
-    [self setBlowserBtn];
+    //[self setBlowserBtn];
     
     if ([Common isNotEmptyString:self.setting.url]) {
         NSURLRequest *req = [NSURLRequest requestWithURL:[NSURL URLWithString:self.setting.url]];
@@ -98,6 +131,17 @@ typedef enum {
         }
     }
     
+    if (self.webView.canGoForward && self.setting.isDispBrowserNextBtn) {
+        [self setShowBtn:self.nextBtn ButtonVisible:YES];
+    } else {
+        [self setShowBtn:self.nextBtn ButtonVisible:NO];
+    }
+    
+    if (self.webView.canGoBack && self.setting.isDispBrowserNextBtn) {
+        [self setShowBtn:self.backBtn ButtonVisible:YES];
+    } else {
+        [self setShowBtn:self.backBtn ButtonVisible:NO];
+    }
     
     
 }
@@ -108,30 +152,41 @@ typedef enum {
     self.beginScrollOffsetY = [scrollView contentOffset].y;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    
-    if (self.beginScrollOffsetY < [scrollView contentOffset].y) {
-        //スクロール前のオフセットよりスクロール後が多い=下を見ようとした =>スクロールバーを隠す
-        self.backBtn.alpha = 0.0f;
-        self.nextBtn.alpha = 0.0f;
-        
-    } else if ([scrollView contentOffset].y < self.beginScrollOffsetY
-               && 0.0 != self.beginScrollOffsetY) {
-        if (self.webView.canGoForward && self.setting.isDispBrowserNextBtn) {
-            self.nextBtn.alpha = 0.8f;
-        } else {
-            self.nextBtn.alpha = 0;
-        }
-        
-        if (self.webView.canGoBack && self.setting.isDispBrowserNextBtn) {
-            self.backBtn.alpha = 0.8f;
-        } else {
-            self.backBtn.alpha = 0;
-        }
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    
+//    if (self.beginScrollOffsetY < [scrollView contentOffset].y) {
+//        //スクロール前のオフセットよりスクロール後が多い=下を見ようとした =>スクロールバーを隠す
+//        self.backBtn.alpha = 0.0f;
+//        self.nextBtn.alpha = 0.0f;
+//        
+//    } else if ([scrollView contentOffset].y < self.beginScrollOffsetY
+//               && 0.0 != self.beginScrollOffsetY) {
+//        if (self.webView.canGoForward && self.setting.isDispBrowserNextBtn) {
+//            self.nextBtn.alpha = 0.8f;
+//        } else {
+//            self.nextBtn.alpha = 0;
+//        }
+//        
+//        if (self.webView.canGoBack && self.setting.isDispBrowserNextBtn) {
+//            self.backBtn.alpha = 0.8f;
+//        } else {
+//            self.backBtn.alpha = 0;
+//        }
+//    }
+//}
 
+-(void)setShowBtn:(UIBarButtonItem *)button ButtonVisible:(bool)ButtonVisible{
+    if(ButtonVisible)
+    {
+        button.tintColor = nil;
+        [button setEnabled:YES];
+    } else {
+        button.tintColor = [UIColor colorWithWhite:0 alpha:0];
+        [button setEnabled:NO];
+    }
+
+}
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex != alertView.cancelButtonIndex) {
         if (self.alertBtn == Reload) {
@@ -146,50 +201,50 @@ typedef enum {
     }
 }
 
--(void)setBlowserBtn{
-    
-    if (!self.setting.isDispBrowserBackBtn && !self.setting.isDispBrowserNextBtn) {
-        return;
-    }
-    
-    float positionY = 0.0;
-    if (self.setting.browserBtnPosition == BrowserBtnPositionUp) {
-        positionY = NavigationHight + 10;
-    } else if (self.setting.browserBtnPosition == BrowserBtnPositionMiddle){
-        positionY = self.viewSize.height * 0.5;
-    } else if (self.setting.browserBtnPosition == BrowserBtnPositionDown) {
-        positionY = self.viewSize.height - TabbarHight - NavigationHight;
-    }
-    
-    if (self.setting.isDispBrowserBackBtn) {
-        self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.backBtn setImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
-        self.backBtn.frame = CGRectMake(0, positionY, 35, 64);
-        
-        [self.backBtn addTarget:self
-                         action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
-        self.backBtn.alpha = 0;
-        [self.view addSubview:self.backBtn];
-    }
-    
-    if (self.setting.isDispBrowserNextBtn) {
-        self.nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.nextBtn setImage:[UIImage imageNamed:@"nextBtn.png"] forState:UIControlStateNormal];
-        self.nextBtn.frame = CGRectMake(self.viewSize.width -35, positionY, 35, 64);
-        
-        [self.nextBtn addTarget:self
-                         action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
-        self.nextBtn.alpha = 0;
-        [self.view addSubview:self.nextBtn];
-    }
-    
-}
-- (IBAction)backAction:(id)sender{
-    [self.webView goBack];
-}
-- (IBAction)nextAction:(id)sender{
-    [self.webView goForward];
-}
+//-(void)setBlowserBtn{
+//    
+//    if (!self.setting.isDispBrowserBackBtn && !self.setting.isDispBrowserNextBtn) {
+//        return;
+//    }
+//    
+//    float positionY = 0.0;
+//    if (self.setting.browserBtnPosition == BrowserBtnPositionUp) {
+//        positionY = NavigationHight + 10;
+//    } else if (self.setting.browserBtnPosition == BrowserBtnPositionMiddle){
+//        positionY = self.viewSize.height * 0.5;
+//    } else if (self.setting.browserBtnPosition == BrowserBtnPositionDown) {
+//        positionY = self.viewSize.height - TabbarHight - NavigationHight;
+//    }
+//    
+//    if (self.setting.isDispBrowserBackBtn) {
+//        self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [self.backBtn setImage:[UIImage imageNamed:@"backBtn.png"] forState:UIControlStateNormal];
+//        self.backBtn.frame = CGRectMake(0, positionY, 35, 64);
+//        
+//        [self.backBtn addTarget:self
+//                         action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+//        self.backBtn.alpha = 0;
+//        [self.view addSubview:self.backBtn];
+//    }
+//    
+//    if (self.setting.isDispBrowserNextBtn) {
+//        self.nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [self.nextBtn setImage:[UIImage imageNamed:@"nextBtn.png"] forState:UIControlStateNormal];
+//        self.nextBtn.frame = CGRectMake(self.viewSize.width -35, positionY, 35, 64);
+//        
+//        [self.nextBtn addTarget:self
+//                         action:@selector(nextAction:) forControlEvents:UIControlEventTouchUpInside];
+//        self.nextBtn.alpha = 0;
+//        [self.view addSubview:self.nextBtn];
+//    }
+//    
+//}
+//- (IBAction)backAction:(id)sender{
+//    [self.webView goBack];
+//}
+//- (IBAction)nextAction:(id)sender{
+//    [self.webView goForward];
+//}
 
 
 // ページ読込開始直後に呼ばれるデリゲートメソッド
@@ -256,15 +311,15 @@ typedef enum {
     }
     
     if (webView.canGoForward) {
-        self.nextBtn.alpha = 1.0f;
+        [self setShowBtn:self.nextBtn ButtonVisible:YES];
     } else {
-        self.nextBtn.alpha = 0;
+        [self setShowBtn:self.nextBtn ButtonVisible:NO];
     }
     
     if (webView.canGoBack) {
-        self.backBtn.alpha = 1.0f;
+       [self setShowBtn:self.backBtn ButtonVisible:YES];
     } else {
-        self.backBtn.alpha = 0;
+        [self setShowBtn:self.backBtn ButtonVisible:NO];
     }
     
 }
@@ -340,6 +395,10 @@ typedef enum {
     [self.webView removeFromSuperview];
     [NSNotificationCenter.defaultCenter removeObserver:self];
 }
+
+//- (void)closeAction:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 //- (void)dealloc {
 //    
 //    [self.webView setDelegate:nil];

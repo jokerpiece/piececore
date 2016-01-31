@@ -61,7 +61,7 @@
     if ([Common isNotEmptyString:[PieceCoreConfig cartUrl]]) {
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:[PieceCoreConfig cartUrl]];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
     }
     
 }
@@ -211,7 +211,7 @@
     if ([Common isNotEmptyString:data.item_url]) {
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
     }
     
 }
@@ -346,7 +346,7 @@
     if ([Common isNotEmptyString:data.item_url]) {
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 

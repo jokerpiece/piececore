@@ -253,22 +253,9 @@
     NSString *url = [dc objectForKey:@"link_url"];
     
     if ([Common isNotEmptyString:url]) {
-        //        WebViewController *itemVc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:self.link_url];
-        //        [self.navigationController pushViewController:itemVc animated:YES];
-        if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:url ]]) {
-            WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:url];
-            [self.navigationController pushViewController:vc animated:YES];
-        } else {
-            // エラー処理
-            
-            [[[UIAlertView alloc]
-              initWithTitle:@"エラー"
-              message:@"有効なURLではありません。"
-              delegate:nil
-              cancelButtonTitle:nil
-              otherButtonTitles:@"OK", nil
-              ] show];
-        }
+        
+        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:url];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 
