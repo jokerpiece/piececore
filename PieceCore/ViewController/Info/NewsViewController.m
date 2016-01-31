@@ -250,12 +250,18 @@
     UIButton *button = (UIButton *)sender;
     
     NSDictionary *dc = [self.newsRecipient.link_list objectAtIndex:button.tag];
-    NSString *url = [dc objectForKey:@"link_url"];
+    NSString *urlStr = [dc objectForKey:@"link_url"];
+    NSURL *url = [NSURL URLWithString:urlStr];
     
-    if ([Common isNotEmptyString:url]) {
-        
-        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:url];
-        [self presentViewController:vc animated:YES completion:nil];
+    if ([Common isNotEmptyString:urlStr]) {
+        if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube] || [[url host]isEqualToString:UrlSchemeHostInputMessage] || [[url host]isEqualToString:UrlSchemeHostQuestion]) {
+            [[UIApplication sharedApplication] openURL:url];
+            
+        } else {
+            WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:urlStr];
+            [self presentViewController:vc animated:YES completion:nil];
+            
+        }
     }
 }
 
