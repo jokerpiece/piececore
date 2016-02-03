@@ -39,6 +39,7 @@ typedef enum {
 @property (nonatomic) UIImageView *item_image;
 @property (nonatomic) NSString *item_text;
 @property (nonatomic) NSString *item_price;
+@property (nonatomic) bool isDispSerchBar;
 -(void)setCartBtn;
 
 @end

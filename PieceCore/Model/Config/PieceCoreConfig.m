@@ -24,6 +24,7 @@ static bool _linePay = NO;
 static NSString *_linePayConfirmUrl = @"";
 static NSString *_cookieDomainName = @"";
 static NSString *_cartUrl = @"";
+static bool _dispSearchBar = NO;
 
 //NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
@@ -189,4 +190,12 @@ const float TabbarHight = 49;
     return _cartUrl;
 }
 
+
++ (void)setDispSearchBar:(bool)searchBar{
+    _dispSearchBar = searchBar;
+
+}
++ (bool)isDispSearchBar{
+    return _dispSearchBar;
+}
 @end

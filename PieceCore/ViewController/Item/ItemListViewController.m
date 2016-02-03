@@ -32,7 +32,7 @@
     self.table.dataSource = self;
     [self.view addSubview:self.table];
     self.table.separatorColor = [UIColor whiteColor];
-    //[self setSearchBar];
+    [self setSearchBar];
     [self setHeaderImg];
 }
 
@@ -235,7 +235,7 @@
 }
 
 -(void)setSearchBar{
-    if (self.searchType != category) {
+    if (self.searchType != category || ![PieceCoreConfig isDispSearchBar]) {
         return;
     }
     //検索バー
@@ -257,7 +257,7 @@
 {
     [searchBar resignFirstResponder];
     self.isResponse = NO;
-    
+    self.itemRecipient.list = [NSMutableArray array];
     [self syncAction];
 }
 -(void)searchBarCancelButtonClicked:(UISearchBar*)searchBar{

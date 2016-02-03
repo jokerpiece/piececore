@@ -96,4 +96,7 @@ extern NSString * const UrlSchemeHostShowMessage;
 
 + (void)setCartUrl:(NSString *)cartUrl;
 + (NSString *)cartUrl;
+
++ (void)setDispSearchBar:(bool)searchBar;
++ (bool)isDispSearchBar;
 @end
