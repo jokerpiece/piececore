@@ -15,6 +15,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "GetPointView.h"
 #import "RappingSelectController.h"
+#import <Google/Analytics.h>
 //#import <Nex8Tracking/Nex8Tracking.h>
 
 @protocol PieceCoreDelegate
@@ -43,5 +44,6 @@
 -(void)setConfig;
 -(void)setThemeColor;
 -(void)setTabbarNumberWithVc:(BaseViewController *)vc index:(int)index;
+-(void)setGoogleAnalitics;
 
 @end

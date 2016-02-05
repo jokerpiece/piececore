@@ -18,6 +18,7 @@ typedef enum {
     category = 0,
     barcode,
     coupon,
+    serchWord,
 } itemSearchType;
 
 @interface ItemListViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate>
@@ -29,6 +30,7 @@ typedef enum {
 @property (strong, nonatomic) NSString *code;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (nonatomic) itemSearchType searchType;
+@property (nonatomic) NSString *searchWord;
 @property (strong, nonatomic) NSString *headerImgUrl;
 @property (strong, nonatomic) UILabel *quanitityLbl;
 @property (strong, nonatomic) UILabel *stockLbl;

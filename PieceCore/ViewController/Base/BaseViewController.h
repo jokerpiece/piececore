@@ -18,6 +18,7 @@
 #import <UIActivityIndicator-for-SDWebImage/UIImageView+UIActivityIndicatorForSDWebImage.h>
 #import <CoreLocation/CoreLocation.h>
 #import "GetPointView.h"
+#import <Google/Analytics.h>
 
 @interface BaseViewController : UIViewController<NetworkDelegate, SDWebImageManagerDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) BaseRecipient *recipient;
@@ -35,4 +36,5 @@
 - (void)viewWillDisappearLogic;
 -(void)setSosialBtn;
 -(BOOL)openURL:(NSURL *)url;
+-(void)startTracking;
 @end

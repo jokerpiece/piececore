@@ -131,6 +131,7 @@
 		379EB5971BF1D28100DE8DDB /* PlayHologramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EB5931BF1D28100DE8DDB /* PlayHologramView.m */; };
 		379EB5981BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379EB5951BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m */; };
 		379EB5991BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 379EB5961BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib */; };
+		37A29C961C63355D00BA13A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37A29C951C63355D00BA13A4 /* GoogleService-Info.plist */; };
 		37B4E1501AE73BD200A082A3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E14E1AE73BD200A082A3 /* MapViewController.m */; };
 		37B4E1511AE73BD200A082A3 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B4E14F1AE73BD200A082A3 /* MapViewController.xib */; };
 		37D16F881BCF4BC600341B88 /* SCSimpleSLRequestDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D16F841BCF4BC600341B88 /* SCSimpleSLRequestDemo.m */; };
@@ -432,6 +433,7 @@
 		379EB5941BF1D28100DE8DDB /* PlayHologramYoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayHologramYoutubeViewController.h; sourceTree = "<group>"; };
 		379EB5951BF1D28100DE8DDB /* PlayHologramYoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayHologramYoutubeViewController.m; sourceTree = "<group>"; };
 		379EB5961BF1D28100DE8DDB /* PlayHologramYoutubeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayHologramYoutubeViewController.xib; sourceTree = "<group>"; };
+		37A29C951C63355D00BA13A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37B4E14D1AE73BD200A082A3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		37B4E14E1AE73BD200A082A3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		37B4E14F1AE73BD200A082A3 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -1033,6 +1035,7 @@
 		37E3EA551AA45F6800EA7CB9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37A29C951C63355D00BA13A4 /* GoogleService-Info.plist */,
 				37E3EA561AA45F6800EA7CB9 /* Info.plist */,
 				37E3EA571AA45F6800EA7CB9 /* main.m */,
 			);
@@ -1834,6 +1837,7 @@
 				37E3EB871AA45F8C00EA7CB9 /* tab_icon_flyer.png in Resources */,
 				37E3EBB41AA45F8C00EA7CB9 /* WebViewController.xib in Resources */,
 				37566E431C56105D001EA816 /* cart@2x.png in Resources */,
+				37A29C961C63355D00BA13A4 /* GoogleService-Info.plist in Resources */,
 				37E3EB7F1AA45F8C00EA7CB9 /* woman.gif in Resources */,
 				378F31831AC533AA0068224A /* news_02.png in Resources */,
 				37E3EB8F1AA45F8C00EA7CB9 /* tab_icon_stamp.png in Resources */,
@@ -2177,6 +2181,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = pieceSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2193,6 +2198,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = pieceSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

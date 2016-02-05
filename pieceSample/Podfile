@@ -1,7 +1,8 @@
 platform:ios, 7.0
 pod 'UIActivityIndicator-for-SDWebImage'
-pod 'AFNetworking'
+pod 'AFNetworking', '2.6.3'
 pod 'Reachability'
 pod 'UIColor+MLPFlatColors'
 pod 'SVProgressHUD', '~> 1.0'
 pod 'HCYoutubeParser'
+pod 'Google/Analytics', '~> 1.0.0'

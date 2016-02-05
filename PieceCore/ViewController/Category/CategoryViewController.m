@@ -25,6 +25,7 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].categoryTitle;
     }
+    [self setSearchBar];
     self.categoryRecipient.list = [NSMutableArray array];
     self.table.delegate = self;
     self.cellHeight = self.viewSize.width * 0.28;
@@ -48,6 +49,45 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     }
     
+}
+
+-(void)setSearchBar{
+    if (![PieceCoreConfig isDispSearchBar]) {
+        return;
+    }
+    
+    self.singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap:)];
+    self.singleTap.delegate = self;
+    self.singleTap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:self.singleTap];
+    
+    //検索バー
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 15, self.view.bounds.size.width, 52.0f)];
+    self.searchBar.delegate = self;
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.placeholder = @"何かお探しですか？";
+    //デフォルトキーボードタイプ
+    self.searchBar.keyboardType = UIKeyboardTypeDefault;
+    self.searchBar.barStyle = UIBarStyleDefault;
+    
+    //テーブルビューのヘッダーに設定
+    self.table.tableHeaderView = self.searchBar;
+}
+
+-(void)onSingleTap:(UITapGestureRecognizer *)recognizer {
+    [self.searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar
+
+{
+    [searchBar resignFirstResponder];
+    self.isResponse = NO;
+    ItemListViewController *itemListVc = [[ItemListViewController alloc] initWithNibName:@"ItemListViewController" bundle:nil];
+    itemListVc.searchType = serchWord;
+    itemListVc.searchWord = self.searchBar.text;
+    
+    [self.navigationController pushViewController:itemListVc animated:YES];
 }
 
 - (void)cartTapp:(UITapGestureRecognizer *)sender

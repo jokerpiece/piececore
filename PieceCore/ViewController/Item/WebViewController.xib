@@ -60,7 +60,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xwi-w9-BnM">
-                    <rect key="frame" x="164.00000683797489" y="368.00001461131325" width="46" height="46"/>
+                    <rect key="frame" x="164.00000237590282" y="368.00000846047362" width="46" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                     <state key="normal" backgroundImage="sns.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

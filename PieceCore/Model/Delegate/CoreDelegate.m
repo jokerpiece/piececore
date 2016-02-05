@@ -23,6 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [self setGoogleAnalitics];
     [self setConfig];
     [self nex8SendOpenStatus];
     [self setPieceTitle];
@@ -36,6 +37,20 @@
 }
 -(void)setConfig{
 }
+
+-(void)setGoogleAnalitics{
+    
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    // Optional: configure GAI options.
+    GAI *gai = [GAI sharedInstance];
+    gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
+    [GAI sharedInstance].dispatchInterval = 1;
+    gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
+}
+
 
 -(void)nex8SendOpenStatus{
     if ([Common isNotEmptyString:[PieceCoreConfig nex8Key]]) {

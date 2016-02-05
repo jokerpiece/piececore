@@ -32,7 +32,7 @@
     self.table.dataSource = self;
     [self.view addSubview:self.table];
     self.table.separatorColor = [UIColor whiteColor];
-    [self setSearchBar];
+    //[self setSearchBar];
     [self setHeaderImg];
 }
 
@@ -68,12 +68,14 @@
         DLog(@"テーブル縦位置%f",self.table.frame.origin.y);
         self.table.frame = CGRectMake(0,NavigationHight + self.HeaderHeight,self.viewSize.width,self.viewSize.height - self.HeaderHeight -TabbarHight -NavigationHight);
         DLog(@"テーブル縦位置%f",self.table.frame.origin.y);
+    } else {
+        self.table.frame = CGRectMake(0,NavigationHight,self.viewSize.width,self.viewSize.height -TabbarHight -NavigationHight);
     }
     
 }
 - (void)viewDidAppearLogic {
     self.isResponse = NO;
-    if (self.code.length > 0) {
+    if (self.code.length > 0 || self.searchWord.length > 0) {
         [self syncAction];
     }
 }
@@ -281,6 +283,11 @@
             [param setValue:self.code forKey:@"barcode_num"];
             [param setValue:[NSNumber numberWithInt:(int)self.itemRecipient.list.count] forKey:@"get_list_num"];
             break;
+        case serchWord:
+            sendId = SendIdItemBarcode;
+            [param setValue:self.searchWord forKey:@"sarch_word"];
+            [param setValue:[NSNumber numberWithInt:(int)self.itemRecipient.list.count] forKey:@"get_list_num"];
+            break;
             
         default:
             sendId = SendIdItem;
@@ -299,6 +306,11 @@
         [self.itemRecipient.list addObjectsFromArray: recipient.list];
     } else {
         self.itemRecipient = recipient;
+        if (self.searchType == serchWord && recipient.list.count <= 0) {
+            [self showAlert:@"確認" message:@"検索にヒットする商品はありませんでした。"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+            
     }
     if (recipient.more_flg) {
         self.isMore = YES;

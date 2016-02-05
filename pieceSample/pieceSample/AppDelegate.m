@@ -30,6 +30,7 @@
     [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
     [PieceCoreConfig setCookieDomainName:@"otonagokoro.com"];
     [PieceCoreConfig setCartUrl:@"https://otonagokoro.com/cart/"];
+    [PieceCoreConfig setDispSearchBar:YES];
 }
 
 //UITabBarController初期化
