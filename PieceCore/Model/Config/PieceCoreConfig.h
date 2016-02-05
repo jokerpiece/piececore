@@ -99,4 +99,7 @@ extern NSString * const UrlSchemeHostShowMessage;
 
 + (void)setDispSearchBar:(bool)searchBar;
 + (bool)isDispSearchBar;
+
++ (void)setGoogleAnalitics:(bool)isGoogleAnalitics;
++ (bool)isGoogleAnalitics;
 @end

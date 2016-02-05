@@ -25,6 +25,7 @@ static NSString *_linePayConfirmUrl = @"";
 static NSString *_cookieDomainName = @"";
 static NSString *_cartUrl = @"";
 static bool _dispSearchBar = NO;
+static bool _googleAnalitics = NO;
 
 //NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
@@ -197,5 +198,13 @@ const float TabbarHight = 49;
 }
 + (bool)isDispSearchBar{
     return _dispSearchBar;
+}
+
++ (void)setGoogleAnalitics:(bool)isGoogleAnalitics{
+    _googleAnalitics = isGoogleAnalitics;
+    
+}
++ (bool)isGoogleAnalitics{
+    return _googleAnalitics;
 }
 @end
