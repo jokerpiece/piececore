@@ -56,15 +56,10 @@
         return;
     }
     
-    self.singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap:)];
-    self.singleTap.delegate = self;
-    self.singleTap.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:self.singleTap];
-    
     //検索バー
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 15, self.view.bounds.size.width, 52.0f)];
     self.searchBar.delegate = self;
-    self.searchBar.showsCancelButton = NO;
+    self.searchBar.showsCancelButton = YES;
     self.searchBar.placeholder = @"何かお探しですか？";
     //デフォルトキーボードタイプ
     self.searchBar.keyboardType = UIKeyboardTypeDefault;
@@ -74,9 +69,6 @@
     self.table.tableHeaderView = self.searchBar;
 }
 
--(void)onSingleTap:(UITapGestureRecognizer *)recognizer {
-    [self.searchBar resignFirstResponder];
-}
 
 - (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar
 
@@ -88,6 +80,10 @@
     itemListVc.searchWord = self.searchBar.text;
     
     [self.navigationController pushViewController:itemListVc animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self.searchBar resignFirstResponder];
 }
 
 - (void)cartTapp:(UITapGestureRecognizer *)sender
