@@ -23,8 +23,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    [self setGoogleAnalitics];
+    
     [self setConfig];
+    [self setGoogleAnalitics];
     [self nex8SendOpenStatus];
     [self setPieceTitle];
     [self setThemeColor];
@@ -50,7 +51,7 @@
     // Optional: configure GAI options.
     GAI *gai = [GAI sharedInstance];
     gai.trackUncaughtExceptions = YES;  // report uncaught exceptions
-    [GAI sharedInstance].dispatchInterval = 1;
+    [GAI sharedInstance].dispatchInterval = 120;
     gai.logger.logLevel = kGAILogLevelVerbose;  // remove before app release
 }
 
