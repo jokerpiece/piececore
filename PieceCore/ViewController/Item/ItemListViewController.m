@@ -22,6 +22,7 @@
 
 - (void)viewDidLoadLogic
 {
+    self.isCloseWebview = NO;
     [self setCartBtn];
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].itemListTitle;
@@ -58,12 +59,13 @@
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:[PieceCoreConfig cartUrl]];
         [self presentViewController:vc animated:YES completion:nil];
+        self.isCloseWebview = YES;
     }
     
 }
 
 -(void)viewWillAppearLogic{
-    self.itemRecipient.list = [NSMutableArray array];
+
     if (self.searchType == category) {
         DLog(@"テーブル縦位置%f",self.table.frame.origin.y);
         self.table.frame = CGRectMake(0,NavigationHight + self.HeaderHeight,self.viewSize.width,self.viewSize.height - self.HeaderHeight -TabbarHight -NavigationHight);
@@ -76,18 +78,29 @@
 - (void)viewDidAppearLogic {
     self.isResponse = NO;
     if (self.code.length > 0 || self.searchWord.length > 0) {
-        [self syncAction];
+        if (!self.isCloseWebview) {
+            self.itemRecipient.list = [NSMutableArray array];
+            [self syncAction];
+
+        }
+        self.isCloseWebview = NO;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
+        
         NSString *CellIdentifier = [NSString stringWithFormat:@"CreateCell%ld",(long)indexPath.row];
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         //if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1.0];
+        
+        if (self.itemRecipient.list.count == 0) {
+            return cell;
+        }
+        
         ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
         UIImageView *iv = [[UIImageView alloc] init];
         iv.frame = CGRectMake(10, 5, 80, 80);
@@ -345,6 +358,7 @@
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
         [self presentViewController:vc animated:YES completion:nil];
+        self.isCloseWebview = YES;
     } else {
         
         //linepay_flagがYESの時、ネイティブのビューを作成

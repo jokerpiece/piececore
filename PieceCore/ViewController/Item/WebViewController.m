@@ -14,11 +14,12 @@
 @end
 
 @implementation WebViewController
-
+#define MAX_TAP_COUNT 3
 typedef enum {
     loadStop = 0,
     Reload
 } alertBtn;
+
 
 - (void)loadView {
     [[NSBundle mainBundle] loadNibNamed:@"WebViewController" owner:self options:nil];
@@ -253,7 +254,10 @@ typedef enum {
 
     if (self.setting.maskType != 0 && self.loadCount == 0) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hudTapped:) name:SVProgressHUDDidReceiveTouchEventNotification object:nil];
-        [SVProgressHUD showWithMaskType:self.setting.maskType];
+
+        [SVProgressHUD setBackgroundColor:[[UIColor blackColor] colorWithAlphaComponent:0.7]];
+        [SVProgressHUD setForegroundColor:[[UIColor whiteColor] colorWithAlphaComponent:1.0]];
+        [SVProgressHUD showWithStatus:@"読み込み中…" maskType:self.setting.maskType];
     }
     self.loadCount ++;
     
@@ -265,25 +269,19 @@ typedef enum {
     if (self.loadCount <= 0) {
         return;
     }
+    self.tapCount ++;
     
-    
-    if (self.isCancel) {
-        self.alertBtn = Reload;
-        [[[UIAlertView alloc] initWithTitle:@"読み込みが途中で中止しました。"
-                                    message:@"再読み込みしますか？"
-                                   delegate:self
-                          cancelButtonTitle:@"Cancel"
-                          otherButtonTitles:@"OK", nil] show];
-    } else {
-        self.alertBtn = loadStop;
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
-                                                        message:@"読み込みを中止しますか？"
-                                                       delegate:self
-                                              cancelButtonTitle:@"いいえ"
-                                              otherButtonTitles:@"はい", nil];
-        [alert show];
+    if (self.tapCount > MAX_TAP_COUNT) {
+//        self.alertBtn = loadStop;
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"確認"
+//                                                        message:@"読み込みを中止しますか？"
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"いいえ"
+//                                              otherButtonTitles:@"はい", nil];
+//        [alert show];
 
     }
+    
     
 }
 
@@ -293,6 +291,7 @@ typedef enum {
 
     self.loadCount --;
     if (self.setting.maskType != 0 && self.loadCount <= 0) {
+        self.tapCount = 0;
         [SVProgressHUD dismiss];
         [NSNotificationCenter.defaultCenter removeObserver:self];
     }
@@ -327,6 +326,7 @@ typedef enum {
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     self.loadCount --;
     if (self.setting.maskType != 0) {
+        self.tapCount = 0;
         [SVProgressHUD dismiss];
     }
     if ([error code] == NSURLErrorCancelled) {

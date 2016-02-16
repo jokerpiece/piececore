@@ -20,6 +20,7 @@
 @property (nonatomic) int loadCount;
 @property (nonatomic) float beginScrollOffsetY;
 @property (nonatomic) int alertBtn;
+@property (nonatomic) int tapCount;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigation;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *closeBtn;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backBtn;
