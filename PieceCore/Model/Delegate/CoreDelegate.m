@@ -564,8 +564,10 @@
  */
 -(void)paypal{
     if ([PieceCoreConfig isPayPal]){
-        [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : [PieceCoreConfig payPalEnvironmentProduction],
-                                                               PayPalEnvironmentSandbox : [PieceCoreConfig payPalEnvironmentSandbox]}];
+        [PayPalMobile initializeWithClientIdsForEnvironments
+         :@{PayPalEnvironmentProduction : [PieceCoreConfig payPalEnvironmentProductionClientId],
+            PayPalEnvironmentSandbox : [PieceCoreConfig payPalEnvironmentSandboxClientId]
+            }];
     }
 }
 @end

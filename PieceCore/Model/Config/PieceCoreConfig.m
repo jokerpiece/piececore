@@ -30,12 +30,10 @@ static bool _googleAnalitics = NO;
 
 static bool _paypal = NO;
 
-static NSString *_paypal_clientId= @"AdkYj_7K_NKg-ygjEV7vb6bLITUtVPkh3PfUtBBN8-IM02AOO-k2uU1osCF99ei1UBOLhIVemU5cD--m";
-
+static NSString *_payPalEnvironment = nil;
 static NSString *_paypal_bncode = @"";
-static NSString *_PayPalEnvironmentProduction = @"YOUR_CLIENT_ID_FOR_PRODUCTION";
-static NSString *_PayPalEnvironmentSandbox = @"YOUR_CLIENT_ID_FOR_SANDBOX";
-
+static NSString *_PayPalEnvironmentProductionClientId = @"YOUR_CLIENT_ID_FOR_PRODUCTION";
+static NSString *_PayPalEnvironmentSandboxClientId = @"YOUR_CLIENT_ID_FOR_SANDBOX";
 
 //NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
@@ -229,20 +227,25 @@ const float TabbarHight = 49;
 + (NSString*)payPalBnCode{
     return _paypal_bncode;
 }
-+ (NSString*)paypalClientId{
-    return _paypal_clientId;
-}
-+ (void)setPayPalEnvironmentProduction:(NSString *)PayPalEnvironmentProduction{
-    _PayPalEnvironmentProduction = PayPalEnvironmentProduction;
-}
-+ (NSString *)payPalEnvironmentProduction{
-    return _PayPalEnvironmentProduction;
-}
-+ (void)setPayPalEnvironmentSandbox:(NSString *)PayPalEnvironmentSandbox{
-    _PayPalEnvironmentSandbox = PayPalEnvironmentSandbox;
-}
-+ (NSString *)payPalEnvironmentSandbox{
-    return _PayPalEnvironmentSandbox;
 
++ (void)setPayPalEnvironment:(NSString *)PayPalEnvironment{
+    _payPalEnvironment = PayPalEnvironment;
+}
++ (NSString *)payPalEnvironment{
+    return _payPalEnvironment;
+}
+
++ (void)setPayPalEnvironmentProductionClientId:(NSString *)PayPalEnvironmentProductionClientId{
+    _PayPalEnvironmentProductionClientId = PayPalEnvironmentProductionClientId;
+}
++ (NSString *)payPalEnvironmentProductionClientId{
+    return _PayPalEnvironmentProductionClientId;
+}
++ (void)setPayPalEnvironmentSandboxClientId:(NSString *)PayPalEnvironmentSandboxClientId{
+    _PayPalEnvironmentSandboxClientId = PayPalEnvironmentSandboxClientId;
+}
++ (NSString *)payPalEnvironmentSandboxClientId{
+    return _PayPalEnvironmentSandboxClientId;
+    
 }
 @end

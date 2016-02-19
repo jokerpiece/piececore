@@ -14,6 +14,8 @@
 // - To use the PayPal sandbox, use PayPalEnvironmentSandbox.　サンドボックス
 // - For testing, use PayPalEnvironmentNoNetwork.　モック
 
+//AppDelegate.m の記述を優先
+
 @interface PaypalViewController ()
 
 @property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
@@ -222,7 +224,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
  * 初期設定
  */
 -(void)paypalSetting{
-    [PayPalMobile preconnectWithEnvironment:kPayPalEnvironment];
+    [PayPalMobile preconnectWithEnvironment:[PieceCoreConfig payPalEnvironment]];
     
     // Set up payPalConfig
     _payPalConfig = [[PayPalConfiguration alloc] init];
@@ -232,7 +234,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     _payPalConfig.payPalShippingAddressOption = PayPalShippingAddressOptionPayPal;
     
     // use default environment, should be Production in real life
-    self.environment = kPayPalEnvironment;
+    self.environment = [PieceCoreConfig payPalEnvironment];
     
     DLog(@"PayPal iOS SDK version: %@", [PayPalMobile libraryVersion]);
     DLog(@"%@",_payPalConfig);
