@@ -23,6 +23,11 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.sv.frame = self.view.bounds;
+}
+
 -(void)setLinePayData{
     [LinePayData setItemName:self.item_name];
     [LinePayData setItemPrice:self.item_price];
@@ -78,7 +83,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
     //商品価格
     UILabel *item_Price_1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:item_Text margin:30], self.viewSize.width*0.8, 30)];
-    item_Price_1.text = @"販売価格(税込)";
+    item_Price_1.text = @"販売価格";
     item_Price_1.font = [UIFont fontWithName:@"AppleGothic" size:20];
     item_Price_1.textColor = [UIColor blackColor];
     

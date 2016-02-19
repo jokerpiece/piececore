@@ -390,7 +390,7 @@
 }
 
 - (void)didProfileSendButton{
-    NSLog(@"%@",self.profileRecipient.sei);
+    DLog(@"%@",self.profileRecipient.sei);
     for (BaseInputCell *cell in self.instanceCellList) {
         [cell saveDataWithProfileRecipient:self.profileRecipient];
     }

@@ -17,6 +17,8 @@
 #import "PlayHologramYoutubeViewController.h"
 #import "PlayYoutubeViewController.h"
 #import "UploadYoutubeViewController.h"
+#import "PayPalMobile.h"
+
 
 @implementation CoreDelegate
 
@@ -34,6 +36,8 @@
     [self setTabBarController];
     [self splashIntarval];
     [self moveScreenWithLaunchOptions:launchOptions];
+    [self paypal];
+    
     return YES;
 }
 -(void)setConfig{
@@ -555,5 +559,13 @@
         return nil;
     }
 }
-
+/**
+ * PayPal初期化
+ */
+-(void)paypal{
+    if ([PieceCoreConfig isPayPal]){
+        [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : [PieceCoreConfig payPalEnvironmentProduction],
+                                                               PayPalEnvironmentSandbox : [PieceCoreConfig payPalEnvironmentSandbox]}];
+    }
+}
 @end

@@ -131,9 +131,9 @@
             NSNumber *size;
             
             [urlAsset.URL getResourceValue:&size forKey:NSURLFileSizeKey error:nil];
-            NSLog(@"size is %f",[size floatValue]/(1024.0*1024.0)); //size is 43.703005
+            DLog(@"size is %f",[size floatValue]/(1024.0*1024.0)); //size is 43.703005
             NSData *data = [NSData dataWithContentsOfURL:urlAsset.URL];
-            NSLog(@"length %f",[data length]/(1024.0*1024.0)); // data size is 43.703005
+            DLog(@"length %f",[data length]/(1024.0*1024.0)); // data size is 43.703005
             [self sendPostYoutubeMovieWithToken:token VideoData:data];
         }
     }];
@@ -232,7 +232,7 @@
         
     }else{
         // 使えない
-        NSLog(@"PhotoLibraryが使えない");
+        DLog(@"PhotoLibraryが使えない");
     }
 }
 
@@ -253,7 +253,7 @@
         CGImageRef image = [gen copyCGImageAtTime:CMTimeMakeWithSeconds(0.0, 300) actualTime:nil error:nil];
         self.thumbnail.image = [UIImage imageWithCGImage:image];
         
-        NSLog(@"動画の場所：%@",url.absoluteString);
+        DLog(@"動画の場所：%@",url.absoluteString);
         self.movieURL=url;
     }
     

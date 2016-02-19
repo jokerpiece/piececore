@@ -24,13 +24,17 @@
 
 -(void)setConfig{
     [PieceCoreConfig setShopId:@"pieceSample"];
-    [PieceCoreConfig setAppKey:@""];
-    [PieceCoreConfig setAppId:@""];
+    [PieceCoreConfig setAppKey:@"jokerpiece_appKey"];
+    [PieceCoreConfig setAppId:@"pieceSample"];
     //[PieceCoreConfig setLinePay:YES];
     [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
     [PieceCoreConfig setCookieDomainName:@"otonagokoro.com"];
     [PieceCoreConfig setCartUrl:@"https://otonagokoro.com/cart/"];
     [PieceCoreConfig setDispSearchBar:YES];
+
+    [PieceCoreConfig setPayPal:YES];
+    [PieceCoreConfig setPayPalEnvironmentSandbox:@"AdkYj_7K_NKg-ygjEV7vb6bLITUtVPkh3PfUtBBN8-IM02AOO-k2uU1osCF99ei1UBOLhIVemU5cD--m"];
+
 }
 
 //UITabBarController初期化

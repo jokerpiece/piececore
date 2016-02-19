@@ -73,16 +73,16 @@
                                JSONObjectWithData:responseData
                                options:NSJSONReadingAllowFragments error:&jsonError];
                               if (timelineData) {
-                                  NSLog(@"Timeline Response: %@\n", timelineData);
+                                  DLog(@"Timeline Response: %@\n", timelineData);
                               }
                               else {
                                   // Our JSON deserialization went awry
-                                  NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
+                                  DLog(@"JSON Error: %@", [jsonError localizedDescription]);
                               }
                           }
                           else {
                               // The server did not respond ... were we rate-limited?
-                              NSLog(@"The response status code is %d",
+                              DLog(@"The response status code is %d",
                                     urlResponse.statusCode);
                           }
                       }
@@ -90,7 +90,7 @@
              }
              else {
                  // Access was not granted, or an error occurred
-                 NSLog(@"%@", [error localizedDescription]);
+                 DLog(@"%@", [error localizedDescription]);
              }
          }];
     }

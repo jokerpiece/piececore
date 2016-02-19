@@ -154,7 +154,7 @@
     int day = (int)[self.monthDateViewController.pickerView selectedRowInComponent: 1] + 1;
 
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
                         fromDate:[NSDate date]];
     
     
@@ -301,7 +301,7 @@
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
 
-    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     //日付、時間の設定（作成）を行う。
     NSDateComponents *comps = [[NSDateComponents alloc] init];
 //    //西暦を指定
@@ -354,10 +354,10 @@
     //登録されているアラームを配列に格納する。
     NSArray *notifiyItems = [[UIApplication sharedApplication] scheduledLocalNotifications];
     //ローカル通知に登録されている件数を表示。
-    NSLog(@"登録件数：%d",[notifiyItems count]);
+    DLog(@"登録件数：%d",[notifiyItems count]);
     for(UILocalNotification *notifiy in notifiyItems){
         //ローカル通知に登録されている、alertBodyの文字列を表示する。
-        NSLog(@"[LN]:%@",[notifiy alertBody]);
+        DLog(@"[LN]:%@",[notifiy alertBody]);
     }
     
     

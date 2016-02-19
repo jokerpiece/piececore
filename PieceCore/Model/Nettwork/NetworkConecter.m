@@ -17,7 +17,7 @@
     }
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [param setObject:[PieceCoreConfig shopId] forKey:@"app_id"];
-    [param setObject:[PieceCoreConfig appKey] forKey:@"app_key"];
+    //[param setObject:[PieceCoreConfig appKey] forKey:@"app_key"];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     //SN 新しいAPIを受け取るため追加
@@ -39,7 +39,7 @@
     }
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [param setObject:[PieceCoreConfig shopId] forKey:@"app_id"];
-    [param setObject:[PieceCoreConfig appKey] forKey:@"app_key"];
+    //[param setObject:[PieceCoreConfig appKey] forKey:@"app_key"];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     //SN 新しいAPIを受け取るため追加
@@ -79,7 +79,7 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     for (id key in headerParam) {
-        NSLog(@"Key:%@ Value:%@", key, [headerParam valueForKey:key]);
+        DLog(@"Key:%@ Value:%@", key, [headerParam valueForKey:key]);
         [manager.requestSerializer setValue:[headerParam valueForKey:key] forHTTPHeaderField:key];
     }
     [manager POST:url
@@ -91,7 +91,7 @@
           success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          [self.delegate receiveSucceed:responseObject sendId:url];
-         NSLog(@"response is :  %@",responseObject);
+         DLog(@"response is :  %@",responseObject);
      }
           failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {

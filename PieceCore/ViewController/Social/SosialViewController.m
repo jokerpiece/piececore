@@ -100,7 +100,7 @@
     [self.imgView setImage:image];
     self.setImg = image;
 //    [self.imgView setImage:[[[ImageUtil alloc]init] imageByShrinkingWithSize:CGSizeMake(180, 180) uiImage:image maginW:0 maginH:0]];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

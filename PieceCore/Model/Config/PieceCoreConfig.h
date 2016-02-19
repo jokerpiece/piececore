@@ -94,6 +94,7 @@ extern NSString * const UrlSchemeHostShowMessage;
 + (void)setCookieDomainName:(NSString *)cookieDomainName;
 + (NSString *)cookieDomainName;
 
+
 + (void)setCartUrl:(NSString *)cartUrl;
 + (NSString *)cartUrl;
 
@@ -102,4 +103,15 @@ extern NSString * const UrlSchemeHostShowMessage;
 
 + (void)setGoogleAnalitics:(bool)isGoogleAnalitics;
 + (bool)isGoogleAnalitics;
+
++ (void)setPayPal:(bool)payPal;
++ (bool)isPayPal;
++ (NSString*)payPalBnCode;
++ (NSString*)paypalClientId;
+#define kPayPalEnvironment PayPalEnvironmentSandbox
++ (void)setPayPalEnvironmentProduction:(NSString *)PayPalEnvironmentProduction;
++ (NSString *)payPalEnvironmentProduction;
++ (void)setPayPalEnvironmentSandbox:(NSString *)PayPalEnvironmentSandbox;
++ (NSString *)payPalEnvironmentSandbox;
+
 @end
