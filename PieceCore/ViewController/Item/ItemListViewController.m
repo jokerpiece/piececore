@@ -80,6 +80,7 @@
     if (self.code.length > 0 || self.searchWord.length > 0) {
         if (!self.isCloseWebview) {
             self.itemRecipient.list = [NSMutableArray array];
+            [self.table reloadData];
             [self syncAction];
 
         }
@@ -211,9 +212,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
-        
-        ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
-        [self pushNextViewWidhData:data];
+        if([self.itemRecipient.list count] > indexPath.row){
+            ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
+            [self pushNextViewWidhData:data];
+        }
         
     } else if(indexPath.section == 1) {
         //self.selectPage ++;

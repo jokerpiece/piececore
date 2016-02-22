@@ -38,6 +38,7 @@
     [self moveScreenWithLaunchOptions:launchOptions];
     [self paypal];
     
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     return YES;
 }
 -(void)setConfig{

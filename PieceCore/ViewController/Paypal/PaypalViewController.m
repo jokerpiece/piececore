@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     self.title = [PieceCoreConfig titleNameData].webViewTitle;
     [super viewDidLoad];
-    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     [self item_View];
     [self paypalSetting];
@@ -142,6 +142,17 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
  * 支払い情報の設定、paypal画面へ遷移
  */
 -(void)line_button_Tapeped:(id)sender{
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        // 通信不可
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"お知らせ"
+                                                        message:@"通信できませんでした。\n電波状態をお確かめ下さい。"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+        
+        return;
+    }
     /*
      // Remove our last completed payment, just for demo purposes.
      self.resultText = nil;
