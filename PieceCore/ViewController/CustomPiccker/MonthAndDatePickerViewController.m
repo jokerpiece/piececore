@@ -97,8 +97,22 @@
     switch (component) {
         case 0:
             return [self.monthList count];
-        case 1: // 月(2列目)の場合
+        case 1:{ // 月(2列目)の場合
+//            NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//            NSDateComponents *com = [calendar components:NSCalendarUnitYear
+//                                                fromDate:[NSDate date]];
+//            com.month = (int)[self.pickerView selectedRowInComponent:0];
+//            NSDate *date = [calendar dateFromComponents:com];
+//            NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:date];
+//            NSInteger dayCount = range.length;
+//            if(dayCount == 29){
+//                //現在仕様では閏年に対応できないため
+//                return 28;
+//            }else if(dayCount == 30){
+//                return 30;
+//            }
             return [self.dayList count];
+        }
     }
     return 0;
 }
@@ -110,8 +124,23 @@
         case 0: //
             return [self.monthList objectAtIndex:row];
         case 1:
-            return [self.dayList objectAtIndex:row];    }
+            return [self.dayList objectAtIndex:row];
+    }
     return nil;
+}
+
+- (void)pickerView:(UIPickerView*)pView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *com = [calendar components:NSCalendarUnitYear
+                                        fromDate:[NSDate date]];
+    com.month = (int)[self.pickerView selectedRowInComponent:0] + 1;
+    NSDate *date = [calendar dateFromComponents:com];
+    NSRange range = [calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:date];
+    NSInteger dayCount = range.length;
+    int day = (int)[self.pickerView selectedRowInComponent:1] + 1;
+    if(dayCount < day){
+        [self.pickerView selectRow:dayCount - 1 inComponent:1 animated:YES];
+    }
 }
 
 @end
