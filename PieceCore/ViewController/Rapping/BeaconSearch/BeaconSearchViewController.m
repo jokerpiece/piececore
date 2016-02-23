@@ -24,7 +24,6 @@
     self.minor  = _minor;
     
     self.img.image = [UIImage imageNamed:@"treasure5.png"];
-    self.treasureOk.hidden = true;
     
     beacon = [[Beacon alloc] initWithBeaconInfo:self.uuid major:self.major minor:self.minor];
     [beacon startBeaconMonitoring];
@@ -60,22 +59,16 @@
     // アドバタイズしているビーコンまでの距離に関する情報
     if (0 == rssi) {
         self.img.image = [UIImage imageNamed:@"treasure5.png"];
-        self.treasureOk.hidden = true;
     } else if (60 >= rssi) {
         self.img.image = [UIImage imageNamed:@"treasure1.png"];
-        self.treasureOk.hidden = false;
     } else if (70 >= rssi) {
         self.img.image = [UIImage imageNamed:@"treasure2.png"];
-        self.treasureOk.hidden = true;
     } else if (85 >= rssi) {
         self.img.image = [UIImage imageNamed:@"treasure3.png"];
-        self.treasureOk.hidden = true;
     } else if (100 >= rssi) {
         self.img.image = [UIImage imageNamed:@"treasure4.png"];
-        self.treasureOk.hidden = true;
     } else if (100 < rssi) {
         self.img.image = [UIImage imageNamed:@"treasure5.png"];
-        self.treasureOk.hidden = true;
     }
 }
 
