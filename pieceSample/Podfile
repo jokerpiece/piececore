@@ -6,3 +6,5 @@ pod 'UIColor+MLPFlatColors'
 pod 'SVProgressHUD', '~> 1.0'
 pod 'HCYoutubeParser'
 pod 'Google/Analytics', '~> 1.0.0'
+pod 'PayPal-iOS-SDK'
+
