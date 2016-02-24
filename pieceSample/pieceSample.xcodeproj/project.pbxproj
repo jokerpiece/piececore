@@ -249,6 +249,7 @@
 		37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */; };
 		7454BDD31C7D74B50095F0E5 /* PaypalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454BDD11C7D74B50095F0E5 /* PaypalViewController.m */; };
 		7454BDD41C7D74B50095F0E5 /* PaypalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7454BDD21C7D74B50095F0E5 /* PaypalViewController.xib */; };
+		7457305B1C7D796300F171F9 /* bnr_shop_now_using_150x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7457305A1C7D796300F171F9 /* bnr_shop_now_using_150x60.png */; };
 		A3D4F76C73B2E08C13459071 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AEBEEC86ADD8603FA9B963 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -626,6 +627,7 @@
 		7454BDD01C7D74B50095F0E5 /* PaypalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaypalViewController.h; sourceTree = "<group>"; };
 		7454BDD11C7D74B50095F0E5 /* PaypalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaypalViewController.m; sourceTree = "<group>"; };
 		7454BDD21C7D74B50095F0E5 /* PaypalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaypalViewController.xib; sourceTree = "<group>"; };
+		7457305A1C7D796300F171F9 /* bnr_shop_now_using_150x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnr_shop_now_using_150x60.png; sourceTree = "<group>"; };
 		C0AEBEEC86ADD8603FA9B963 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78AED9D806247E5B305AD02 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1323,6 +1325,7 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7457305A1C7D796300F171F9 /* bnr_shop_now_using_150x60.png */,
 				377F40F61C5C80D600C7D2C0 /* btn_reload@2x.png */,
 				377F40F21C5C7FA700C7D2C0 /* btn_back@2x.png */,
 				377F40F41C5C7FAF00C7D2C0 /* btn_next@2x.png */,
@@ -1865,6 +1868,7 @@
 				146824021C06E2EE00F663CE /* GpsSearchViewController.xib in Resources */,
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
 				37B4E1511AE73BD200A082A3 /* MapViewController.xib in Resources */,
+				7457305B1C7D796300F171F9 /* bnr_shop_now_using_150x60.png in Resources */,
 				376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */,
 				376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */,
 				37E3EB851AA45F8C00EA7CB9 /* tab_icon_coupon.png in Resources */,

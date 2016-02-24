@@ -31,6 +31,13 @@
     [PieceCoreConfig setCookieDomainName:@"otonagokoro.com"];
     [PieceCoreConfig setCartUrl:@"https://otonagokoro.com/cart/"];
     [PieceCoreConfig setDispSearchBar:YES];
+    
+    
+    [PieceCoreConfig setPayPal:YES];
+    
+    [PieceCoreConfig setPayPalEnvironmentProductionClientId:@""];
+    [PieceCoreConfig setPayPalEnvironmentSandboxClientId:@"AdkYj_7K_NKg-ygjEV7vb6bLITUtVPkh3PfUtBBN8-IM02AOO-k2uU1osCF99ei1UBOLhIVemU5cD--m"];
+    [PieceCoreConfig setPayPalEnvironment:PayPalEnvironmentSandbox];
 }
 
 //UITabBarController初期化
