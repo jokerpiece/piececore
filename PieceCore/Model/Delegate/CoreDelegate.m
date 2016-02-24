@@ -17,6 +17,7 @@
 #import "PlayHologramYoutubeViewController.h"
 #import "PlayYoutubeViewController.h"
 #import "UploadYoutubeViewController.h"
+#import "ReminderViewController.h"
 #import "PayPalMobile.h"
 
 
@@ -36,6 +37,7 @@
     [self setTabBarController];
     [self splashIntarval];
     [self moveScreenWithLaunchOptions:launchOptions];
+    [self LocalNotificationUpdate:launchOptions];
     [self paypal];
     
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
