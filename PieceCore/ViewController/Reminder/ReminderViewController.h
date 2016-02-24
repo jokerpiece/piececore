@@ -30,6 +30,6 @@
 - (IBAction)onChildBtn:(id)sender;
 - (IBAction)onValentineBtn:(id)sender;
 - (IBAction)onSaveBtn:(id)sender;
-
+-(void)setReminderNotificate;
 
 @end

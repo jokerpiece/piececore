@@ -49,13 +49,16 @@
 //    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[UploadYoutubeViewController alloc]initWithNibName:@"UploadYoutubeViewController" bundle:nil ] tabTitle:@"youtube" title:@"youtube"]];
 //    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:[[PlayHologramYoutubeViewController alloc]initWithNibName:@"PlayHologramYoutubeViewController" bundle:nil ] tabTitle:@"play" title:@"play"]];
 //    
-    
+//    
 //    RappingBarcodeViewController *vc = [[RappingBarcodeViewController alloc] initWithNibName:@"RappingBarcodeViewController" bundle:nil];
 //    vc.barcodeTitle = @"プレゼントのメッセージがあります。\nQRコードを読み取って下さい。";
 //    
 //    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:vc
 //                                                               tabTitle:@"Barcode"
 //                                                                  title:@"Barcode"]];
+//    ReminderViewController *reVc = [[ReminderViewController alloc]initWithNibName:@"ReminderViewController" bundle:nil];
+//    reVc.titleImgName = @"sample_logo.png";
+//    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:reVc tabTitle:@"Reminder" title:@"REMINDER"]];
     
     FlyerViewController *flyerVc = [[FlyerViewController alloc] initWithNibName:@"FlyerViewController" bundle:nil];
     flyerVc.titleImgName = @"sample_logo.png";
@@ -80,8 +83,8 @@
                                                                   title:@"COUPON"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[MovieListViewController alloc] initWithNibName:@"MovieListViewController" bundle:nil]
-                                                               tabTitle:@"Reminder"
-                                                                  title:@"REMINDER"]];
+                                                               tabTitle:@"Movie"
+                                                                  title:@"MOVIE"]];
     
     TwitterViewController *twitterVc =[[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
     twitterVc.userAcount = @"@SplatoonJP";

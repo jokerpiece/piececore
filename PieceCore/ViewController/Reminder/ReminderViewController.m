@@ -44,14 +44,10 @@
         [formatter setDateFormat:@"yyyy/MM/dd HH:mm:ss"];
         
         NSString *dateStr = [formatter stringFromDate:self.reminderData.notiflcationDate];
-        NSString *monthStr = [dateStr substringWithRange:NSMakeRange(6, 2)];
+        NSString *monthStr = [dateStr substringWithRange:NSMakeRange(5, 2)];
         NSString *DayStr = [dateStr substringWithRange:NSMakeRange(8, 2)];
         
         self.dateTf.text = [NSString stringWithFormat:@"%d月%d日",monthStr.intValue  , DayStr.intValue];
-        
-        
-        
-        
     }
     self.dateNameTf.text = self.reminderData.notiflcationDateName;
     self.fatherBtn.selected = self.reminderData.isFatherDay;
@@ -157,11 +153,6 @@
     NSDateComponents *comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
                         fromDate:[NSDate date]];
     
-    
-    
-    
-    
-    
     NSString* dateString =  [NSString stringWithFormat:@"%04ld/%02d/%02d 20:40:00",(long)comps.year,month,day ];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -234,10 +225,64 @@
 }
 
 - (IBAction)onSaveBtn:(id)sender {
-    [self setLocalNotification:self.reminderData.notiflcationDate DateName:self.reminderData.notiflcationDateName];
+    //バリデーション
+//    BOOL isInput = NO;
     self.reminderData.notiflcationDateName = self.dateNameTf.text;
-    [self.reminderData saveDataForNSUserDefaults];
+    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *com = [calendar components:NSCalendarUnitYear
+                                        fromDate:[NSDate date]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy/MM月dd日"];
+    self.reminderData.notiflcationDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"%d/%@",[com year],self.dateTf.text]];
+//    if(self.reminderData.notiflcationDate && self.dateNameTf.text.length > 0){
+//        NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//        NSDateComponents *com = [calendar components:NSCalendarUnitYear
+//                                            fromDate:[NSDate date]];
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        [dateFormatter setDateFormat:@"yyyy/MM月dd日"];
+//        self.reminderData.notiflcationDate = [dateFormatter dateFromString:[NSString stringWithFormat:@"%d/%@",[com year],self.dateTf.text]];
+//        isInput = YES;
+//    }else
+        if(self.reminderData.notiflcationDateName.length > 0 && self.reminderData.notiflcationDate == nil){
+//        isInput = YES;
+        [self showAlert:@"エラー" message:@"日付を入力してください。"];
+        return;
+    }else if(self.reminderData.notiflcationDateName.length == 0 && self.reminderData.notiflcationDate){
+//        isInput = YES;
+        [self showAlert:@"エラー" message:@"日付の名前を入力してください。"];
+        return;
+    }
+    
     [self showAlert:@"お知らせ" message:@"登録しました。"];
+    [self.reminderData saveDataForNSUserDefaults];
+    [self setReminderNotificate];
+    
+//    if(self.reminderData.isChildDay){
+//        isInput = YES;
+//    }
+//    if(self.reminderData.isFatherDay){
+//        isInput = YES;
+//    }
+//    if(self.reminderData.isMotherDay){
+//        isInput = YES;
+//    }
+//    if(self.reminderData.isSeniorDay){
+//        isInput = YES;
+//    }
+//    if(self.reminderData.isValentine){
+//        isInput = YES;
+//    }
+//    
+//    if(isInput){
+//        [self showAlert:@"お知らせ" message:@"登録しました。"];
+//        [self.reminderData saveDataForNSUserDefaults];
+//        [self setReminderNotificate];
+//    }else{
+//        //チェックを外すためにエラーではなくしてる。
+//        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+//        [self showAlert:@"エラー" message:@"入力してください。"];
+//        [self showAlert:@"お知らせ" message:@"登録しました。"];
+//    }
 }
 
 /*
@@ -292,50 +337,126 @@
 }
 
  */
-- (void)setLocalNotification:(NSDate *)date DateName:(NSString *)dateName
-{
-    
-    
-    
+-(void)setReminderNotificate{
     //このアプリ名義で登録しているローカル通知を削除
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
+    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *com = [calendar components:NSCalendarUnitYear
+                                        fromDate:[NSDate date]];
+    NSInteger year = [com year];
+    self.reminderData = [[ReminderData alloc]init];
+    [self.reminderData getDataForNSUserDefaults];
+    if(self.reminderData.notiflcationDate && self.reminderData.notiflcationDateName.length > 0){
+        com = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay)
+                          fromDate:self.reminderData.notiflcationDate];
+        com.year = year + [self checkPastDate:self.reminderData.notiflcationDate];
+        self.reminderData.notiflcationDate = [calendar dateFromComponents:com];
+        [self.reminderData saveDataForNSUserDefaults];
+        [self setLocalNotification:self.reminderData.notiflcationDate DateName:self.reminderData.notiflcationDateName];
+    }
+    if(self.reminderData.isChildDay){
+        com = [[NSDateComponents alloc]init];
+        com.year = year;
+        com.month = 5;
+        com.day = 5;
+        com.year = year + [self checkPastDate:[calendar dateFromComponents:com]];
+        [self setLocalNotification:[calendar dateFromComponents:com] DateName:@"子供の日"];
+    }
+    if(self.reminderData.isFatherDay){
+        //６月の第３日曜日
+        com = [[NSDateComponents alloc]init];
+        com.year = year;
+        com.month = 6;
+        com.weekdayOrdinal = 3;
+        com.weekday = 2;
+        com.year = year + [self checkPastDate:[calendar dateFromComponents:com]];
+        [self setLocalNotification:[calendar dateFromComponents:com] DateName:@"父の日"];
+    }
+    if(self.reminderData.isMotherDay){
+        //5月の第２日曜日
+        com = [[NSDateComponents alloc]init];
+        com.year = year;
+        com.month = 5;
+        com.weekdayOrdinal = 2;
+        com.weekday = 1;
+        com.year = year + [self checkPastDate:[calendar dateFromComponents:com]];
+        [self setLocalNotification:[calendar dateFromComponents:com] DateName:@"母の日"];
+    }
+    if(self.reminderData.isSeniorDay){
+        //9月の第３月曜日
+        com = [[NSDateComponents alloc]init];
+        com.year = year;
+        com.month = 9;
+        com.weekdayOrdinal = 3;
+        com.weekday = 2;
+        com.year = year + [self checkPastDate:[calendar dateFromComponents:com]];
+        [self setLocalNotification:[calendar dateFromComponents:com] DateName:@"敬老の日"];
+    }
+    if(self.reminderData.isValentine){
+        com = [[NSDateComponents alloc]init];
+        com.year = year;
+        com.month = 2;
+        com.day = 14;
+        com.year = year + [self checkPastDate:[calendar dateFromComponents:com]];
+        [self setLocalNotification:[calendar dateFromComponents:com] DateName:@"バレンタインデー"];
+    }
+    
+    //登録されているアラームを配列に格納する。
+    NSArray *notifiyItems = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    //ローカル通知に登録されている件数を表示。
+    NSLog(@"登録件数：%lu",(unsigned long)[notifiyItems count]);
+    for(UILocalNotification *notifiy in notifiyItems){
+        //ローカル通知の通知日付
+        NSLog(@"[push date]:%@",notifiy.fireDate);
+        //ローカル通知に登録されている、alertBodyの文字列を表示する。
+        NSLog(@"[LN]:%@",[notifiy alertBody]);
+    }
+}
+
 
     NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     //日付、時間の設定（作成）を行う。
     NSDateComponents *comps = [[NSDateComponents alloc] init];
-//    //西暦を指定
-//    [comps setYear:2016];
-//    //月を指定
-//    [comps setMonth:1];
     //日を指定
     [comps setDay:-20];
+    //NSDateに指定した日で日付を増減する。
+    remindDate = [calendar dateByAddingComponents:comps toDate:remindDate options:0];
+    if([remindDate compare:[NSDate date]] == NSOrderedAscending){
+        //現在日より過去であれば１を返して戻り値で年に追加saseru
+        return 1;
+    }
+    return 0;
+}
+
+- (void)setLocalNotification:(NSDate *)date DateName:(NSString *)dateName
+{
+    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    //日付、時間の設定（作成）を行う。
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+
+    //日を指定
+    [comps setDay:-20];
+    //NSDateに指定した日で日付を増減する。
     NSDate *result = [calendar dateByAddingComponents:comps toDate:date options:0];
+    //ローカル通知させる時間を設定する。
+    comps = [calendar components:(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay)
+                        fromDate:result];
+    comps.hour = 12;
+    comps.minute = 0;
+    comps.second = 0;
+    result = [calendar dateFromComponents:comps];
     
-    //曜日を指定。0が日曜日。順に行って6が土曜日。
-    //[comps setWeekday:5];
-    //その月の何週目に通知させるか指定する。このメソッドを追加することにより、アラームを毎週リピートにしても、第２週にお知らせしてくれる。
-    //[comps setWeekOfYear:1];
-    //時間を指定。+9しているのは、GMT時間を日本時間に合わせる為。
-    [comps setHour:17+9];
-    //分を指定
-    [comps setMinute:35];
-    //NSDateに上記で設定した時間を挿入する。
-    
-    //NSDate *date = [calendar dateFromComponents:comps];
-    
-    //全てのローカル通知を削除する。（過去のローカル通知を削除する）
-    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     //ローカル通知をさせるためのインスタンスを作成。
     UILocalNotification *notification = [[UILocalNotification alloc]init];
+    //時間のセット
+    if([[NSDate date] compare:result] == NSOrderedAscending){
+        notification.fireDate = result;
+    }else{
+        NSLog(@"%@の通知が過去になっているため登録できませんでした。",dateName);
+        return;
+    }
     
-    //ローカル通知させる時間を設定する。ここで設定した時間に繰り返しローカル通知されるようになる。
-    //NSTimeInterval span = 10;
-    notification.fireDate = date;
-//    notification.fireDate = [[NSDate date] dateByAddingTimeInterval:span];
-    
-    //毎週アラームを通知させる。
-    //notification.repeatInterval = NSWeekOfYearCalendarUnit;
     //時間をその端末のあるロケーションに合わせる。
     notification.timeZone = [NSTimeZone localTimeZone];
     //通知されたときに、アイコンの右上に数字を表示させる。

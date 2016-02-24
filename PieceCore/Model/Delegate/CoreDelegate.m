@@ -146,6 +146,16 @@
     }
 }
 
+-(void)LocalNotificationUpdate:(NSDictionary*)launchOptions{
+    // UIApplicationLaunchOptionsLocalNotificationKeyをキーにして、情報を取り出す
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    if(notification != nil) {
+        //リマインダーを呼び出して通知を（修正が大変なので）全て作りなおす
+        ReminderViewController *reVC = [[ReminderViewController alloc]init];
+        [reVC setReminderNotificate];
+    }
+}
 
 - (void)setTabBarController
 {
@@ -340,6 +350,19 @@
     DLog(@"%@ %@ %@",[info objectForKey:@"title"],[info objectForKey:@"type"],[info objectForKey:@"id"]);
     
     //application.applicationIconBadgeNumber = 0;
+}
+//ローカルプッシュ
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    // アプリ起動中(フォアグラウンド)に通知が届いた場合
+    if(application.applicationState == UIApplicationStateActive) {
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:notification forKey:UIApplicationLaunchOptionsLocalNotificationKey];
+        [self LocalNotificationUpdate:dic];
+    }
+    // アプリがバックグラウンドにある状態で通知が届いた場合
+    if(application.applicationState == UIApplicationStateInactive) {
+        NSDictionary *dic = [NSDictionary dictionaryWithObject:notification forKey:UIApplicationLaunchOptionsLocalNotificationKey];
+        [self LocalNotificationUpdate:dic];
+    }
 }
 
 -(void)moveToFliyer:(NSString *)infoId{
