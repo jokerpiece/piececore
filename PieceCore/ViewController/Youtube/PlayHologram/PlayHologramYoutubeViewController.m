@@ -226,7 +226,7 @@
     const double interval = ( 0.5f * self.seekBar.maximumValue ) / self.seekBar.bounds.size.width;
     const CMTime time     = CMTimeMakeWithSeconds( interval, NSEC_PER_SEC );
     self.playTimeObserver = [self.player addPeriodicTimeObserverForInterval:time
-                                                                           queue:NULL
+                                                                           queue:nil
                                                                       usingBlock:^( CMTime time ) { [self syncSeekBar]; }];
     
     self.durationLabel.text = [self timeToString:self.seekBar.maximumValue];

@@ -87,13 +87,13 @@
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
         NSData *json = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSDictionary *array = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:nil];
-        NSLog(@"%@",[array valueForKeyPath:@"results"]);
+        DLog(@"%@",[array valueForKeyPath:@"results"]);
         NSString *json_str = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",json_str);
+        DLog(@"%@",json_str);
         
         for(NSDictionary *cor2 in array[@"results"])
         {
-            NSLog(@"%@,%@,%@",cor2[@"address1"],cor2[@"address2"],cor2[@"address3"]);
+            DLog(@"%@,%@,%@",cor2[@"address1"],cor2[@"address2"],cor2[@"address3"]);
             self.address1Tv.text = cor2[@"address1"];
             self.address2Tv.text = cor2[@"address2"];
             self.address3Tv.text = cor2[@"address3"];
@@ -115,7 +115,7 @@
     [profile_data synchronize];
     
     NSString *post = [profile_data stringForKey:@"POST"];
-    NSLog(@"%@",post);
+    DLog(@"%@",post);
 }
 
 @end

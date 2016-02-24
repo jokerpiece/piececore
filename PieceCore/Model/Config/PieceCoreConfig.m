@@ -13,9 +13,9 @@ static NSNumber *_tabnumberFlyer = nil;
 static NSNumber *_tabnumberInfo = nil;
 static NSNumber *_tabnumberCoupon = nil;
 static NSNumber *_tabnumberShopping = nil;
-static NSString *_appId = @"";
-static NSString *_shopId = @"";
-static NSString *_appKey = @"";
+static NSString *_appId = @"pieceSample";
+static NSString *_shopId = @"pieceSample";
+static NSString *_appKey = @"jokerpiece_appKey";
 static TitleNameData *_titleNameData = nil;
 static NSNumber *_splashIntarval = nil;
 static NSString *_useCouponNum = @"";
@@ -23,15 +23,25 @@ static NSString *_nex8Key = @"";
 static bool _linePay = NO;
 static NSString *_linePayConfirmUrl = @"";
 static NSString *_cookieDomainName = @"";
+
 static NSString *_cartUrl = @"";
 static bool _dispSearchBar = NO;
 static bool _googleAnalitics = NO;
 
+static bool _paypal = NO;
+
+static NSString *_payPalEnvironment = nil;
+static NSString *_paypal_bncode = @"";
+static NSString *_PayPalEnvironmentProductionClientId = @"YOUR_CLIENT_ID_FOR_PRODUCTION";
+static NSString *_PayPalEnvironmentSandboxClientId = @"YOUR_CLIENT_ID_FOR_SANDBOX";
+
 //NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
+
+
 NSString * const  OsType= @"1";
-NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
-//NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
+//NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
+NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
 NSString * const  SendIdItem= @"item/index.php?Action=itemList";
 NSString * const  SendIdItemCoupon= @"item/";
@@ -184,6 +194,7 @@ const float TabbarHight = 49;
     return _cookieDomainName;
 }
 
+
 + (void)setCartUrl:(NSString *)cartUrl{
     _cartUrl = cartUrl;
 }
@@ -206,5 +217,35 @@ const float TabbarHight = 49;
 }
 + (bool)isGoogleAnalitics{
     return _googleAnalitics;
+}
++ (void)setPayPal:(bool)payPal{
+    _paypal = payPal;
+}
++ (bool)isPayPal{
+    return _paypal;
+}
++ (NSString*)payPalBnCode{
+    return _paypal_bncode;
+}
+
++ (void)setPayPalEnvironment:(NSString *)PayPalEnvironment{
+    _payPalEnvironment = PayPalEnvironment;
+}
++ (NSString *)payPalEnvironment{
+    return _payPalEnvironment;
+}
+
++ (void)setPayPalEnvironmentProductionClientId:(NSString *)PayPalEnvironmentProductionClientId{
+    _PayPalEnvironmentProductionClientId = PayPalEnvironmentProductionClientId;
+}
++ (NSString *)payPalEnvironmentProductionClientId{
+    return _PayPalEnvironmentProductionClientId;
+}
++ (void)setPayPalEnvironmentSandboxClientId:(NSString *)PayPalEnvironmentSandboxClientId{
+    _PayPalEnvironmentSandboxClientId = PayPalEnvironmentSandboxClientId;
+}
++ (NSString *)payPalEnvironmentSandboxClientId{
+    return _PayPalEnvironmentSandboxClientId;
+    
 }
 @end

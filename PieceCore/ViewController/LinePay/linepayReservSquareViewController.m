@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGRect screen = [[UIScreen mainScreen] bounds];
-    NSLog(@"%f,%f", screen.size.width, screen.size.height);
+    DLog(@"%f,%f", screen.size.width, screen.size.height);
     
     
     
@@ -53,10 +53,10 @@
     NSString *amount_sum_2 = [NSString stringWithFormat:@"%d",self.payment_price];
     self.amount.text = amount_sum_2;
     
-    NSLog(@"%@",get_item_name);
-    NSLog(@"%@",get_item_price);
-    NSLog(@"%@",get_postage);
-    NSLog(@"%@",amount_sum_2);
+    DLog(@"%@",get_item_name);
+    DLog(@"%@",get_item_price);
+    DLog(@"%@",get_postage);
+    DLog(@"%@",amount_sum_2);
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
@@ -101,7 +101,7 @@
 
 - (IBAction)reserv:(id)sender {
      //LINEPay決済送信、アプリ内決済登録
-    NSString *str = NULL;
+    NSString *str = nil;
     NSString *get_transaction = [LinePayData getTransaction];
     
     NetworkConecter *conecter = [NetworkConecter alloc];

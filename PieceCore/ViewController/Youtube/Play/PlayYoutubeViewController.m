@@ -155,11 +155,11 @@
     NSDictionary *userInfo = [notification userInfo];
     switch([[userInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey] intValue]) {
         case MPMovieFinishReasonPlaybackEnded:
-            NSLog(@"playback ended");
+            DLog(@"playback ended");
             
             break;
         case MPMovieFinishReasonPlaybackError:
-            NSLog(@"playback error");
+            DLog(@"playback error");
             [self dismissViewControllerAnimated:NO completion:^{
                 //        [[UIApplication sharedApplication].delegate.window.rootViewController dismissViewControllerAnimated:NO completion:nil];
                 ;

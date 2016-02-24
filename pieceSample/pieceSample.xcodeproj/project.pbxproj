@@ -247,6 +247,8 @@
 		37E68D501BECD8D200F214EF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E68D4F1BECD8D200F214EF /* AssetsLibrary.framework */; };
 		37EA5E2A1BBE2F9D0003A0E7 /* LinepayProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EA5E281BBE2F9D0003A0E7 /* LinepayProfileViewController.m */; };
 		37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */; };
+		7454BDD31C7D74B50095F0E5 /* PaypalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454BDD11C7D74B50095F0E5 /* PaypalViewController.m */; };
+		7454BDD41C7D74B50095F0E5 /* PaypalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7454BDD21C7D74B50095F0E5 /* PaypalViewController.xib */; };
 		A3D4F76C73B2E08C13459071 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AEBEEC86ADD8603FA9B963 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -621,6 +623,9 @@
 		37EA5E271BBE2F9D0003A0E7 /* LinepayProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinepayProfileViewController.h; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.h; sourceTree = "<group>"; };
 		37EA5E281BBE2F9D0003A0E7 /* LinepayProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinepayProfileViewController.m; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.m; sourceTree = "<group>"; };
 		37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LinepayProfileViewController.xib; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.xib; sourceTree = "<group>"; };
+		7454BDD01C7D74B50095F0E5 /* PaypalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaypalViewController.h; sourceTree = "<group>"; };
+		7454BDD11C7D74B50095F0E5 /* PaypalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaypalViewController.m; sourceTree = "<group>"; };
+		7454BDD21C7D74B50095F0E5 /* PaypalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaypalViewController.xib; sourceTree = "<group>"; };
 		C0AEBEEC86ADD8603FA9B963 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78AED9D806247E5B305AD02 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1490,6 +1495,7 @@
 				37E3EB4F1AA45F8C00EA7CB9 /* Stamp */,
 				37E3EB531AA45F8C00EA7CB9 /* Survey */,
 				10B66AF41B60E47000AF524B /* LinePay */,
+				7454BDCF1C7D74B50095F0E5 /* Paypal */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1658,6 +1664,16 @@
 			path = Survey;
 			sourceTree = "<group>";
 		};
+		7454BDCF1C7D74B50095F0E5 /* Paypal */ = {
+			isa = PBXGroup;
+			children = (
+				7454BDD01C7D74B50095F0E5 /* PaypalViewController.h */,
+				7454BDD11C7D74B50095F0E5 /* PaypalViewController.m */,
+				7454BDD21C7D74B50095F0E5 /* PaypalViewController.xib */,
+			);
+			path = Paypal;
+			sourceTree = "<group>";
+		};
 		8A4EA57BE6BE790F39EF13AC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1824,6 +1840,7 @@
 				37E3EBAC1AA45F8C00EA7CB9 /* HistoryViewController.xib in Resources */,
 				37E3EB9E1AA45F8C00EA7CB9 /* CouponViewController.xib in Resources */,
 				377F40F71C5C80D600C7D2C0 /* btn_reload@2x.png in Resources */,
+				7454BDD41C7D74B50095F0E5 /* PaypalViewController.xib in Resources */,
 				37668BBE1AC2A96E00D08368 /* tab_icon_profile.png in Resources */,
 				376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */,
 				37E3EB7E1AA45F8C00EA7CB9 /* sex.png in Resources */,
@@ -2000,6 +2017,7 @@
 				2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */,
 				371941F91AC549700033FBCA /* TitleNameData.m in Sources */,
 				37E3EB741AA45F8C00EA7CB9 /* CoreDelegate.m in Sources */,
+				7454BDD31C7D74B50095F0E5 /* PaypalViewController.m in Sources */,
 				37949A4D1AB6C497002E5194 /* HistoryTableViewCell.m in Sources */,
 				37D7584A1AB2786300E6B421 /* TWActivity.m in Sources */,
 				37E3EB631AA45F8C00EA7CB9 /* SettingData.m in Sources */,
@@ -2114,6 +2132,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2156,6 +2175,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2185,9 +2205,9 @@
 				INFOPLIST_FILE = pieceSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.pieceSample;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.piece.pieceSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "edc920bd-866e-40eb-85f9-e1e60e0144c4";
 			};
 			name = Debug;
 		};
@@ -2202,9 +2222,9 @@
 				INFOPLIST_FILE = pieceSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.pieceSample;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.piece.pieceSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "edc920bd-866e-40eb-85f9-e1e60e0144c4";
 			};
 			name = Release;
 		};

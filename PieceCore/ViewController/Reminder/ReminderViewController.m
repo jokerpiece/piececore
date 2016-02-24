@@ -150,7 +150,7 @@
     int day = (int)[self.monthDateViewController.pickerView selectedRowInComponent: 1] + 1;
 
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+    NSDateComponents *comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
                         fromDate:[NSDate date]];
     
     NSString* dateString =  [NSString stringWithFormat:@"%04ld/%02d/%02d 20:40:00",(long)comps.year,month,day ];
@@ -472,6 +472,18 @@
     notification.userInfo = infoDict;
     //作成したローカル通知をアプリケーションに登録する。
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    
+    //登録されているアラームを配列に格納する。
+    NSArray *notifiyItems = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    //ローカル通知に登録されている件数を表示。
+    DLog(@"登録件数：%d",[notifiyItems count]);
+    for(UILocalNotification *notifiy in notifiyItems){
+        //ローカル通知に登録されている、alertBodyの文字列を表示する。
+        DLog(@"[LN]:%@",[notifiy alertBody]);
+    }
+    
+    
+    
     
 }
 

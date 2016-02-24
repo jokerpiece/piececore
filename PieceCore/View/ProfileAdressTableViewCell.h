@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseInputCell.h"
 #import "ProfileSendBtnTableViewCell.h"
+#import "DLog.h"
 
 @interface ProfileAdressTableViewCell : BaseInputCell
 @property (weak, nonatomic) IBOutlet UITextField *postTf;
