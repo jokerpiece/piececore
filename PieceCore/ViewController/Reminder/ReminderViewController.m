@@ -415,6 +415,7 @@
 }
 
 
+-(NSInteger)checkPastDate:(NSDate*)remindDate{
     NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     //日付、時間の設定（作成）を行う。
     NSDateComponents *comps = [[NSDateComponents alloc] init];

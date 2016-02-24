@@ -247,6 +247,7 @@
 		37EA5E2A1BBE2F9D0003A0E7 /* LinepayProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EA5E281BBE2F9D0003A0E7 /* LinepayProfileViewController.m */; };
 		37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */; };
 		740213861C76F9D000AF1DFA /* bnr_shop_now_using_150x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 740213851C76F9CF00AF1DFA /* bnr_shop_now_using_150x60.png */; };
+		7454BDCE1C7D67680095F0E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */; };
 		749BC01A1C74063D00704AA6 /* PaypalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749BC0181C74063D00704AA6 /* PaypalViewController.m */; };
 		749BC01B1C74063D00704AA6 /* PaypalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BC0191C74063D00704AA6 /* PaypalViewController.xib */; };
 		A3D4F76C73B2E08C13459071 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AEBEEC86ADD8603FA9B963 /* libPods.a */; };
@@ -623,6 +624,7 @@
 		37EA5E281BBE2F9D0003A0E7 /* LinepayProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinepayProfileViewController.m; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.m; sourceTree = "<group>"; };
 		37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LinepayProfileViewController.xib; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.xib; sourceTree = "<group>"; };
 		740213851C76F9CF00AF1DFA /* bnr_shop_now_using_150x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnr_shop_now_using_150x60.png; sourceTree = "<group>"; };
+		7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		749BC0171C74063D00704AA6 /* PaypalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaypalViewController.h; sourceTree = "<group>"; };
 		749BC0181C74063D00704AA6 /* PaypalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaypalViewController.m; sourceTree = "<group>"; };
 		749BC0191C74063D00704AA6 /* PaypalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaypalViewController.xib; sourceTree = "<group>"; };
@@ -1041,6 +1043,7 @@
 			isa = PBXGroup;
 			children = (
 				37E3EA561AA45F6800EA7CB9 /* Info.plist */,
+				7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */,
 				37E3EA571AA45F6800EA7CB9 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -1775,6 +1778,7 @@
 			files = (
 				377F40F31C5C7FA700C7D2C0 /* btn_back@2x.png in Resources */,
 				1468242D1C07107900F663CE /* treasure5.png in Resources */,
+				7454BDCE1C7D67680095F0E5 /* GoogleService-Info.plist in Resources */,
 				146824181C06E31500F663CE /* other.png in Resources */,
 				37949A7F1ABAC534002E5194 /* icon_stamp@2x.png in Resources */,
 				3726E6661C4CA7E900405ED1 /* icon_birthday.png in Resources */,
