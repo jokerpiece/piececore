@@ -18,7 +18,6 @@
 #import "PlayYoutubeViewController.h"
 #import "UploadYoutubeViewController.h"
 #import "ReminderViewController.h"
-#import "PayPalMobile.h"
 
 
 @implementation CoreDelegate
@@ -38,7 +37,6 @@
     [self splashIntarval];
     [self moveScreenWithLaunchOptions:launchOptions];
     [self LocalNotificationUpdate:launchOptions];
-    [self paypal];
     
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     return YES;
@@ -583,17 +581,6 @@
     {
         // クエリ文字列が nil だった場合は、結果も nil を返します。
         return nil;
-    }
-}
-/**
- * PayPal初期化
- */
--(void)paypal{
-    if ([PieceCoreConfig isPayPal]){
-        [PayPalMobile initializeWithClientIdsForEnvironments
-         :@{PayPalEnvironmentProduction : [PieceCoreConfig payPalEnvironmentProductionClientId],
-            PayPalEnvironmentSandbox : [PieceCoreConfig payPalEnvironmentSandboxClientId]
-            }];
     }
 }
 @end

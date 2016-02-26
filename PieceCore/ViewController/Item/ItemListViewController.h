@@ -13,7 +13,6 @@
 #import "BaseViewController.h"
 #import "linepay_ViewController.h"
 #import "linepayReservSquareViewController.h"
-#import "PaypalViewController.h"
 #import "DLog.h"
 
 typedef enum {

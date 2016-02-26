@@ -28,13 +28,6 @@ static NSString *_cartUrl = @"";
 static bool _dispSearchBar = NO;
 static bool _googleAnalitics = NO;
 
-static bool _paypal = NO;
-
-static NSString *_payPalEnvironment = nil;
-static NSString *_paypal_bncode = @"";
-static NSString *_PayPalEnvironmentProductionClientId = @"YOUR_CLIENT_ID_FOR_PRODUCTION";
-static NSString *_PayPalEnvironmentSandboxClientId = @"YOUR_CLIENT_ID_FOR_SANDBOX";
-
 //NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
 
@@ -217,35 +210,5 @@ const float TabbarHight = 49;
 }
 + (bool)isGoogleAnalitics{
     return _googleAnalitics;
-}
-+ (void)setPayPal:(bool)payPal{
-    _paypal = payPal;
-}
-+ (bool)isPayPal{
-    return _paypal;
-}
-+ (NSString*)payPalBnCode{
-    return _paypal_bncode;
-}
-
-+ (void)setPayPalEnvironment:(NSString *)PayPalEnvironment{
-    _payPalEnvironment = PayPalEnvironment;
-}
-+ (NSString *)payPalEnvironment{
-    return _payPalEnvironment;
-}
-
-+ (void)setPayPalEnvironmentProductionClientId:(NSString *)PayPalEnvironmentProductionClientId{
-    _PayPalEnvironmentProductionClientId = PayPalEnvironmentProductionClientId;
-}
-+ (NSString *)payPalEnvironmentProductionClientId{
-    return _PayPalEnvironmentProductionClientId;
-}
-+ (void)setPayPalEnvironmentSandboxClientId:(NSString *)PayPalEnvironmentSandboxClientId{
-    _PayPalEnvironmentSandboxClientId = PayPalEnvironmentSandboxClientId;
-}
-+ (NSString *)payPalEnvironmentSandboxClientId{
-    return _PayPalEnvironmentSandboxClientId;
-    
 }
 @end

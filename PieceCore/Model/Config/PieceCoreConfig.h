@@ -62,9 +62,6 @@ extern NSString * const UrlSchemeHostPlayYoutube;
 extern NSString * const UrlSchemeHostInputMessage;
 extern NSString * const UrlSchemeHostShowMessage;
 
-extern NSString * const Paypal_clientId;
-extern NSString * const PayPalEnvironment;
-extern NSString * const Paypal_bncode;
 + (NSNumber *)tabnumberFlyer;
 + (NSNumber *)tabnumberInfo;
 + (NSNumber *)tabnumberCoupon;
@@ -106,16 +103,5 @@ extern NSString * const Paypal_bncode;
 
 + (void)setGoogleAnalitics:(bool)isGoogleAnalitics;
 + (bool)isGoogleAnalitics;
-
-+ (void)setPayPal:(bool)payPal;
-+ (bool)isPayPal;
-+ (NSString*)payPalBnCode;
-+ (void)setPayPalEnvironment:(NSString *)PayPalEnvironment;
-+ (NSString *)payPalEnvironment;
-
-+ (void)setPayPalEnvironmentProductionClientId:(NSString *)PayPalEnvironmentProductionClientId;
-+ (NSString *)payPalEnvironmentProductionClientId;
-+ (void)setPayPalEnvironmentSandboxClientId:(NSString *)PayPalEnvironmentSandboxClientId;
-+ (NSString *)payPalEnvironmentSandboxClientId;
 
 @end

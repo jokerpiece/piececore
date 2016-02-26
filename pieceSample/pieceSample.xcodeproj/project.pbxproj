@@ -248,8 +248,6 @@
 		37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */; };
 		740213861C76F9D000AF1DFA /* bnr_shop_now_using_150x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 740213851C76F9CF00AF1DFA /* bnr_shop_now_using_150x60.png */; };
 		7454BDCE1C7D67680095F0E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */; };
-		749BC01A1C74063D00704AA6 /* PaypalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749BC0181C74063D00704AA6 /* PaypalViewController.m */; };
-		749BC01B1C74063D00704AA6 /* PaypalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749BC0191C74063D00704AA6 /* PaypalViewController.xib */; };
 		A3D4F76C73B2E08C13459071 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AEBEEC86ADD8603FA9B963 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -625,9 +623,6 @@
 		37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LinepayProfileViewController.xib; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.xib; sourceTree = "<group>"; };
 		740213851C76F9CF00AF1DFA /* bnr_shop_now_using_150x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnr_shop_now_using_150x60.png; sourceTree = "<group>"; };
 		7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		749BC0171C74063D00704AA6 /* PaypalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaypalViewController.h; sourceTree = "<group>"; };
-		749BC0181C74063D00704AA6 /* PaypalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaypalViewController.m; sourceTree = "<group>"; };
-		749BC0191C74063D00704AA6 /* PaypalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaypalViewController.xib; sourceTree = "<group>"; };
 		C0AEBEEC86ADD8603FA9B963 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78AED9D806247E5B305AD02 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1477,7 +1472,6 @@
 		37E3EAFB1AA45F8C00EA7CB9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				749BC0161C74063D00704AA6 /* Paypal */,
 				3726E65A1C4C925D00405ED1 /* Reminder */,
 				2F55E8AC1BF3089500525089 /* Order */,
 				37505B3C1BF30917001CEA3B /* Rapping */,
@@ -1667,16 +1661,6 @@
 			path = Survey;
 			sourceTree = "<group>";
 		};
-		749BC0161C74063D00704AA6 /* Paypal */ = {
-			isa = PBXGroup;
-			children = (
-				749BC0171C74063D00704AA6 /* PaypalViewController.h */,
-				749BC0181C74063D00704AA6 /* PaypalViewController.m */,
-				749BC0191C74063D00704AA6 /* PaypalViewController.xib */,
-			);
-			path = Paypal;
-			sourceTree = "<group>";
-		};
 		8A4EA57BE6BE790F39EF13AC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1844,7 +1828,6 @@
 				37E3EBAC1AA45F8C00EA7CB9 /* HistoryViewController.xib in Resources */,
 				37E3EB9E1AA45F8C00EA7CB9 /* CouponViewController.xib in Resources */,
 				377F40F71C5C80D600C7D2C0 /* btn_reload@2x.png in Resources */,
-				749BC01B1C74063D00704AA6 /* PaypalViewController.xib in Resources */,
 				37668BBE1AC2A96E00D08368 /* tab_icon_profile.png in Resources */,
 				376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */,
 				37E3EB7E1AA45F8C00EA7CB9 /* sex.png in Resources */,
@@ -2021,7 +2004,6 @@
 				2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */,
 				371941F91AC549700033FBCA /* TitleNameData.m in Sources */,
 				37E3EB741AA45F8C00EA7CB9 /* CoreDelegate.m in Sources */,
-				749BC01A1C74063D00704AA6 /* PaypalViewController.m in Sources */,
 				37949A4D1AB6C497002E5194 /* HistoryTableViewCell.m in Sources */,
 				37D7584A1AB2786300E6B421 /* TWActivity.m in Sources */,
 				37E3EB631AA45F8C00EA7CB9 /* SettingData.m in Sources */,
