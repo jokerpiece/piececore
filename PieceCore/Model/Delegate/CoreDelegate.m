@@ -18,6 +18,8 @@
 #import "PlayYoutubeViewController.h"
 #import "UploadYoutubeViewController.h"
 #import "ReminderViewController.h"
+#import "PayPalMobile.h"
+
 
 
 @implementation CoreDelegate

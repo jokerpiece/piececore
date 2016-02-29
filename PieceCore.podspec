@@ -17,5 +17,6 @@ Pod::Spec.new do |s|
     #s.dependency 'Nex8Tracking'
     s.dependency 'HCYoutubeParser'
     s.dependency 'Google/Analytics', '~> 1.0.0'
+    s.dependency 'PayPal-iOS-SDK'
 
 end

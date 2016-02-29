@@ -1318,6 +1318,7 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7457305A1C7D796300F171F9 /* bnr_shop_now_using_150x60.png */,
 				377F40F61C5C80D600C7D2C0 /* btn_reload@2x.png */,
 				377F40F21C5C7FA700C7D2C0 /* btn_back@2x.png */,
 				377F40F41C5C7FAF00C7D2C0 /* btn_next@2x.png */,
@@ -1490,6 +1491,7 @@
 				37E3EB4F1AA45F8C00EA7CB9 /* Stamp */,
 				37E3EB531AA45F8C00EA7CB9 /* Survey */,
 				10B66AF41B60E47000AF524B /* LinePay */,
+				7454BDCF1C7D74B50095F0E5 /* Paypal */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1656,6 +1658,16 @@
 				37E3EB551AA45F8C00EA7CB9 /* SurveyViewController.m */,
 			);
 			path = Survey;
+			sourceTree = "<group>";
+		};
+		7454BDCF1C7D74B50095F0E5 /* Paypal */ = {
+			isa = PBXGroup;
+			children = (
+				7454BDD01C7D74B50095F0E5 /* PaypalViewController.h */,
+				7454BDD11C7D74B50095F0E5 /* PaypalViewController.m */,
+				7454BDD21C7D74B50095F0E5 /* PaypalViewController.xib */,
+			);
+			path = Paypal;
 			sourceTree = "<group>";
 		};
 		8A4EA57BE6BE790F39EF13AC /* Pods */ = {
@@ -1825,6 +1837,7 @@
 				37E3EBAC1AA45F8C00EA7CB9 /* HistoryViewController.xib in Resources */,
 				37E3EB9E1AA45F8C00EA7CB9 /* CouponViewController.xib in Resources */,
 				377F40F71C5C80D600C7D2C0 /* btn_reload@2x.png in Resources */,
+				7454BDD41C7D74B50095F0E5 /* PaypalViewController.xib in Resources */,
 				37668BBE1AC2A96E00D08368 /* tab_icon_profile.png in Resources */,
 				376A47B61AADAEE1002A25D3 /* tab_icon_shopping@2x.png in Resources */,
 				37E3EB7E1AA45F8C00EA7CB9 /* sex.png in Resources */,
@@ -1848,6 +1861,7 @@
 				146824021C06E2EE00F663CE /* GpsSearchViewController.xib in Resources */,
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
 				37B4E1511AE73BD200A082A3 /* MapViewController.xib in Resources */,
+				7457305B1C7D796300F171F9 /* bnr_shop_now_using_150x60.png in Resources */,
 				376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */,
 				376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */,
 				37E3EB851AA45F8C00EA7CB9 /* tab_icon_coupon.png in Resources */,
@@ -2000,6 +2014,7 @@
 				2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */,
 				371941F91AC549700033FBCA /* TitleNameData.m in Sources */,
 				37E3EB741AA45F8C00EA7CB9 /* CoreDelegate.m in Sources */,
+				7454BDD31C7D74B50095F0E5 /* PaypalViewController.m in Sources */,
 				37949A4D1AB6C497002E5194 /* HistoryTableViewCell.m in Sources */,
 				37D7584A1AB2786300E6B421 /* TWActivity.m in Sources */,
 				37E3EB631AA45F8C00EA7CB9 /* SettingData.m in Sources */,
@@ -2114,6 +2129,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2156,6 +2172,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2185,9 +2202,9 @@
 				INFOPLIST_FILE = pieceSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.pieceSample;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.piece.pieceSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "edc920bd-866e-40eb-85f9-e1e60e0144c4";
 			};
 			name = Debug;
 		};
@@ -2202,9 +2219,9 @@
 				INFOPLIST_FILE = pieceSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.pieceSample;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.jokerpiece.piece.pieceSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "edc920bd-866e-40eb-85f9-e1e60e0144c4";
 			};
 			name = Release;
 		};
