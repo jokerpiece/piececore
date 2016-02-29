@@ -246,7 +246,6 @@
 		37E68D501BECD8D200F214EF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E68D4F1BECD8D200F214EF /* AssetsLibrary.framework */; };
 		37EA5E2A1BBE2F9D0003A0E7 /* LinepayProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EA5E281BBE2F9D0003A0E7 /* LinepayProfileViewController.m */; };
 		37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */; };
-		740213861C76F9D000AF1DFA /* bnr_shop_now_using_150x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 740213851C76F9CF00AF1DFA /* bnr_shop_now_using_150x60.png */; };
 		7454BDCE1C7D67680095F0E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */; };
 		A3D4F76C73B2E08C13459071 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AEBEEC86ADD8603FA9B963 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -621,7 +620,6 @@
 		37EA5E271BBE2F9D0003A0E7 /* LinepayProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinepayProfileViewController.h; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.h; sourceTree = "<group>"; };
 		37EA5E281BBE2F9D0003A0E7 /* LinepayProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinepayProfileViewController.m; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.m; sourceTree = "<group>"; };
 		37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LinepayProfileViewController.xib; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.xib; sourceTree = "<group>"; };
-		740213851C76F9CF00AF1DFA /* bnr_shop_now_using_150x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnr_shop_now_using_150x60.png; sourceTree = "<group>"; };
 		7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0AEBEEC86ADD8603FA9B963 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78AED9D806247E5B305AD02 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1320,7 +1318,6 @@
 		37E3EACF1AA45F8C00EA7CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				740213851C76F9CF00AF1DFA /* bnr_shop_now_using_150x60.png */,
 				377F40F61C5C80D600C7D2C0 /* btn_reload@2x.png */,
 				377F40F21C5C7FA700C7D2C0 /* btn_back@2x.png */,
 				377F40F41C5C7FAF00C7D2C0 /* btn_next@2x.png */,
@@ -1851,7 +1848,6 @@
 				146824021C06E2EE00F663CE /* GpsSearchViewController.xib in Resources */,
 				37E3EBAE1AA45F8C00EA7CB9 /* InfoListViewController.xib in Resources */,
 				37B4E1511AE73BD200A082A3 /* MapViewController.xib in Resources */,
-				740213861C76F9D000AF1DFA /* bnr_shop_now_using_150x60.png in Resources */,
 				376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */,
 				376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */,
 				37E3EB851AA45F8C00EA7CB9 /* tab_icon_coupon.png in Resources */,
