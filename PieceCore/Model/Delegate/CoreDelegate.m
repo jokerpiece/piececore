@@ -242,7 +242,11 @@
 
 {
     [self checkVersion];
-    application.applicationIconBadgeNumber = 0;
+    if (application.applicationIconBadgeNumber != 0) {
+        application.applicationIconBadgeNumber = 0;
+        [self moveToNews:@""];
+        
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
