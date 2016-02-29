@@ -8,7 +8,7 @@
 
 #import "PaypalViewController.h"
 #import "PieceCoreConfig.h"
-
+#import "PayPalConfiguration.h"
 // Set the environment: 環境設定
 // - For live charges, use PayPalEnvironmentProduction (default).　本番
 // - To use the PayPal sandbox, use PayPalEnvironmentSandbox.　サンドボックス
@@ -35,7 +35,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     self.sv.frame = self.view.bounds;
 }
 

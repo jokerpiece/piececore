@@ -107,4 +107,15 @@ extern NSString * const Paypal_bncode;
 + (void)setGoogleAnalitics:(bool)isGoogleAnalitics;
 + (bool)isGoogleAnalitics;
 
++ (void)setPayPal:(bool)payPal;
++ (bool)isPayPal;
++ (NSString*)payPalBnCode;
++ (void)setPayPalEnvironment:(NSString *)PayPalEnvironment;
++ (NSString *)payPalEnvironment;
+
++ (void)setPayPalEnvironmentProductionClientId:(NSString *)PayPalEnvironmentProductionClientId;
++ (NSString *)payPalEnvironmentProductionClientId;
++ (void)setPayPalEnvironmentSandboxClientId:(NSString *)PayPalEnvironmentSandboxClientId;
++ (NSString *)payPalEnvironmentSandboxClientId;
+
 @end
