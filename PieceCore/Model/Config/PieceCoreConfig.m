@@ -40,8 +40,8 @@ NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
 
 
 NSString * const  OsType= @"1";
-//NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
-NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
+NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
+//NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
 NSString * const  SendIdItem= @"item/index.php?Action=itemList";
 NSString * const  SendIdItemCoupon= @"item/";
