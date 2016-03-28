@@ -82,7 +82,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     item_Text.textColor = [UIColor blackColor];
     
     //商品価格
-    UILabel *item_Price_1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:item_Text margin:30], self.viewSize.width*0.8, 30)];
+    UILabel *item_Price_1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:item_Text margin:30], self.viewSize.width*0.4, 30)];
     item_Price_1.text = @"販売価格";
     item_Price_1.font = [UIFont fontWithName:@"AppleGothic" size:20];
     item_Price_1.textColor = [UIColor blackColor];
@@ -91,9 +91,9 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     item_Price_2.text = [Common formatOfCurrencyWithString:self.item_price];
     item_Price_2.font = [UIFont fontWithName:@"Arial-BoldMT" size:28];
     item_Price_2.textColor = [UIColor blackColor];
+    [item_Price_2 sizeToFit];
     
-    
-    UILabel *item_Price_3 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.85, [Common getOrignYWidhUiView:item_Text margin:30], self.viewSize.width*0.82, 30)];
+    UILabel *item_Price_3 = [[UILabel alloc] initWithFrame:CGRectMake(item_Price_2.frame.origin.x + item_Price_2.frame.size.width, [Common getOrignYWidhUiView:item_Text margin:30], self.viewSize.width*0.82, 30)];
     item_Price_3.text = @"円";
     item_Price_3.font = [UIFont fontWithName:@"AppleGothic" size:20];
     item_Price_3.textColor = [UIColor blackColor];
