@@ -34,7 +34,7 @@
 }
 -(void)closeKeyboard{
     //キーボード以外を押された時の処理
-    [self.viewForBaselineLayout endEditing:YES];
+    [self.superview.superview.superview endEditing:YES];
 }
 
 -(void)setInputList {
@@ -64,13 +64,14 @@
 }
 
 - (IBAction)get_post:(id)sender {
+    
     int max_post_Length = 7;
     NSMutableString *str = [self.postTf.text mutableCopy];
     //住所検索ボタンを押した時の処理
     self.address1Tv.text = nil;
     self.address2Tv.text = nil;
     self.address3Tv.text = nil;
-    
+    [self endEditing:YES];
     //郵便番号未入力かどうかの判別
     if([str length] == 0)
     {
@@ -90,7 +91,16 @@
         DLog(@"%@",[array valueForKeyPath:@"results"]);
         NSString *json_str = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
         DLog(@"%@",json_str);
-        
+//
+        if(array[@"results"] == [NSNull null]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"入力エラー"
+                                                            message:@"住所が確認できませんでした。郵便番号を確認してください。"
+                                                           delegate:self
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"OK", nil];
+            [alert show];
+            return;
+        }
         for(NSDictionary *cor2 in array[@"results"])
         {
             DLog(@"%@,%@,%@",cor2[@"address1"],cor2[@"address2"],cor2[@"address3"]);
@@ -98,6 +108,7 @@
             self.address2Tv.text = cor2[@"address2"];
             self.address3Tv.text = cor2[@"address3"];
         }
+        
     }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"入力エラー"
                                                             message:@"7桁の数字を入力してください"

@@ -30,6 +30,7 @@ extern NSString * const SendIdCheckin;
 extern NSString * const SendIdPushNews;
 extern NSString * const SendIdStamp;
 extern NSString * const SendIdDeliverList;
+extern NSString * const SendIdGetDeliveryPrice;
 extern NSString * const SendIdGetProfile;
 extern NSString * const SendIdSendProfile;
 extern NSString * const SendIdLinePay;

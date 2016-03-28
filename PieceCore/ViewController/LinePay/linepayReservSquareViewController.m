@@ -61,9 +61,9 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
     
-    self.address.text = [NSString stringWithFormat:@"%@%@%@",[profileDec objectForKey:@"ADRESS1"],[profileDec objectForKey:@"ADRESS2"],[profileDec objectForKey:@"ADRESS3"]];
+    self.address.text = [NSString stringWithFormat:@"%@%@%@",[profileDec objectForKey:@"ADDRESS1"],[profileDec objectForKey:@"ADDRESS2"],[profileDec objectForKey:@"ADDRESS3"]];
     self.user_name.text = [NSString stringWithFormat:@"%@%@",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
-    self.mail_address.text = [profileDec objectForKey:@"MAIL_ADDRESS"];
+    self.mail_address.text = [profileDec objectForKey:@"MAILADDRESS"];
 }
 
 /*
@@ -95,11 +95,21 @@
         
         
     } else if ([sendId isEqualToString:SendIdRegistPay]){
-        [self close];
+//        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"注文確定"
+//                                                        message:@"購入ありがとうございます"
+//                                                        delegate:self
+//                                                cancelButtonTitle:nil
+//                                                otherButtonTitles:@"OK", nil];
+//        [alert show];
+//        [self close];
+        [self payedView];
     }
 }
 
 - (IBAction)reserv:(id)sender {
+//    テスト
+//    [self payedView];return;
+    
      //LINEPay決済送信、アプリ内決済登録
     NSString *str = nil;
     NSString *get_transaction = [LinePayData getTransaction];
@@ -139,6 +149,9 @@
     [param setValue:[profileDec objectForKey:@"ADRESS2"] forKey:@"address_city"];
     [param setValue:[profileDec objectForKey:@"ADRESS3"] forKey:@"address_street"];
     [param setValue:[profileDec objectForKey:@"TEL"] forKey:@"tel"];
+    [param setValue:[profileDec objectForKey:@"delivery_time"] forKey:@"delivery_time"];
+    [param setValue:[profileDec objectForKey:@"delivery_price"] forKey:@"delivery_price"];
+    
     [conecter sendActionSendId:SendIdRegistPay param:param];
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -154,5 +167,32 @@
 -(void)close{
     [[UIApplication sharedApplication].keyWindow.rootViewController
      dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)payedView{
+    CGRect rect = [UIScreen mainScreen].bounds;
+    rect.origin.x = rect.size.width;
+    UIView *view = [[UIView alloc]initWithFrame:rect];
+    view.backgroundColor = [UIColor whiteColor];
+    rect.origin.x = 0;
+    
+    UIImageView *IV = [[UIImageView alloc]initWithFrame:rect];
+    IV.image  = [UIImage imageNamed:@"illust1344"];
+    IV.contentMode = UIViewContentModeScaleAspectFit;
+    [view addSubview:IV];
+    
+    UILabel *lbl = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 260, 200)];
+    lbl.center = self.view.center;
+    [lbl setText:@"ご購入ありがとうございました。\nタップで画面を閉じます。\n引き続きお買い物をお楽しみください。"];
+    lbl.numberOfLines = 0;
+    [view addSubview:lbl];
+    
+    [self.view addSubview:view];
+    [UIView animateWithDuration:0.3f animations:^{
+        view.frame = rect;
+    } completion:nil];
+    
+    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(close)];
+    [view addGestureRecognizer:ges];
 }
 @end

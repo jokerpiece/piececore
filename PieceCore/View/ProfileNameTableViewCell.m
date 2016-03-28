@@ -27,7 +27,7 @@
 
 -(void)closeKeyboard{
     //キーボード以外を押された時の処理
-    [self.viewForBaselineLayout endEditing:YES];
+    [self.superview.superview.superview endEditing:YES];
 }
 
 -(void)setInputList {

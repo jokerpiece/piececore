@@ -35,13 +35,13 @@ static NSString *_paypal_bncode = @"";
 static NSString *_PayPalEnvironmentProductionClientId = @"YOUR_CLIENT_ID_FOR_PRODUCTION";
 static NSString *_PayPalEnvironmentSandboxClientId = @"YOUR_CLIENT_ID_FOR_SANDBOX";
 
-//NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
-NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
+NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
+//NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
 
 
 NSString * const  OsType= @"1";
-NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
-//NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
+//NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
+NSString * const  SendTokenUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/device_token/";
 NSString * const  SendIdCategory= @"category/";
 NSString * const  SendIdItem= @"item/index.php?Action=itemList";
 NSString * const  SendIdItemCoupon= @"item/";
@@ -61,6 +61,7 @@ NSString * const  SendIdCheckin= @"checkin/";
 NSString * const  SendIdPushNews= @"news/index.php?Action=newsList";
 NSString * const  SendIdStamp= @"stamp/";
 NSString * const  SendIdDeliverList= @"deliver_list/";
+NSString * const  SendIdGetDeliveryPrice = @"delivery_price/";
 NSString * const  SendIdGetProfile= @"get_profile/";
 NSString * const  SendIdSendProfile= @"send_profile/";
 NSString * const  SendIdLinePay = @"linepay/index.php?Action=reserve";

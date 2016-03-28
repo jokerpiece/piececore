@@ -137,9 +137,13 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     if ([Common isNotEmptyString:[profileDec objectForKey:@"SEI"]]
         &&[Common isNotEmptyString:[profileDec objectForKey:@"MEI"]]
            &&[Common isNotEmptyString:[profileDec objectForKey:@"POST"]]
-              &&[Common isNotEmptyString:[profileDec objectForKey:@"ADDRESS"]]) {
+              &&[Common isNotEmptyString:[profileDec objectForKey:@"ADDRESS1"]]) {
         
         LinepaySelectAddressViewController *vc = [[LinepaySelectAddressViewController alloc] initWithNibName:@"LinepaySelectAddressViewController" bundle:nil];
+        vc.item_name = self.item_name;
+        vc.item_price = self.item_price;
+        vc.img_url = self.img_url;
+        [LinePayData setProductId:self.productId];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [self move_profileView];
@@ -231,6 +235,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     LinepayProfileViewController *vc = [[LinepayProfileViewController alloc] initWithNibName:@"LinepayProfileViewController" bundle:nil];
     vc.item_name = self.item_name;
     vc.item_price = self.item_price;
+    vc.img_url = self.img_url;
     [LinePayData setProductId:self.productId];
     
     vc.message = @"配送先を入力して下さい。";
@@ -238,8 +243,10 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     NSMutableArray *cell_st = [NSMutableArray array];
     [cell_st addObject:[ProfileNameTableViewCell alloc]];
     [cell_st addObject:[ProfileAdressTableViewCell alloc]];
-    [cell_st addObject:[ProfileBirthdayTableViewCell alloc]];
-    [cell_st addObject:[ProfileAnniversaryTableViewCell alloc]];
+//    [cell_st addObject:[ProfileBirthdayTableViewCell alloc]];
+//    [cell_st addObject:[ProfileAnniversaryTableViewCell alloc]];
+    [cell_st addObject:[ProfileMailAddressTableViewCell alloc]];
+    [cell_st addObject:[deliveryTimeTableViewCell alloc]];
     [cell_st addObject:[ProfileSendBtnTableViewCell alloc]];
     vc.cellList = cell_st;
     [self.navigationController pushViewController:vc animated:YES];

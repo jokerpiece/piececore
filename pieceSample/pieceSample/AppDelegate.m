@@ -23,17 +23,17 @@
 
 
 -(void)setConfig{
-    [PieceCoreConfig setShopId:@"pieceSample"];
+    [PieceCoreConfig setShopId:@"kodomogokoro"];
     [PieceCoreConfig setAppKey:@"jokerpiece_appKey"];
-    [PieceCoreConfig setAppId:@"pieceSample"];
+    [PieceCoreConfig setAppId:@"kodomogokoro"];
     //[PieceCoreConfig setLinePay:YES];
     [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
     [PieceCoreConfig setCookieDomainName:@"otonagokoro.com"];
-    [PieceCoreConfig setCartUrl:@"https://otonagokoro.com/cart/"];
+//    [PieceCoreConfig setCartUrl:@"https://otonagokoro.com/cart/"];
     [PieceCoreConfig setDispSearchBar:YES];
     
     
-    [PieceCoreConfig setPayPal:YES];
+    [PieceCoreConfig setLinePay:YES];
     
     [PieceCoreConfig setPayPalEnvironmentProductionClientId:@""];
     [PieceCoreConfig setPayPalEnvironmentSandboxClientId:@"AdkYj_7K_NKg-ygjEV7vb6bLITUtVPkh3PfUtBBN8-IM02AOO-k2uU1osCF99ei1UBOLhIVemU5cD--m"];

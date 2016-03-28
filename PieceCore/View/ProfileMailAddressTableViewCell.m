@@ -1,14 +1,14 @@
 //
-//  ProfileBirthdayTableViewCell.m
+//  ProfileMailAddressTableViewCell.m
 //  pieceSample
 //
-//  Created by ハマモト  on 2015/03/20.
-//  Copyright (c) 2015年 jokerpiece. All rights reserved.
+//  Created by shinden nobuyuki on 2016/03/22.
+//  Copyright © 2016年 jokerpiece. All rights reserved.
 //
 
-#import "ProfileBirthdayTableViewCell.h"
+#import "ProfileMailAddressTableViewCell.h"
 
-@implementation ProfileBirthdayTableViewCell
+@implementation ProfileMailAddressTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -16,12 +16,10 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     //キーボード以外のところをタップするとキーボードが自動的に隠れる。
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
                                                  initWithTarget:self action:@selector(closeKeyboard)];
     [self.viewForBaselineLayout addGestureRecognizer:gestureRecognizer];
-    
     // Configure the view for the selected state
 }
 
@@ -32,14 +30,15 @@
 
 -(void)setInputList {
     [self initInputList];
-    [self.datePickerList addObject:self.birthdayTf];
+    [self.tfList addObject:self.mailTf];
 }
 -(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
-    if ([Common isNotEmptyString:recipient.birth_day]) {
-        self.birthdayTf.text = recipient.birth_day;
+    if([Common isNotEmptyString:recipient.mail_address]){
+        self.mailTf.text = recipient.mail_address;
     }
 }
 -(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
-    recipient.birth_day = self.birthdayTf.text;
+    recipient.mail_address = self.mailTf.text;
 }
+
 @end

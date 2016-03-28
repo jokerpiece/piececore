@@ -42,9 +42,15 @@
         } else if ([cell isKindOfClass:[ProfileAdressTableViewCell class]]){
             UINib *nib = [UINib nibWithNibName:@"ProfileAdressTableViewCell" bundle:nil];
             [self.table registerNib:nib forCellReuseIdentifier:@"AdressCell"];
+        } else if ([cell isKindOfClass:[ProfileMailAddressTableViewCell class]]){
+            UINib *nib = [UINib nibWithNibName:@"ProfileMailAddressTableViewCell" bundle:nil];
+            [self.table registerNib:nib forCellReuseIdentifier:@"MailAddressCell"];
         } else if ([cell isKindOfClass:[ProfileSendBtnTableViewCell class]]){
             UINib *nib = [UINib nibWithNibName:@"ProfileSendBtnTableViewCell" bundle:nil];
             [self.table registerNib:nib forCellReuseIdentifier:@"SendBtnCell"];
+        } else if ([cell isKindOfClass:[deliveryTimeTableViewCell class]]){
+            UINib *nib = [UINib nibWithNibName:@"deliveryTimeTableViewCell" bundle:nil];
+            [self.table registerNib:nib forCellReuseIdentifier:@"DeliveryTimeCell"];
         }
     }
     self.table.allowsSelection = NO;
@@ -57,7 +63,9 @@
     self.ucIndexpathList = [NSMutableArray array];
     self.instanceCellList = [NSMutableArray array];
     [self setKeybordNC];
-    [self syncAction];
+    //APIがスタブ self.profileRecipientのインスタンス化はいらなくなる
+//    [self syncAction];
+    self.profileRecipient = [[ProfileRecipient alloc]init];
 }
 - (void)dealloc
 {
@@ -92,6 +100,9 @@
                                               otherButtonTitles:@"OK", nil];
         [alert show];
         [self nextView];
+        
+    } else if ([sendId isEqualToString:SendIdGetDeliveryPrice]){
+        self.delivery_price = recipient.resultset[@"delivery_price"];
         
     }
     
@@ -206,8 +217,12 @@
         CellIdentifier = @"AnniversaryCell";
     } else if ([tmpCell isKindOfClass:[ProfileAdressTableViewCell class]]){
         CellIdentifier = @"AdressCell";
+    } else if ([tmpCell isKindOfClass:[ProfileMailAddressTableViewCell class]]){
+        CellIdentifier = @"MailAddressCell";
     } else if ([tmpCell isKindOfClass:[ProfileSendBtnTableViewCell class]]){
         CellIdentifier = @"SendBtnCell";
+    } else if ([tmpCell isKindOfClass:[deliveryTimeTableViewCell class]]){
+        CellIdentifier = @"DeliveryTimeCell";
     }
     BaseInputCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (self.instanceCellList.count < indexPath.row + 1) {
@@ -261,8 +276,12 @@
         return 179.0f;
     } else if ([tmpCell isKindOfClass:[ProfileAdressTableViewCell class]]){
         return 400.0f;
+    } else if ([tmpCell isKindOfClass:[ProfileMailAddressTableViewCell class]]){
+        return 100.0f;
     } else if ([tmpCell isKindOfClass:[ProfileSendBtnTableViewCell class]]){
         return 100.0f;
+    } else if ([tmpCell isKindOfClass:[deliveryTimeTableViewCell class]]){
+        return 215.0f;
     }
     return 0;
 }
@@ -270,7 +289,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.cellList.count;
 }
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectIndexPath = indexPath;
@@ -386,10 +404,13 @@
     for (UITextView *tv in self.tvList) {
         [tv resignFirstResponder];
     }
-    
 }
 
 - (void)didProfileSendButton{
+//    [LinePayData setPostage:@"100"];
+//    linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]init];
+//    [self.navigationController pushViewController:vc animated:YES];
+//    return;
     DLog(@"%@",self.profileRecipient.sei);
     for (BaseInputCell *cell in self.instanceCellList) {
         [cell saveDataWithProfileRecipient:self.profileRecipient];
@@ -400,18 +421,33 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [self setParam:param];
     [conecter sendActionSendId:SendIdSendProfile param:param];
-    
-    
-    
 
 }
+
+-(void)getDeliveryPrice{
+    NetworkConecter *conecter = [NetworkConecter alloc];
+    conecter.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:@"sample" forKey:@"user_id"];
+    [param setValue:@"sample" forKey:@"password"];
+    [param setValue:self.profileRecipient.post forKey:@"post"];
+    [param setValue:self.profileRecipient.address1 forKey:@"address_tdfk"];
+    [param setValue:self.item_price forKey:@"price"];
+    [conecter sendActionSendId:SendIdGetDeliveryPrice param:param];
+}
+
 -(void)setParam:(NSMutableDictionary *)param{
     [param setValue:[Common getUuid] forKey:@"uuid"];
-    [param setValue:self.profileRecipient.user_id forKey:@"user_id"];
-    [param setValue:self.profileRecipient.password forKey:@"Password"];
+    //get_profileAPIができたら多分大丈夫
+    [param setValue:@"sample" forKey:@"user_id"];
+    [param setValue:@"sample" forKey:@"password"];
+    //
+    
+//    [param setValue:self.profileRecipient.user_id forKey:@"user_id"];
+//    [param setValue:self.profileRecipient.password forKey:@"Password"];
     [param setValue:self.profileRecipient.sei forKey:@"Sei"];
     [param setValue:self.profileRecipient.mei forKey:@"Mei"];
-    [param setValue:self.profileRecipient.berth_day forKey:@"Birthday"];
+    [param setValue:self.profileRecipient.birth_day forKey:@"Birthday"];
     [param setValue:self.profileRecipient.post forKey:@"Post"];
     [param setValue:self.profileRecipient.address1 forKey:@"Address_tdfk"];
     [param setValue:self.profileRecipient.address2 forKey:@"Address_city"];
@@ -421,10 +457,8 @@
     [param setValue:self.profileRecipient.mail_address forKey:@"mail_address"];
     [param setValue:self.profileRecipient.anniversary_name forKey:@"anniversary_name"];
     [param setValue:self.profileRecipient.anniversary forKey:@"anniversary"];
+//    [param setValue:self.profileRecipient.delivery_time forKey:@"delivery_time"];
 }
-
-
-
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

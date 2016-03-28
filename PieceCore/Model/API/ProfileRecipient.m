@@ -14,7 +14,7 @@
     self.password = [self.resultset valueForKey:@"Password"];
     self.sei = [self.resultset valueForKey:@"Sei"];
     self.mei = [self.resultset valueForKey:@"Mei"];
-    self.berth_day = [self.resultset valueForKey:@"Birthday"];
+    self.birth_day = [self.resultset valueForKey:@"Birthday"];
     self.post = [self.resultset valueForKey:@"Post"];
     self.address1 = [self.resultset valueForKey:@"Address_tdfk"];
     self.address2 = [self.resultset valueForKey:@"Address_city"];

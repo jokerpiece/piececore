@@ -13,7 +13,7 @@
 @property (nonatomic,strong) NSString *password;
 @property (nonatomic,strong) NSString *sei;
 @property (nonatomic,strong) NSString *mei;
-@property (nonatomic,strong) NSString *berth_day;
+@property (nonatomic,strong) NSString *birth_day;
 @property (nonatomic,strong) NSString *post;
 @property (nonatomic,strong) NSString *address1;
 @property (nonatomic,strong) NSString *address2;
@@ -23,4 +23,5 @@
 @property (nonatomic,strong) NSString *tel;
 @property (nonatomic,strong) NSString *anniversary_name;
 @property (nonatomic,strong) NSString *anniversary;
+@property (nonatomic,strong) NSString *delivery_time;
 @end

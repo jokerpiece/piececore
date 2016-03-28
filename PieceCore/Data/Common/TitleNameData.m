@@ -19,7 +19,7 @@
         self.categoryTitle = @"SHOPPING";
         self.itemListTitle = @"ITEMLIST";
         self.fittingTitle = @"FITTING";
-        self.profileTitle = @"PROFILE";
+        self.profileTitle = @"DELIVERY";
         self.getCouponTitle = @"GET COUPON";
         self.useCouponTitle = @"USE COUPON";
         self.infoTitle = @"INFOMATION";
@@ -42,7 +42,7 @@
         self.categoryTitle = @"ショッピング";
         self.itemListTitle = @"商品一覧";
         self.fittingTitle = @"フィッティング";
-        self.profileTitle = @"プロフィール";
+        self.profileTitle = @"配送設定";
         self.getCouponTitle = @"クーポン取得";
         self.useCouponTitle = @"クーポン使用";
         self.infoTitle = @"お知らせ";

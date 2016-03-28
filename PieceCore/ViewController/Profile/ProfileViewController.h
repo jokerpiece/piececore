@@ -13,6 +13,8 @@
 #import "ProfileAnniversaryTableViewCell.h"
 #import "ProfileAdressTableViewCell.h"
 #import "ProfileSendBtnTableViewCell.h"
+#import "ProfileMailAddressTableViewCell.h"
+#import "deliveryTimeTableViewCell.h"
 #import "DatePickerViewController.h"
 #import "MonthAndDatePickerViewController.h"
 #import "UcIndexpathData.h"
@@ -40,8 +42,13 @@
 @property (nonatomic) ProfileRecipient *profileRecipient;
 //@property (nonatomic) LinepayRecipient *linerecipient;
 @property (nonatomic) BaseViewController *nextVc;
-
+@property (strong, nonatomic) NSString *item_name;
+@property (strong, nonatomic) NSString *img_url;
+@property (strong, nonatomic) NSString *item_text;
+@property (strong, nonatomic) NSString *item_price;
+@property (strong, nonatomic) NSString *delivery_price;
 @property (strong, nonatomic) UITextField *activeTf;
 @property (strong, nonatomic) UITextView *activeTv;
 -(void)nextView;
+-(void)getDeliveryPrice;
 @end
