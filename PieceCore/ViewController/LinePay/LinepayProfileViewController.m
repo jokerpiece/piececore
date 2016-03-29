@@ -29,11 +29,12 @@
 
 -(void)checkLineInstall{
 
-    NSURL *url = [NSURL URLWithString:@"line://"];
-//    NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrl];
+//    NSURL *url = [NSURL URLWithString:@"line://"];
+    NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrl];
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
     if(installed) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linepayRecipient.paymentUrlWeb]];
+//        [[UIApplication sharedApplication] openURL:url];
         //テスト用
 //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]];
         
@@ -104,7 +105,8 @@
         
     } else if ([sendId isEqualToString:SendIdGetOrderId]){
         self.orderId = recipient.resultset[@"order_no"];
-        [self getDeliveryPrice];
+//        [self getDeliveryPrice];
+        [self sendLinpeyConfirm];
     } else if ([sendId isEqualToString:SendIdGetDeliveryPrice]){
         self.delivery_price = recipient.resultset[@"delivery_price"];
         [LinePayData setPostage:self.delivery_price];

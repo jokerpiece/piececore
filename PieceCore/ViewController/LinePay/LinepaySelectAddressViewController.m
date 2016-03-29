@@ -42,7 +42,7 @@
     vc.item_name = self.item_name;
     vc.item_price = self.item_price;
     vc.img_url = self.img_url;
-    [LinePayData setProductId:self.productId];
+//    [LinePayData setProductId:self.productId];
     
     vc.message = @"配送先を入力して下さい。";
     //    ProfileViewController *vc = [[ProfileViewController alloc]initWithNibName:@"ProfileViewController" bundle:nil];

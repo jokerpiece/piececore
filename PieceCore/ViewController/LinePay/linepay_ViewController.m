@@ -31,6 +31,7 @@
 -(void)setLinePayData{
     [LinePayData setItemName:self.item_name];
     [LinePayData setItemPrice:self.item_price];
+    [LinePayData setProductId:self.productId];
 }
 -(void)item_View{
 
@@ -143,7 +144,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         vc.item_name = self.item_name;
         vc.item_price = self.item_price;
         vc.img_url = self.img_url;
-        [LinePayData setProductId:self.productId];
+        
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [self move_profileView];

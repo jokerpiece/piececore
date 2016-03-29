@@ -140,14 +140,16 @@
     [param setValue:@"1" forKey:@"amount"];
     [param setValue:[LinePayData getPostage] forKey:@"fee"];
     [param setValue:@"1" forKey:@"payment_kbn"];
-    [param setValue:[profileDec objectForKey:@"USER_ID"] forKey:@"user_id"];
-    [param setValue:[profileDec objectForKey:@"MAIL_ADDRESS"] forKey:@"mail_address"];
+//    [param setValue:[profileDec objectForKey:@"USER_ID"] forKey:@"user_id"];
+    //デバッグ用user_id
+    [param setValue:@"sample" forKey:@"user_id"];
+    [param setValue:[profileDec objectForKey:@"MAILADDRESS"] forKey:@"mail_address"];
     [param setValue:[profileDec objectForKey:@"SEI"] forKey:@"sei"];
     [param setValue:[profileDec objectForKey:@"MEI"] forKey:@"mei"];
     [param setValue:[profileDec objectForKey:@"POST"] forKey:@"post"];
-    [param setValue:[profileDec objectForKey:@"ADRESS1"] forKey:@"address_tdfk"];
-    [param setValue:[profileDec objectForKey:@"ADRESS2"] forKey:@"address_city"];
-    [param setValue:[profileDec objectForKey:@"ADRESS3"] forKey:@"address_street"];
+    [param setValue:[profileDec objectForKey:@"ADDRESS1"] forKey:@"address_tdfk"];
+    [param setValue:[profileDec objectForKey:@"ADDRESS2"] forKey:@"address_city"];
+    [param setValue:[profileDec objectForKey:@"ADDRESS3"] forKey:@"address_street"];
     [param setValue:[profileDec objectForKey:@"TEL"] forKey:@"tel"];
     [param setValue:[profileDec objectForKey:@"delivery_time"] forKey:@"delivery_time"];
     [param setValue:[profileDec objectForKey:@"delivery_price"] forKey:@"delivery_price"];
