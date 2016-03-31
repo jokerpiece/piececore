@@ -99,25 +99,65 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     item_Price_3.font = [UIFont fontWithName:@"AppleGothic" size:20];
     item_Price_3.textColor = [UIColor blackColor];
 
-    //Lineで購入ボタン生成
-    self.line_button = [[UIButton alloc] initWithFrame:CGRectMake(self.viewSize.width*0.25,[Common getOrignYWidhUiView:item_Price_3 margin:30] , self.viewSize.width*0.5, self.viewSize.height*0.1)];
-    [self.line_button setTitle:@"LINEで購入" forState:UIControlStateNormal];
-    [self.line_button addTarget:self
-                         action:@selector(line_button_Tapeped:)
-               forControlEvents:UIControlEventTouchUpInside];
-    self.line_button.backgroundColor = [UIColor colorWithRed:0.35 green:0.90 blue:0.16 alpha:1.0];
+    //在庫数判定
+    if([self.itemStock isEqual:[NSNull null]])
+    {
+        UILabel *itemNumber_1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:item_Price_3 margin:30], self.viewSize.width*0.8, 30)];
+        itemNumber_1.text = @"注文個数";
+        itemNumber_1.font = [UIFont fontWithName:@"AppleGothic" size:20];
+        
+        UILabel *nullItemStock = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.69, [Common getOrignYWidhUiView:item_Price_3 margin:30], self.viewSize.width*0.8, 30)];
+        nullItemStock.text = @"在庫なし";
+        itemNumber_1.font = [UIFont fontWithName:@"AppleGothic" size:20];
+        
+         self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:nullItemStock margin:100])];
+        
+        [self.uv addSubview:itemNumber_1];
+        [self.uv addSubview:nullItemStock];
+        
+    }else{
+        
+        //商品個数選択
+        UILabel *itemNumber_1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:item_Price_3 margin:30], self.viewSize.width*0.8, 30)];
+        itemNumber_1.text = @"注文個数";
+        itemNumber_1.font = [UIFont fontWithName:@"AppleGothic" size:20];
     
+        self.inputItemNumber = [[UITextField alloc]initWithFrame:CGRectMake(self.viewSize.width*0.66,[Common getOrignYWidhUiView:item_Price_3 margin:30] , self.viewSize.width*0.15, 30)];
+        self.inputItemNumber.backgroundColor = [UIColor whiteColor];
+        self.inputItemNumber.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        self.inputItemNumber.borderStyle = UITextBorderStyleRoundedRect;
+        self.inputItemNumber.placeholder = @"個数";
+        self.inputItemNumber.delegate = self;
     
-    
-    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:self.line_button margin:100])];
-    
+        UILabel *itemNumber_2 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.85, [Common getOrignYWidhUiView:item_Price_3 margin:30], self.viewSize.width*0.82, 30)];
+        itemNumber_2.text = @"個";
+        itemNumber_2.font = [UIFont fontWithName:@"AppleGothic" size:20];
+        itemNumber_2.textColor = [UIColor blackColor];
+        
+        //Lineで購入ボタン生成
+        self.line_button = [[UIButton alloc] initWithFrame:CGRectMake(self.viewSize.width*0.25,[Common getOrignYWidhUiView:itemNumber_1 margin:30] , self.viewSize.width*0.5, self.viewSize.height*0.1)];
+        [self.line_button setTitle:@"LINEで購入" forState:UIControlStateNormal];
+        [self.line_button addTarget:self
+                             action:@selector(line_button_Tapeped:)
+                   forControlEvents:UIControlEventTouchUpInside];
+        self.line_button.backgroundColor = [UIColor colorWithRed:0.35 green:0.90 blue:0.16 alpha:1.0];
+        
+        self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:self.line_button margin:100])];
+        
+        [self.uv addSubview:itemNumber_1];
+        [self.uv addSubview:itemNumber_2];
+        [self.uv addSubview:self.inputItemNumber];
+
+        [self.uv addSubview:self.line_button];
+
+    }
+
     [self.uv addSubview:lblBg];
     [self.uv addSubview:itemIv];
     [self.uv addSubview:item_Text];
     [self.uv addSubview:item_Price_1];
     [self.uv addSubview:item_Price_2];
     [self.uv addSubview:item_Price_3];
-    [self.uv addSubview:self.line_button];
     
     self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
