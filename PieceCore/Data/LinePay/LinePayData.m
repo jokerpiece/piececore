@@ -14,6 +14,7 @@ static NSString *_postage;
 static NSString *_transaction;
 static NSString *_productId;
 static NSString *_orderId;
+static NSString *_itemNumber;
 
 @implementation LinePayData
 
@@ -64,6 +65,17 @@ static NSString *_orderId;
 
 + (void)setPostage:(NSString*)str{
     _postage = str;
+}
+
+//商品個数
++ (NSString *)getItemNumber
+{
+    return _itemNumber;
+}
+
++ (void)setItemNumber:(NSString*)str
+{
+    _itemNumber = str;
 }
 
 //送料
