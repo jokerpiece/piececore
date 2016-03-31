@@ -19,9 +19,10 @@
 + (NSString *)getOrderId;
 + (void)setItemName:(NSString*)str;
 + (NSString *)getItemName;
-
 + (void)setItemPrice:(NSString*)str;
 + (NSString *)getItemPrice;
++ (void)setItemNumber:(NSString*)str;
++ (NSString *)getItemNumber;
 + (void)setPostage:(NSString*)str;
 + (NSString *)getPostage;
 + (void)setTransaction:(NSString*)str;
