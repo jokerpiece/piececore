@@ -387,6 +387,9 @@
         //商品価格格納
         vc.item_price = data.item_price;
         
+        //商品在庫数格納
+        vc.itemStock = data.stock;
+        
         //画面遷移格納
         [self.navigationController pushViewController:vc  animated:YES];
         return;
