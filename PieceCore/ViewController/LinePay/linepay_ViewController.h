@@ -34,6 +34,8 @@
 @property (strong, nonatomic) NSString *item_text;
 @property (strong, nonatomic) NSString *item_price;
 @property (strong, nonatomic) NSString *productId;
+@property (strong, nonatomic) NSString *itemStock;
 
+@property (strong, nonatomic) UITextField *inputItemNumber;
 
 @end
