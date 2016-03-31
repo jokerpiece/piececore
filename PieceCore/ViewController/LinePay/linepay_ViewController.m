@@ -169,26 +169,46 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 
 -(void)line_button_Tapeped:(id)sender
 {
-    [self setLinePayData];
-    // NSDictionaryの読み込み試験
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+        //個数入力の判定（入力なし、０)
+        NSString *str = self.inputItemNumber.text;
+        DLog(@"%@",str);
+        if([str isEqualToString:@"0"] || [str isEqualToString:@""])
+        {
+        
+            UIAlertView *alertView =
+            [[UIAlertView alloc] initWithTitle:@"商品個数"
+                                       message:@"商品の注文数を入力してください"
+                                  delegate:self
+                             cancelButtonTitle:@"確認"
+                             otherButtonTitles:nil
+             ];
+            [alertView show];
+        }else{
+            //注文個数をlinePayData.mに保持
+            NSString *setItemNuber = [LinePayData getItemName];
+            setItemNuber = str;
+            DLog(@"%@",str);
 
-    NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
+            [self setLinePayData];
+            // NSDictionaryの読み込み試験
+            NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
+
+            NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
     
-    if ([Common isNotEmptyString:[profileDec objectForKey:@"SEI"]]
-        &&[Common isNotEmptyString:[profileDec objectForKey:@"MEI"]]
-           &&[Common isNotEmptyString:[profileDec objectForKey:@"POST"]]
-              &&[Common isNotEmptyString:[profileDec objectForKey:@"ADDRESS1"]]) {
+            if ([Common isNotEmptyString:[profileDec objectForKey:@"SEI"]]
+                &&[Common isNotEmptyString:[profileDec objectForKey:@"MEI"]]
+                    &&[Common isNotEmptyString:[profileDec objectForKey:@"POST"]]
+                       &&[Common isNotEmptyString:[profileDec objectForKey:@"ADDRESS1"]]) {
         
-        LinepaySelectAddressViewController *vc = [[LinepaySelectAddressViewController alloc] initWithNibName:@"LinepaySelectAddressViewController" bundle:nil];
-        vc.item_name = self.item_name;
-        vc.item_price = self.item_price;
-        vc.img_url = self.img_url;
-        
-        [self.navigationController pushViewController:vc animated:YES];
-    } else {
-        [self move_profileView];
-    }
+            LinepaySelectAddressViewController *vc = [[LinepaySelectAddressViewController alloc] initWithNibName:@"LinepaySelectAddressViewController" bundle:nil];
+            vc.item_name = self.item_name;
+            vc.item_price = self.item_price;
+            vc.img_url = self.img_url;
+            [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                [self move_profileView];
+            }
+        }
 //    
 //    
 //    
