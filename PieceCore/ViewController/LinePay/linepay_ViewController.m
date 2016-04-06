@@ -122,12 +122,25 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         itemNumber_1.text = @"注文個数";
         itemNumber_1.font = [UIFont fontWithName:@"AppleGothic" size:20];
     
-        self.inputItemNumber = [[UITextField alloc]initWithFrame:CGRectMake(self.viewSize.width*0.66,[Common getOrignYWidhUiView:item_Price_3 margin:30] , self.viewSize.width*0.15, 30)];
-        self.inputItemNumber.backgroundColor = [UIColor whiteColor];
-        self.inputItemNumber.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+        self.itemDown = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.itemDown.frame = CGRectMake(self.viewSize.width*0.52, [Common getOrignYWidhUiView:item_Price_3 margin:30], self.viewSize.width*0.08, 30);
+        [self.itemDown setTitle:@"−" forState:UIControlStateNormal];
+        [self.itemDown addTarget:self action:@selector(tapItemDown:) forControlEvents:UIControlEventTouchDown];
+        self.itemDown.font = [UIFont fontWithName:@"AppleGothic" size:20];
+        
+        self.inputItemNumber = [[UITextField alloc]initWithFrame:CGRectMake(self.viewSize.width*0.63,[Common getOrignYWidhUiView:item_Price_3 margin:30] , self.viewSize.width*0.1, 30)];
         self.inputItemNumber.borderStyle = UITextBorderStyleRoundedRect;
-        self.inputItemNumber.placeholder = @"個数";
+        self.inputItemNumber.textAlignment = UITextAlignmentCenter;
         self.inputItemNumber.delegate = self;
+        self.inputItemNumber.enabled = NO;
+        self.inputItemNumber.text = @"0";
+        
+        self.itemUp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        self.itemUp.frame = CGRectMake(self.viewSize.width*0.75, [Common getOrignYWidhUiView:item_Price_3 margin:30], self.viewSize.width*0.08, 30);
+        [self.itemUp setTitle:@"＋" forState:UIControlStateNormal];
+        [self.itemUp addTarget:self action:@selector(tapItemUp:) forControlEvents:UIControlEventTouchDown];
+        self.itemUp.font = [UIFont fontWithName:@"AppleGothic" size:20];
+
     
         UILabel *itemNumber_2 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.85, [Common getOrignYWidhUiView:item_Price_3 margin:30], self.viewSize.width*0.82, 30)];
         itemNumber_2.text = @"個";
@@ -146,8 +159,9 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         
         [self.uv addSubview:itemNumber_1];
         [self.uv addSubview:itemNumber_2];
+        [self.uv addSubview:self.itemDown];
         [self.uv addSubview:self.inputItemNumber];
-
+        [self.uv addSubview:self.itemUp];
         [self.uv addSubview:self.line_button];
 
     }
@@ -283,13 +297,27 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }
 }
 
+-(void)tapItemDown:(UIButton*)button{
+    NSInteger itemNumber = [self.inputItemNumber.text intValue];
+    if(itemNumber != 0){
+        itemNumber--;
+        self.inputItemNumber.text = [NSString stringWithFormat:@"%ld",(long)itemNumber];
+        [self.uv addSubview:self.inputItemNumber];
+    }
+}
 
+-(void)tapItemUp:(UIButton*)button{
+    NSInteger itemNumber = [self.inputItemNumber.text intValue];
+    NSInteger itemStock = [self.itemStock intValue];
+    
+    if(itemNumber  < itemStock){
+        itemNumber++;
+        self.inputItemNumber.text = [NSString stringWithFormat:@"%ld",(long)itemNumber];
+        [self.uv addSubview:self.inputItemNumber];
+    }
 
+}
 
-//-(void)button_2_Tapeped:(id)sender
-//{
-//    [self move_profileView];
-//}
 
 -(void)move_profileView{
     //PROFILE画面に移動
@@ -313,23 +341,6 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [self.navigationController pushViewController:vc animated:YES];
     
 }
-
-//-(void)move_linepayView{
-//    
-//}
-
-//-(void)setDataWithRecipient:(LinepayRecipient *)recipient sendId:(NSString *)sendId
-//{
-////    self.linepeyrecipent = recipient;
-////    
-////    NSLog(@"%@", self.linepeyrecipent.paymentUrl);
-////    //    [[UIApplication sharedApplication] openURL:self.linepeyrecipent.paymentUrl];
-//}
-
-//-(BaseRecipient *)getDataWithSendId:(NSString *)sentId{
-//    return [LinepayRecipient alloc];
-//}
-
 
 
 @end

@@ -36,6 +36,10 @@
 @property (strong, nonatomic) NSString *productId;
 @property (strong, nonatomic) NSString *itemStock;
 
+@property (strong, nonatomic) UIButton *itemUp;
+@property (strong, nonatomic) UIButton *itemDown;
+
+
 @property (strong, nonatomic) UITextField *inputItemNumber;
 
 @end
