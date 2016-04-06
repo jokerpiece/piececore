@@ -363,34 +363,16 @@
         [self presentViewController:vc animated:YES completion:nil];
         self.isCloseWebview = YES;
     } else if ([PieceCoreConfig isLinePay]) {
-        //linepay_flagがYESの時、ネイティブのビューを作成
-        linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
         
-        //商品の名前を格納
+        linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
         vc.item_name = data.item_name;
         vc.productId = data.item_id;
-        //商品画像格納
         vc.img_url = data.img_url;
-        UIImageView *item_Image = [[UIImageView alloc] init];
-        NSURL *imageURL = [NSURL URLWithString:[data.img_url stringByAddingPercentEscapesUsingEncoding:
-                                                NSUTF8StringEncoding]];
-        item_Image.frame = CGRectMake(60, 150, 200, 200);
-        [item_Image setImageWithURL:imageURL
-                   placeholderImage:nil
-                            options:SDWebImageCacheMemoryOnly
-        usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         vc.itemImgUrl = data.img_url;
-        
-        //商品説明格納
         vc.item_text = data.item_text;
-        
-        //商品価格格納
         vc.item_price = data.item_price;
-        
-        //商品在庫数格納
         vc.itemStock = data.stock;
         
-        //画面遷移格納
         [self.navigationController pushViewController:vc  animated:YES];
         return;
     } else if ([PieceCoreConfig isPayPal]) {

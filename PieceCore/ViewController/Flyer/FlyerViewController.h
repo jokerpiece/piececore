@@ -14,6 +14,8 @@
 #import "CategoryViewController.h"
 #import "SurveyViewController.h"
 #import "InfoRecipient.h"
+#import "ItemRecipient.h"
+#import "linepay_ViewController.h"
 
 @interface FlyerViewController : BaseViewController<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 @property (strong, nonatomic) UIScrollView *scroll;
@@ -29,6 +31,10 @@
 @property (nonatomic) float bodyWidh;
 @property (nonatomic) UIButton *searchBtn;
 @property (nonatomic) bool isSearchBtnInvisible;
+@property (strong, nonatomic) ItemRecipient *itemRecipient;
+@property (strong, nonatomic) ItemData *itemData;
+@property (strong, nonatomic) NSString *itemId;
+
 - (void)view_Tapped:(UITapGestureRecognizer *)sender;
 
 -(void)createSlider;

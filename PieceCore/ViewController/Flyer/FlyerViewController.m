@@ -342,12 +342,27 @@
 -(void)touchImg: (UITapGestureRecognizer *)sender{
     
     FlyerBodyData *data = [self.flyerRecipient.bodyList objectAtIndex:sender.view.tag];
+    NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
+    NSInteger flagLinePay = [userData integerForKey:@"LINEPAY"];
+    NSString *itemUrl = data.item_url;
+    self.itemId = data.item_id;
     
-    if ([Common isNotEmptyString:data.item_url]) {
-        
+    if(flagLinePay == 1 && [itemUrl length] != 0)
+    {
+        [self syncItemdataAction];
+    }else if (flagLinePay == 0 && [itemUrl length] != 0){
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
         [self presentViewController:vc animated:YES completion:nil];
+
     }
+}
+
+-(void)syncItemdataAction{
+    NetworkConecter *conector = [NetworkConecter alloc];
+    conector.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:self.itemId forKey:@"item_id"];
+    [conector sendActionSendId:SendIdItem param:param];
 }
 
 - ( void )onTapButton:( id )sender
@@ -424,8 +439,22 @@
             self.fliyerId = data.typeId;
             [self syncFliyerAction];
         }
+    }else if([sendId isEqualToString:SendIdItem]){
+        self.itemRecipient = (ItemRecipient *)recipient;
+        NSArray *itemList = [self.itemRecipient.resultset objectForKey:@"itemLists"];
         
-    } else {
+        linepay_ViewController *lvc = [[linepay_ViewController alloc]
+                                       initWithNibName:@"linepay_ViewController" bundle:nil];
+        lvc.item_name = itemList[0][@"item_name"];
+        lvc.productId = itemList[0][@"item_id"];
+        lvc.img_url = itemList[0][@"img_url"];
+        lvc.item_text = itemList[0][@"text"];
+        lvc.item_price = itemList[0][@"price"];
+        lvc.itemStock = itemList[0][@"stocks"];
+        
+        [self.navigationController pushViewController:lvc animated:YES];
+        
+    }else {
         self.flyerRecipient = (FlyerRecipient *)recipient;
         [self createSlider];
         [self.table reloadData];
@@ -440,7 +469,9 @@
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdNewsList]) {
         return [InfoRecipient alloc];
-    } else {
+    }else if([sendId isEqualToString:SendIdItem]){
+        return [ItemRecipient alloc];
+    }else {
         return [FlyerRecipient alloc];
     }
 }

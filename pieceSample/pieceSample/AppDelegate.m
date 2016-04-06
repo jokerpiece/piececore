@@ -17,6 +17,7 @@
 #import "RappingBarcodeViewController.h"
 #import "ReminderViewController.h"
 #import "MovieListViewController.h"
+#import "SettingViewController.h"
 
 
 @implementation AppDelegate
@@ -82,9 +83,9 @@
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
-                               [[MovieListViewController alloc] initWithNibName:@"MovieListViewController" bundle:nil]
-                                                               tabTitle:@"Movie"
-                                                                  title:@"MOVIE"]];
+                               [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil]
+                                                               tabTitle:@"Setting"
+                                                                  title:@"SETTING"]];
     
     TwitterViewController *twitterVc =[[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
     twitterVc.userAcount = @"@SplatoonJP";
