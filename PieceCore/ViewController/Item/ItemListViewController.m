@@ -355,14 +355,16 @@
 
 -(void)pushNextViewWidhData:(ItemData*)data{
     
+    NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
+    NSInteger linePaySwitchStatus = [userData integerForKey:@"LINEPAY"];
 
-    if (![PieceCoreConfig isLinePay] && ![PieceCoreConfig isPayPal]) {
+    if (linePaySwitchStatus == 0 && ![PieceCoreConfig isPayPal]) {
 
         
         WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
         [self presentViewController:vc animated:YES completion:nil];
         self.isCloseWebview = YES;
-    } else if ([PieceCoreConfig isLinePay]) {
+    } else if (linePaySwitchStatus == 1) {
         
         linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
         vc.item_name = data.item_name;
