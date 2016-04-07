@@ -19,7 +19,7 @@
     [self setBorderTv:self.address1Tv];
     [self setBorderTv:self.address2Tv];
     [self setBorderTv:self.address3Tv];
-    
+
     //キーボード以外のところをタップするとキーボードが自動的に隠れる。
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]
                                                  initWithTarget:self action:@selector(closeKeyboard)];

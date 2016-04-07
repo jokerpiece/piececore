@@ -121,13 +121,15 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         //商品個数選択
         UILabel *itemnumber1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
         itemnumber1.text = @"注文個数";
-        itemnumber1.font = [UIFont fontWithName:@"AppleGothic" size:20];
+        itemnumber1.font = [UIFont fontWithName:@"AppleGothic" size:25];
     
         self.itemDown = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.itemDown.frame = CGRectMake(self.viewSize.width*0.52, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.08, 30);
         [self.itemDown setTitle:@"−" forState:UIControlStateNormal];
+        self.itemDown.tintColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
+
         [self.itemDown addTarget:self action:@selector(tapItemDown:) forControlEvents:UIControlEventTouchDown];
-        self.itemDown.font = [UIFont fontWithName:@"AppleGothic" size:20];
+        self.itemDown.font = [UIFont fontWithName:@"AppleGothic" size:30];
         
         self.inputItemNumber = [[UITextField alloc]initWithFrame:CGRectMake(self.viewSize.width*0.63,[Common getOrignYWidhUiView:itemPrice3 margin:30] , self.viewSize.width*0.1, 30)];
         self.inputItemNumber.borderStyle = UITextBorderStyleRoundedRect;
@@ -139,8 +141,10 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         self.itemUp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         self.itemUp.frame = CGRectMake(self.viewSize.width*0.75, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.08, 30);
         [self.itemUp setTitle:@"＋" forState:UIControlStateNormal];
+        self.itemUp.tintColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
+
         [self.itemUp addTarget:self action:@selector(tapItemUp:) forControlEvents:UIControlEventTouchDown];
-        self.itemUp.font = [UIFont fontWithName:@"AppleGothic" size:20];
+        self.itemUp.font = [UIFont fontWithName:@"AppleGothic" size:25];
 
     
         UILabel *itemnumber2 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.85, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.82, 30)];
@@ -154,7 +158,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [self.line_button addTarget:self
                              action:@selector(line_button_Tapeped:)
                    forControlEvents:UIControlEventTouchUpInside];
-        self.line_button.backgroundColor = [UIColor colorWithRed:0.35 green:0.90 blue:0.16 alpha:1.0];
+        self.line_button.backgroundColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
         
         self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:self.line_button margin:100])];
         

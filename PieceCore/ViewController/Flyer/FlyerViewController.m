@@ -461,7 +461,6 @@
         if (!self.isSearchBtnInvisible) {
             self.searchBtn.alpha = 1.0f;
         }
-
     }
     
 }
