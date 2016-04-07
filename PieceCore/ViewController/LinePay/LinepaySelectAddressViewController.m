@@ -51,7 +51,7 @@
     [cell_st addObject:[ProfileAdressTableViewCell alloc]];
     //    [cell_st addObject:[ProfileBirthdayTableViewCell alloc]];
     //    [cell_st addObject:[ProfileAnniversaryTableViewCell alloc]];
-    [cell_st addObject:[ProfileAdressTableViewCell alloc]];
+    [cell_st addObject:[ProfileMailAddressTableViewCell alloc]];
     [cell_st addObject:[deliveryTimeTableViewCell alloc]];
     [cell_st addObject:[ProfileSendBtnTableViewCell alloc]];
     

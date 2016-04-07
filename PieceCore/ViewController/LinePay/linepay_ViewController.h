@@ -29,10 +29,10 @@
 @property (strong, nonatomic) NSString *postage;
 @property (strong, nonatomic) NSString *transaction;
 
-@property (strong, nonatomic) NSString *item_name;
-@property (strong, nonatomic) NSString *img_url;
-@property (strong, nonatomic) NSString *item_text;
-@property (strong, nonatomic) NSString *item_price;
+@property (strong, nonatomic) NSString *itemName;
+@property (strong, nonatomic) NSString *imgUrl;
+@property (strong, nonatomic) NSString *itemText;
+@property (strong, nonatomic) NSString *itemPrice;
 @property (strong, nonatomic) NSString *productId;
 @property (strong, nonatomic) NSString *itemStock;
 

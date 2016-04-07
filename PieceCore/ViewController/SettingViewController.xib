@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingViewController">
             <connections>
-                <outlet property="SwitchLinePay" destination="D2o-as-qcE" id="7Cq-fj-ZPR"/>
-                <outlet property="linePayStr" destination="Rtq-fp-aBw" id="MAP-kX-UNm"/>
+                <outlet property="SwitchLinePay" destination="Jck-87-sGK" id="BzB-iS-p38"/>
+                <outlet property="linePayStr" destination="wEB-sE-J2s" id="ASQ-Ej-64m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,16 +17,16 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-fp-aBw">
-                    <rect key="frame" x="39" y="173" width="189" height="42"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEB-sE-J2s">
+                    <rect key="frame" x="47" y="117" width="164" height="49"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D2o-as-qcE">
-                    <rect key="frame" x="282" y="178" width="51" height="31"/>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jck-87-sGK">
+                    <rect key="frame" x="219" y="126" width="51" height="31"/>
                     <connections>
-                        <action selector="switchValueChanged:" destination="-1" eventType="valueChanged" id="dwd-MD-9Aq"/>
+                        <action selector="switchValueChanged:" destination="-1" eventType="valueChanged" id="WE1-bP-ypW"/>
                     </connections>
                 </switch>
             </subviews>

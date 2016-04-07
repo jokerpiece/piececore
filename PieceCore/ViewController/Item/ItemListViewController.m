@@ -136,14 +136,19 @@
             [cell.contentView addSubview:priceLbl];
         }
         
-        if ([Common isNotEmptyString:data.stock]) {
+        if ([Common isNotEmptyString:data.stock] || [data.stock isEqual:[NSNull null]]) {
             UILabel *stockLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width - 165,65,60,20)];
             stockLbl.text = [NSString stringWithFormat:@"%@",data.stock];
             if ([stockLbl.text isEqualToString:@"売り切れ"]) {
                 stockLbl.textColor = [UIColor whiteColor];
                 stockLbl.backgroundColor = [UIColor grayColor];
                 stockLbl.textAlignment = NSTextAlignmentCenter;
-            } else {
+            }else if([stockLbl.text isEqualToString:@"<null>"]){
+                stockLbl.text = @"売り切れ";
+                stockLbl.textColor = [UIColor whiteColor];
+                stockLbl.backgroundColor = [UIColor grayColor];
+                stockLbl.textAlignment = NSTextAlignmentCenter;
+            }else {
                 stockLbl.textColor = [UIColor blackColor];
                 stockLbl.backgroundColor = [UIColor clearColor];
                 stockLbl.textAlignment = NSTextAlignmentRight;
@@ -367,12 +372,12 @@
     } else if (linePaySwitchStatus == 1) {
         
         linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
-        vc.item_name = data.item_name;
+        vc.itemName = data.item_name;
         vc.productId = data.item_id;
-        vc.img_url = data.img_url;
+        vc.imgUrl = data.img_url;
         vc.itemImgUrl = data.img_url;
-        vc.item_text = data.item_text;
-        vc.item_price = data.item_price;
+        vc.itemText = data.item_text;
+        vc.itemPrice = data.item_price;
         vc.itemStock = data.stock;
         
         [self.navigationController pushViewController:vc  animated:YES];

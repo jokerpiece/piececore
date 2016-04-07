@@ -2,7 +2,7 @@
 //  SettingViewController.m
 //  pieceSample
 //
-//  Created by OhnumaRina on 2016/04/06.
+//  Created by OhnumaRina on 2016/04/07.
 //  Copyright © 2016年 jokerpiece. All rights reserved.
 //
 
@@ -16,11 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.linePayStr.text = @"LinePay決済";
     self.linePayStr.font = [UIFont fontWithName:@"AppleGothic" size:20];
+    //    self.linePayStr.backgroundColor = [UIColor yellowColor];
     NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
     NSInteger switchStatus = [userData integerForKey:@"LINEPAY"];
+    
+    //self.SwitchLinePay = [[UISwitch alloc]init];
+    self.linePayStr = [[UILabel alloc]init];
+    self.linePayStr.frame = CGRectMake(self.view.bounds.size.width *0.1, self.view.bounds.size.height*0.3, 100, 100);
+    
     
     if(switchStatus == 1){
         self.SwitchLinePay.on = YES;
@@ -50,7 +55,11 @@
         [userData setInteger:0 forKey:@"LINEPAY"];
         [userData synchronize];
     }
+}
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 -(IBAction)switchValueChanged:(id)sender{
@@ -66,13 +75,10 @@
         [userData setInteger:0 forKey:@"LINEPAY"];
         [userData synchronize];
     }
+    
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 /*
 #pragma mark - Navigation

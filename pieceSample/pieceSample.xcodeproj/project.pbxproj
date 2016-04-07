@@ -26,8 +26,8 @@
 		249A292E1CB4E6E2008F015B /* deliveryTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249A292C1CB4E6E2008F015B /* deliveryTimeTableViewCell.xib */; };
 		249A29321CB4E89B008F015B /* ProfileMailAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A29301CB4E89B008F015B /* ProfileMailAddressTableViewCell.m */; };
 		249A29331CB4E89B008F015B /* ProfileMailAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249A29311CB4E89B008F015B /* ProfileMailAddressTableViewCell.xib */; };
-		249A29381CB4F138008F015B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A29361CB4F138008F015B /* SettingViewController.m */; };
-		249A29391CB4F138008F015B /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249A29371CB4F138008F015B /* SettingViewController.xib */; };
+		249A29451CB5FE2B008F015B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A29431CB5FE2B008F015B /* SettingViewController.m */; };
+		249A29461CB5FE2B008F015B /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249A29441CB5FE2B008F015B /* SettingViewController.xib */; };
 		2F55E8B01BF308DD00525089 /* OrderDataCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */; };
 		2F55E8B11BF308DD00525089 /* OrderDataCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */; };
 		2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8B31BF30A2300525089 /* OrderDataFailedViewController.m */; };
@@ -298,9 +298,9 @@
 		249A292F1CB4E89B008F015B /* ProfileMailAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileMailAddressTableViewCell.h; sourceTree = "<group>"; };
 		249A29301CB4E89B008F015B /* ProfileMailAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileMailAddressTableViewCell.m; sourceTree = "<group>"; };
 		249A29311CB4E89B008F015B /* ProfileMailAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileMailAddressTableViewCell.xib; sourceTree = "<group>"; };
-		249A29351CB4F138008F015B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		249A29361CB4F138008F015B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		249A29371CB4F138008F015B /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		249A29421CB5FE2B008F015B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		249A29431CB5FE2B008F015B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		249A29441CB5FE2B008F015B /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		2F55E8AD1BF308DD00525089 /* OrderDataCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDataCheckViewController.h; path = Order/OrderDataCheckViewController.h; sourceTree = "<group>"; };
 		2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDataCheckViewController.m; path = Order/OrderDataCheckViewController.m; sourceTree = "<group>"; };
 		2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDataCheckViewController.xib; path = Order/OrderDataCheckViewController.xib; sourceTree = "<group>"; };
@@ -758,9 +758,9 @@
 		249A29341CB4F0FC008F015B /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				249A29351CB4F138008F015B /* SettingViewController.h */,
-				249A29361CB4F138008F015B /* SettingViewController.m */,
-				249A29371CB4F138008F015B /* SettingViewController.xib */,
+				249A29421CB5FE2B008F015B /* SettingViewController.h */,
+				249A29431CB5FE2B008F015B /* SettingViewController.m */,
+				249A29441CB5FE2B008F015B /* SettingViewController.xib */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -1847,7 +1847,6 @@
 				376A4EEB1BF49F1C001B9537 /* horogram_preview.png in Resources */,
 				37949AA01ABBE7DC002E5194 /* ProfileNameTableViewCell.xib in Resources */,
 				37E3EB981AA45F8C00EA7CB9 /* BarcodeReaderViewController.xib in Resources */,
-				249A29391CB4F138008F015B /* SettingViewController.xib in Resources */,
 				37D16FA11BCF86A700341B88 /* LinepaySelectAddressViewController.xib in Resources */,
 				37949A731ABA9670002E5194 /* nextBtn@2x.png in Resources */,
 				377F40E71C578D5F00C7D2C0 /* 3dmovie.png in Resources */,
@@ -1864,6 +1863,7 @@
 				377F40EB1C58568200C7D2C0 /* download_white.png in Resources */,
 				37949A4E1AB6C497002E5194 /* HistoryTableViewCell.xib in Resources */,
 				376A47AD1AADAEC3002A25D3 /* coupon_search@2x.png in Resources */,
+				249A29461CB5FE2B008F015B /* SettingViewController.xib in Resources */,
 				37E3EBB01AA45F8C00EA7CB9 /* NewsViewController.xib in Resources */,
 				1468242B1C07107900F663CE /* treasure3.png in Resources */,
 				377F40E51C578AD500C7D2C0 /* movie.png in Resources */,
@@ -2008,6 +2008,7 @@
 				37E3EBA71AA45F8C00EA7CB9 /* FlyerViewController.m in Sources */,
 				37E3EB9A1AA45F8C00EA7CB9 /* TabbarViewController.m in Sources */,
 				37949AA31ABFEEAE002E5194 /* BaseInputCell.m in Sources */,
+				249A29451CB5FE2B008F015B /* SettingViewController.m in Sources */,
 				2F55E8BE1BF3282A00525089 /* FinishYoutubeUploadViewController.m in Sources */,
 				37E3EB6C1AA45F8C00EA7CB9 /* FlyerRecipient.m in Sources */,
 				37949A951ABBE5CE002E5194 /* ProfileAnniversaryTableViewCell.m in Sources */,
@@ -2080,7 +2081,6 @@
 				37E3EB581AA45F8C00EA7CB9 /* FittingData.m in Sources */,
 				37D16F881BCF4BC600341B88 /* SCSimpleSLRequestDemo.m in Sources */,
 				37E3EBAD1AA45F8C00EA7CB9 /* InfoListViewController.m in Sources */,
-				249A29381CB4F138008F015B /* SettingViewController.m in Sources */,
 				37E3EB6E1AA45F8C00EA7CB9 /* ItemRecipient.m in Sources */,
 				3791297E1AB2DC45001237C7 /* ThemeData.m in Sources */,
 				376A4EF41BF9CD57001B9537 /* RappingQuizeRecipient.m in Sources */,
