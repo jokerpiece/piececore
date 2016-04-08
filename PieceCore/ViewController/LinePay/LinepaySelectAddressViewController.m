@@ -25,6 +25,7 @@
     self.lastNameLbl.text = [profileDec objectForKey:@"SEI"];
     self.firstNameLbl.text = [profileDec objectForKey:@"MEI"];
     self.mailLbl.text = [profileDec objectForKey:@"MAILADDRESS"];
+    self.telLbl.text = [profileDec objectForKey:@"TEL"];
     
 }
 

@@ -40,7 +40,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UK5-Qw-adQ">
                         <rect key="frame" x="115" y="160" width="90" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.66806076254514957" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.30218010979729731" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
@@ -54,7 +54,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wVj-OJ-Fk7">
                         <rect key="frame" x="222" y="125" width="90" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.66806076254514957" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.30218010979729731" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
@@ -68,7 +68,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Myh-1P-ccY">
                         <rect key="frame" x="222" y="160" width="90" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.66806076254514957" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.30218010979729731" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
@@ -82,7 +82,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pkW-7M-h2N">
                         <rect key="frame" x="115" y="125" width="90" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.66806076254514957" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.30218010979729731" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
@@ -96,7 +96,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="N9b-CN-EXv">
                         <rect key="frame" x="8" y="90" width="90" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.2998046875" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
                         <state key="normal" title="指定なし"/>
@@ -109,7 +109,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YKP-sc-DGj">
                         <rect key="frame" x="8" y="125" width="90" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.66806076254514957" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.30218010979729731" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
                         <state key="normal" title="午前中"/>
@@ -122,7 +122,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bvL-Sh-sqf">
                         <rect key="frame" x="8" y="160" width="90" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.66806076254514957" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.30218010979729731" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>

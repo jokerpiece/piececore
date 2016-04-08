@@ -101,74 +101,83 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     itemPrice3.textColor = [UIColor blackColor];
 
     //在庫数判定
-    if([self.itemStock isEqual:[NSNull null]])
-    {
-        UILabel *itemNumber = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
-        itemNumber.text = @"注文個数";
-        itemNumber.font = [UIFont fontWithName:@"AppleGothic" size:20];
-        
-        UILabel *nullItemStock = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.69, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
-        nullItemStock.text = @"在庫なし";
-        itemNumber.font = [UIFont fontWithName:@"AppleGothic" size:20];
-        
-         self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:nullItemStock margin:100])];
-        
-        [self.uv addSubview:itemNumber];
-        [self.uv addSubview:nullItemStock];
-        
-    }else{
-        
-        //商品個数選択
-        UILabel *itemnumber1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
-        itemnumber1.text = @"注文個数";
-        itemnumber1.font = [UIFont fontWithName:@"AppleGothic" size:25];
+
+    UILabel *itemNumber = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
+    itemNumber.text = @"注文個数";
+    itemNumber.font = [UIFont fontWithName:@"AppleGothic" size:20];
     
-        self.itemDown = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.itemDown.frame = CGRectMake(self.viewSize.width*0.52, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.08, 30);
-        [self.itemDown setTitle:@"−" forState:UIControlStateNormal];
-        self.itemDown.tintColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
-
-        [self.itemDown addTarget:self action:@selector(tapItemDown:) forControlEvents:UIControlEventTouchDown];
-        self.itemDown.font = [UIFont fontWithName:@"AppleGothic" size:30];
-        
-        self.inputItemNumber = [[UITextField alloc]initWithFrame:CGRectMake(self.viewSize.width*0.63,[Common getOrignYWidhUiView:itemPrice3 margin:30] , self.viewSize.width*0.1, 30)];
-        self.inputItemNumber.borderStyle = UITextBorderStyleRoundedRect;
-        self.inputItemNumber.textAlignment = UITextAlignmentCenter;
-        self.inputItemNumber.delegate = self;
-        self.inputItemNumber.enabled = NO;
-        self.inputItemNumber.text = @"0";
-        
-        self.itemUp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        self.itemUp.frame = CGRectMake(self.viewSize.width*0.75, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.08, 30);
-        [self.itemUp setTitle:@"＋" forState:UIControlStateNormal];
-        self.itemUp.tintColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
-
-        [self.itemUp addTarget:self action:@selector(tapItemUp:) forControlEvents:UIControlEventTouchDown];
-        self.itemUp.font = [UIFont fontWithName:@"AppleGothic" size:25];
-
+    UILabel *nullItemStock = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.69, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
+    nullItemStock.text = @"在庫なし";
+    itemNumber.font = [UIFont fontWithName:@"AppleGothic" size:20];
     
-        UILabel *itemnumber2 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.85, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.82, 30)];
-        itemnumber2.text = @"個";
-        itemnumber2.font = [UIFont fontWithName:@"AppleGothic" size:20];
-        itemnumber2.textColor = [UIColor blackColor];
+    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:nullItemStock margin:100])];
+    
+    //商品個数選択
+    UILabel *itemnumber1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
+    itemnumber1.text = @"注文個数";
+    itemnumber1.font = [UIFont fontWithName:@"AppleGothic" size:25];
+    
+    self.itemDown = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.itemDown.frame = CGRectMake(self.viewSize.width*0.52, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.08, 30);
+    [self.itemDown setTitle:@"−" forState:UIControlStateNormal];
+    self.itemDown.tintColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
+    
+    [self.itemDown addTarget:self action:@selector(tapItemDown:) forControlEvents:UIControlEventTouchDown];
+    self.itemDown.font = [UIFont fontWithName:@"AppleGothic" size:30];
+    
+    self.inputItemNumber = [[UITextField alloc]initWithFrame:CGRectMake(self.viewSize.width*0.63,[Common getOrignYWidhUiView:itemPrice3 margin:30] , self.viewSize.width*0.1, 30)];
+    self.inputItemNumber.borderStyle = UITextBorderStyleRoundedRect;
+    self.inputItemNumber.textAlignment = UITextAlignmentCenter;
+    self.inputItemNumber.delegate = self;
+    self.inputItemNumber.enabled = NO;
+    self.inputItemNumber.text = @"1";
+    
+    self.itemUp = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.itemUp.frame = CGRectMake(self.viewSize.width*0.75, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.08, 30);
+    [self.itemUp setTitle:@"＋" forState:UIControlStateNormal];
+    self.itemUp.tintColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
+    
+    [self.itemUp addTarget:self action:@selector(tapItemUp:) forControlEvents:UIControlEventTouchDown];
+    self.itemUp.font = [UIFont fontWithName:@"AppleGothic" size:25];
+    
+    
+    UILabel *itemnumber2 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.85, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.82, 30)];
+    itemnumber2.text = @"個";
+    itemnumber2.font = [UIFont fontWithName:@"AppleGothic" size:20];
+    itemnumber2.textColor = [UIColor blackColor];
+    
+    //Lineで購入ボタン生成
+    self.line_button = [[UIButton alloc] initWithFrame:CGRectMake(self.viewSize.width*0.25,[Common getOrignYWidhUiView:itemnumber1 margin:30] , self.viewSize.width*0.5, self.viewSize.height*0.1)];
+    [self.line_button setTitle:@"LINEで購入" forState:UIControlStateNormal];
+    [self.line_button addTarget:self
+                         action:@selector(line_button_Tapeped:)
+               forControlEvents:UIControlEventTouchUpInside];
+    self.line_button.backgroundColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
+    
+    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:self.line_button margin:100])];
+    
+    
+    if([Common isNotEmptyString:self.itemStock]){
         
-        //Lineで購入ボタン生成
-        self.line_button = [[UIButton alloc] initWithFrame:CGRectMake(self.viewSize.width*0.25,[Common getOrignYWidhUiView:itemnumber1 margin:30] , self.viewSize.width*0.5, self.viewSize.height*0.1)];
-        [self.line_button setTitle:@"LINEで購入" forState:UIControlStateNormal];
-        [self.line_button addTarget:self
-                             action:@selector(line_button_Tapeped:)
-                   forControlEvents:UIControlEventTouchUpInside];
-        self.line_button.backgroundColor = [UIColor colorWithRed:0.110 green:0.553 blue:0.098 alpha:1.0];
-        
-        self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:self.line_button margin:100])];
-        
+        if([self.itemStock isEqualToString:@"売り切れ"]){
+            [self.uv addSubview:itemNumber];
+            [self.uv addSubview:nullItemStock];
+        }else{
+            [self.uv addSubview:itemnumber1];
+            [self.uv addSubview:itemnumber2];
+            [self.uv addSubview:self.itemDown];
+            [self.uv addSubview:self.inputItemNumber];
+            [self.uv addSubview:self.itemUp];
+            [self.uv addSubview:self.line_button];
+        }
+    }else if([self.itemStock isEqual:[NSNull null]]){
+        self.itemStock = @"100";
         [self.uv addSubview:itemnumber1];
         [self.uv addSubview:itemnumber2];
         [self.uv addSubview:self.itemDown];
         [self.uv addSubview:self.inputItemNumber];
         [self.uv addSubview:self.itemUp];
         [self.uv addSubview:self.line_button];
-
     }
 
     [self.uv addSubview:lblBg];
@@ -177,7 +186,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [self.uv addSubview:itemPrice1];
     [self.uv addSubview:itemPrice2];
     [self.uv addSubview:itemPrice3];
-    
+
     self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     self.sv.indicatorStyle = UIScrollViewIndicatorStyleDefault;
@@ -217,7 +226,9 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             if ([Common isNotEmptyString:[profileDec objectForKey:@"SEI"]]
                 &&[Common isNotEmptyString:[profileDec objectForKey:@"MEI"]]
                     &&[Common isNotEmptyString:[profileDec objectForKey:@"POST"]]
-                       &&[Common isNotEmptyString:[profileDec objectForKey:@"ADDRESS1"]]) {
+                       &&[Common isNotEmptyString:[profileDec objectForKey:@"ADDRESS1"]]
+                        &&[Common isNotEmptyString:[profileDec objectForKey:@"TEL"]]
+                            &&[Common isNotEmptyString:[profileDec objectForKey:@"MAILADDESSCHECK"]]) {
         
             LinepaySelectAddressViewController *vc = [[LinepaySelectAddressViewController alloc] initWithNibName:@"LinepaySelectAddressViewController" bundle:nil];
             vc.item_name = self.itemName;

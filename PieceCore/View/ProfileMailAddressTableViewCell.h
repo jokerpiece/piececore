@@ -11,4 +11,7 @@
 
 @interface ProfileMailAddressTableViewCell : BaseInputCell
 @property (weak, nonatomic) IBOutlet UITextField *mailTf;
+@property (weak, nonatomic) IBOutlet UITextField *mailCheckTf;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTf;
+
 @end

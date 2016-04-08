@@ -13,6 +13,7 @@
 @interface BaseInputCell : UITableViewCell
 @property NSMutableArray *tfList;
 @property NSMutableArray *tvList;
+
 @property NSMutableArray *datePickerList;
 @property NSMutableArray *monthDayPickerList;
 - (void)initInputList;

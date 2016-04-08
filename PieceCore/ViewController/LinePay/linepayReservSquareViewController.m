@@ -62,7 +62,7 @@
     NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
     
     self.address.text = [NSString stringWithFormat:@"%@%@%@",[profileDec objectForKey:@"ADDRESS1"],[profileDec objectForKey:@"ADDRESS2"],[profileDec objectForKey:@"ADDRESS3"]];
-    self.user_name.text = [NSString stringWithFormat:@"%@%@",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
+    self.user_name.text = [NSString stringWithFormat:@"%@ %@",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
     self.mail_address.text = [profileDec objectForKey:@"MAILADDRESS"];
 }
 

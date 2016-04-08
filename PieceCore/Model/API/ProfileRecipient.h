@@ -20,6 +20,7 @@
 @property (nonatomic,strong) NSString *address3;
 @property (nonatomic,strong) NSString *sex;
 @property (nonatomic,strong) NSString *mail_address;
+@property (nonatomic,strong) NSString *mailAddressCheck;
 @property (nonatomic,strong) NSString *tel;
 @property (nonatomic,strong) NSString *anniversary_name;
 @property (nonatomic,strong) NSString *anniversary;

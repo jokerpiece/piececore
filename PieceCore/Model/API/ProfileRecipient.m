@@ -21,6 +21,7 @@
     self.address3 = [self.resultset valueForKey:@"Address_street"];
     self.sex = [self.resultset valueForKey:@"Sex"];
     self.mail_address = [self.resultset valueForKey:@"mail_address"];
+    self.mailAddressCheck = [self.resultset valueForKey:@"mailAddrellCheck"];
     self.tel = [self.resultset valueForKey:@"Tel"];
     self.anniversary_name = [self.resultset valueForKey:@"anniversary_name"];
     self.anniversary = [self.resultset valueForKey:@"anniversary"];

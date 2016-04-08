@@ -277,7 +277,7 @@
     } else if ([tmpCell isKindOfClass:[ProfileAdressTableViewCell class]]){
         return 400.0f;
     } else if ([tmpCell isKindOfClass:[ProfileMailAddressTableViewCell class]]){
-        return 100.0f;
+        return 260.0f;
     } else if ([tmpCell isKindOfClass:[ProfileSendBtnTableViewCell class]]){
         return 100.0f;
     } else if ([tmpCell isKindOfClass:[deliveryTimeTableViewCell class]]){
@@ -411,7 +411,27 @@
 //    linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]init];
 //    [self.navigationController pushViewController:vc animated:YES];
 //    return;
-    DLog(@"%@",self.profileRecipient.sei);
+    [self profileDataCheck];
+    
+//    for (BaseInputCell *cell in self.instanceCellList) {
+//        [cell saveDataWithProfileRecipient:self.profileRecipient];
+//    }
+//    self.isResponse = NO;
+//    NetworkConecter *conecter = [NetworkConecter alloc];
+//    conecter.delegate = self;
+//    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+//    [self setParam:param];
+//    
+//    
+//    
+//    if([self.profileDataCheck isEqualToString:@"OK"]){
+//        [conecter sendActionSendId:SendIdSendProfile param:param];
+//    }
+
+}
+
+-(void)profileDataCheck{
+    
     for (BaseInputCell *cell in self.instanceCellList) {
         [cell saveDataWithProfileRecipient:self.profileRecipient];
     }
@@ -420,8 +440,107 @@
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [self setParam:param];
-    [conecter sendActionSendId:SendIdSendProfile param:param];
-
+    
+    [param setValue:self.profileRecipient.mail_address forKey:@"mail_address"];
+    [param setValue:self.profileRecipient.mailAddressCheck forKey:@"mailAddressCheck"];
+    [param setValue:self.profileRecipient.tel forKey:@"Tel"];
+    
+    //プロフィール情報が空かどうか
+    for (NSString *str in param) {
+        if(![Common isNotEmptyString:str]){
+            UIAlertController *ac =
+            [UIAlertController alertControllerWithTitle:@"入力エラー"
+                                                message:@"未入力の項目があります"
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            // Cancel用のアクションを生成
+            UIAlertAction *okAction =
+            [UIAlertAction actionWithTitle:@"OK"
+                                     style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction * action) {
+                                   }];
+            [ac addAction:okAction];
+            // アラート表示処理
+            [self presentViewController:ac animated:YES completion:nil];
+            break;
+        }
+    }
+    
+    //電話番号が10桁もしくは11桁でなかった場合
+    if(self.profileRecipient.tel.length != 10 && self.profileRecipient.tel.length != 11){
+        UIAlertController *ac =
+        [UIAlertController alertControllerWithTitle:@"入力エラー"
+                                            message:@"正しく電話番号が入力されていません"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        // Cancel用のアクションを生成
+        UIAlertAction *okAction =
+        [UIAlertAction actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleCancel
+                               handler:^(UIAlertAction * action) {
+                               }];
+        [ac addAction:okAction];
+        // アラート表示処理
+        [self presentViewController:ac animated:YES completion:nil];
+    }
+    
+    //メールアドレスチェック
+    if([Common isNotEmptyString:self.profileRecipient.mail_address]){
+        if([Common isNotEmptyString:self.profileRecipient.mailAddressCheck]){
+            
+            if([self.profileRecipient.mail_address isEqualToString:self.profileRecipient.mailAddressCheck]){
+                
+                NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+                
+                BOOL matched = [predicate evaluateWithObject:self.profileRecipient.mail_address];
+                
+                if(!matched)
+                {
+                    UIAlertController *ac =
+                    [UIAlertController alertControllerWithTitle:@"入力エラー"
+                                                        message:@"メールアドレスが正しくありません"
+                                                 preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    // Cancel用のアクションを生成
+                    UIAlertAction *okAction =
+                    [UIAlertAction actionWithTitle:@"OK"
+                                             style:UIAlertActionStyleCancel
+                                           handler:^(UIAlertAction * action) {
+                                           }];
+                    [ac addAction:okAction];
+                    // アラート表示処理
+                    [self presentViewController:ac animated:YES completion:nil];
+                    return;
+                }else if(matched){
+                    for (BaseInputCell *cell in self.instanceCellList) {
+                        [cell saveDataWithProfileRecipient:self.profileRecipient];
+                    }
+                    self.isResponse = NO;
+                    NetworkConecter *conecter = [NetworkConecter alloc];
+                    conecter.delegate = self;
+                    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                    [self setParam:param];
+                    [conecter sendActionSendId:SendIdSendProfile param:param];
+                }
+            }else{
+                UIAlertController *ac =
+                [UIAlertController alertControllerWithTitle:@"入力エラー"
+                                                    message:@"メールアドレスが一致していません"
+                                             preferredStyle:UIAlertControllerStyleAlert];
+                // Cancel用のアクションを生成
+                UIAlertAction *okAction =
+                [UIAlertAction actionWithTitle:@"OK"
+                                         style:UIAlertActionStyleCancel
+                                       handler:^(UIAlertAction * action) {
+                                       }];
+                
+                [ac addAction:okAction];
+                // アラート表示処理
+                [self presentViewController:ac animated:YES completion:nil];
+            }
+        }
+    }
 }
 
 -(void)getDeliveryPrice{
@@ -455,9 +574,12 @@
     [param setValue:self.profileRecipient.sex forKey:@"Sex"];
     [param setValue:self.profileRecipient.tel forKey:@"Tel"];
     [param setValue:self.profileRecipient.mail_address forKey:@"mail_address"];
+    [param setValue:self.profileRecipient.mailAddressCheck forKey:@"mailAddressCheck"];
     [param setValue:self.profileRecipient.anniversary_name forKey:@"anniversary_name"];
     [param setValue:self.profileRecipient.anniversary forKey:@"anniversary"];
 //    [param setValue:self.profileRecipient.delivery_time forKey:@"delivery_time"];
+    
+    
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

@@ -136,7 +136,7 @@
             [cell.contentView addSubview:priceLbl];
         }
         
-        if ([Common isNotEmptyString:data.stock] || [data.stock isEqual:[NSNull null]]) {
+        if ([Common isNotEmptyString:data.stock]) {
             UILabel *stockLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width - 165,65,60,20)];
             stockLbl.text = [NSString stringWithFormat:@"%@",data.stock];
             if ([stockLbl.text isEqualToString:@"売り切れ"]) {

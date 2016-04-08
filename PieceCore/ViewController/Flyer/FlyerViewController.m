@@ -343,18 +343,18 @@
     FlyerBodyData *data = [self.flyerRecipient.bodyList objectAtIndex:sender.view.tag];
     NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
     NSInteger flagLinePay = [userData integerForKey:@"LINEPAY"];
-    NSString *itemUrl = data.item_url;
+   // NSString *itemUrl = data.item_url;
     self.itemId = data.item_id;
     
-    if([itemUrl isEqual:[NSNull null]]){
-        itemUrl = @"";
-    }
-    if(flagLinePay == 1 && [itemUrl length] != 0)
-    {
-        [self syncItemdataAction];
-    }else if (flagLinePay == 0 && [itemUrl length] != 0){
-        WebViewController *vc = [[WebViewController alloc]      initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-            [self presentViewController:vc animated:YES completion:nil];
+    if([Common isNotEmptyString:data.item_url]){
+       if(flagLinePay == 1){
+           [self syncItemdataAction];
+       }else if (flagLinePay == 0){
+           WebViewController *vc = [[WebViewController alloc]
+                                    initWithNibName:@"WebViewController"
+                                    bundle:nil url:data.item_url];
+                [self presentViewController:vc animated:YES completion:nil];
+       }
     }
 }
 

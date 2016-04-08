@@ -30,15 +30,25 @@
 
 -(void)setInputList {
     [self initInputList];
-    [self.tfList addObject:self.mailTf];
+    [self.tvList addObject:self.mailTf];
+    [self.tvList addObject:self.mailCheckTf];
+    [self.tvList addObject:self.phoneTf];
 }
 -(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
     if([Common isNotEmptyString:recipient.mail_address]){
         self.mailTf.text = recipient.mail_address;
     }
+    if([Common isNotEmptyString:recipient.mailAddressCheck]){
+        self.mailCheckTf.text = recipient.mailAddressCheck;
+    }
+    if([Common isNotEmptyString:recipient.tel]){
+        self.phoneTf.text = recipient.tel;
+    }
 }
 -(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
     recipient.mail_address = self.mailTf.text;
+    recipient.mailAddressCheck = self.mailCheckTf.text;
+    recipient.tel = self.phoneTf.text;
 }
 
 @end

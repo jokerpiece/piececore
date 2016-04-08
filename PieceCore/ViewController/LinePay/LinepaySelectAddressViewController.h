@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *mailLbl;
+@property (weak, nonatomic) IBOutlet UILabel *telLbl;
+
 
 @property (weak, nonatomic) NSString *item_name;
 @property (weak, nonatomic) NSString *productId;

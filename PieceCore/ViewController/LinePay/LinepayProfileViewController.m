@@ -33,14 +33,14 @@
     NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrl];
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
     if(installed) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linepayRecipient.paymentUrlWeb]];
+   //     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linepayRecipient.paymentUrl]];
 //        [[UIApplication sharedApplication] openURL:url];
         //テスト用
 //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]];
         
 //        テスト用
-//        linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]init];
-//        [self presentViewController:vc animated:YES completion:nil];
+        linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]init];
+        [self presentViewController:vc animated:YES completion:nil];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
                                                         message:@"iPhone上にLINEがありません。\nインストールしますか？"
@@ -146,8 +146,10 @@
     [profileData setValue:self.profileRecipient.address2 forKey:@"ADDRESS2"];
     [profileData setValue:self.profileRecipient.address3 forKey:@"ADDRESS3"];
     [profileData setValue:self.profileRecipient.sex forKey:@"SEX"];
-    [profileData setValue:@"" forKey:@"TEL"];
+    //[profileData setValue:@"" forKey:@"TEL"];
+    [profileData setValue:self.profileRecipient.tel forKey:@"TEL"];
     [profileData setValue:self.profileRecipient.mail_address forKey:@"MAILADDRESS"];
+    [profileData setValue:self.profileRecipient.mailAddressCheck forKey:@"MAILADDESSCHECK"];
 //    [profileData setValue:self.profileRecipient.anniversary_name forKey:@"ANNIVERSARY_NAME"];
 //    [profileData setValue:self.profileRecipient.anniversary forKey:@"ANNIVERSARY"];
     [profileData setValue:self.profileRecipient.delivery_time forKey:@"delivery_time"];
@@ -167,7 +169,9 @@
     profileRecipient.address3 =[profileDec objectForKey:@"ADDRESS3"];
     profileRecipient.mail_address =[profileDec objectForKey:@"MAILADDRESS"];
     profileRecipient.sex =[profileDec objectForKey:@"SEX"];
-    profileRecipient.tel =@"";
+    //profileRecipient.tel =@"";
+    profileRecipient.tel = [profileDec objectForKey:@"TEL"];
+    profileRecipient.mailAddressCheck  = [profileDec objectForKey:@"MAILADDESSCHECK"];
     profileRecipient.birth_day =[profileDec objectForKey:@"BIRTH_DAY"];
     profileRecipient.delivery_time = [profileDec objectForKey:@"delivery_time"];
     for (BaseInputCell *cell in self.instanceCellList) {
@@ -188,7 +192,9 @@
     self.profileRecipient.address3 =[profileDec objectForKey:@"ADDRESS3"];
     self.profileRecipient.mail_address =[profileDec objectForKey:@"MAILADDRESS"];
     self.profileRecipient.sex =[profileDec objectForKey:@"SEX"];
-    self.profileRecipient.tel =@"";
+    //self.profileRecipient.tel =@"";
+    self.profileRecipient.tel = [profileDec objectForKey:@"TEL"];
+    self.profileRecipient.mailAddressCheck = [profileDec objectForKey:@"MAILADDESSCHECK"];
     self.profileRecipient.birth_day =[profileDec objectForKey:@"BIRTH_DAY"];
     self.profileRecipient.delivery_time = [profileDec objectForKey:@"delivery_time"];
     
