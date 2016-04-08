@@ -281,7 +281,7 @@
     } else if ([tmpCell isKindOfClass:[ProfileSendBtnTableViewCell class]]){
         return 100.0f;
     } else if ([tmpCell isKindOfClass:[deliveryTimeTableViewCell class]]){
-        return 215.0f;
+        return 230.0f;
     }
     return 0;
 }
@@ -411,27 +411,6 @@
 //    linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]init];
 //    [self.navigationController pushViewController:vc animated:YES];
 //    return;
-    [self profileDataCheck];
-    
-//    for (BaseInputCell *cell in self.instanceCellList) {
-//        [cell saveDataWithProfileRecipient:self.profileRecipient];
-//    }
-//    self.isResponse = NO;
-//    NetworkConecter *conecter = [NetworkConecter alloc];
-//    conecter.delegate = self;
-//    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-//    [self setParam:param];
-//    
-//    
-//    
-//    if([self.profileDataCheck isEqualToString:@"OK"]){
-//        [conecter sendActionSendId:SendIdSendProfile param:param];
-//    }
-
-}
-
--(void)profileDataCheck{
-    
     for (BaseInputCell *cell in self.instanceCellList) {
         [cell saveDataWithProfileRecipient:self.profileRecipient];
     }
@@ -440,48 +419,26 @@
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [self setParam:param];
+    [self profileDataCheck:param];
     
-    [param setValue:self.profileRecipient.mail_address forKey:@"mail_address"];
-    [param setValue:self.profileRecipient.mailAddressCheck forKey:@"mailAddressCheck"];
-    [param setValue:self.profileRecipient.tel forKey:@"Tel"];
+   // [self pro]
     
+    [conecter sendActionSendId:SendIdSendProfile param:param];
+}
+
+-(NSString*)profileDataCheck:(NSMutableDictionary*)param{
+    NSString *errorMessage = @"";
     //プロフィール情報が空かどうか
     for (NSString *str in param) {
-        if(![Common isNotEmptyString:str]){
-            UIAlertController *ac =
-            [UIAlertController alertControllerWithTitle:@"入力エラー"
-                                                message:@"未入力の項目があります"
-                                         preferredStyle:UIAlertControllerStyleAlert];
-            
-            // Cancel用のアクションを生成
-            UIAlertAction *okAction =
-            [UIAlertAction actionWithTitle:@"OK"
-                                     style:UIAlertActionStyleCancel
-                                   handler:^(UIAlertAction * action) {
-                                   }];
-            [ac addAction:okAction];
-            // アラート表示処理
-            [self presentViewController:ac animated:YES completion:nil];
-            break;
+        if(![Common isNotEmptyString:[param objectForKey:str]]){
+            errorMessage = @"未入力の項目があります";
+            return errorMessage;
         }
     }
-    
     //電話番号が10桁もしくは11桁でなかった場合
     if(self.profileRecipient.tel.length != 10 && self.profileRecipient.tel.length != 11){
-        UIAlertController *ac =
-        [UIAlertController alertControllerWithTitle:@"入力エラー"
-                                            message:@"正しく電話番号が入力されていません"
-                                     preferredStyle:UIAlertControllerStyleAlert];
-        
-        // Cancel用のアクションを生成
-        UIAlertAction *okAction =
-        [UIAlertAction actionWithTitle:@"OK"
-                                 style:UIAlertActionStyleCancel
-                               handler:^(UIAlertAction * action) {
-                               }];
-        [ac addAction:okAction];
-        // アラート表示処理
-        [self presentViewController:ac animated:YES completion:nil];
+         errorMessage =  @"正しく電話番号が入力されていません";
+        return errorMessage;
     }
     
     //メールアドレスチェック
@@ -497,50 +454,18 @@
                 
                 if(!matched)
                 {
-                    UIAlertController *ac =
-                    [UIAlertController alertControllerWithTitle:@"入力エラー"
-                                                        message:@"メールアドレスが正しくありません"
-                                                 preferredStyle:UIAlertControllerStyleAlert];
-                    
-                    // Cancel用のアクションを生成
-                    UIAlertAction *okAction =
-                    [UIAlertAction actionWithTitle:@"OK"
-                                             style:UIAlertActionStyleCancel
-                                           handler:^(UIAlertAction * action) {
-                                           }];
-                    [ac addAction:okAction];
-                    // アラート表示処理
-                    [self presentViewController:ac animated:YES completion:nil];
-                    return;
+                    errorMessage = @"メールアドレスが正しくありません";
+                    return errorMessage;
                 }else if(matched){
-                    for (BaseInputCell *cell in self.instanceCellList) {
-                        [cell saveDataWithProfileRecipient:self.profileRecipient];
-                    }
-                    self.isResponse = NO;
-                    NetworkConecter *conecter = [NetworkConecter alloc];
-                    conecter.delegate = self;
-                    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-                    [self setParam:param];
-                    [conecter sendActionSendId:SendIdSendProfile param:param];
+                    return NO;
                 }
             }else{
-                UIAlertController *ac =
-                [UIAlertController alertControllerWithTitle:@"入力エラー"
-                                                    message:@"メールアドレスが一致していません"
-                                             preferredStyle:UIAlertControllerStyleAlert];
-                // Cancel用のアクションを生成
-                UIAlertAction *okAction =
-                [UIAlertAction actionWithTitle:@"OK"
-                                         style:UIAlertActionStyleCancel
-                                       handler:^(UIAlertAction * action) {
-                                       }];
-                
-                [ac addAction:okAction];
-                // アラート表示処理
-                [self presentViewController:ac animated:YES completion:nil];
+                errorMessage = @"メールアドレスが一致していません";
+                return errorMessage;
             }
         }
     }
+    return NO;
 }
 
 -(void)getDeliveryPrice{
@@ -577,7 +502,10 @@
     [param setValue:self.profileRecipient.mailAddressCheck forKey:@"mailAddressCheck"];
     [param setValue:self.profileRecipient.anniversary_name forKey:@"anniversary_name"];
     [param setValue:self.profileRecipient.anniversary forKey:@"anniversary"];
-//    [param setValue:self.profileRecipient.delivery_time forKey:@"delivery_time"];
+    [param setValue:self.profileRecipient.mail_address forKey:@"mail_address"];
+    [param setValue:self.profileRecipient.mailAddressCheck forKey:@"mailAddressCheck"];
+    [param setValue:self.profileRecipient.tel forKey:@"Tel"];
+    [param setValue:self.profileRecipient.delivery_time forKey:@"delivery_time"];
     
     
 }

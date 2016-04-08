@@ -33,14 +33,11 @@
     NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrl];
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
     if(installed) {
-   //     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linepayRecipient.paymentUrl]];
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linepayRecipient.paymentUrl]];
 //        [[UIApplication sharedApplication] openURL:url];
-        //テスト用
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]];
         
-//        テスト用
-        linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]init];
-        [self presentViewController:vc animated:YES completion:nil];
+        //テスト用
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
                                                         message:@"iPhone上にLINEがありません。\nインストールしますか？"

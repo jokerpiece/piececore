@@ -46,6 +46,9 @@
     NSString *get_postage = [LinePayData getPostage];
     self.postage.text = get_postage;
     
+    NSString *get_item_amount = [LinePayData getItemNumber];
+    NSLog(@"%@",get_item_amount);
+    
     //送料計算
     int item_price = [get_item_price stringByReplacingOccurrencesOfString:@"," withString:@""].intValue;
     int postage = get_postage.intValue;
@@ -137,7 +140,7 @@
     [param setValue:[NSString stringWithFormat:@"%d",self.payment_price] forKey:@"payment_price"];
     [param setValue:[LinePayData getTransaction] forKey:@"trans_no"];
     [param setValue:[LinePayData getItemPrice] forKey:@"item_price"];
-    [param setValue:@"1" forKey:@"amount"];
+    [param setValue:[LinePayData getItemNumber] forKey:@"amount"];
     [param setValue:[LinePayData getPostage] forKey:@"fee"];
     [param setValue:@"1" forKey:@"payment_kbn"];
 //    [param setValue:[profileDec objectForKey:@"USER_ID"] forKey:@"user_id"];
