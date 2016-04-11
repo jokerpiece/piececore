@@ -29,4 +29,9 @@
 +(NSString *)getTransaction;
 + (void)setProductId:(NSString*)str;
 + (NSString *)getProductId;
++ (void)setFee:(NSString*)str;
++ (NSString *)getFee;
++ (void)setTootalPrice:(NSString*)str;
++ (NSString *)getTootalPrice;
+
 @end

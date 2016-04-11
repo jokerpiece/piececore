@@ -139,24 +139,24 @@
         if ([Common isNotEmptyString:data.stock]) {
             UILabel *stockLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width - 165,65,60,20)];
             stockLbl.text = [NSString stringWithFormat:@"%@",data.stock];
+            stockLbl.font = [UIFont boldSystemFontOfSize:10];
+            stockLbl.alpha = 1.0f;
             if ([stockLbl.text isEqualToString:@"売り切れ"]) {
                 stockLbl.textColor = [UIColor whiteColor];
                 stockLbl.backgroundColor = [UIColor grayColor];
                 stockLbl.textAlignment = NSTextAlignmentCenter;
-            }else if([stockLbl.text isEqualToString:@"<null>"]){
-                stockLbl.text = @"売り切れ";
+                [cell.contentView addSubview:stockLbl];
+            }else if(data.stock.intValue <= 5 && ![stockLbl.text isEqualToString:@"売り切れ"]){
+                stockLbl.text = @"残りわずか";
                 stockLbl.textColor = [UIColor whiteColor];
                 stockLbl.backgroundColor = [UIColor grayColor];
                 stockLbl.textAlignment = NSTextAlignmentCenter;
-            }else {
+                [cell.contentView addSubview:stockLbl];
+            }else if(![Common isNotEmptyString:data.stock]){
                 stockLbl.textColor = [UIColor blackColor];
                 stockLbl.backgroundColor = [UIColor clearColor];
                 stockLbl.textAlignment = NSTextAlignmentRight;
             }
-            stockLbl.font = [UIFont boldSystemFontOfSize:10];
-            stockLbl.alpha = 1.0f;
-            
-            [cell.contentView addSubview:stockLbl];
         }
         
         //}

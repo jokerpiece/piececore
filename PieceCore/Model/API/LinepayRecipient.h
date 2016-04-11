@@ -18,5 +18,6 @@
 @property (nonatomic, strong) NSString *paymentUrlWeb;
 @property (nonatomic, strong) NSString *postage;
 @property (nonatomic, strong) NSString *transaction;
+@property (nonatomic, strong) NSString *fee;
 
 @end

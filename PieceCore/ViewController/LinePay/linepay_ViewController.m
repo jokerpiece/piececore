@@ -170,8 +170,8 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             [self.uv addSubview:self.itemUp];
             [self.uv addSubview:self.line_button];
         }
-    }else if([self.itemStock isEqual:[NSNull null]]){
-        self.itemStock = @"100";
+    }else if(![Common isNotEmptyString:self.itemStock]){
+        self.itemStock = @"10";
         [self.uv addSubview:itemnumber1];
         [self.uv addSubview:itemnumber2];
         [self.uv addSubview:self.itemDown];
@@ -213,9 +213,11 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             [alertView show];
         }else{
             //注文個数をlinePayData.mに保持
-            NSString *setItemNuber = [LinePayData getItemName];
-            setItemNuber = str;
-            DLog(@"%@",str);
+//            NSString *setItemNuber = [LinePayData getItemName];
+//            setItemNuber = str;
+//            DLog(@"%@",str);
+//            
+            [LinePayData setItemNumber:self.inputItemNumber.text];
 
             [self setLinePayData];
             // NSDictionaryの読み込み試験

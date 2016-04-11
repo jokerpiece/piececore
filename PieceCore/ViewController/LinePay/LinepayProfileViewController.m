@@ -33,11 +33,13 @@
     NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrl];
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
     if(installed) {
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linepayRecipient.paymentUrl]];
-//        [[UIApplication sharedApplication] openURL:url];
+        //lineweb
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linepayRecipient.paymentUrlWeb]];
+        //lineアプリ
+        //[[UIApplication sharedApplication] openURL:url];
         
         //テスト用
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]];
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[PieceCoreConfig linePayConfirmUrl]]];
     }else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"エラー"
                                                         message:@"iPhone上にLINEがありません。\nインストールしますか？"
@@ -66,8 +68,10 @@
     [param_2 setValue:self.orderId forKeyPath:@"orderId"];
     [param_2 setValue:self.item_name forKeyPath:@"productName"];
 //    [param_2 setValue:self.img_url forKeyPath:@"productImageUrl"];
-    NSInteger total_price = self.item_price.integerValue + self.delivery_price.integerValue;
-    NSString *str_total_price = [NSString stringWithFormat:@"%d",total_price];
+    //NSInteger total_price = self.item_price.integerValue + self.delivery_price.integerValue;
+    NSInteger total_price = (self.item_price.integerValue * [LinePayData getItemNumber].integerValue) + [LinePayData getPostage].integerValue;
+    NSString *str_total_price = [NSString stringWithFormat:@"%ld",total_price];
+    [LinePayData setTootalPrice:str_total_price];
     [param_2 setValue:str_total_price forKeyPath:@"amount"];
 //    [param_2 setValue:self.item_price forKeyPath:@"amount"];
     [param_2 setValue:@"JPY" forKeyPath:@"currency"];
@@ -98,11 +102,8 @@
                                               otherButtonTitles:@"OK", nil];
         alert.tag = 0;
         [alert show];
-        
-        
     } else if ([sendId isEqualToString:SendIdGetOrderId]){
         self.orderId = recipient.resultset[@"order_no"];
-//        [self getDeliveryPrice];
         [self sendLinpeyConfirm];
     } else if ([sendId isEqualToString:SendIdGetDeliveryPrice]){
         self.delivery_price = recipient.resultset[@"delivery_price"];
@@ -112,7 +113,8 @@
         self.linepayRecipient = (LinepayRecipient *)recipient;
         [LinePayData setOrderId:self.orderId];
         [LinePayData setTransaction:self.linepayRecipient.transaction];
-        [LinePayData setPostage:self.linepayRecipient.postage];
+        //[LinePayData setPostage:self.linepayRecipient.postage];
+        self.linepayRecipient.postage = [LinePayData getPostage];
         [self checkLineInstall];
 
     }

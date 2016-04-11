@@ -22,5 +22,6 @@
     self.paymentUrlWeb = [self.resultset valueForKey:@"paymentUrl.web"];
     self.postage = [self.resultset valueForKey:@"postage"];
     self.transaction = [self.resultset valueForKey:@"transaction"];
+    self.fee = [self.resultset valueForKey:@"fee"];
 }
 @end

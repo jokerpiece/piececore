@@ -18,7 +18,6 @@
 #import "DeterminedLinePayRecipient.h"
 #import "linepay_ViewController.h"
 
-
 @interface linepayReservSquareViewController : BaseViewController<UIScrollViewDelegate>
 
 @property (nonatomic, strong) ProfileRecipient *profilerecipient;

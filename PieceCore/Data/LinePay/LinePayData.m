@@ -15,6 +15,8 @@ static NSString *_transaction;
 static NSString *_productId;
 static NSString *_orderId;
 static NSString *_itemNumber;
+static NSString *_fee;
+static NSString *_getTootalPrice;
 
 @implementation LinePayData
 
@@ -57,7 +59,7 @@ static NSString *_itemNumber;
     _itemPrice = str;
 }
 
-//商品価格を格納
+//商品価格
 +(NSString *)getItemPrice
 {
     return _itemPrice;
@@ -82,9 +84,16 @@ static NSString *_itemNumber;
 +(NSString *)getPostage{
     return _postage;
 }
-
 + (void)setTransaction:(NSString*)str{
     _transaction = str;
+}
+
+//商品価格と送料を合算した金額
++(NSString *)getTootalPrice{
+    return _getTootalPrice;
+}
++ (void)setTootalPrice:(NSString *)str{
+    _getTootalPrice = str;
 }
 
 //LinePay取引番号
@@ -101,5 +110,13 @@ static NSString *_itemNumber;
 }
 
 
+//手数料
++(void)setFee:(NSString*)str{
+    _fee = str;
+}
++(NSString *)getFee{
+    return _fee;
+
+}
 
 @end

@@ -36,34 +36,33 @@
     self.item_name.numberOfLines = 2;
     self.address.numberOfLines = 3;
     
-    //setdataの値を取得(商品名、価格、送料)
+    //setdataの値を取得(商品名、商品単価の価格、送料、合計金額、注文個数)
     NSString *get_item_name = [LinePayData getItemName];
     self.item_name.text = get_item_name;
     
-    NSString *get_item_price = [LinePayData getItemPrice];
-    self.item_price.text = get_item_price;
-    
     NSString *get_postage = [LinePayData getPostage];
     self.postage.text = get_postage;
+
+    //合計金額 + 手数料
+    int fee = [[LinePayData getFee] intValue];
+    int SettlementAmount = [LinePayData getTootalPrice].intValue + fee;
     
-    NSString *get_item_amount = [LinePayData getItemNumber];
-    NSLog(@"%@",get_item_amount);
+    // Formatterの設定
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setGroupingSeparator:@","];
+    [formatter setGroupingSize:3];
     
-    //送料計算
-    int item_price = [get_item_price stringByReplacingOccurrencesOfString:@"," withString:@""].intValue;
-    int postage = get_postage.intValue;
-    self.payment_price = item_price + postage;
-    NSString *amount_sum_2 = [NSString stringWithFormat:@"%d",self.payment_price];
-    self.amount.text = amount_sum_2;
+    // Formatterの変換
     
-    DLog(@"%@",get_item_name);
-    DLog(@"%@",get_item_price);
-    DLog(@"%@",get_postage);
-    DLog(@"%@",amount_sum_2);
+    self.item_price.text = [NSString stringWithFormat:@"%@ 円 * %@ 個 = %d",
+                            [LinePayData getItemPrice],[LinePayData getItemNumber],
+                            ([LinePayData getItemPrice].intValue*[LinePayData getItemNumber].intValue)];
+    
+    self.amount.text = [NSString stringWithFormat:@"%d", SettlementAmount];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
-    
+    NSDictionary *profileDec = [ud dictionaryForKey:@"PROFILE"];
     self.address.text = [NSString stringWithFormat:@"%@%@%@",[profileDec objectForKey:@"ADDRESS1"],[profileDec objectForKey:@"ADDRESS2"],[profileDec objectForKey:@"ADDRESS3"]];
     self.user_name.text = [NSString stringWithFormat:@"%@ %@",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
     self.mail_address.text = [profileDec objectForKey:@"MAILADDRESS"];
@@ -95,8 +94,6 @@
 //                                             cancelButtonTitle:nil
 //                                             otherButtonTitles:@"OK", nil];
 //        [alert show];
-        
-        
     } else if ([sendId isEqualToString:SendIdRegistPay]){
 //        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"注文確定"
 //                                                        message:@"購入ありがとうございます"
@@ -114,15 +111,18 @@
 //    [self payedView];return;
     
      //LINEPay決済送信、アプリ内決済登録
-    NSString *str = nil;
+    NSString *str = [LinePayData getItemNumber];
+    DLog(@"%@",str);
+    
     NSString *get_transaction = [LinePayData getTransaction];
     
     NetworkConecter *conecter = [NetworkConecter alloc];
     conecter.delegate = self;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:get_transaction forKey:@"transaction"];
-    [param setValue:self.amount.text forKey:@"amount"];
+    [param setValue:[LinePayData getTootalPrice] forKey:@"amount"];
     [param setValue:@"JPY" forKey:@"currency"];
+    [param setValue:[LinePayData getOrderId] forKey:@"orderId"];
     [conecter sendActionSendId:SendIdDeterminedLinePay param:param];
 }
 
@@ -141,7 +141,13 @@
     [param setValue:[LinePayData getTransaction] forKey:@"trans_no"];
     [param setValue:[LinePayData getItemPrice] forKey:@"item_price"];
     [param setValue:[LinePayData getItemNumber] forKey:@"amount"];
-    [param setValue:[LinePayData getPostage] forKey:@"fee"];
+    
+    //手数料チェック
+    if([Common isNotEmptyString:[LinePayData getFee]]){
+        [LinePayData setFee:@"0"];
+    }
+    [param setValue:@"0"forKey:@"fee"];
+    
     [param setValue:@"1" forKey:@"payment_kbn"];
 //    [param setValue:[profileDec objectForKey:@"USER_ID"] forKey:@"user_id"];
     //デバッグ用user_id
@@ -155,7 +161,7 @@
     [param setValue:[profileDec objectForKey:@"ADDRESS3"] forKey:@"address_street"];
     [param setValue:[profileDec objectForKey:@"TEL"] forKey:@"tel"];
     [param setValue:[profileDec objectForKey:@"delivery_time"] forKey:@"delivery_time"];
-    [param setValue:[profileDec objectForKey:@"delivery_price"] forKey:@"delivery_price"];
+    [param setValue:[LinePayData getPostage] forKey:@"delivery_price"];
     
     [conecter sendActionSendId:SendIdRegistPay param:param];
 }
@@ -163,7 +169,6 @@
 {
     [self close];
 }
-
     
 - (IBAction)cancel:(id)sender {
     [self close];

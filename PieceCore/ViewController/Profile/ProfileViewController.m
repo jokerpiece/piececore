@@ -103,7 +103,6 @@
         
     } else if ([sendId isEqualToString:SendIdGetDeliveryPrice]){
         self.delivery_price = recipient.resultset[@"delivery_price"];
-        
     }
     
 }
@@ -422,8 +421,8 @@
     [self profileDataCheck:param];
     
    // [self pro]
-    
     [conecter sendActionSendId:SendIdSendProfile param:param];
+    [self getDeliveryPrice];
 }
 
 -(NSString*)profileDataCheck:(NSMutableDictionary*)param{
