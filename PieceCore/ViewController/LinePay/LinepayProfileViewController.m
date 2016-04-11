@@ -104,7 +104,8 @@
         [alert show];
     } else if ([sendId isEqualToString:SendIdGetOrderId]){
         self.orderId = recipient.resultset[@"order_no"];
-        [self sendLinpeyConfirm];
+        //[self sendLinpeyConfirm];
+        [self getDeliveryPrice];
     } else if ([sendId isEqualToString:SendIdGetDeliveryPrice]){
         self.delivery_price = recipient.resultset[@"delivery_price"];
         [LinePayData setPostage:self.delivery_price];

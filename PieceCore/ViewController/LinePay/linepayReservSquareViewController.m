@@ -18,9 +18,6 @@
     [super viewDidLoad];
     CGRect screen = [[UIScreen mainScreen] bounds];
     DLog(@"%f,%f", screen.size.width, screen.size.height);
-    
-    
-    
     [self setDateValew];
     // Do any additional setup after loading the view from its nib.
 }
@@ -29,7 +26,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 -(void)setDateValew {
     //[Setdata setitem];
@@ -133,7 +129,6 @@
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
-    
     
     [param setValue:[LinePayData getOrderId] forKey:@"order_no"];
     [param setValue:[LinePayData getProductId] forKey:@"product_id"];

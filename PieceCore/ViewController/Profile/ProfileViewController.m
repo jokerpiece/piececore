@@ -422,7 +422,7 @@
     
    // [self pro]
     [conecter sendActionSendId:SendIdSendProfile param:param];
-    [self getDeliveryPrice];
+   // [self getDeliveryPrice];
 }
 
 -(NSString*)profileDataCheck:(NSMutableDictionary*)param{
