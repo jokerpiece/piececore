@@ -36,8 +36,8 @@
     NSString *get_item_name = [LinePayData getItemName];
     self.item_name.text = get_item_name;
     
-    NSString *get_postage = [LinePayData getPostage];
-    self.postage.text = get_postage;
+    //NSString *get_postage = [LinePayData getPostage];
+    //self.postage.text = get_postage;
 
     //合計金額 + 手数料
     int fee = [[LinePayData getFee] intValue];
@@ -50,12 +50,21 @@
     [formatter setGroupingSize:3];
     
     // Formatterの変換
+    NSNumber *punctuationItemPrice = [[NSNumber alloc] initWithInteger:[LinePayData getItemPrice].integerValue];
+    NSNumber *punctuationPostage = [[NSNumber alloc] initWithInteger:[LinePayData getPostage].integerValue];
+    NSNumber *punctuationTotalPrice = [[NSNumber alloc] initWithInteger:[LinePayData getTootalPrice].intValue];
     
-    self.item_price.text = [NSString stringWithFormat:@"%@ 円 * %@ 個 = %d",
-                            [LinePayData getItemPrice],[LinePayData getItemNumber],
-                            ([LinePayData getItemPrice].intValue*[LinePayData getItemNumber].intValue)];
+    self.postage.text = [formatter stringFromNumber:punctuationPostage];
+
     
-    self.amount.text = [NSString stringWithFormat:@"%d", SettlementAmount];
+    
+    self.item_price.text = [NSString stringWithFormat:@"%@ 円 * %@ 個 = %@",
+                            [formatter stringFromNumber:punctuationItemPrice],
+                            [LinePayData getItemNumber],
+                            [formatter stringFromNumber:punctuationTotalPrice]
+                            ];
+    
+    self.amount.text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber:punctuationTotalPrice]];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *profileDec = [ud dictionaryForKey:@"PROFILE"];
@@ -63,16 +72,6 @@
     self.user_name.text = [NSString stringWithFormat:@"%@ %@",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
     self.mail_address.text = [profileDec objectForKey:@"MAILADDRESS"];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     return [DeterminedLinePayRecipient alloc];
@@ -83,21 +82,7 @@
     if([sendId isEqualToString:SendIdDeterminedLinePay])
     {
         [self sendRegistPayment];
-        
-//        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"注文確定"
-//                                                       message:@"購入ありがとうございます"
-//                                                      delegate:self
-//                                             cancelButtonTitle:nil
-//                                             otherButtonTitles:@"OK", nil];
-//        [alert show];
     } else if ([sendId isEqualToString:SendIdRegistPay]){
-//        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"注文確定"
-//                                                        message:@"購入ありがとうございます"
-//                                                        delegate:self
-//                                                cancelButtonTitle:nil
-//                                                otherButtonTitles:@"OK", nil];
-//        [alert show];
-//        [self close];
         [self payedView];
     }
 }
@@ -106,25 +91,7 @@
 //    テスト
 //    [self payedView];return;
     
-    //ローディング画面表示
-    UIView *loadingView;
-    UIActivityIndicatorView *indicator;
-
-    loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
-    // 雰囲気出すために背景を黒く半透明する
-    loadingView.backgroundColor = [UIColor blackColor];
-    loadingView.alpha = 0.5f;
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    //グルグル
-    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-    //画面の中心に配置
-    [indicator setCenter:CGPointMake(loadingView.bounds.size.width / 2, loadingView.bounds.size.height / 2)];
-    //画面に追加
-    [loadingView addSubview:indicator];
-    [self.view addSubview:loadingView];
-    //ぐるぐる開始
-    [indicator startAnimating];
-    
+    [self loadingView];
     
      //LINEPay決済送信、アプリ内決済登録
     NSString *str = [LinePayData getItemNumber];
@@ -193,6 +160,30 @@
     [[UIApplication sharedApplication].keyWindow.rootViewController
      dismissViewControllerAnimated:YES completion:nil];
 }
+
+-(void)loadingView{
+    
+    //ローディング画面表示
+    UIView *loadingView;
+    UIActivityIndicatorView *indicator;
+    
+    loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+    // 雰囲気出すために背景を黒く半透明する
+    loadingView.backgroundColor = [UIColor blackColor];
+    loadingView.alpha = 0.5f;
+    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    //グルグル
+    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    //画面の中心に配置
+    [indicator setCenter:CGPointMake(loadingView.bounds.size.width / 2, loadingView.bounds.size.height / 2)];
+    //画面に追加
+    [loadingView addSubview:indicator];
+    [self.view addSubview:loadingView];
+    //ぐるぐる開始
+    [indicator startAnimating];
+    
+}
+
 
 -(void)payedView{
     CGRect rect = [UIScreen mainScreen].bounds;

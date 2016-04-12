@@ -212,99 +212,31 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
              ];
             [alertView show];
         }else{
-            //注文個数をlinePayData.mに保持
-//            NSString *setItemNuber = [LinePayData getItemName];
-//            setItemNuber = str;
-//            DLog(@"%@",str);
-//            
             [LinePayData setItemNumber:self.inputItemNumber.text];
-
+            
             [self setLinePayData];
             // NSDictionaryの読み込み試験
             NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-
+            
             NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
-    
+            
             if ([Common isNotEmptyString:[profileDec objectForKey:@"SEI"]]
                 &&[Common isNotEmptyString:[profileDec objectForKey:@"MEI"]]
-                    &&[Common isNotEmptyString:[profileDec objectForKey:@"POST"]]
-                       &&[Common isNotEmptyString:[profileDec objectForKey:@"ADDRESS1"]]
-                        &&[Common isNotEmptyString:[profileDec objectForKey:@"TEL"]]
-                            &&[Common isNotEmptyString:[profileDec objectForKey:@"MAILADDESSCHECK"]]) {
-        
-            LinepaySelectAddressViewController *vc = [[LinepaySelectAddressViewController alloc] initWithNibName:@"LinepaySelectAddressViewController" bundle:nil];
-            vc.item_name = self.itemName;
-            vc.item_price = self.itemPrice;
-            vc.img_url = self.imgUrl;
-            [self.navigationController pushViewController:vc animated:YES];
+                &&[Common isNotEmptyString:[profileDec objectForKey:@"POST"]]
+                &&[Common isNotEmptyString:[profileDec objectForKey:@"ADDRESS1"]]
+                &&[Common isNotEmptyString:[profileDec objectForKey:@"TEL"]]
+                &&[Common isNotEmptyString:[profileDec objectForKey:@"MAILADDESSCHECK"]]) {
+                
+                LinepaySelectAddressViewController *vc = [[LinepaySelectAddressViewController alloc] initWithNibName:@"LinepaySelectAddressViewController" bundle:nil];
+                vc.item_name = self.itemName;
+                vc.item_price = self.itemPrice;
+                vc.img_url = self.imgUrl;
+                [self.navigationController pushViewController:vc animated:YES];
             } else {
                 [self move_profileView];
             }
         }
-//    
-//    
-//    
-//    self.app_url = @"piece:";
-//    
-//    NetworkConecter *conecter = [NetworkConecter alloc];
-//    conecter.delegate = self;
-//    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-//    [param setValue:[Common getUuid] forKeyPath:@"uuid"];
-//    [param setValue:self.item_name forKeyPath:@"productName"];
-//    [param setValue:self.img_url forKeyPath:@"productImageUrl"];
-//    [param setValue:self.item_price forKeyPath:@"amount"];
-//    [param setValue:self.app_url forKeyPath:@"confirmUrl"];
-//    [conecter sendActionSendId:SendIdLinePay param:param];
-//    
-//    [self addrell_select];
 }
-
-//-(void)addrell_select{
-//    
-//    
-//    self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-//    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, self.viewSize.height*1.0)];
-//    self.sv.indicatorStyle = UIScrollViewIndicatorStyleDefault;
-//    [self.sv addSubview:self.uv];
-//    self.sv.contentSize = self.uv.bounds.size;
-//    [self.view addSubview:self.sv];
-//    self.uv.backgroundColor = [UIColor whiteColor];
-//    
-//    UILabel *text = [[UILabel alloc]
-//                     initWithFrame:CGRectMake(0,self.viewSize.height*0.134,self.viewSize.width,self.viewSize.height*0.15)];
-//    text.text = @" お届け先情報を選択してください";
-//    text.font = [UIFont fontWithName:@"AppleGothic" size:20];
-//    text.textColor = [UIColor blackColor];
-//    text.backgroundColor = [UIColor grayColor];
-//    [self.uv addSubview:text];
-//    
-//    self.button_1 = [[UIButton alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, self.viewSize.height*0.4, self.viewSize.width*0.8, self.viewSize.height*0.1)];
-//    [self.button_1 setTitle:@"以前と同じ配送先に送る" forState:UIControlStateNormal];
-//    [self.button_1 addTarget:self
-//                      action:@selector(button_1_Tapeped:)
-//            forControlEvents:UIControlEventTouchUpInside];
-//    self.button_1.backgroundColor = [UIColor colorWithRed:0.098f green:0.666f blue:0.352f alpha:1.000f];
-//    [self.uv addSubview:self.button_1];
-//    
-//    self.button_2 = [[UIButton alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, self.viewSize.height*0.65, self.viewSize.width*0.8, self.viewSize.height*0.1)];
-//    [self.button_2 setTitle:@"配送先を変更する" forState:UIControlStateNormal];
-//    [self.button_2 addTarget:self
-//                      action:@selector(button_2_Tapeped:)
-//            forControlEvents:UIControlEventTouchUpInside];
-//    self.button_2.backgroundColor = [UIColor colorWithRed:0.098f green:0.666f blue:0.352f alpha:1.000f];
-//    [self.uv addSubview:self.button_2];
-//    
-//}
-//
-//-(void)button_1_Tapeped:(id)sender
-//{
-//    
-//    //LinePay取引番号取得
-////    self.transaction = self.linepeyrecipent.transaction;
-//    NSString *str_transaction = self.transaction;
-//    
-//    
-//}
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -366,7 +298,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [LinePayData setProductId:self.productId];
     
     vc.message = @"配送先を入力して下さい。";
-//    ProfileViewController *vc = [[ProfileViewController alloc]initWithNibName:@"ProfileViewController" bundle:nil];
+    
     NSMutableArray *cell_st = [NSMutableArray array];
     [cell_st addObject:[ProfileNameTableViewCell alloc]];
     [cell_st addObject:[ProfileAdressTableViewCell alloc]];

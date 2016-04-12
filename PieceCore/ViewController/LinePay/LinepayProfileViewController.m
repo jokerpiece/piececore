@@ -185,12 +185,10 @@
     self.profileRecipient.address3 =[profileDec objectForKey:@"ADDRESS3"];
     self.profileRecipient.mail_address =[profileDec objectForKey:@"MAILADDRESS"];
     self.profileRecipient.sex =[profileDec objectForKey:@"SEX"];
-    //self.profileRecipient.tel =@"";
     self.profileRecipient.tel = [profileDec objectForKey:@"TEL"];
     self.profileRecipient.mailAddressCheck = [profileDec objectForKey:@"MAILADDESSCHECK"];
     self.profileRecipient.birth_day =[profileDec objectForKey:@"BIRTH_DAY"];
     self.profileRecipient.delivery_time = [profileDec objectForKey:@"delivery_time"];
-    
 }
 
 -(void)launchUrl:(NSString*)urlString
