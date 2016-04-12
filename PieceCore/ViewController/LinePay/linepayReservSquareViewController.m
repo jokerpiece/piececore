@@ -106,6 +106,26 @@
 //    テスト
 //    [self payedView];return;
     
+    //ローディング画面表示
+    UIView *loadingView;
+    UIActivityIndicatorView *indicator;
+
+    loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+    // 雰囲気出すために背景を黒く半透明する
+    loadingView.backgroundColor = [UIColor blackColor];
+    loadingView.alpha = 0.5f;
+    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    //グルグル
+    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    //画面の中心に配置
+    [indicator setCenter:CGPointMake(loadingView.bounds.size.width / 2, loadingView.bounds.size.height / 2)];
+    //画面に追加
+    [loadingView addSubview:indicator];
+    [self.view addSubview:loadingView];
+    //ぐるぐる開始
+    [indicator startAnimating];
+    
+    
      //LINEPay決済送信、アプリ内決済登録
     NSString *str = [LinePayData getItemNumber];
     DLog(@"%@",str);
@@ -197,7 +217,14 @@
         view.frame = rect;
     } completion:nil];
     
-    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(close)];
+    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc]initWithTarget:self
+                                                                         action:@selector(close)];
     [view addGestureRecognizer:ges];
 }
 @end
+
+
+
+
+
+

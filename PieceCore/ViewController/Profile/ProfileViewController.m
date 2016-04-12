@@ -419,25 +419,37 @@
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [self setParam:param];
     [self profileDataCheck:param];
+    [self saveProfileDec];
     
-   // [self pro]
-    [conecter sendActionSendId:SendIdSendProfile param:param];
-   // [self getDeliveryPrice];
+    
+    if([Common isNotEmptyString:self.errorMessage]){
+        UIAlertController * ac =
+        [UIAlertController alertControllerWithTitle:@"入力エラー"
+                                            message:self.errorMessage
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction * okAction =
+        [UIAlertAction actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                               }];
+        [ac addAction:okAction];
+        [self presentViewController:ac animated:YES completion:nil];
+    }else{
+        [conecter sendActionSendId:SendIdSendProfile param:param];
+    }
 }
 
 -(NSString*)profileDataCheck:(NSMutableDictionary*)param{
-    NSString *errorMessage = @"";
+    self.errorMessage = @"";
     //プロフィール情報が空かどうか
-    for (NSString *str in param) {
-        if(![Common isNotEmptyString:[param objectForKey:str]]){
-            errorMessage = @"未入力の項目があります";
-            return errorMessage;
+    for (NSString *str in param.allValues) {
+        if(![Common isNotEmptyString:str]){
+            self.errorMessage = @"未入力の項目があります";
         }
     }
     //電話番号が10桁もしくは11桁でなかった場合
     if(self.profileRecipient.tel.length != 10 && self.profileRecipient.tel.length != 11){
-         errorMessage =  @"正しく電話番号が入力されていません";
-        return errorMessage;
+         self.errorMessage =  @"正しく電話番号が入力されていません";
     }
     
     //メールアドレスチェック
@@ -453,18 +465,15 @@
                 
                 if(!matched)
                 {
-                    errorMessage = @"メールアドレスが正しくありません";
-                    return errorMessage;
+                    self.errorMessage = @"メールアドレスが正しくありません";
                 }else if(matched){
-                    return NO;
                 }
             }else{
-                errorMessage = @"メールアドレスが一致していません";
-                return errorMessage;
+                self.errorMessage = @"メールアドレスが一致していません";
             }
         }
     }
-    return NO;
+    return self.errorMessage;
 }
 
 -(void)getDeliveryPrice{
@@ -508,6 +517,26 @@
     
     
 }
+
+-(void)saveProfileDec
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary* profileData = [NSMutableDictionary dictionary];
+    [profileData setValue:self.profileRecipient.sei forKey:@"SEI"];
+    [profileData setValue:self.profileRecipient.mei forKey:@"MEI"];
+    [profileData setValue:self.profileRecipient.post forKey:@"POST"];
+    [profileData setValue:self.profileRecipient.address1 forKey:@"ADDRESS1"];
+    [profileData setValue:self.profileRecipient.address2 forKey:@"ADDRESS2"];
+    [profileData setValue:self.profileRecipient.address3 forKey:@"ADDRESS3"];
+    [profileData setValue:self.profileRecipient.tel forKey:@"TEL"];
+    [profileData setValue:self.profileRecipient.mail_address forKey:@"MAILADDRESS"];
+    [profileData setValue:self.profileRecipient.mailAddressCheck forKey:@"MAILADDESSCHECK"];
+    [profileData setValue:self.profileRecipient.delivery_time forKey:@"delivery_time"];
+    [ud setObject:profileData forKey:@"PROFILE"];
+    [ud synchronize];
+}
+
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

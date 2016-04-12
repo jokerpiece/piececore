@@ -95,13 +95,6 @@
         [self loadProfileDec];
     } else if ([sendId isEqualToString:SendIdSendProfile]){
         [self sendGetOrderId];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"お知らせ"
-                                                        message:@"プロフィール情報を更新しました。"
-                                                       delegate:self
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"OK", nil];
-        alert.tag = 0;
-        [alert show];
     } else if ([sendId isEqualToString:SendIdGetOrderId]){
         self.orderId = recipient.resultset[@"order_no"];
         //[self sendLinpeyConfirm];

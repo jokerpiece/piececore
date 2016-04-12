@@ -49,6 +49,8 @@
 @property (strong, nonatomic) NSString *delivery_price;
 @property (strong, nonatomic) UITextField *activeTf;
 @property (strong, nonatomic) UITextView *activeTv;
+@property (strong, nonatomic) NSString *errorMessage;
+
 
 -(void)nextView;
 -(void)getDeliveryPrice;
