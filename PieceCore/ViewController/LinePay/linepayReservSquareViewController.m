@@ -43,6 +43,9 @@
     int fee = [[LinePayData getFee] intValue];
     int SettlementAmount = [LinePayData getTootalPrice].intValue + fee;
     
+    //送料を抜いた金額
+    int itemOnlyTootalPrice = [LinePayData getTootalPrice].intValue - [LinePayData getPostage].intValue;
+    
     // Formatterの設定
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -53,6 +56,8 @@
     NSNumber *punctuationItemPrice = [[NSNumber alloc] initWithInteger:[LinePayData getItemPrice].integerValue];
     NSNumber *punctuationPostage = [[NSNumber alloc] initWithInteger:[LinePayData getPostage].integerValue];
     NSNumber *punctuationTotalPrice = [[NSNumber alloc] initWithInteger:[LinePayData getTootalPrice].intValue];
+    NSNumber *punctuationItemOnlyPrice = [[NSNumber alloc] initWithInteger:itemOnlyTootalPrice];
+    
     
     self.postage.text = [formatter stringFromNumber:punctuationPostage];
 
@@ -61,7 +66,7 @@
     self.item_price.text = [NSString stringWithFormat:@"%@ 円 * %@ 個 = %@",
                             [formatter stringFromNumber:punctuationItemPrice],
                             [LinePayData getItemNumber],
-                            [formatter stringFromNumber:punctuationTotalPrice]
+                            [formatter stringFromNumber:punctuationItemOnlyPrice]
                             ];
     
     self.amount.text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber:punctuationTotalPrice]];

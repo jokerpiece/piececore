@@ -26,7 +26,7 @@
 -(void)setConfig{
     [PieceCoreConfig setShopId:@"kodomogokoro"];
     [PieceCoreConfig setAppKey:@"jokerpiece_appKey"];
-    [PieceCoreConfig setAppId:@"kodomogokoro"];
+    [PieceCoreConfig setAppId:@"luke_and_stella"];
     //[PieceCoreConfig setLinePay:YES];
     [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
     [PieceCoreConfig setCookieDomainName:@"otonagokoro.com"];
