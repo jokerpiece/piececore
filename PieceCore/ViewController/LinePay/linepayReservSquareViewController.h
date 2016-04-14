@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 #import "ItemListViewController.h"
-#import "ProfileViewController.h"
+//#import "ProfileViewController.h"
 #import "WebViewController.h"
 #import "ProfileRecipient.h"
 #import "linepay_ViewController.h"
@@ -17,8 +17,19 @@
 #import "LinePayData.h"
 #import "DeterminedLinePayRecipient.h"
 #import "linepay_ViewController.h"
+#import "CategoryViewController.h"
+#import "TabbarViewController.h"
+#import "FlyerViewController.h"
+
+@class linepayReservSquareViewController;
+
+@protocol ViewItemListDelegate<NSObject>
+-(void)moveView;
+@end
 
 @interface linepayReservSquareViewController : BaseViewController<UIScrollViewDelegate>
+
+@property (nonatomic,weak) id <ViewItemListDelegate>delegate;
 
 @property (nonatomic, strong) ProfileRecipient *profilerecipient;
 @property (nonatomic, strong) LinepayRecipient *linepayrecipient;

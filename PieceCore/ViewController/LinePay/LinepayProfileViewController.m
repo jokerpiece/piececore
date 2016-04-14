@@ -34,7 +34,11 @@
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
     if(installed) {
         //lineweb
+        linepayReservSquareViewController *lvc = [[linepayReservSquareViewController alloc]init];
+        lvc.delegate = self;
+        
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linepayRecipient.paymentUrlWeb]];
+        
         //lineアプリ
         //[[UIApplication sharedApplication] openURL:url];
         
@@ -195,6 +199,16 @@
 {
     NSURL *url = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:url];
+}
+
+
+-(void)moveView
+{
+ //   self.navigationController.viewControllers;
+    NSInteger count       = self.navigationController.viewControllers.count - 5;
+    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
+    [self.navigationController popToViewController:vc animated:YES];
+    
 }
 
 

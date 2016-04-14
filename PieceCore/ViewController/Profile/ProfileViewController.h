@@ -25,6 +25,7 @@
 //#import "LinePayData.h"
 
 @interface ProfileViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate,UITextViewDelegate,ProfileSendBtnDelegate>
+
 @property (nonatomic) NSMutableArray *cellList;
 @property (nonatomic) NSMutableArray *instanceCellList;
 @property (nonatomic) bool isDispDatePicker;
@@ -50,7 +51,6 @@
 @property (strong, nonatomic) UITextField *activeTf;
 @property (strong, nonatomic) UITextView *activeTv;
 @property (strong, nonatomic) NSString *errorMessage;
-
 
 -(void)nextView;
 -(void)getDeliveryPrice;

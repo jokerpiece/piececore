@@ -249,7 +249,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 
 -(void)tapItemDown:(UIButton*)button{
     NSInteger itemNumber = [self.inputItemNumber.text intValue];
-    if(itemNumber != 0){
+    if(itemNumber != 1){
         itemNumber--;
         self.inputItemNumber.text = [NSString stringWithFormat:@"%ld",(long)itemNumber];
         [self.uv addSubview:self.inputItemNumber];

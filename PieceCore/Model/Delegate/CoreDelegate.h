@@ -15,6 +15,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import "GetPointView.h"
 #import "RappingSelectController.h"
+#import "LinepayProfileViewController.h"
+
 #import <Google/Analytics.h>
 //#import <Nex8Tracking/Nex8Tracking.h>
 
@@ -22,7 +24,7 @@
 -(void)beaconDidEnterRegion;
 @end
 
-@interface CoreDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate>
+@interface CoreDelegate : UIResponder <UIApplicationDelegate, CLLocationManagerDelegate,ViewItemListDelegate>
 @property (nonatomic,weak) id delegate;
 @property (nonatomic) UIWindow *window;
 @property (nonatomic) UITabBarController *tabBarController;

@@ -7,8 +7,9 @@
 //
 
 #import "ProfileViewController.h"
+#import "linepayReservSquareViewController.h"
 
-@interface LinepayProfileViewController : ProfileViewController
+@interface LinepayProfileViewController : ProfileViewController<ViewItemListDelegate>
 @property (nonatomic) NSString* linePayUrl;
 @property (nonatomic) BOOL isSameProfileFlg;
 @end

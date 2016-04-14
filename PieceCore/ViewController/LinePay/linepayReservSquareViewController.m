@@ -5,7 +5,7 @@
 //  Created by ohnuma on 2015/07/24.
 //  Copyright (c) 2015年 jokerpiece. All rights reserved.
 //
-
+#import "ProfileViewController.h"
 #import "linepayReservSquareViewController.h"
 
 @interface linepayReservSquareViewController ()
@@ -71,6 +71,8 @@
     
     self.amount.text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber:punctuationTotalPrice]];
     
+    [LinePayData setTootalPrice:self.amount.text];
+    
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *profileDec = [ud dictionaryForKey:@"PROFILE"];
     self.address.text = [NSString stringWithFormat:@"%@%@%@",[profileDec objectForKey:@"ADDRESS1"],[profileDec objectForKey:@"ADDRESS2"],[profileDec objectForKey:@"ADDRESS3"]];
@@ -96,22 +98,44 @@
 //    テスト
 //    [self payedView];return;
     
-    [self loadingView];
+    UIAlertController * ac =
+    [UIAlertController alertControllerWithTitle:@"決済確認"
+                                        message:@"この注文内容で商品を購入します"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * okAction =
+    [UIAlertAction actionWithTitle:@"OK"
+                             style:UIAlertActionStyleCancel
+                           handler:^(UIAlertAction * action) {
+                               
+                               DLog(@"%@",[LinePayData getTootalPrice]);
+                               [self loadingView];
+                               
+                               //LINEPay決済送信、アプリ内決済登録
+                               NSString *str = [LinePayData getItemNumber];
+                               DLog(@"%@",str);
+                               
+                               NSString *get_transaction = [LinePayData getTransaction];
+                               
+                               NetworkConecter *conecter = [NetworkConecter alloc];
+                               conecter.delegate = self;
+                               NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                               [param setValue:get_transaction forKey:@"transaction"];
+                               [param setValue:[LinePayData getTootalPrice] forKey:@"amount"];
+                               [param setValue:@"JPY" forKey:@"currency"];
+                               [param setValue:[LinePayData getOrderId] forKey:@"orderId"];
+                               [conecter sendActionSendId:SendIdDeterminedLinePay param:param];
+                           }];
     
-     //LINEPay決済送信、アプリ内決済登録
-    NSString *str = [LinePayData getItemNumber];
-    DLog(@"%@",str);
+    UIAlertAction * cancelAction =
+    [UIAlertAction actionWithTitle:@"キャンセル"
+                             style:UIAlertActionStyleDefault
+                           handler:^(UIAlertAction * action) {
+                               
+                           }];
     
-    NSString *get_transaction = [LinePayData getTransaction];
-    
-    NetworkConecter *conecter = [NetworkConecter alloc];
-    conecter.delegate = self;
-    NSMutableDictionary *param = [NSMutableDictionary dictionary];
-    [param setValue:get_transaction forKey:@"transaction"];
-    [param setValue:[LinePayData getTootalPrice] forKey:@"amount"];
-    [param setValue:@"JPY" forKey:@"currency"];
-    [param setValue:[LinePayData getOrderId] forKey:@"orderId"];
-    [conecter sendActionSendId:SendIdDeterminedLinePay param:param];
+    [ac addAction:okAction];
+    [ac addAction:cancelAction];
+    [self presentViewController:ac animated:YES completion:nil];
 }
 
 -(void)sendRegistPayment{
@@ -124,7 +148,7 @@
     
     [param setValue:[LinePayData getOrderId] forKey:@"order_no"];
     [param setValue:[LinePayData getProductId] forKey:@"product_id"];
-    [param setValue:[NSString stringWithFormat:@"%d",self.payment_price] forKey:@"payment_price"];
+    [param setValue:[LinePayData getTootalPrice] forKey:@"payment_price"];
     [param setValue:[LinePayData getTransaction] forKey:@"trans_no"];
     [param setValue:[LinePayData getItemPrice] forKey:@"item_price"];
     [param setValue:[LinePayData getItemNumber] forKey:@"amount"];
@@ -158,12 +182,38 @@
 }
     
 - (IBAction)cancel:(id)sender {
-    [self close];
+    UIAlertController * ac =
+    [UIAlertController alertControllerWithTitle:@"キャンセル確認"
+                                        message:@"注文をキャンセルして商品一覧に戻ります"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * okAction =
+    [UIAlertAction actionWithTitle:@"OK"
+                             style:UIAlertActionStyleCancel
+                           handler:^(UIAlertAction * action) {
+                               [self close];
+                           }];
+    
+    UIAlertAction * cancelAction =
+    [UIAlertAction actionWithTitle:@"キャンセル"
+                             style:UIAlertActionStyleDefault
+                           handler:^(UIAlertAction * action) {
+                               
+                           }];
+
+    
+    [ac addAction:okAction];
+    [ac addAction:cancelAction];
+    [self presentViewController:ac animated:YES completion:nil];
     
 }
 -(void)close{
     [[UIApplication sharedApplication].keyWindow.rootViewController
      dismissViewControllerAnimated:YES completion:nil];
+
+    if([self.delegate respondsToSelector:@selector(moveView)]){
+        //処理をデリゲートインスタンスに委譲します。
+        [self.delegate moveView];
+    }
 }
 
 -(void)loadingView{

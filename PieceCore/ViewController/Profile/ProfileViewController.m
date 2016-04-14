@@ -101,6 +101,7 @@
         [alert show];
         [self nextView];
         
+        
     } else if ([sendId isEqualToString:SendIdGetDeliveryPrice]){
         self.delivery_price = recipient.resultset[@"delivery_price"];
     }
@@ -410,6 +411,9 @@
 //    linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]init];
 //    [self.navigationController pushViewController:vc animated:YES];
 //    return;
+    
+    
+    
     for (BaseInputCell *cell in self.instanceCellList) {
         [cell saveDataWithProfileRecipient:self.profileRecipient];
     }
@@ -546,5 +550,4 @@
         [[UIApplication sharedApplication] openURL:url];
     }
 }
-
 @end

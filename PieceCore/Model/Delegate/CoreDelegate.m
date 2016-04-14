@@ -524,6 +524,7 @@
         linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]initWithNibName:@"linepayReservSquareViewController" bundle:nil];
         vc.hidesBottomBarWhenPushed = YES;
         [self.window.rootViewController presentViewController:vc animated:YES completion:nil];
+        vc.delegate = self;
         return NO;
         
     } else if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube] || [[url host]isEqualToString:UrlSchemeHostInputMessage] || [[url host]isEqualToString:UrlSchemeHostQuestion]) {
@@ -601,4 +602,33 @@
             }];
     }
 }
+
+
+-(void)moveView
+{
+//    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+//    while (topController.presentedViewController) {
+//        topController = topController.presentedViewController;
+//        topController.navigationController.viewControllers;
+//        NSInteger count       = topController.navigationController.viewControllers.count - 3;
+//        UIViewController *vc = [topController.navigationController.viewControllers objectAtIndex:count];
+//        [topController.navigationController popToViewController:vc animated:YES];
+//    }
+    
+    UINavigationController *vc = self.tabBarController.viewControllers[[PieceCoreConfig tabnumberShopping].intValue];
+    self.tabBarController.selectedViewController = vc;
+    [vc popToRootViewControllerAnimated:NO];
+
+    //遷移先へ移動
+  //  [self.tabBarController setSelectedViewController: resultsTab];
+
+//    self.navigationController.viewControllers;
+//    NSInteger count       = self.navigationController.viewControllers.count - 5;
+//    UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
+//    [self.navigationController popToViewController:vc animated:YES];
+//    
+}
+
+
+
 @end
