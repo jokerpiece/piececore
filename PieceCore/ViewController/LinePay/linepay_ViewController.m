@@ -52,11 +52,16 @@
                                             NSUTF8StringEncoding]];
     
     //商品画像
-    UIImageView *itemIv = [[UIImageView alloc] initWithFrame:CGRectMake(self.viewSize.width * 0.5 - 100,NavigationHight + lblBg.frame.size.height + 30,200,200)];
+    UIImageView *itemIv = [[UIImageView alloc]
+                           initWithFrame:CGRectMake(self.viewSize.width * 0.05,
+                                                    NavigationHight + lblBg.frame.size.height + 30,
+                                                    self.viewSize.width * 0.9,
+                                                    self.viewSize.height * 0.45)];
     [itemIv setImageWithURL:imageURL
            placeholderImage:nil
                     options:SDWebImageCacheMemoryOnly
 usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    itemIv.contentMode = UIViewContentModeScaleAspectFit;
     
     //商品説明
     UILabel *itemTextLbl = [[UILabel alloc] init];
@@ -77,7 +82,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
                        attributes:attributes
                        context:nil].size;
     
-    itemTextLbl.frame = CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemIv margin:30], self.viewSize.width*0.8, textSize.height);
+    itemTextLbl.frame = CGRectMake(self.viewSize.width*0.05, [Common getOrignYWidhUiView:itemIv margin:20], self.viewSize.width*0.93, textSize.height);
     itemTextLbl.numberOfLines = 0;
     itemTextLbl.font = [UIFont fontWithName:@"AppleGothic" size:18];
     itemTextLbl.textColor = [UIColor blackColor];

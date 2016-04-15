@@ -208,9 +208,20 @@
 {
     FlyerHeaderData *data = [self.flyerRecipient.headerList objectAtIndex:sender.view.tag];
     
-    if ([Common isNotEmptyString:data.item_url]) {        
-        WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:data.item_url];
-        [self presentViewController:vc animated:YES completion:nil];
+    NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
+    NSInteger flagLinePay = [userData integerForKey:@"LINEPAY"];
+    // NSString *itemUrl = data.item_url;
+    self.itemId = data.item_id;
+    
+    if([Common isNotEmptyString:data.item_url]){
+        if(flagLinePay == 1){
+            [self syncItemdataAction];
+        }else if (flagLinePay == 0){
+            WebViewController *vc = [[WebViewController alloc]
+                                     initWithNibName:@"WebViewController"
+                                     bundle:nil url:data.item_url];
+            [self presentViewController:vc animated:YES completion:nil];
+        }
     }
     
 }
