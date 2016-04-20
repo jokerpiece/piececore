@@ -91,7 +91,9 @@
                          completion:NULL];
     }
     
-    
+    [self.indicator stopAnimating];
+    [self.loadingView removeFromSuperview];
+
     
 }
 
@@ -213,8 +215,10 @@
     // NSString *itemUrl = data.item_url;
     self.itemId = data.item_id;
     
-    if([Common isNotEmptyString:data.item_url]){
+    if([Common isNotEmptyString:self.itemId]){
         if(flagLinePay == 1){
+            [LinePayData setMoveTagFlag:@"Flyer"];
+            [self imageTapedloadingView];
             [self syncItemdataAction];
         }else if (flagLinePay == 0){
             WebViewController *vc = [[WebViewController alloc]
@@ -222,6 +226,8 @@
                                      bundle:nil url:data.item_url];
             [self presentViewController:vc animated:YES completion:nil];
         }
+    }else if(![Common isNotEmptyString:self.itemId]){
+        [self alertView];
     }
     
 }
@@ -357,8 +363,10 @@
    // NSString *itemUrl = data.item_url;
     self.itemId = data.item_id;
     
-    if([Common isNotEmptyString:data.item_url]){
+    if([Common isNotEmptyString:self.itemId]){
        if(flagLinePay == 1){
+           [LinePayData setMoveTagFlag:@"Flyer"];
+           [self imageTapedloadingView];
            [self syncItemdataAction];
        }else if (flagLinePay == 0){
            WebViewController *vc = [[WebViewController alloc]
@@ -366,6 +374,8 @@
                                     bundle:nil url:data.item_url];
                 [self presentViewController:vc animated:YES completion:nil];
        }
+    }else if(![Common isNotEmptyString:self.itemId]){
+        [self alertView];
     }
 }
 
@@ -455,15 +465,20 @@
         self.itemRecipient = (ItemRecipient *)recipient;
         NSArray *itemList = [self.itemRecipient.resultset objectForKey:@"itemLists"];
         
-        linepay_ViewController *lvc = [[linepay_ViewController alloc]
-                                       initWithNibName:@"linepay_ViewController" bundle:nil];
-        lvc.itemName = itemList[0][@"item_name"];
-        lvc.productId = itemList[0][@"item_id"];
-        lvc.imgUrl = itemList[0][@"img_url"];
-        lvc.itemText = itemList[0][@"text"];
-        lvc.itemPrice = itemList[0][@"price"];
-        lvc.itemStock = itemList[0][@"stocks"];
-        [self.navigationController pushViewController:lvc animated:YES];
+        if(itemList.firstObject != NULL){
+        
+            linepay_ViewController *lvc = [[linepay_ViewController alloc]
+                                           initWithNibName:@"linepay_ViewController" bundle:nil];
+            lvc.itemName = itemList[0][@"item_name"];
+            lvc.productId = itemList[0][@"item_id"];
+            lvc.imgUrl = itemList[0][@"img_url"];
+            lvc.itemText = itemList[0][@"text"];
+            lvc.itemPrice = itemList[0][@"price"];
+            lvc.itemStock = itemList[0][@"stocks"];
+            [self.navigationController pushViewController:lvc animated:YES];
+        }else{
+            [self alertView];
+        }
         
     }else {
         self.flyerRecipient = (FlyerRecipient *)recipient;
@@ -475,6 +490,46 @@
     }
     
 }
+
+
+-(void)imageTapedloadingView{
+
+    //ローディング画面表示
+    self.loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+    // 雰囲気出すために背景を黒く半透明する
+    self.loadingView.backgroundColor = [UIColor blackColor];
+    self.loadingView.alpha = 0.5f;
+    self.indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    //グルグル
+    self.indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    //画面の中心に配置
+    [self.indicator setCenter:CGPointMake(self.loadingView.bounds.size.width / 2, self.loadingView.bounds.size.height / 2)];
+    //画面に追加
+    [self.loadingView addSubview:self.indicator];
+    [self.view addSubview:self.loadingView];
+    //ぐるぐる開始
+    [self.indicator startAnimating];
+    
+}
+
+-(void)alertView{
+    UIAlertController * ac =
+    [UIAlertController alertControllerWithTitle:@"商品が見つかりません"
+                                        message:@"選択された商品は存在しません"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * okAction =
+    [UIAlertAction actionWithTitle:@"OK"
+                             style:UIAlertActionStyleCancel
+                           handler:^(UIAlertAction * action) {
+                           }];
+    
+    [ac addAction:okAction];
+    [self presentViewController:ac animated:YES completion:nil];
+    [self.indicator stopAnimating];
+    [self.loadingView removeFromSuperview];
+}
+
+
 
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
     if ([sendId isEqualToString:SendIdNewsList]) {

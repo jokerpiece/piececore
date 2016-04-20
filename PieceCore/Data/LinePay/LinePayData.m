@@ -17,6 +17,7 @@ static NSString *_orderId;
 static NSString *_itemNumber;
 static NSString *_fee;
 static NSString *_getTootalPrice;
+static NSString *_moveTagName;
 
 @implementation LinePayData
 
@@ -89,10 +90,12 @@ static NSString *_getTootalPrice;
 }
 
 //商品価格と送料を合算した金額
-+(NSString *)getTootalPrice{
++(NSString *)getTootalPrice
+{
     return _getTootalPrice;
 }
-+ (void)setTootalPrice:(NSString *)str{
++ (void)setTootalPrice:(NSString *)str
+{
     _getTootalPrice = str;
 }
 
@@ -118,5 +121,17 @@ static NSString *_getTootalPrice;
     return _fee;
 
 }
+
+//画面遷移元ViewController
++(void)setMoveTagFlag:(NSString *)str{
+     _moveTagName = str;
+}
++(NSString *)getMoveTagName{
+    return _moveTagName;
+}
+
+
+
+
 
 @end

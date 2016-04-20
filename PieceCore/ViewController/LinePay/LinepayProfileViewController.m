@@ -70,6 +70,7 @@
     NSMutableDictionary *param_2 = [NSMutableDictionary dictionary];
     [param_2 setValue:[Common getUuid] forKeyPath:@"uuid"];
     [param_2 setValue:self.orderId forKeyPath:@"orderId"];
+    DLog(@"orderID :::: %@",self.orderId);
     [param_2 setValue:self.item_name forKeyPath:@"productName"];
 //    [param_2 setValue:self.img_url forKeyPath:@"productImageUrl"];
     //NSInteger total_price = self.item_price.integerValue + self.delivery_price.integerValue;
@@ -101,6 +102,7 @@
         [self sendGetOrderId];
     } else if ([sendId isEqualToString:SendIdGetOrderId]){
         self.orderId = recipient.resultset[@"order_no"];
+        DLog(@"orderID :::: %@",self.orderId);
         //[self sendLinpeyConfirm];
         [self getDeliveryPrice];
     } else if ([sendId isEqualToString:SendIdGetDeliveryPrice]){

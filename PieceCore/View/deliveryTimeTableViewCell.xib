@@ -40,7 +40,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wVj-OJ-Fk7">
                         <rect key="frame" x="30" y="171" width="107" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
                         <state key="normal" title="◯ 14:00~16:00"/>
@@ -53,7 +53,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Myh-1P-ccY">
                         <rect key="frame" x="188" y="209" width="106" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
                         <state key="normal" title="◯ 20:00~21:00"/>
@@ -66,7 +66,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pkW-7M-h2N">
                         <rect key="frame" x="189" y="133" width="105" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
                         <state key="normal" title="◯ 12:00~14:00"/>
@@ -89,9 +89,21 @@
                             <action selector="selectAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="193-ZZ-Hvt"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YKP-sc-DGj">
+                        <rect key="frame" x="30" y="133" width="90" height="30"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
+                        <state key="normal" title="◯ 午前中"/>
+                        <state key="selected" title="◉ 午前中">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="selectAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8y5-ay-LWq"/>
+                        </connections>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bvL-Sh-sqf">
                         <rect key="frame" x="189" y="171" width="105" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
                         <state key="normal" title="◯ 16:00~18:00"/>
@@ -104,7 +116,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UK5-Qw-adQ">
                         <rect key="frame" x="30" y="209" width="107" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
                         <state key="normal" title="◯ 18:00~20:00"/>
@@ -113,18 +125,6 @@
                         </state>
                         <connections>
                             <action selector="selectAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="awn-5e-bE9"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YKP-sc-DGj">
-                        <rect key="frame" x="30" y="133" width="90" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="tintColor" red="0.10980392160000001" green="0.55294117649999996" blue="0.074509803920000006" alpha="1" colorSpace="deviceRGB"/>
-                        <state key="normal" title="◯ 午前中"/>
-                        <state key="selected" title="◉ 午前中">
-                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                        <connections>
-                            <action selector="selectAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8y5-ay-LWq"/>
                         </connections>
                     </button>
                 </subviews>

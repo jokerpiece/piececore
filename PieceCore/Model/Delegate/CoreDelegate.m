@@ -19,6 +19,7 @@
 #import "UploadYoutubeViewController.h"
 #import "ReminderViewController.h"
 #import "PayPalMobile.h"
+#import "LinePayData.h"
 
 
 
@@ -614,13 +615,23 @@
 //        UIViewController *vc = [topController.navigationController.viewControllers objectAtIndex:count];
 //        [topController.navigationController popToViewController:vc animated:YES];
 //    }
-    
-    UINavigationController *vc = self.tabBarController.viewControllers[[PieceCoreConfig tabnumberShopping].intValue];
-    self.tabBarController.selectedViewController = vc;
-    [vc popToRootViewControllerAnimated:NO];
+    if([[LinePayData getMoveTagName] isEqualToString:@"Flyer"]){
+        UINavigationController *vc = self.tabBarController.viewControllers[[PieceCoreConfig tabnumberFlyer].intValue];
+        self.tabBarController.selectedViewController = vc;
+        [vc popToRootViewControllerAnimated:NO];
+        
+    }else if([[LinePayData getMoveTagName] isEqualToString:@"Itemlist"]){
+        UINavigationController *vc = self.tabBarController.viewControllers[[PieceCoreConfig tabnumberShopping].intValue];
+        self.tabBarController.selectedViewController = vc;
+        [vc popToRootViewControllerAnimated:NO];
+    }
+//    UITabBarController* resultsTab =
+//    (UITabBarController*)[[self.tabBarController viewControllers] objectAtIndex:[PieceCoreConfig tabnumberShopping].intValue];
+//    self.tabBarController.selectedViewController = vc;
+//    [vc popToRootViewControllerAnimated:NO];
 
     //遷移先へ移動
-  //  [self.tabBarController setSelectedViewController: resultsTab];
+   // [self.tabBarController setSelectedViewController: resultsTab];
 
 //    self.navigationController.viewControllers;
 //    NSInteger count       = self.navigationController.viewControllers.count - 5;

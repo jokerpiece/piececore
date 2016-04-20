@@ -15,6 +15,7 @@
 #import "linepayReservSquareViewController.h"
 #import "PaypalViewController.h"
 #import "DLog.h"
+#import "LinePayData.h"
 
 typedef enum {
     category = 0,

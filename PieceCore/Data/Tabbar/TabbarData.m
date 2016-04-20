@@ -16,6 +16,7 @@
 #import "ProfileViewController.h"
 #import "HistoryViewController.h"
 #import "ReminderViewController.h"
+#import "SettingViewController.h"
 
 @implementation TabbarData
 -(id)initWithViewController:(BaseViewController *)viewController
@@ -84,7 +85,11 @@
             self.selectImgName = @"icon_birthday.png";
             self.imgName = @"icon_birthday.png";
             
+        }  else if ([viewController isKindOfClass:[SettingViewController class]]){
+            self.selectImgName = @"tab_icon_setting.png";
+            self.imgName = @"tab_icon_setting.png";
         }
+        
         self.tabTitle = tabTitle;
         self.title = title;
         self.viewController.title = title;

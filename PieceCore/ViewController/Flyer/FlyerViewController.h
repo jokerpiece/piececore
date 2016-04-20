@@ -16,6 +16,7 @@
 #import "InfoRecipient.h"
 #import "ItemRecipient.h"
 #import "linepay_ViewController.h"
+#import "LinePayData.h"
 
 @interface FlyerViewController : BaseViewController<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 @property (strong, nonatomic) UIScrollView *scroll;
@@ -34,6 +35,8 @@
 @property (strong, nonatomic) ItemRecipient *itemRecipient;
 @property (strong, nonatomic) ItemData *itemData;
 @property (strong, nonatomic) NSString *itemId;
+@property (strong, nonatomic) UIActivityIndicatorView *indicator;
+@property (strong, nonatomic)  UIView *loadingView;
 
 - (void)view_Tapped:(UITapGestureRecognizer *)sender;
 

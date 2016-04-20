@@ -33,5 +33,8 @@
 + (NSString *)getFee;
 + (void)setTootalPrice:(NSString*)str;
 + (NSString *)getTootalPrice;
++ (void)setMoveTagFlag:(NSString*)str;
++ (NSString *)getMoveTagName;
+
 
 @end

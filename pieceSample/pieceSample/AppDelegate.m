@@ -24,11 +24,11 @@
 
 
 -(void)setConfig{
-    [PieceCoreConfig setShopId:@"kodomogokoro"];
-//    [PieceCoreConfig setShopId:@"luke_and_stella"];
+//    [PieceCoreConfig setShopId:@"kodomogokoro"];
+    [PieceCoreConfig setShopId:@"luke_and_stella"];
     [PieceCoreConfig setAppKey:@"jokerpiece_appKey"];
-    [PieceCoreConfig setAppId:@"kodomogokoro"];
-//    [PieceCoreConfig setAppId:@"luke_and_stella"];
+//    [PieceCoreConfig setAppId:@"kodomogokoro"];
+    [PieceCoreConfig setAppId:@"luke_and_stella"];
     //[PieceCoreConfig setLinePay:YES];
     [PieceCoreConfig setLinePayConfirmUrl:@"piece://pay"];
     [PieceCoreConfig setCookieDomainName:@"otonagokoro.com"];

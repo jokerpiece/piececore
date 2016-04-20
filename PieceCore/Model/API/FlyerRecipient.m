@@ -46,7 +46,9 @@
 -(FlyerBodyData *)setChildDataBody:(NSDictionary *)dec{
     FlyerBodyData *data = [FlyerBodyData alloc];
     data.img_url = [dec valueForKey:@"img_url"];
+    data.category_id = [dec valueForKey:@"category_id"];
     data.item_url = [dec valueForKey:@"item_url"];
+    data.item_id = [dec valueForKey:@"item_id"];
     return data;
 }
 

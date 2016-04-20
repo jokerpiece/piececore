@@ -446,6 +446,11 @@
 -(NSString*)profileDataCheck:(NSMutableDictionary*)param{
     self.errorMessage = @"";
     //プロフィール情報が空かどうか
+    
+    if(![Common isNotEmptyString:self.profileRecipient.delivery_time]){
+        self.errorMessage = @"配送時間を選択してください";
+    }
+    
     for (NSString *str in param.allValues) {
         if(![Common isNotEmptyString:str]){
             self.errorMessage = @"未入力の項目があります";

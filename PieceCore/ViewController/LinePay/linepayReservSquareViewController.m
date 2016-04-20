@@ -55,7 +55,7 @@
     // Formatterの変換
     NSNumber *punctuationItemPrice = [[NSNumber alloc] initWithInteger:[LinePayData getItemPrice].integerValue];
     NSNumber *punctuationPostage = [[NSNumber alloc] initWithInteger:[LinePayData getPostage].integerValue];
-    NSNumber *punctuationTotalPrice = [[NSNumber alloc] initWithInteger:[LinePayData getTootalPrice].intValue];
+    NSNumber *punctuationTotalPrice = [[NSNumber alloc] initWithInteger:SettlementAmount];
     NSNumber *punctuationItemOnlyPrice = [[NSNumber alloc] initWithInteger:itemOnlyTootalPrice];
     
     
@@ -71,7 +71,7 @@
     
     self.amount.text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber:punctuationTotalPrice]];
     
-    [LinePayData setTootalPrice:self.amount.text];
+    [LinePayData setTootalPrice:[NSString stringWithFormat:@"%d", SettlementAmount]];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *profileDec = [ud dictionaryForKey:@"PROFILE"];
@@ -124,7 +124,8 @@
                                [param setValue:@"JPY" forKey:@"currency"];
                                [param setValue:[LinePayData getOrderId] forKey:@"orderId"];
                                [conecter sendActionSendId:SendIdDeterminedLinePay param:param];
-                           }];
+                               
+                                                         }];
     
     UIAlertAction * cancelAction =
     [UIAlertAction actionWithTitle:@"キャンセル"

@@ -380,6 +380,7 @@
         vc.itemPrice = data.item_price;
         vc.itemStock = data.stock;
         
+        [LinePayData setMoveTagFlag:@"Itemlist"];
         [self.navigationController pushViewController:vc  animated:YES];
         return;
     } else if ([PieceCoreConfig isPayPal]) {
