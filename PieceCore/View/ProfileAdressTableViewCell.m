@@ -44,16 +44,32 @@
 }
 -(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
     if ([Common isNotEmptyString:recipient.address1]){
-        self.address1Tv.text = recipient.address1;
+        if(self.address1Tv.text !=  recipient.address1 && [Common isNotEmptyString:self.address1Tv.text]){
+            
+        }else{
+            self.address1Tv.text = recipient.address1;
+        }
     }
     if ([Common isNotEmptyString:recipient.address2]){
-        self.address2Tv.text = recipient.address2;
+        if(self.address2Tv.text !=  recipient.address2 && [Common isNotEmptyString:self.address2Tv.text]){
+            
+        }else{
+            self.address2Tv.text = recipient.address2;
+        }
     }
     if ([Common isNotEmptyString:recipient.address3]){
-        self.address3Tv.text = recipient.address3;
+        if(self.address3Tv.text !=  recipient.address3 && [Common isNotEmptyString:self.address3Tv.text]){
+            
+        }else{
+            self.address3Tv.text = recipient.address3;
+        }
     }
     if([Common isNotEmptyString:recipient.post]){
-        self.postTf.text = recipient.post;
+        if(self.postTf.text !=  recipient.post && [Common isNotEmptyString:self.postTf.text]){
+            
+        }else{
+            self.postTf.text = recipient.post;
+        }
     }
 }
 -(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{

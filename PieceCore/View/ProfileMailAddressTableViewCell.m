@@ -36,15 +36,25 @@
 }
 -(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
     if([Common isNotEmptyString:recipient.mail_address]){
-        self.mailTf.text = recipient.mail_address;
+        if(self.mailTf.text !=  recipient.mail_address && [Common isNotEmptyString:self.mailTf.text]){
+        }else{
+            self.mailTf.text = recipient.mail_address;
+        }
     }
     if([Common isNotEmptyString:recipient.mailAddressCheck]){
-        self.mailCheckTf.text = recipient.mailAddressCheck;
+        if(self.mailCheckTf.text !=  recipient.mailAddressCheck && [Common isNotEmptyString:self.mailCheckTf.text]){
+        }else{
+            self.mailCheckTf.text = recipient.mailAddressCheck;
+        }
     }
     if([Common isNotEmptyString:recipient.tel]){
-        self.phoneTf.text = recipient.tel;
+        if(self.phoneTf.text !=  recipient.tel && [Common isNotEmptyString:self.phoneTf.text]){
+        }else{
+            self.phoneTf.text = recipient.tel;
+        }
     }
 }
+    
 -(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
     recipient.mail_address = self.mailTf.text;
     recipient.mailAddressCheck = self.mailCheckTf.text;

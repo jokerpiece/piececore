@@ -31,20 +31,24 @@ NSArray *timeList;
 
 -(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
     if ([Common isNotEmptyString:recipient.delivery_time]) {
-        if([recipient.delivery_time isEqualToString:@"指定なし"]){
-            self.noTimeBtn.selected = YES;
-        }else if([recipient.delivery_time isEqualToString:@"午前中"]){
-            self.amBtn.selected = YES;
-        }else if([recipient.delivery_time isEqualToString:@"12:00~14:00"]){
-            self.twelveBtn.selected = YES;
-        }else if([recipient.delivery_time isEqualToString:@"14:00~16:00"]){
-            self.fourteenBtn.selected = YES;
-        }else if([recipient.delivery_time isEqualToString:@"16:00~18:00"]){
-            self.sixteenBtn.selected = YES;
-        }else if([recipient.delivery_time isEqualToString:@"18:00~20:00"]){
-            self.eighteenBtn.selected = YES;
-        }else if([recipient.delivery_time isEqualToString:@"20:00~21:00"]){
-            self.twentyBtn.selected = YES;
+        
+        if(self.noTimeBtn.selected == NO && self.amBtn.selected == NO && self.twelveBtn.selected == NO && self.fourteenBtn.selected == NO && self.sixteenBtn.selected == NO && self.eighteenBtn.selected == NO && self.twentyBtn.selected == NO){
+        
+            if([recipient.delivery_time isEqualToString:@"指定なし"]){
+                self.noTimeBtn.selected = YES;
+            }else if([recipient.delivery_time isEqualToString:@"午前中"]){
+                self.amBtn.selected = YES;
+            }else if([recipient.delivery_time isEqualToString:@"12:00~14:00"]){
+                self.twelveBtn.selected = YES;
+            }else if([recipient.delivery_time isEqualToString:@"14:00~16:00"]){
+                self.fourteenBtn.selected = YES;
+            }else if([recipient.delivery_time isEqualToString:@"16:00~18:00"]){
+                self.sixteenBtn.selected = YES;
+            }else if([recipient.delivery_time isEqualToString:@"18:00~20:00"]){
+                self.eighteenBtn.selected = YES;
+            }else if([recipient.delivery_time isEqualToString:@"20:00~21:00"]){
+                self.twentyBtn.selected = YES;
+            }
         }
     }
 }

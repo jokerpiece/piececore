@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) bool isDispSurvey;
 @property (strong, nonatomic) NSString *fliyerId;
+@property (strong, nonatomic) NSString *categoryId;
 @property (nonatomic) float headerHeight;
 @property (nonatomic) float pageControllHeight;
 @property (nonatomic) float bodyWidh;

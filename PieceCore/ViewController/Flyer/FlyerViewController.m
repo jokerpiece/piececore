@@ -214,6 +214,7 @@
     NSInteger flagLinePay = [userData integerForKey:@"LINEPAY"];
     // NSString *itemUrl = data.item_url;
     self.itemId = data.item_id;
+    self.categoryId = data.category_id;
     
     if([Common isNotEmptyString:self.itemId]){
         if(flagLinePay == 1){
@@ -362,6 +363,7 @@
     NSInteger flagLinePay = [userData integerForKey:@"LINEPAY"];
    // NSString *itemUrl = data.item_url;
     self.itemId = data.item_id;
+    self.categoryId = data.category_id;
     
     if([Common isNotEmptyString:self.itemId]){
        if(flagLinePay == 1){

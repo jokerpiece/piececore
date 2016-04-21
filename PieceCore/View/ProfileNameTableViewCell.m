@@ -37,10 +37,18 @@
 }
 -(void)setDataWithProfileRecipient:(ProfileRecipient *)recipient{
     if([Common isNotEmptyString:recipient.sei]){
-        self.seiTf.text = recipient.sei;
+        if(self.seiTf.text !=  recipient.sei && [Common isNotEmptyString:self.seiTf.text]){
+            
+        }else{
+            self.seiTf.text = recipient.sei;
+        }
     }
     if([Common isNotEmptyString:recipient.mei]){
-        self.meiTf.text = recipient.mei;
+        if(self.meiTf.text !=  recipient.mei && [Common isNotEmptyString:self.meiTf.text]){
+            
+        }else{
+            self.meiTf.text = recipient.mei;
+        }
     }
 }
 -(void)saveDataWithProfileRecipient:(ProfileRecipient *)recipient{
