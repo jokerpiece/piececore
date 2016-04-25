@@ -28,6 +28,7 @@
 }
 
 -(void)checkLineInstall{
+    DLog(@"%@",self.linepayRecipient);
 
 //    NSURL *url = [NSURL URLWithString:@"line://"];
     NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrl];

@@ -227,10 +227,13 @@
                                      bundle:nil url:data.item_url];
             [self presentViewController:vc animated:YES completion:nil];
         }
-    }else if(![Common isNotEmptyString:self.itemId]){
-        [self alertView];
+    }else if([Common isNotEmptyString:data.item_url] && ![Common isNotEmptyString:self.itemId]){
+        WebViewController *vc = [[WebViewController alloc]
+                                 initWithNibName:@"WebViewController"
+                                 bundle:nil url:data.item_url];
+        [self presentViewController:vc animated:YES completion:nil];
+        
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -376,8 +379,12 @@
                                     bundle:nil url:data.item_url];
                 [self presentViewController:vc animated:YES completion:nil];
        }
-    }else if(![Common isNotEmptyString:self.itemId]){
-        [self alertView];
+    }else if([Common isNotEmptyString:data.item_url] && ![Common isNotEmptyString:self.itemId]){
+        WebViewController *vc = [[WebViewController alloc]
+                                 initWithNibName:@"WebViewController"
+                                 bundle:nil url:data.item_url];
+        [self presentViewController:vc animated:YES completion:nil];
+
     }
 }
 
