@@ -130,7 +130,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [self.itemDown addTarget:self action:@selector(tapItemDown:) forControlEvents:UIControlEventTouchDown];
     self.itemDown.font = [UIFont fontWithName:@"AppleGothic" size:30];
     
-    self.inputItemNumber = [[UITextField alloc]initWithFrame:CGRectMake(self.viewSize.width*0.63,[Common getOrignYWidhUiView:itemPrice3 margin:30] , self.viewSize.width*0.1, 30)];
+    self.inputItemNumber = [[UITextField alloc]initWithFrame:CGRectMake(self.viewSize.width*0.63,[Common getOrignYWidhUiView:itemPrice3 margin:30] , self.viewSize.width*0.12, 30)];
     self.inputItemNumber.borderStyle = UITextBorderStyleRoundedRect;
     self.inputItemNumber.textAlignment = UITextAlignmentCenter;
     self.inputItemNumber.delegate = self;
