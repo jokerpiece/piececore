@@ -87,17 +87,18 @@
         NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
         NSInteger flagLinePay = [userData integerForKey:@"LINEPAY"];
         
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[UIImage imageNamed:@"cart.png"] forState:UIControlStateNormal];
+        [button sizeToFit];
+        [button addTarget:self action:@selector(cartTapp:) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+
         if(flagLinePay == 1){
-            
+            button.hidden = YES;
         }else if(flagLinePay == 0){
-            
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            [button setImage:[UIImage imageNamed:@"cart.png"] forState:UIControlStateNormal];
-            [button sizeToFit];
-            [button addTarget:self action:@selector(cartTapp:) forControlEvents:UIControlEventTouchUpInside];
-            
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+            button.hidden = NO;
         }
+
     }
     
 }
