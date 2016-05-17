@@ -75,9 +75,32 @@
         [userData setInteger:0 forKey:@"LINEPAY"];
         [userData synchronize];
     }
+    [self setCartBtn];
     
 }
 
+
+-(void)setCartBtn{
+    
+    if ([Common isNotEmptyString:[PieceCoreConfig cartUrl]]) {
+        //LinaPay決済機能ステータス
+        NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
+        NSInteger flagLinePay = [userData integerForKey:@"LINEPAY"];
+        
+        if(flagLinePay == 1){
+            
+        }else if(flagLinePay == 0){
+            
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setImage:[UIImage imageNamed:@"cart.png"] forState:UIControlStateNormal];
+            [button sizeToFit];
+            [button addTarget:self action:@selector(cartTapp:) forControlEvents:UIControlEventTouchUpInside];
+            
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        }
+    }
+    
+}
 
 
 /*
