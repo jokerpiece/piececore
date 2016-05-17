@@ -14,10 +14,10 @@
 //  Copyright © 2016年 jokerpiece. All rights reserved.
 //
 
-#import "ANZDropDownField.h"
+#import "DropDownField.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface ANZDropDownField() {
+@interface DropDownField() {
     CGFloat _borderWidth;
     UITapGestureRecognizer* _singleTapGesture;
 }
@@ -25,7 +25,7 @@
 @property (nonatomic) UITableView* tableView;
 @end
 
-@implementation ANZDropDownField
+@implementation DropDownField
 
 static NSString* _cellID = @"cell";
 

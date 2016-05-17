@@ -94,7 +94,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     itemDetail.font = [UIFont fontWithName:@"AppleGothic" size:20];
     itemDetail.textColor = [UIColor blackColor];
     
-    ANZDropDownField* dropDown = [ANZDropDownField new];
+    DropDownField* dropDown = [DropDownField new];
     dropDown.delegate = self;
     
     dropDown.frame = CGRectMake(self.viewSize.width*0.35, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.6, 30);

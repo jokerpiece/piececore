@@ -1,10 +1,11 @@
 //
-//  ANZDropDownField.h
+//  DropDownField.h
 //  pieceSample
 //
 //  Created by OhnumaRina on 2016/05/17.
 //  Copyright © 2016年 jokerpiece. All rights reserved.
 //
+
 #import <UIKit/UIKit.h>
 
 @protocol SelectKikakuNameDelegate <NSObject>
@@ -14,7 +15,7 @@
 
 @end
 
-@interface ANZDropDownField : UITextField <UITableViewDelegate, UITableViewDataSource>
+@interface DropDownField : UITextField <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) id<SelectKikakuNameDelegate> delegate;
 
