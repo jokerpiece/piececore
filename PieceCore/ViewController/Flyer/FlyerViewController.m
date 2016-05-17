@@ -76,6 +76,7 @@
 
 - (void)viewWillAppearLogic
 {
+    [self setCartBtn];
     self.isResponse = NO;
     [self syncAction];
     if (!self.timer.isValid) {

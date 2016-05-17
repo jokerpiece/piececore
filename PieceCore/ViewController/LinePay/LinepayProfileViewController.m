@@ -31,7 +31,7 @@
     DLog(@"%@",self.linepayRecipient);
 
 //    NSURL *url = [NSURL URLWithString:@"line://"];
-    NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrl];
+    NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrlWeb];
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
     if(installed) {
         //lineweb
