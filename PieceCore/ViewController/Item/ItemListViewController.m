@@ -411,7 +411,12 @@
     } else if (linePaySwitchStatus == 1) {
         
         linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
-        vc.detailData = detailData.list;
+       
+         if([detailData.list count] == 0){
+            
+        }else{
+            vc.detailData = detailData.list;
+        }
         vc.itemName = data.item_name;
         vc.productId = data.item_id;
         vc.imgUrl = data.img_url;
