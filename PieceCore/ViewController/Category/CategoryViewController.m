@@ -40,13 +40,21 @@
 -(void)setCartBtn{
     
     if ([Common isNotEmptyString:[PieceCoreConfig cartUrl]]) {
+        //LinaPay決済機能ステータス
+        NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
+        NSInteger flagLinePay = [userData integerForKey:@"LINEPAY"];
         
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setImage:[UIImage imageNamed:@"cart.png"] forState:UIControlStateNormal];
-        [button sizeToFit];
-        [button addTarget:self action:@selector(cartTapp:) forControlEvents:UIControlEventTouchUpInside];
+        if(flagLinePay == 1){
+            
+        }else if(flagLinePay == 0){
         
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setImage:[UIImage imageNamed:@"cart.png"] forState:UIControlStateNormal];
+            [button sizeToFit];
+            [button addTarget:self action:@selector(cartTapp:) forControlEvents:UIControlEventTouchUpInside];
+            
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        }
     }
     
 }
