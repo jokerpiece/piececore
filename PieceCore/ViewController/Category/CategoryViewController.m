@@ -33,6 +33,7 @@
 
 - (void)viewWillAppearLogic
 {
+    [self setCartBtn];
     self.isResponse = NO;
     [self syncAction];
 }
