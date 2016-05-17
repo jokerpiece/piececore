@@ -372,7 +372,7 @@
        if(flagLinePay == 1){
            [LinePayData setMoveTagFlag:@"Flyer"];
            [self imageTapedloadingView];
-           [self syncItemdataAction];
+           [self syncItemDetail];
        }else if (flagLinePay == 0){
            WebViewController *vc = [[WebViewController alloc]
                                     initWithNibName:@"WebViewController"
@@ -458,6 +458,17 @@
     [conecter sendActionSendId:SendIdFlyerList param:param];
 }
 
+-(void)syncItemDetail{
+    NetworkConecter *conector = [NetworkConecter alloc];
+    conector.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:self.itemId forKey:@"item_id"];
+    [param setValue:self.categoryId forKey:@"categpry_id"];
+    [param setValue:@"1" forKey:@"system"];
+    [conector sendActionSendId:SentIdGetItemDetail param:param];
+    
+}
+
 -(void)setDataWithRecipient:(BaseRecipient *)recipient sendId:(NSString *)sendId{
     
     if ([sendId isEqualToString:SendIdNewsList]) {
@@ -468,7 +479,7 @@
         if (fliyerList.count > 0) {
             InfoListData *data = [fliyerList objectAtIndex:0];
             self.fliyerId = data.typeId;
-            [self syncFliyerAction];
+            [self syncItemDetail];
         }
     }else if([sendId isEqualToString:SendIdItem]){
         self.itemRecipient = (ItemRecipient *)recipient;
@@ -484,10 +495,20 @@
             lvc.itemText = itemList[0][@"text"];
             lvc.itemPrice = itemList[0][@"price"];
             lvc.itemStock = itemList[0][@"stocks"];
+            if([self.detailData count] == 0){
+            }else{
+                lvc.detailData = self.detailData;
+            }
+
             [self.navigationController pushViewController:lvc animated:YES];
         }else{
             [self alertView];
         }
+        
+    }else if([sendId isEqualToString:SentIdGetItemDetail]){
+        ItemDetailData *detailData = recipient;
+        self.detailData = detailData.list;
+        [self syncItemdataAction];
         
     }else {
         self.flyerRecipient = (FlyerRecipient *)recipient;
@@ -545,6 +566,8 @@
         return [InfoRecipient alloc];
     }else if([sendId isEqualToString:SendIdItem]){
         return [ItemRecipient alloc];
+    }else if([sendId isEqualToString:SentIdGetItemDetail]){
+        return [ItemDetailRecipient alloc];
     }else {
         return [FlyerRecipient alloc];
     }

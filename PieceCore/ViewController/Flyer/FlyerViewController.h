@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic) int pageSize;
 @property (strong, nonatomic) FlyerRecipient *flyerRecipient;
-@property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) NSDictionary *detailData;@property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) bool isDispSurvey;
 @property (strong, nonatomic) NSString *fliyerId;
 @property (strong, nonatomic) NSString *categoryId;
