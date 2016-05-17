@@ -153,6 +153,7 @@
     [param setValue:[LinePayData getTransaction] forKey:@"trans_no"];
     [param setValue:[LinePayData getItemPrice] forKey:@"item_price"];
     [param setValue:[LinePayData getItemNumber] forKey:@"amount"];
+    [param setValue:[LinePayData getKikakuName] forKey:@"kikaku_name"];
     
     //手数料チェック
     if([Common isNotEmptyString:[LinePayData getFee]]){
@@ -164,6 +165,7 @@
 //    [param setValue:[profileDec objectForKey:@"USER_ID"] forKey:@"user_id"];
     //デバッグ用user_id
     [param setValue:@"sample" forKey:@"user_id"];
+    [param setValue:[Common getUuid] forKey:@"uuid"];
     [param setValue:[profileDec objectForKey:@"MAILADDRESS"] forKey:@"mail_address"];
     [param setValue:[profileDec objectForKey:@"SEI"] forKey:@"sei"];
     [param setValue:[profileDec objectForKey:@"MEI"] forKey:@"mei"];

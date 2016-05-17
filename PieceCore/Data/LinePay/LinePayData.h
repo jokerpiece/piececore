@@ -35,6 +35,8 @@
 + (NSString *)getTootalPrice;
 + (void)setMoveTagFlag:(NSString*)str;
 + (NSString *)getMoveTagName;
++ (void)setKikakuName:(NSString*)str;
++ (NSString *)getKikakuName;
 
 
 @end

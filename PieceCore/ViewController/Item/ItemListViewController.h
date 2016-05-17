@@ -16,6 +16,7 @@
 #import "PaypalViewController.h"
 #import "DLog.h"
 #import "LinePayData.h"
+#import "ItemDetailRecipient.h"
 
 typedef enum {
     category = 0,
@@ -26,6 +27,7 @@ typedef enum {
 
 @interface ItemListViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UITextFieldDelegate>
 @property (strong, nonatomic) ItemRecipient *itemRecipient;
+@property (strong, nonatomic) ItemDetailRecipient* itemDetailRecipient;
 @property (nonatomic) bool isMore;
 @property (nonatomic) bool isNext;
 @property (nonatomic) bool isSearchedMore;
@@ -45,6 +47,11 @@ typedef enum {
 @property (nonatomic) NSString *item_text;
 @property (nonatomic) NSString *item_price;
 @property (nonatomic) bool isCloseWebview;
+
+@property (nonatomic) NSString *category_id;
+@property (nonatomic) NSString *item_id;
+@property (nonatomic) NSInteger *tapCell;
+
 -(void)setCartBtn;
 
 @end

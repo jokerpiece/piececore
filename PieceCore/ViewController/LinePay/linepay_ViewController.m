@@ -32,6 +32,7 @@
     [LinePayData setItemName:self.itemName];
     [LinePayData setItemPrice:self.itemPrice];
     [LinePayData setProductId:self.productId];
+    [LinePayData setKikakuName:self.detailKikakuName];
 }
 -(void)item_View{
 
@@ -87,35 +88,54 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     itemTextLbl.font = [UIFont fontWithName:@"AppleGothic" size:18];
     itemTextLbl.textColor = [UIColor blackColor];
     
+    //商品様式
+    UILabel *itemDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.4, 30)];
+    itemDetail.text = @"商品様式";
+    itemDetail.font = [UIFont fontWithName:@"AppleGothic" size:20];
+    itemDetail.textColor = [UIColor blackColor];
+    
+    ANZDropDownField* dropDown = [ANZDropDownField new];
+    dropDown.delegate = self;
+    
+    dropDown.frame = CGRectMake(self.viewSize.width*0.35, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.6, 30);
+    dropDown.text = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0];
+    self.detailKikakuName = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0];
+    dropDown.dropList = (NSArray*)[self.detailData valueForKey:@"kikaku_name"];
+    //dropDown.backgroundColor = [UIColor grayColor];
+    dropDown.textAlignment = NSTextAlignmentRight;
+    dropDown.borderStyle = UITextBorderStyleRoundedRect;
+    dropDown.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
+
+    
     //商品価格
-    UILabel *itemPrice1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.4, 30)];
+    UILabel *itemPrice1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemDetail margin:30], self.viewSize.width*0.4, 30)];
     itemPrice1.text = @"販売価格";
     itemPrice1.font = [UIFont fontWithName:@"AppleGothic" size:20];
     itemPrice1.textColor = [UIColor blackColor];
     
-    UILabel *itemPrice2 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.6, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.8, 30)];
+    UILabel *itemPrice2 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.6, [Common getOrignYWidhUiView:itemDetail margin:30], self.viewSize.width*0.8, 30)];
     itemPrice2.text = [Common formatOfCurrencyWithString:self.itemPrice];
     itemPrice2.textAlignment = UITextLayoutDirectionRight;
     itemPrice2.font = [UIFont fontWithName:@"Arial-BoldMT" size:28];
     itemPrice2.textColor = [UIColor blackColor];
     [itemPrice2 sizeToFit];
     
-    UILabel *itemPrice3 = [[UILabel alloc] initWithFrame:CGRectMake(itemPrice2.frame.origin.x + itemPrice2.frame.size.width + 5, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.82, 30)];
+    UILabel *itemPrice3 = [[UILabel alloc] initWithFrame:CGRectMake(itemPrice2.frame.origin.x + itemPrice2.frame.size.width + 5, [Common getOrignYWidhUiView:itemDetail margin:30], self.viewSize.width*0.82, 30)];
     itemPrice3.text = @"円";
     itemPrice3.font = [UIFont fontWithName:@"AppleGothic" size:20];
     itemPrice3.textColor = [UIColor blackColor];
 
     //在庫数判定
 
-    UILabel *itemNumber = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
-    itemNumber.text = @"注文個数";
-    itemNumber.font = [UIFont fontWithName:@"AppleGothic" size:20];
+    self.itemNumber = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
+    self.itemNumber.text = @"注文個数";
+    self.itemNumber.font = [UIFont fontWithName:@"AppleGothic" size:20];
     
-    UILabel *nullItemStock = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.69, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
-    nullItemStock.text = @"在庫なし";
-    itemNumber.font = [UIFont fontWithName:@"AppleGothic" size:20];
+    self.nullItemStock = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.69, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
+    self.nullItemStock.text = @"在庫なし";
+    self.itemNumber.font = [UIFont fontWithName:@"AppleGothic" size:20];
     
-    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:nullItemStock margin:100])];
+    self.uv = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.viewSize.width, [Common getOrignYWidhUiView:self.nullItemStock margin:100])];
     
     //商品個数選択
     UILabel *itemnumber1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.8, 30)];
@@ -146,10 +166,10 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.itemUp.font = [UIFont fontWithName:@"AppleGothic" size:25];
     
     
-    UILabel *itemnumber2 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.85, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.82, 30)];
-    itemnumber2.text = @"個";
-    itemnumber2.font = [UIFont fontWithName:@"AppleGothic" size:20];
-    itemnumber2.textColor = [UIColor blackColor];
+    self.itemNumberTxt = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.85, [Common getOrignYWidhUiView:itemPrice3 margin:30], self.viewSize.width*0.82, 30)];
+    self.itemNumberTxt.text = @"個";
+    self.itemNumberTxt.font = [UIFont fontWithName:@"AppleGothic" size:20];
+    self.itemNumberTxt.textColor = [UIColor blackColor];
     
     //Lineで購入ボタン生成
     self.line_button = [[UIButton alloc] initWithFrame:CGRectMake(self.viewSize.width*0.25,[Common getOrignYWidhUiView:itemnumber1 margin:30] , self.viewSize.width*0.5, self.viewSize.height*0.1)];
@@ -165,11 +185,11 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     if([Common isNotEmptyString:self.itemStock]){
         
         if([self.itemStock isEqualToString:@"売り切れ"]){
-            [self.uv addSubview:itemNumber];
-            [self.uv addSubview:nullItemStock];
+            [self.uv addSubview:self.itemNumber];
+            [self.uv addSubview:self.nullItemStock];
         }else{
             [self.uv addSubview:itemnumber1];
-            [self.uv addSubview:itemnumber2];
+            [self.uv addSubview:self.itemNumberTxt];
             [self.uv addSubview:self.itemDown];
             [self.uv addSubview:self.inputItemNumber];
             [self.uv addSubview:self.itemUp];
@@ -178,20 +198,31 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }else if(![Common isNotEmptyString:self.itemStock]){
         self.itemStock = @"10";
         [self.uv addSubview:itemnumber1];
-        [self.uv addSubview:itemnumber2];
+        [self.uv addSubview:self.itemNumberTxt];
         [self.uv addSubview:self.itemDown];
         [self.uv addSubview:self.inputItemNumber];
         [self.uv addSubview:self.itemUp];
         [self.uv addSubview:self.line_button];
     }
 
-    [self.uv addSubview:lblBg];
-    [self.uv addSubview:itemIv];
-    [self.uv addSubview:itemTextLbl];
-    [self.uv addSubview:itemPrice1];
-    [self.uv addSubview:itemPrice2];
-    [self.uv addSubview:itemPrice3];
-
+    if([Common isNotEmptyString:[(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0]]){
+        
+        [self.uv addSubview:lblBg];
+        [self.uv addSubview:itemIv];
+        [self.uv addSubview:itemDetail];
+        [self.uv addSubview:dropDown];
+        [self.uv addSubview:itemTextLbl];
+        [self.uv addSubview:itemPrice1];
+        [self.uv addSubview:itemPrice2];
+        [self.uv addSubview:itemPrice3];
+    }else{
+        [self.uv addSubview:lblBg];
+        [self.uv addSubview:itemIv];
+        [self.uv addSubview:itemTextLbl];
+        [self.uv addSubview:itemPrice1];
+        [self.uv addSubview:itemPrice2];
+        [self.uv addSubview:itemPrice3];
+    }
     self.sv = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     self.sv.indicatorStyle = UIScrollViewIndicatorStyleDefault;
@@ -315,6 +346,35 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     vc.cellList = cell_st;
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+
+
+- (void)selectKikakuName:(NSString *)kikakuName{
+    
+    NSInteger objectIndex = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] indexOfObject:kikakuName];
+    
+    self.kikakuNames = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:objectIndex];
+    self.detailKikakuName = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:objectIndex];
+    self.itemStock = [(NSArray*)[self.detailData valueForKey:@"amount"] objectAtIndex:objectIndex];
+    self.itemPrice = [(NSArray*)[self.detailData valueForKey:@"price"] objectAtIndex:objectIndex];
+    
+    if([self.itemStock isEqualToString:@"0"]){
+        [self.line_button removeFromSuperview];
+        [self.itemUp removeFromSuperview];
+        [self.itemDown removeFromSuperview];
+        [self.itemNumber removeFromSuperview];
+        [self.inputItemNumber removeFromSuperview];
+        [self.itemNumberTxt removeFromSuperview];
+        [self.uv addSubview:self.nullItemStock];
+    }else{
+        [self.nullItemStock removeFromSuperview];
+        [self.uv addSubview:self.itemNumberTxt];
+        [self.uv addSubview:self.line_button];
+        [self.uv addSubview:self.itemUp];
+        [self.uv addSubview:self.itemDown];
+        [self.uv addSubview:self.inputItemNumber];
+    }
+    [self.view setNeedsDisplay];
 }
 
 @end

@@ -13,6 +13,7 @@
 #import "WebViewController.h"
 #import "linepayReservSquareViewController.h"
 #import "LinePayData.h"
+#import "ANZDropDownField.h"
 
 @interface linepay_ViewController : BaseViewController<UIScrollViewDelegate>
 @property (nonatomic, strong) UIView *uv;
@@ -29,6 +30,10 @@
 @property (strong, nonatomic) NSString *postage;
 @property (strong, nonatomic) NSString *transaction;
 
+@property (strong, nonatomic) UILabel *itemNumber;
+@property (strong, nonatomic) UILabel *nullItemStock;
+@property (strong, nonatomic) UILabel *itemNumberTxt;
+
 @property (strong, nonatomic) NSString *itemName;
 @property (strong, nonatomic) NSString *imgUrl;
 @property (strong, nonatomic) NSString *itemText;
@@ -39,6 +44,14 @@
 @property (strong, nonatomic) UIButton *itemUp;
 @property (strong, nonatomic) UIButton *itemDown;
 
+@property (strong, nonatomic) NSArray *kikakuNames;
+@property (strong, nonatomic) NSString *detailKikakuName;
+@property (strong, nonatomic) NSString *detailItemAmount;
+@property (strong, nonatomic) NSString *detailiItemCode;
+@property (strong, nonatomic) NSString *detailPrice;
+@property (strong, nonatomic) NSString *detailquantity;
+
+@property (strong, nonatomic) NSDictionary *detailData;
 
 @property (strong, nonatomic) UITextField *inputItemNumber;
 

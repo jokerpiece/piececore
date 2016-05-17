@@ -46,6 +46,7 @@ extern NSString * const SendIdGetQuizedata;
 extern NSString * const UrlSchemeHostRapping;
 extern NSString * const UrlSchemeHostQuestion;
 extern NSString * const SendIdGetLocation;
+extern NSString * const SentIdGetItemDetail;
 
 extern NSString * const UrlYamatoDeliver;
 extern NSString * const UrlSagawaDeliver;

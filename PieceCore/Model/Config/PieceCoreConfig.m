@@ -70,6 +70,7 @@ NSString * const  SendIdPostYoutubeMovie = @"https://www.googleapis.com/upload/y
 NSString * const  SendIdPostMovieOrMessage = @"order/?Action=upload";
 NSString * const  SendIdGetPlaydata = @"order/?Action=getFileData";
 NSString * const  SendIdRegistQuestion = @"order/?Action=registQuestion";
+NSString * const  SentIdGetItemDetail = @"item_detail/";
 NSString * const  SendIdGetQuizedata = @"order/?Action=getQuestion";
 NSString * const  SendIdGetLocation = @"order/?Action=getLocation";
 

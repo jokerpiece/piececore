@@ -186,6 +186,18 @@
     
 }
 
+-(void)syncItemDetail{
+    NetworkConecter *conector = [NetworkConecter alloc];
+    conector.delegate = self;
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setValue:self.item_id forKey:@"item_id"];
+    [param setValue:self.category_id forKey:@"categpry_id"];
+    [param setValue:@"1" forKey:@"system"];
+    [conector sendActionSendId:SentIdGetItemDetail param:param];
+    
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
@@ -219,7 +231,13 @@
     if (indexPath.section == 0) {
         if([self.itemRecipient.list count] > indexPath.row){
             ItemData *data = [self.itemRecipient.list objectAtIndex:indexPath.row];
-            [self pushNextViewWidhData:data];
+            //            ItemDetailData *detailData = [self.itemDetailRecipient.list objectAtIndex:indexPath.row];
+            
+            self.tapCell = indexPath.row;
+            self.item_id = data.item_id;
+            self.category_id = data.category_id;
+            
+            [self syncItemDetail];
         }
         
     } else if(indexPath.section == 1) {
@@ -322,43 +340,56 @@
 
 -(void)setDataWithRecipient:(ItemRecipient *)recipient sendId:(NSString *)sendId{
     
-    if (self.isSearchedMore) {
-        [self.itemRecipient.list addObjectsFromArray: recipient.list];
-    } else {
-        self.itemRecipient = recipient;
-        if (self.searchType == serchWord && recipient.list.count <= 0) {
-            [self showAlert:@"確認" message:@"検索にヒットする商品はありませんでした。"];
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-            
-    }
-    if (recipient.more_flg) {
-        self.isMore = YES;
-    } else {
-        self.isMore = NO;
-    }
-    self.isSearchedMore = NO;
-    if (self.itemRecipient.list.count == 1) {
-        if (self.isNext) {
-            self.isNext = NO;
-            ItemData *data = [self.itemRecipient.list objectAtIndex:0];
-            [self pushNextViewWidhData:data];
-        } else {
-            NSInteger count = self.navigationController.viewControllers.count - 2;
-            CategoryViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
-            [self.navigationController popToViewController:vc animated:YES];
-        }
+    if ([sendId isEqualToString:SentIdGetItemDetail]){
+        DLog(@"%@",recipient.resultset);
+        ItemDetailData *detailData = recipient;
+        ItemData *data = [self.itemRecipient.list objectAtIndex:self.tapCell];
         
+        [self pushNextViewWidhData:data:detailData];
+    }else{
+    
+        if (self.isSearchedMore) {
+            [self.itemRecipient.list addObjectsFromArray: recipient.list];
+        } else {
+            self.itemRecipient = recipient;
+            if (self.searchType == serchWord && recipient.list.count <= 0) {
+                [self showAlert:@"確認" message:@"検索にヒットする商品はありませんでした。"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            
+        }
+        if (recipient.more_flg) {
+            self.isMore = YES;
+        } else {
+            self.isMore = NO;
+        }
+        self.isSearchedMore = NO;
+        if (self.itemRecipient.list.count == 1) {
+            if (self.isNext) {
+                self.isNext = NO;
+                ItemData *data = [self.itemRecipient.list objectAtIndex:0];
+                [self pushNextViewWidhData:data:nil];
+            } else {
+                NSInteger count = self.navigationController.viewControllers.count - 2;
+                CategoryViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
+                [self.navigationController popToViewController:vc animated:YES];
+            }
+            
+        }
+        self.quanitityLbl.text = [NSString stringWithFormat:@"アイテム数：%@",self.itemRecipient.quantity];
+        [self.table reloadData];
     }
-    self.quanitityLbl.text = [NSString stringWithFormat:@"アイテム数：%@",self.itemRecipient.quantity];
-    [self.table reloadData];
 }
 
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
-    return [ItemRecipient alloc];
+    if([sendId isEqualToString:SentIdGetItemDetail]){
+        return [ItemDetailRecipient alloc];
+    }else{
+        return [ItemRecipient alloc];
+    }
 }
 
--(void)pushNextViewWidhData:(ItemData*)data{
+-(void)pushNextViewWidhData:(ItemData*)data:(ItemDetailData*)detailData{
     
     NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
     NSInteger linePaySwitchStatus = [userData integerForKey:@"LINEPAY"];
@@ -372,6 +403,7 @@
     } else if (linePaySwitchStatus == 1) {
         
         linepay_ViewController *vc = [[linepay_ViewController alloc] initWithNibName:@"linepay_ViewController" bundle:nil];
+        vc.detailData = detailData.list;
         vc.itemName = data.item_name;
         vc.productId = data.item_id;
         vc.imgUrl = data.img_url;

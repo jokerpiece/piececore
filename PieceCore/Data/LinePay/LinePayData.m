@@ -18,6 +18,8 @@ static NSString *_itemNumber;
 static NSString *_fee;
 static NSString *_getTootalPrice;
 static NSString *_moveTagName;
+static NSString *_kikakuName;
+
 
 @implementation LinePayData
 
@@ -129,6 +131,15 @@ static NSString *_moveTagName;
 +(NSString *)getMoveTagName{
     return _moveTagName;
 }
+//規格名称
++(void)setKikakuName:(NSString *)str{
+    _kikakuName = str;
+}
++(NSString *)getKikakuName{
+    return _kikakuName;
+}
+
+
 
 
 
