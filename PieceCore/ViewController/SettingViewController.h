@@ -6,7 +6,7 @@
 //  Copyright © 2016年 jokerpiece. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 @interface SettingViewController : UIViewController
 @property(nonatomic, strong) IBOutlet UILabel *linePayStr;
