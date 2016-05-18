@@ -97,14 +97,14 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     DropDownField* dropDown = [DropDownField new];
     dropDown.delegate = self;
     
-    dropDown.frame = CGRectMake(self.viewSize.width*0.35, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.6, 30);
+    dropDown.frame = CGRectMake(self.viewSize.width*0.4, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.55, 30);
     dropDown.text = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0];
     self.detailKikakuName = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0];
     dropDown.dropList = (NSArray*)[self.detailData valueForKey:@"kikaku_name"];
     //dropDown.backgroundColor = [UIColor grayColor];
     dropDown.textAlignment = NSTextAlignmentRight;
     dropDown.borderStyle = UITextBorderStyleRoundedRect;
-    dropDown.font = [UIFont fontWithName:@"Arial-BoldMT" size:14];
+    dropDown.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
 
     
     //商品価格
@@ -195,18 +195,48 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
             [self.uv addSubview:self.itemUp];
             [self.uv addSubview:self.line_button];
         }
-    }else if(![Common isNotEmptyString:self.itemStock]){
-        self.itemStock = @"10";
+    }else if(![Common isNotEmptyString:self.itemStock] ){
+        if ([Common isNotEmptyString:[(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0]]) {
+            self.itemStock = [(NSArray*)[self.detailData valueForKey:@"amount"] objectAtIndex:0];
+            if(![Common isNotEmptyString:self.itemStock]){
+                self.itemStock = @"10";
+                [self.uv addSubview:itemnumber1];
+                [self.uv addSubview:self.itemNumberTxt];
+                [self.uv addSubview:self.itemDown];
+                [self.uv addSubview:self.inputItemNumber];
+                [self.uv addSubview:self.itemUp];
+                [self.uv addSubview:self.line_button];
+            }else if ([self.itemStock isEqualToString:@"0"]){
+                [self.uv addSubview:self.itemNumber];
+                [self.uv addSubview:self.nullItemStock];
+            }else{
+                [self.uv addSubview:itemnumber1];
+                [self.uv addSubview:self.itemNumberTxt];
+                [self.uv addSubview:self.itemDown];
+                [self.uv addSubview:self.inputItemNumber];
+                [self.uv addSubview:self.itemUp];
+                [self.uv addSubview:self.line_button];
+            }
+        }else{
+            self.itemStock = @"10";
+            [self.uv addSubview:itemnumber1];
+            [self.uv addSubview:self.itemNumberTxt];
+            [self.uv addSubview:self.itemDown];
+            [self.uv addSubview:self.inputItemNumber];
+            [self.uv addSubview:self.itemUp];
+            [self.uv addSubview:self.line_button];
+        }
+    }else{
         [self.uv addSubview:itemnumber1];
         [self.uv addSubview:self.itemNumberTxt];
         [self.uv addSubview:self.itemDown];
         [self.uv addSubview:self.inputItemNumber];
         [self.uv addSubview:self.itemUp];
         [self.uv addSubview:self.line_button];
+
     }
 
     if([Common isNotEmptyString:[(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0]]){
-        
         [self.uv addSubview:lblBg];
         [self.uv addSubview:itemIv];
         [self.uv addSubview:itemDetail];
@@ -294,12 +324,13 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 
 -(void)tapItemUp:(UIButton*)button{
     NSInteger itemNumber = [self.inputItemNumber.text intValue];
-    NSInteger itemStock = [self.itemStock intValue];
-    if(itemNumber  < itemStock){
+    NSInteger itemStockInt = [self.itemStock intValue];
+    
+    if(itemNumber  < itemStockInt){
         itemNumber++;
         self.inputItemNumber.text = [NSString stringWithFormat:@"%ld",(long)itemNumber];
         [self.uv addSubview:self.inputItemNumber];
-    }else if(itemNumber == itemStock){
+    }else if(itemNumber == itemStockInt){
         [self overItemNum];
     }
 
@@ -358,7 +389,16 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.itemStock = [(NSArray*)[self.detailData valueForKey:@"amount"] objectAtIndex:objectIndex];
     self.itemPrice = [(NSArray*)[self.detailData valueForKey:@"price"] objectAtIndex:objectIndex];
     
-    if([self.itemStock isEqualToString:@"0"]){
+    if([self.itemStock isEqual:[NSNull null]]){
+        self.itemStock = @"10";
+        self.inputItemNumber.text = @"1";
+        [self.nullItemStock removeFromSuperview];
+        [self.uv addSubview:self.itemNumberTxt];
+        [self.uv addSubview:self.line_button];
+        [self.uv addSubview:self.itemUp];
+        [self.uv addSubview:self.itemDown];
+        [self.uv addSubview:self.inputItemNumber];
+    }else if([self.itemStock isEqualToString:@"0"]){
         [self.line_button removeFromSuperview];
         [self.itemUp removeFromSuperview];
         [self.itemDown removeFromSuperview];
@@ -367,6 +407,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [self.itemNumberTxt removeFromSuperview];
         [self.uv addSubview:self.nullItemStock];
     }else{
+        self.inputItemNumber.text = @"1";
         [self.nullItemStock removeFromSuperview];
         [self.uv addSubview:self.itemNumberTxt];
         [self.uv addSubview:self.line_button];
