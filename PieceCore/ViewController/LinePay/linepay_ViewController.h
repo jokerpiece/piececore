@@ -40,6 +40,9 @@
 @property (strong, nonatomic) NSString *itemPrice;
 @property (strong, nonatomic) NSString *productId;
 @property (strong, nonatomic) NSString *itemStock;
+@property (strong, nonatomic) UILabel *itemPriceLbl;
+@property (strong, nonatomic) UILabel *orderQtyLbl;
+@property (strong, nonatomic) UILabel *jyeLbl;
 
 @property (strong, nonatomic) UIButton *itemUp;
 @property (strong, nonatomic) UIButton *itemDown;
