@@ -113,7 +113,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     itemPrice1.textColor = [UIColor blackColor];
     
     //商品価格表示
-    self.itemPriceLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.65, [Common getOrignYWidhUiView:itemDetail margin:30], self.viewSize.width*0.6, 30)];
+    self.itemPriceLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.6, [Common getOrignYWidhUiView:itemDetail margin:30], self.viewSize.width*0.6, 30)];
     
     //商品規格に一つでも規格名があるか
     if([Common isNotEmptyString:[(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0]]){
