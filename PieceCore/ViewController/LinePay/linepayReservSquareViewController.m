@@ -118,7 +118,7 @@
                                DLog(@"%@",[LinePayData getTootalPrice]);
                                [self loadingView];
                                
-                               if([[LinePayData getItemPrice] isEqualToString:@"0"] && [[LinePayData getPostage] isEqualToString:@"0"]){
+                               if([LinePayData getItemPrice].intValue == 0 && [LinePayData getPostage].intValue == 0){
                                    [self sendRegistPayment];
                                }else{
                                    //LINEPay決済送信、アプリ内決済登録
@@ -159,7 +159,7 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
     
-    if([[LinePayData getItemPrice] isEqualToString:@"0"] && [[LinePayData getPostage] isEqualToString:@"0"]){
+    if([LinePayData getItemPrice].intValue == 0 && [LinePayData getPostage].intValue == 0){
         [param setValue:@"dummy" forKey:@"trans_no"];
     }else{
         [param setValue:[LinePayData getTransaction] forKey:@"trans_no"];
