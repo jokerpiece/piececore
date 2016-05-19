@@ -29,7 +29,7 @@
 
 -(void)checkLineInstall{
     DLog(@"%@",self.linepayRecipient);
-
+    
 //    NSURL *url = [NSURL URLWithString:@"line://"];
     NSURL *url = [NSURL URLWithString:self.linepayRecipient.paymentUrlWeb];
     BOOL installed = [[UIApplication sharedApplication] canOpenURL:url];
@@ -65,6 +65,7 @@
     
 }
 -(void)sendLinpeyConfirm{
+    
     //linepay_ViewController *vc = [[linepay_ViewController alloc]init];
     NetworkConecter *conecter_2 = [NetworkConecter alloc];
     conecter_2.delegate = self;
@@ -73,17 +74,16 @@
     [param_2 setValue:self.orderId forKeyPath:@"orderId"];
     DLog(@"orderID :::: %@",self.orderId);
     [param_2 setValue:self.item_name forKeyPath:@"productName"];
-//    [param_2 setValue:self.img_url forKeyPath:@"productImageUrl"];
+    //    [param_2 setValue:self.img_url forKeyPath:@"productImageUrl"];
     //NSInteger total_price = self.item_price.integerValue + self.delivery_price.integerValue;
     NSInteger total_price = (self.item_price.integerValue * [LinePayData getItemNumber].integerValue) + [LinePayData getPostage].integerValue;
     NSString *str_total_price = [NSString stringWithFormat:@"%ld",total_price];
     [LinePayData setTootalPrice:str_total_price];
     [param_2 setValue:str_total_price forKeyPath:@"amount"];
-//    [param_2 setValue:self.item_price forKeyPath:@"amount"];
+    //    [param_2 setValue:self.item_price forKeyPath:@"amount"];
     [param_2 setValue:@"JPY" forKeyPath:@"currency"];
     [param_2 setValue:[PieceCoreConfig linePayConfirmUrl] forKeyPath:@"confirmUrl"];
     [conecter_2 sendActionSendId:SendIdLinePay param:param_2];
-    
     
 }
 -(void)sendGetOrderId{
@@ -103,13 +103,22 @@
         [self sendGetOrderId];
     } else if ([sendId isEqualToString:SendIdGetOrderId]){
         self.orderId = recipient.resultset[@"order_no"];
+        [LinePayData setOrderId:recipient.resultset[@"order_no"]];
         DLog(@"orderID :::: %@",self.orderId);
         //[self sendLinpeyConfirm];
         [self getDeliveryPrice];
     } else if ([sendId isEqualToString:SendIdGetDeliveryPrice]){
         self.delivery_price = recipient.resultset[@"delivery_price"];
         [LinePayData setPostage:self.delivery_price];
-        [self sendLinpeyConfirm];
+        
+        if([[LinePayData getItemPrice] isEqualToString:@"0"] && [recipient.resultset[@"delivery_price"] isEqualToString:@"0"]){
+            linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]initWithNibName:@"linepayReservSquareViewController" bundle:nil];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.delegate = self;
+            [self presentViewController:vc animated:YES completion: nil];
+        }else{
+            [self sendLinpeyConfirm];
+        }
     } else if ([sendId isEqualToString:SendIdLinePay]){
         self.linepayRecipient = (LinepayRecipient *)recipient;
         [LinePayData setOrderId:self.orderId];
@@ -207,10 +216,11 @@
 
 -(void)moveView
 {
- //   self.navigationController.viewControllers;
+    //   self.navigationController.viewControllers;
     NSInteger count       = self.navigationController.viewControllers.count - 5;
     UIViewController *vc = [self.navigationController.viewControllers objectAtIndex:count];
     [self.navigationController popToViewController:vc animated:YES];
+
     
 }
 

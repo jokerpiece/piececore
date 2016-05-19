@@ -14,8 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *sameAddressBtn;
 @property (weak, nonatomic) IBOutlet UIButton *otherAddressBtn;
 @property (weak, nonatomic) IBOutlet UILabel *addressLbl;
-@property (weak, nonatomic) IBOutlet UILabel *lastNameLbl;
-@property (weak, nonatomic) IBOutlet UILabel *firstNameLbl;
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *mailLbl;
 @property (weak, nonatomic) IBOutlet UILabel *telLbl;
 

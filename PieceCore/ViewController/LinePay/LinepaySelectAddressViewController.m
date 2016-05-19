@@ -22,8 +22,9 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
     self.addressLbl.text = [NSString stringWithFormat:@"%@%@%@",[profileDec objectForKey:@"ADDRESS1"],[profileDec objectForKey:@"ADDRESS2"],[profileDec objectForKey:@"ADDRESS3"]];
-    self.lastNameLbl.text = [profileDec objectForKey:@"SEI"];
-    self.firstNameLbl.text = [profileDec objectForKey:@"MEI"];
+    self.nameLbl.text =  [NSString stringWithFormat:@"%@ %@",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
+    self.nameLbl.adjustsFontSizeToFitWidth = YES;
+    //self.firstNameLbl.text = [profileDec objectForKey:@"MEI"];
     self.mailLbl.text = [profileDec objectForKey:@"MAILADDRESS"];
     self.telLbl.text = [profileDec objectForKey:@"TEL"];
     

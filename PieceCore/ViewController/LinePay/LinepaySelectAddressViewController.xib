@@ -8,9 +8,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LinepaySelectAddressViewController">
             <connections>
                 <outlet property="addressLbl" destination="R15-6U-IiF" id="1Ey-y0-C4a"/>
-                <outlet property="firstNameLbl" destination="ICv-JN-rJc" id="sGU-AW-ekd"/>
-                <outlet property="lastNameLbl" destination="Yfs-xS-GOQ" id="Ier-f8-E9d"/>
                 <outlet property="mailLbl" destination="9hj-8L-VpI" id="lCH-Ec-kSa"/>
+                <outlet property="nameLbl" destination="Yfs-xS-GOQ" id="NI3-Nj-hWV"/>
                 <outlet property="otherAddressBtn" destination="myr-hL-HFd" id="ffr-rY-FPt"/>
                 <outlet property="sameAddressBtn" destination="B7y-4Q-0ga" id="9ON-hO-5tQ"/>
                 <outlet property="telLbl" destination="4bH-mk-du1" id="K9L-fm-K21"/>
@@ -47,7 +46,7 @@
                         <action selector="sameAddressBtn:" destination="-1" eventType="touchUpInside" id="f8n-63-PDm"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R15-6U-IiF">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R15-6U-IiF">
                     <rect key="frame" x="28" y="261" width="264" height="52"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -62,14 +61,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yfs-xS-GOQ">
-                    <rect key="frame" x="28" y="218" width="105" height="35"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ICv-JN-rJc">
-                    <rect key="frame" x="187" y="218" width="105" height="35"/>
+                    <rect key="frame" x="28" y="218" width="264" height="35"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>

@@ -35,6 +35,7 @@
     //setdataの値を取得(商品名、商品単価の価格、送料、合計金額、注文個数)
     NSString *get_item_name = [LinePayData getItemName];
     self.item_name.text = get_item_name;
+    self.item_name.adjustsFontSizeToFitWidth = YES;
     
     //NSString *get_postage = [LinePayData getPostage];
     //self.postage.text = get_postage;
@@ -43,9 +44,10 @@
     int fee = [[LinePayData getFee] intValue];
     int SettlementAmount = [LinePayData getTootalPrice].intValue + fee;
     
-    //送料を抜いた金額
+    
     int itemOnlyTootalPrice = [LinePayData getTootalPrice].intValue - [LinePayData getPostage].intValue;
     
+ 
     // Formatterの設定
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -60,6 +62,7 @@
     
     
     self.postage.text = [formatter stringFromNumber:punctuationPostage];
+    self.postage.adjustsFontSizeToFitWidth = YES;
 
     
     
@@ -68,16 +71,21 @@
                             [LinePayData getItemNumber],
                             [formatter stringFromNumber:punctuationItemOnlyPrice]
                             ];
+    self.item_price.adjustsFontSizeToFitWidth = YES;
     
     self.amount.text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber:punctuationTotalPrice]];
+    self.amount.adjustsFontSizeToFitWidth = YES;
     
     [LinePayData setTootalPrice:[NSString stringWithFormat:@"%d", SettlementAmount]];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *profileDec = [ud dictionaryForKey:@"PROFILE"];
     self.address.text = [NSString stringWithFormat:@"%@%@%@",[profileDec objectForKey:@"ADDRESS1"],[profileDec objectForKey:@"ADDRESS2"],[profileDec objectForKey:@"ADDRESS3"]];
-    self.user_name.text = [NSString stringWithFormat:@"%@ %@",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
+    self.address.adjustsFontSizeToFitWidth = YES;
+    self.user_name.text = [NSString stringWithFormat:@"%@ %@ 様",[profileDec objectForKey:@"SEI"],[profileDec objectForKey:@"MEI"]];
+    self.user_name.adjustsFontSizeToFitWidth = YES;
     self.mail_address.text = [profileDec objectForKey:@"MAILADDRESS"];
+    self.mail_address.adjustsFontSizeToFitWidth = YES;
 }
 
 -(BaseRecipient *)getDataWithSendId:(NSString *)sendId{
@@ -110,20 +118,24 @@
                                DLog(@"%@",[LinePayData getTootalPrice]);
                                [self loadingView];
                                
-                               //LINEPay決済送信、アプリ内決済登録
-                               NSString *str = [LinePayData getItemNumber];
-                               DLog(@"%@",str);
-                               
-                               NSString *get_transaction = [LinePayData getTransaction];
-                               
-                               NetworkConecter *conecter = [NetworkConecter alloc];
-                               conecter.delegate = self;
-                               NSMutableDictionary *param = [NSMutableDictionary dictionary];
-                               [param setValue:get_transaction forKey:@"transaction"];
-                               [param setValue:[LinePayData getTootalPrice] forKey:@"amount"];
-                               [param setValue:@"JPY" forKey:@"currency"];
-                               [param setValue:[LinePayData getOrderId] forKey:@"orderId"];
-                               [conecter sendActionSendId:SendIdDeterminedLinePay param:param];
+                               if([[LinePayData getItemPrice] isEqualToString:@"0"] && [[LinePayData getPostage] isEqualToString:@"0"]){
+                                   [self sendRegistPayment];
+                               }else{
+                                   //LINEPay決済送信、アプリ内決済登録
+                                   NSString *str = [LinePayData getItemNumber];
+                                   DLog(@"%@",str);
+                                   
+                                   NSString *get_transaction = [LinePayData getTransaction];
+                                   
+                                   NetworkConecter *conecter = [NetworkConecter alloc];
+                                   conecter.delegate = self;
+                                   NSMutableDictionary *param = [NSMutableDictionary dictionary];
+                                   [param setValue:get_transaction forKey:@"transaction"];
+                                   [param setValue:[LinePayData getTootalPrice] forKey:@"amount"];
+                                   [param setValue:@"JPY" forKey:@"currency"];
+                                   [param setValue:[LinePayData getOrderId] forKey:@"orderId"];
+                                   [conecter sendActionSendId:SendIdDeterminedLinePay param:param];
+                               }
                                
                                                          }];
     
@@ -147,10 +159,15 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary* profileDec = [ud dictionaryForKey:@"PROFILE"];
     
+    if([[LinePayData getItemPrice] isEqualToString:@"0"] && [[LinePayData getPostage] isEqualToString:@"0"]){
+        [param setValue:@"dummy" forKey:@"trans_no"];
+    }else{
+        [param setValue:[LinePayData getTransaction] forKey:@"trans_no"];
+    }
+    
     [param setValue:[LinePayData getOrderId] forKey:@"order_no"];
     [param setValue:[LinePayData getProductId] forKey:@"product_id"];
     [param setValue:[LinePayData getTootalPrice] forKey:@"payment_price"];
-    [param setValue:[LinePayData getTransaction] forKey:@"trans_no"];
     [param setValue:[LinePayData getItemPrice] forKey:@"item_price"];
     [param setValue:[LinePayData getItemNumber] forKey:@"amount"];
     [param setValue:[LinePayData getKikakuName] forKey:@"kikaku_name"];

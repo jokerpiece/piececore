@@ -89,31 +89,28 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     itemTextLbl.textColor = [UIColor blackColor];
     
     //商品様式
-    UILabel *itemDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.4, 30)];
-    itemDetail.text = @"商品様式";
-    itemDetail.font = [UIFont fontWithName:@"AppleGothic" size:20];
-    itemDetail.textColor = [UIColor blackColor];
+    self.dropDown = [DropDownField new];
+    self.dropDown.adjustsFontSizeToFitWidth = YES;
+    self.dropDown.delegate = self;
     
-    DropDownField* dropDown = [DropDownField new];
-    dropDown.delegate = self;
-    
-    dropDown.frame = CGRectMake(self.viewSize.width*0.4, [Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.55, 30);
-    dropDown.text = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0];
+    self.dropDown.frame = CGRectMake(self.viewSize.width*0.05 ,[Common getOrignYWidhUiView:itemTextLbl margin:30], self.viewSize.width*0.9, 30);
+    self.dropDown.text = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0];
     self.detailKikakuName = [(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0];
-    dropDown.dropList = (NSArray*)[self.detailData valueForKey:@"kikaku_name"];
-    dropDown.textAlignment = NSTextAlignmentRight;
-    dropDown.borderStyle = UITextBorderStyleRoundedRect;
-    dropDown.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    self.dropDown.dropList = (NSArray*)[self.detailData valueForKey:@"kikaku_name"];
+    self.dropDown.textAlignment = NSTextAlignmentLeft;
+    self.dropDown.borderStyle = UITextBorderStyleRoundedRect;
+
+    self.dropDown.font = [UIFont fontWithName:@"Arial-BoldMT" size:13];
 
     
     //商品価格
-    UILabel *itemPrice1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:itemDetail margin:30], self.viewSize.width*0.4, 30)];
+    UILabel *itemPrice1 = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.1, [Common getOrignYWidhUiView:self.dropDown margin:30], self.viewSize.width*0.4, 30)];
     itemPrice1.text = @"販売価格";
     itemPrice1.font = [UIFont fontWithName:@"AppleGothic" size:20];
     itemPrice1.textColor = [UIColor blackColor];
     
     //商品価格表示
-    self.itemPriceLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.6, [Common getOrignYWidhUiView:itemDetail margin:30], self.viewSize.width*0.6, 30)];
+    self.itemPriceLbl = [[UILabel alloc] initWithFrame:CGRectMake(self.viewSize.width*0.6, [Common getOrignYWidhUiView:self.dropDown margin:30], self.viewSize.width*0.6, 30)];
     
     //商品規格に一つでも規格名があるか
     if([Common isNotEmptyString:[(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0]]){
@@ -129,7 +126,7 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.itemPriceLbl.textColor = [UIColor blackColor];
     [self.itemPriceLbl sizeToFit];
     
-    UILabel *itemPrice3 = [[UILabel alloc] initWithFrame:CGRectMake(self.itemPriceLbl.frame.origin.x + self.itemPriceLbl.frame.size.width + 5, [Common getOrignYWidhUiView:itemDetail margin:30], self.viewSize.width*0.82, 30)];
+    UILabel *itemPrice3 = [[UILabel alloc] initWithFrame:CGRectMake(self.itemPriceLbl.frame.origin.x + self.itemPriceLbl.frame.size.width + 5, [Common getOrignYWidhUiView:self.dropDown margin:30], self.viewSize.width*0.82, 30)];
     itemPrice3.text = @"円";
     itemPrice3.font = [UIFont fontWithName:@"AppleGothic" size:20];
     itemPrice3.textColor = [UIColor blackColor];
@@ -248,8 +245,8 @@ usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     if([Common isNotEmptyString:[(NSArray*)[self.detailData valueForKey:@"kikaku_name"] objectAtIndex:0]]){
         [self.uv addSubview:lblBg];
         [self.uv addSubview:itemIv];
-        [self.uv addSubview:itemDetail];
-        [self.uv addSubview:dropDown];
+        //[self.uv addSubview:itemDetail];
+        [self.uv addSubview:self.dropDown];
         [self.uv addSubview:itemTextLbl];
         [self.uv addSubview:itemPrice1];
         [self.uv addSubview:self.itemPriceLbl];

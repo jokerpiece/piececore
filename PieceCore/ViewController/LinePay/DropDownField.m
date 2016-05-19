@@ -87,6 +87,7 @@ static NSString* _cellID = @"cell";
     }
     
     cell.textLabel.text = self.dropList[indexPath.item];
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
     
     return cell;
 }
@@ -150,6 +151,7 @@ static NSString* _cellID = @"cell";
 - (void)hideDropDownListWithUpdateText:(NSString *)updateText;
 {
     CGAffineTransform affine = CGAffineTransformScale(self.tableView.transform, 1, 0);
+    self.adjustsFontSizeToFitWidth = YES;
     
     [UIView animateWithDuration:.2f animations:^{
         self.tableView.transform = affine;

@@ -29,6 +29,7 @@
 @property (strong, nonatomic) NSString *string;
 @property (strong, nonatomic) NSString *postage;
 @property (strong, nonatomic) NSString *transaction;
+@property (strong, nonatomic) DropDownField *dropDown;
 
 @property (strong, nonatomic) UILabel *itemNumber;
 @property (strong, nonatomic) UILabel *nullItemStock;
