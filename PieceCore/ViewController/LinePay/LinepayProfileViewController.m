@@ -111,8 +111,6 @@
         self.delivery_price = recipient.resultset[@"delivery_price"];
         [LinePayData setPostage:self.delivery_price];
         
-        DLog(@"%@ %@ %@", [LinePayData getItemPrice], self.delivery_price,[LinePayData getItemName]);
-        
         //商品価格と送料が0だった場合は合計金額を0にする
         if([LinePayData getItemPrice].intValue == 0 && self.delivery_price.intValue == 0){
             linepayReservSquareViewController *vc = [[linepayReservSquareViewController alloc]initWithNibName:@"linepayReservSquareViewController" bundle:nil];
