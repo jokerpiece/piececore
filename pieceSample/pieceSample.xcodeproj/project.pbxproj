@@ -22,12 +22,15 @@
 		1468242B1C07107900F663CE /* treasure3.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824261C07107900F663CE /* treasure3.png */; };
 		1468242C1C07107900F663CE /* treasure4.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824271C07107900F663CE /* treasure4.png */; };
 		1468242D1C07107900F663CE /* treasure5.png in Resources */ = {isa = PBXBuildFile; fileRef = 146824281C07107900F663CE /* treasure5.png */; };
+		24648B7E1CF5917100A5A1A8 /* DropDownField.m in Sources */ = {isa = PBXBuildFile; fileRef = 24648B7D1CF5917100A5A1A8 /* DropDownField.m */; };
 		249A292D1CB4E6E2008F015B /* deliveryTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A292B1CB4E6E2008F015B /* deliveryTimeTableViewCell.m */; };
 		249A292E1CB4E6E2008F015B /* deliveryTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249A292C1CB4E6E2008F015B /* deliveryTimeTableViewCell.xib */; };
 		249A29321CB4E89B008F015B /* ProfileMailAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A29301CB4E89B008F015B /* ProfileMailAddressTableViewCell.m */; };
 		249A29331CB4E89B008F015B /* ProfileMailAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249A29311CB4E89B008F015B /* ProfileMailAddressTableViewCell.xib */; };
 		249A29451CB5FE2B008F015B /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249A29431CB5FE2B008F015B /* SettingViewController.m */; };
 		249A29461CB5FE2B008F015B /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249A29441CB5FE2B008F015B /* SettingViewController.xib */; };
+		24ADAACF1CEB1F5A0010FA22 /* ItemDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ADAACE1CEB1F5A0010FA22 /* ItemDetailData.m */; };
+		24ADAAD21CEB1F700010FA22 /* ItemDetailRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ADAAD11CEB1F700010FA22 /* ItemDetailRecipient.m */; };
 		2F55E8B01BF308DD00525089 /* OrderDataCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */; };
 		2F55E8B11BF308DD00525089 /* OrderDataCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */; };
 		2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8B31BF30A2300525089 /* OrderDataFailedViewController.m */; };
@@ -292,15 +295,21 @@
 		146824261C07107900F663CE /* treasure3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treasure3.png; sourceTree = "<group>"; };
 		146824271C07107900F663CE /* treasure4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treasure4.png; sourceTree = "<group>"; };
 		146824281C07107900F663CE /* treasure5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = treasure5.png; sourceTree = "<group>"; };
+		24648B7C1CF5917100A5A1A8 /* DropDownField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropDownField.h; path = ../PieceCore/ViewController/LinePay/DropDownField.h; sourceTree = "<group>"; };
+		24648B7D1CF5917100A5A1A8 /* DropDownField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropDownField.m; path = ../PieceCore/ViewController/LinePay/DropDownField.m; sourceTree = "<group>"; };
 		249A292A1CB4E6E2008F015B /* deliveryTimeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deliveryTimeTableViewCell.h; sourceTree = "<group>"; };
 		249A292B1CB4E6E2008F015B /* deliveryTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deliveryTimeTableViewCell.m; sourceTree = "<group>"; };
 		249A292C1CB4E6E2008F015B /* deliveryTimeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = deliveryTimeTableViewCell.xib; sourceTree = "<group>"; };
 		249A292F1CB4E89B008F015B /* ProfileMailAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileMailAddressTableViewCell.h; sourceTree = "<group>"; };
 		249A29301CB4E89B008F015B /* ProfileMailAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileMailAddressTableViewCell.m; sourceTree = "<group>"; };
 		249A29311CB4E89B008F015B /* ProfileMailAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileMailAddressTableViewCell.xib; sourceTree = "<group>"; };
-		249A29421CB5FE2B008F015B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		249A29431CB5FE2B008F015B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		249A29441CB5FE2B008F015B /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		249A29421CB5FE2B008F015B /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Setting/SettingViewController.h; sourceTree = "<group>"; };
+		249A29431CB5FE2B008F015B /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Setting/SettingViewController.m; sourceTree = "<group>"; };
+		249A29441CB5FE2B008F015B /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingViewController.xib; path = Setting/SettingViewController.xib; sourceTree = "<group>"; };
+		24ADAACD1CEB1F5A0010FA22 /* ItemDetailData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailData.h; sourceTree = "<group>"; };
+		24ADAACE1CEB1F5A0010FA22 /* ItemDetailData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailData.m; sourceTree = "<group>"; };
+		24ADAAD01CEB1F700010FA22 /* ItemDetailRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailRecipient.h; sourceTree = "<group>"; };
+		24ADAAD11CEB1F700010FA22 /* ItemDetailRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailRecipient.m; sourceTree = "<group>"; };
 		2F55E8AD1BF308DD00525089 /* OrderDataCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDataCheckViewController.h; path = Order/OrderDataCheckViewController.h; sourceTree = "<group>"; };
 		2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDataCheckViewController.m; path = Order/OrderDataCheckViewController.m; sourceTree = "<group>"; };
 		2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDataCheckViewController.xib; path = Order/OrderDataCheckViewController.xib; sourceTree = "<group>"; };
@@ -687,6 +696,8 @@
 		10B66AF41B60E47000AF524B /* LinePay */ = {
 			isa = PBXGroup;
 			children = (
+				24648B7C1CF5917100A5A1A8 /* DropDownField.h */,
+				24648B7D1CF5917100A5A1A8 /* DropDownField.m */,
 				37D16F9D1BCF86A700341B88 /* LinepaySelectAddressViewController.h */,
 				37D16F9E1BCF86A700341B88 /* LinepaySelectAddressViewController.m */,
 				37D16F9F1BCF86A700341B88 /* LinepaySelectAddressViewController.xib */,
@@ -1194,6 +1205,8 @@
 		37E3EA971AA45F8C00EA7CB9 /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				24ADAACD1CEB1F5A0010FA22 /* ItemDetailData.h */,
+				24ADAACE1CEB1F5A0010FA22 /* ItemDetailData.m */,
 				37E3EA981AA45F8C00EA7CB9 /* ItemData.h */,
 				37E3EA991AA45F8C00EA7CB9 /* ItemData.m */,
 			);
@@ -1265,6 +1278,8 @@
 		37E3EAAA1AA45F8C00EA7CB9 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				24ADAAD01CEB1F700010FA22 /* ItemDetailRecipient.h */,
+				24ADAAD11CEB1F700010FA22 /* ItemDetailRecipient.m */,
 				37E3EAAB1AA45F8C00EA7CB9 /* BaseRecipient.h */,
 				37E3EAAC1AA45F8C00EA7CB9 /* BaseRecipient.m */,
 				37E3EAAD1AA45F8C00EA7CB9 /* CategoryRecipient.h */,
@@ -2030,6 +2045,7 @@
 				37D758551AB296CB00E6B421 /* AlertView.m in Sources */,
 				37E3EB591AA45F8C00EA7CB9 /* FlyerBodyData.m in Sources */,
 				37E3EB681AA45F8C00EA7CB9 /* CategoryRecipient.m in Sources */,
+				24648B7E1CF5917100A5A1A8 /* DropDownField.m in Sources */,
 				37E3EB6D1AA45F8C00EA7CB9 /* InfoRecipient.m in Sources */,
 				37949A901ABBE590002E5194 /* ProfileBirthdayTableViewCell.m in Sources */,
 				37E3EB951AA45F8C00EA7CB9 /* RoundBtn.m in Sources */,
@@ -2068,6 +2084,7 @@
 				37E3EB641AA45F8C00EA7CB9 /* TabbarData.m in Sources */,
 				37D16F891BCF4BC600341B88 /* TwitterViewController.m in Sources */,
 				3726533B1C2CF72A00C4F77C /* ModalTextViewController.m in Sources */,
+				24ADAACF1CEB1F5A0010FA22 /* ItemDetailData.m in Sources */,
 				37E3EB6A1AA45F8C00EA7CB9 /* CouponRecipient.m in Sources */,
 				372653361C2CE28500C4F77C /* ModalWebViewViewController.m in Sources */,
 				37E3EB701AA45F8C00EA7CB9 /* SpotRecipient.m in Sources */,
@@ -2090,6 +2107,7 @@
 				37E3EBC51AA45F8C00EA7CB9 /* StampViewController.m in Sources */,
 				37E3EB6F1AA45F8C00EA7CB9 /* NewsRecipient.m in Sources */,
 				37E3EB561AA45F8C00EA7CB9 /* CategoryData.m in Sources */,
+				24ADAAD21CEB1F700010FA22 /* ItemDetailRecipient.m in Sources */,
 				37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */,
 				37505B5B1BF32571001CEA3B /* RappingMessageViewController.m in Sources */,
 				37E3EB5B1AA45F8C00EA7CB9 /* FlyerItemData.m in Sources */,
