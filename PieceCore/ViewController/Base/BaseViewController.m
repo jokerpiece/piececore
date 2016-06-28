@@ -116,9 +116,11 @@
     if (![PieceCoreConfig isGoogleAnalitics]) {
         return;
     }
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:self.title];
-    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    if (NULL != self.title){
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker set:kGAIScreenName value:self.title];
+        [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    }
 }
 
 - (void)viewWillAppearLogic

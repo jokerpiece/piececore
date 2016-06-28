@@ -32,6 +32,8 @@
     [PieceCoreConfig setCookieDomainName:@"otonagokoro.com"];
 //    [PieceCoreConfig setCartUrl:@"https://otonagokoro.com/cart/"];
     [PieceCoreConfig setDispSearchBar:YES];
+    // google Analytics
+    [PieceCoreConfig setGoogleAnalitics:YES];
     
     
     [PieceCoreConfig setLinePay:YES];

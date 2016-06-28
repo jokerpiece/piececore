@@ -144,6 +144,10 @@ typedef enum {
         [self setShowBtn:self.backBtn ButtonVisible:NO];
     }
     
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.setting.url];
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    
     
 }
 
