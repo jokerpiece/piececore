@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface SettingViewController : UIViewController
+@interface SettingViewController : BaseViewController
 @property(nonatomic, strong) IBOutlet UILabel *linePayStr;
 @property(nonatomic, strong) IBOutlet UISwitch *SwitchLinePay;
 @end

@@ -33,6 +33,9 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].newsTitle;
     }
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].newsTitle;
+    }
     self.textTv.delegate = self;
 }
 

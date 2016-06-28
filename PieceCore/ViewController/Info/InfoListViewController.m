@@ -21,6 +21,9 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].getCouponTitle;
     }
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].infoTitle;
+    }
 }
 - (void)viewDidAppearLogic
 {

@@ -20,6 +20,10 @@
     self.title = [PieceCoreConfig titleNameData].webViewTitle;
     [super viewDidLoad];
     [self item_View];
+    
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].linpayTitle;
+    }
     // Do any additional setup after loading the view from its nib.
 }
 

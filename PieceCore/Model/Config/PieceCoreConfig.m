@@ -17,6 +17,7 @@ static NSString *_appId = @"pieceSample";
 static NSString *_shopId = @"pieceSample";
 static NSString *_appKey = @"jokerpiece_appKey";
 static TitleNameData *_titleNameData = nil;
+static TitleNameData * _pageCodeData = nil;
 static NSNumber *_splashIntarval = nil;
 static NSString *_useCouponNum = @"";
 static NSString *_nex8Key = @"";
@@ -152,6 +153,14 @@ const float TabbarHight = 49;
 
 + (TitleNameData *)titleNameData {
     return _titleNameData;
+}
+
++ (void)setPageCodeData:(TitleNameData *)pageCodeData {
+    _pageCodeData = pageCodeData;
+}
+
++ (TitleNameData *)pageCodeData {
+    return _pageCodeData;
 }
 
 + (void)setSplashInterval:(NSNumber *)interval{

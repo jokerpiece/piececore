@@ -33,6 +33,7 @@
     [self setGoogleAnalitics];
     [self nex8SendOpenStatus];
     [self setPieceTitle];
+    [self setPiecePageCode];
     [self setThemeColor];
     [self setNavibarTitleAttributes];
     [self registDeviceToken];
@@ -89,6 +90,9 @@
 }
 -(void)setPieceTitle{
     [PieceCoreConfig setTitleNameData:[[TitleNameData alloc]initForEnglishDefault]];
+}
+-(void)setPiecePageCode{
+    [PieceCoreConfig setPageCodeData:[[TitleNameData alloc]initForaPafeCodeDefault]];
 }
 -(void)setThemeColor{
     self.theme = [[ThemeData alloc]initThemeDefault];

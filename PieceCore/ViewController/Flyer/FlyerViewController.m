@@ -23,6 +23,9 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].flyerTitle;
     }
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].flyerTitle;
+    }
     self.headerHeight = self.viewSize.height * 0.35;
     self.bodyWidh = self.viewSize.width * 0.5;
     self.pageControllHeight = self.headerHeight * 0.15;

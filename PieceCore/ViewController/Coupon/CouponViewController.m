@@ -42,6 +42,9 @@
 -(void)viewDidLoadLogic{
     self.messageLbl.frame = CGRectMake(self.viewSize.width * 0.5 - (223 * 0.5), self.viewSize.height * 0.5 - 88 , 223, 61);
     SDWebImageManager.sharedManager.delegate = self;
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].CouponTitle;
+    }
     
     if (self.isDispGetBtn) {
         self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;

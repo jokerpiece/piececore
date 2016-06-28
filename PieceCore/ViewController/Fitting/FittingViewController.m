@@ -22,6 +22,9 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].fittingTitle;
     }
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].fittingTitle;
+    }
     self.questionVew.backgroundColor = [UIColor whiteColor];
     self.questionVew.layer.cornerRadius = 20;
     self.questionVew.layer.borderColor = [UIColor blackColor].CGColor;

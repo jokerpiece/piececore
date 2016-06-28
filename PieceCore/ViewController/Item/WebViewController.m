@@ -87,6 +87,9 @@ typedef enum {
     if (self.title.length < 1) {
         self.navigation.title = [PieceCoreConfig titleNameData].webViewTitle;
     }
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].webViewTitle;
+    }
     //[self setNavigationBtn];
     self.webView.delegate = self;
     self.webView.scalesPageToFit = YES;

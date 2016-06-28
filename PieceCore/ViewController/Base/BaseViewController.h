@@ -24,6 +24,7 @@
 @property (strong, nonatomic) BaseRecipient *recipient;
 @property (nonatomic) bool isResponse;
 @property (strong, nonatomic) NSString *titleImgName;
+@property (strong, nonatomic) NSString *pageCode;
 @property (nonatomic) CGSize viewSize;
 @property (nonatomic)SosialSettingData *sosialSetting;
 @property (nonatomic) UIButton *sosialBtn;

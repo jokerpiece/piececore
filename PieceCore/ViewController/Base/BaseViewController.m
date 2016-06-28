@@ -118,7 +118,7 @@
     }
     if (NULL != self.title){
         id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-        [tracker set:kGAIScreenName value:self.title];
+        [tracker set:kGAIScreenName value:self.pageCode];
         [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
     }
 }

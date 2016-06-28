@@ -25,6 +25,9 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].categoryTitle;
     }
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].categoryTitle;
+    }
     [self setSearchBar];
     self.categoryRecipient.list = [NSMutableArray array];
     self.table.delegate = self;

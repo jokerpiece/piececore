@@ -55,4 +55,32 @@
     }
     return self;
 }
+
+- (id)initForaPafeCodeDefault
+{
+    self = [super init];
+    if (self) {
+        self.webViewTitle = @"WEB VIEW";
+        self.flyerTitle = @"FLYER";
+        self.stampTitle = @"STAMP";
+        self.categoryTitle = @"SHOPPING";
+        self.itemListTitle = @"ITEM LIST";
+        self.fittingTitle = @"FITTING";
+        self.profileTitle = @"DELIVERY";
+        self.CouponTitle = @"COUPON";
+        self.infoTitle = @"INFO";
+        self.newsTitle = @"NEWS";
+        self.barcodeTitle = @"BARCODE";
+        self.historyTitle = @"DELIVERLIST";
+        self.sosialTitle = @"SOSIAL";
+        self.twitterTitle = @"TWITTER";
+        self.mapTitle = @"MAP";
+        self.reminderTitle = @"REMINDER";
+        self.settingTitle = @"SETTING";
+        self.linpayTitle = @"LINE PAY";
+        self.linpaymentTitle = @"LINE PAYMENT";
+        self.movieListTitle = @"MOVIELIST";
+    }
+    return self;
+}
 @end

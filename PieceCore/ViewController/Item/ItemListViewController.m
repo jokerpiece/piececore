@@ -27,6 +27,9 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].itemListTitle;
     }
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].itemListTitle;
+    }
     self.HeaderHeight = self.viewSize.width * 0.38;
     self.table = [[UITableView alloc] initWithFrame:[self.view bounds]];
     self.table.delegate = self;

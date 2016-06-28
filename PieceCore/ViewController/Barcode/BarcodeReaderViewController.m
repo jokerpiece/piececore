@@ -27,6 +27,9 @@
     if (self.title.length < 1) {
         self.title = [PieceCoreConfig titleNameData].barcodeTitle;
     }
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].barcodeTitle;
+    }
     self.session = [[AVCaptureSession alloc] init];
     
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];

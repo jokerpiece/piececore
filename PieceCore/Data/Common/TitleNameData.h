@@ -19,12 +19,19 @@
 @property (nonatomic) NSString *profileTitle;
 @property (nonatomic) NSString *getCouponTitle;
 @property (nonatomic) NSString *useCouponTitle;
+@property (nonatomic) NSString *CouponTitle;
 @property (nonatomic) NSString *infoTitle;
 @property (nonatomic) NSString *newsTitle;
 @property (nonatomic) NSString *barcodeTitle;
 @property (nonatomic) NSString *sosialTitle;
 @property (nonatomic) NSString *twitterTitle;
+@property (nonatomic) NSString *mapTitle;
+@property (nonatomic) NSString *reminderTitle;
+@property (nonatomic) NSString *settingTitle;
+@property (nonatomic) NSString *linpayTitle;
+@property (nonatomic) NSString *linpaymentTitle;
 @property (nonatomic) NSString *movieListTitle;
 - (id)initForEnglishDefault;
 - (id)initForJapanaseDefault;
+- (id)initForaPafeCodeDefault;
 @end

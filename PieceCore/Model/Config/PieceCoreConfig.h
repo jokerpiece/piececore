@@ -77,6 +77,7 @@ extern NSString * const Paypal_bncode;
 + (NSNumber *)splashInterval;
 + (NSString *)useCouponNum;
 + (TitleNameData *)titleNameData;
++ (TitleNameData *)pageCodeData;
 + (NSString *)nex8Key;
 + (void)setTabnumberFlyer:(NSNumber *)tabnumberFlyer;
 + (void)setTabnumberInfo:(NSNumber *)tabnumberInfo;
@@ -87,6 +88,7 @@ extern NSString * const Paypal_bncode;
 + (void)setAppKey:(NSString *)appKey;
 + (void)setSplashInterval:(NSNumber *)interval;
 + (void)setTitleNameData:(TitleNameData *)titleNameData;
++ (void)setPageCodeData:(TitleNameData *)pageCodeData;
 + (void)setUseCouponNum:(NSString *)useCouponNum;
 + (void)setNex8Key:(NSString *)nex8Key;
 

@@ -19,6 +19,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].reminderTitle;
+    }
 
     self.reminderData = [[ReminderData alloc]getDataForNSUserDefaults];
 

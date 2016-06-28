@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].settingTitle;
+    }
+    
     self.linePayStr.text = @"LinePay決済";
     self.linePayStr.font = [UIFont fontWithName:@"AppleGothic" size:20];
     //    self.linePayStr.backgroundColor = [UIColor yellowColor];

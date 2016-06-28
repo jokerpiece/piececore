@@ -18,6 +18,9 @@
 }
 
 -(void)viewDidLoadLogic{
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].mapTitle;
+    }
     self.navigationController.modalPresentationStyle = UIModalPresentationCurrentContext;
     [self syncAction];
     //[self setTestData];

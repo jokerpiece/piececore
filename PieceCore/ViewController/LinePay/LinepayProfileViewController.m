@@ -22,6 +22,9 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    if (self.pageCode.length < 1) {
+        self.pageCode = [PieceCoreConfig pageCodeData].linpaymentTitle;
+    }
     if(_isSameProfileFlg){
         [self loadProfileRecipient];
     }
