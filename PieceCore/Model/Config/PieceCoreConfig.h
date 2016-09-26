@@ -11,6 +11,7 @@ extern NSString * const ServerUrl;
 extern NSString * const OsType;
 extern NSString * const SendTokenUrl;
 extern NSString * const SendIdHome;
+extern NSString * const SendIdLogin;
 extern NSString * const SendIdCategory;
 extern NSString * const SendIdItem;
 extern NSString * const SendIdItemCoupon;
