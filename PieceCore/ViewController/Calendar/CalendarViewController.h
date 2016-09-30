@@ -16,6 +16,8 @@
 @property (nonatomic) NSString *dd;
 @property (nonatomic) int selectedCell;
 @property (nonatomic) BaseRecipient *selfRecipient;
+@property (nonatomic) NSMutableArray *eventList;
+@property (weak, nonatomic) IBOutlet UILabel *eventNameLbl;
 - (IBAction)onReserv:(id)sender;
 
 @end

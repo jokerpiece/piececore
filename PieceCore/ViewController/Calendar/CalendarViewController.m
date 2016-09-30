@@ -95,6 +95,7 @@ static CGFloat const CellMargin = 2.0f;
 
 - (IBAction)didTapPrevButton:(id)sender
 {
+    [self initYyyyMMdd];
     self.selectedDate = [self.selectedDate monthAgoDate];
     
     [self.colectionView reloadData];
@@ -102,11 +103,17 @@ static CGFloat const CellMargin = 2.0f;
 
 - (IBAction)didTapNextButton:(id)sender
 {
+    [self initYyyyMMdd];
     self.selectedDate = [self.selectedDate monthLaterDate];
     
     [self.colectionView reloadData];
 }
 
+-(void)initYyyyMMdd{
+    self.yyyy = @"";
+    self.mm = @"";
+    self.dd = @"";
+}
 #pragma mark - private methods
 
 - (void)setSelectedDate:(NSDate *)selectedDate
@@ -180,13 +187,28 @@ static CGFloat const CellMargin = 2.0f;
 //                                                              forIndexPath:indexPath];
     DayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"DayCell" forIndexPath:indexPath];
     
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.dateFormat = @"d";
-    cell.label.text = [formatter stringFromDate:[self dateForCellAtIndexPath:indexPath]];
+    NSDateFormatter *formatter1 = [NSDateFormatter new];
+    formatter1.dateFormat = @"d";
+    NSDate *date = [self dateForCellAtIndexPath:indexPath];
     
-//    for (NSDictionary *dic in self.) {
-//        <#statements#>
-//    }
+    cell.label.text = [formatter1 stringFromDate:date];
+    
+    NSDateFormatter *formatter2 = [NSDateFormatter new];
+    formatter2.dateFormat = @"yyyy-MM-dd";
+    
+    NSString *yyyyMMdd = [formatter2 stringFromDate:date];
+    cell.yyyyMMdd = yyyyMMdd;
+    cell.eventLbl.text = @"";
+    if ([yyyyMMdd isEqualToString:@"2016-09-22"]) {
+        NSLog(@"hoge");
+    }
+    for (NSDictionary *dic in self.eventList) {
+        NSString *dateStr = dic[@"EVENT_DATE"];
+        
+        if ([dateStr isEqualToString:yyyyMMdd] ) {
+            cell.eventLbl.text = @"・";
+        }
+    }
     
     
     //通常の背景
@@ -234,7 +256,24 @@ static CGFloat const CellMargin = 2.0f;
 {
     NSLog(@"選択した %@",indexPath);
     DayCell *cell = (DayCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    self.dd = cell.label.text;
+    NSArray* values = [cell.yyyyMMdd componentsSeparatedByString:@"-"];
+    if (values.count >= 3) {
+        self.yyyy = values[0];
+        self.mm = values[1];
+        self.dd = values[2];
+    }
+    
+    
+    NSString *eventName = @"";
+    for (NSDictionary *dic in self.eventList) {
+        NSString *dateStr = dic[@"EVENT_DATE"];
+        
+        if ([dateStr isEqualToString:cell.yyyyMMdd] ) {
+            eventName = dic[@"EVENT_NAME"];
+        }
+    }
+    
+    self.eventNameLbl.text = eventName;
 
 }
 
@@ -245,14 +284,21 @@ static CGFloat const CellMargin = 2.0f;
 //    cell.backgroundColor = [UIColor colorWithRed:245.0f/255.0f green:245.0f/255.0f blue:245.0f/255.0f alpha:1.0f];
 //}
 - (IBAction)onReserv:(id)sender {
-    NSDateComponents *comps = [self getNSDateComponentsWithDate:_selectedDate];
     
-    VReserveViewController *vc = [[VReserveViewController alloc] initWithNibName:@"VReserveViewController" bundle:nil];
-    vc.yyyy = [NSString stringWithFormat:@"%ld",(long)comps.year];
-    vc.mm = [NSString stringWithFormat:@"%ld",(long)comps.month];
-    vc.dd = self.dd;
+    if ([Common isNotEmptyString:self.yyyy]
+        &&[Common isNotEmptyString:self.mm]
+        &&[Common isNotEmptyString:self.dd]) {
+        VReserveViewController *vc = [[VReserveViewController alloc] initWithNibName:@"VReserveViewController" bundle:nil];
+        vc.yyyy = self.yyyy;
+        vc.mm = self.mm;
+        vc.dd = self.dd;
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        [self showAlert:@"" message:@"日付を選択して下さい。"];
+        
+    }
     
-    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
@@ -286,8 +332,7 @@ static CGFloat const CellMargin = 2.0f;
 //    if ([sendId isEqualToString:SendIdGetCalendarEventList]) {
 
         self.recipient = recipient;
-        NSMutableArray *eventList = recipient.resultset[@"event_list"];
-        NSLog(@"%lu",(unsigned long)eventList.count);
+        self.eventList = recipient.resultset[@"event_list"];
     [self.colectionView reloadData];
   //  }
 }

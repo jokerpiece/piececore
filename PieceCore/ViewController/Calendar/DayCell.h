@@ -13,5 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UILabel *eventLbl;
+@property (nonatomic) NSString *yyyyMMdd;
 
 @end
