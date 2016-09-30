@@ -253,13 +253,19 @@
 		37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E3EB521AA45F8C00EA7CB9 /* StampViewController.xib */; };
 		37E3EBC71AA45F8C00EA7CB9 /* SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E3EB551AA45F8C00EA7CB9 /* SurveyViewController.m */; };
 		37E68D501BECD8D200F214EF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E68D4F1BECD8D200F214EF /* AssetsLibrary.framework */; };
+		37E6BCC51D9D156800F9EFC2 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E6BCC21D9D156800F9EFC2 /* CalendarViewController.m */; };
+		37E6BCC61D9D156800F9EFC2 /* DayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E6BCC41D9D156800F9EFC2 /* DayCell.m */; };
+		37E6BCC81D9D159500F9EFC2 /* CalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E6BCC71D9D159500F9EFC2 /* CalendarViewController.xib */; };
+		37E6BCCA1D9D176700F9EFC2 /* DayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E6BCC91D9D176700F9EFC2 /* DayCell.xib */; };
+		37E6BCCE1D9D391D00F9EFC2 /* VReserveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E6BCCC1D9D391D00F9EFC2 /* VReserveViewController.m */; };
+		37E6BCCF1D9D391D00F9EFC2 /* VReserveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37E6BCCD1D9D391D00F9EFC2 /* VReserveViewController.xib */; };
 		37EA5E2A1BBE2F9D0003A0E7 /* LinepayProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37EA5E281BBE2F9D0003A0E7 /* LinepayProfileViewController.m */; };
 		37EA5E2B1BBE2F9D0003A0E7 /* LinepayProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */; };
 		7454BDCE1C7D67680095F0E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */; };
 		7454BDD31C7D74B50095F0E5 /* PaypalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7454BDD11C7D74B50095F0E5 /* PaypalViewController.m */; };
 		7454BDD41C7D74B50095F0E5 /* PaypalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7454BDD21C7D74B50095F0E5 /* PaypalViewController.xib */; };
 		7457305B1C7D796300F171F9 /* bnr_shop_now_using_150x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 7457305A1C7D796300F171F9 /* bnr_shop_now_using_150x60.png */; };
-		A3D4F76C73B2E08C13459071 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AEBEEC86ADD8603FA9B963 /* libPods.a */; };
+		A80D6901D867FDB082A81EE8 /* libPods-pieceSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF53CB87D11317D20C2D7DF /* libPods-pieceSample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -644,16 +650,28 @@
 		37E3EB541AA45F8C00EA7CB9 /* SurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyViewController.h; sourceTree = "<group>"; };
 		37E3EB551AA45F8C00EA7CB9 /* SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyViewController.m; sourceTree = "<group>"; };
 		37E68D4F1BECD8D200F214EF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		37E6BCC11D9D156800F9EFC2 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		37E6BCC21D9D156800F9EFC2 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		37E6BCC31D9D156800F9EFC2 /* DayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayCell.h; sourceTree = "<group>"; };
+		37E6BCC41D9D156800F9EFC2 /* DayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayCell.m; sourceTree = "<group>"; };
+		37E6BCC71D9D159500F9EFC2 /* CalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewController.xib; sourceTree = "<group>"; };
+		37E6BCC91D9D176700F9EFC2 /* DayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayCell.xib; sourceTree = "<group>"; };
+		37E6BCCB1D9D391D00F9EFC2 /* VReserveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VReserveViewController.h; sourceTree = "<group>"; };
+		37E6BCCC1D9D391D00F9EFC2 /* VReserveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VReserveViewController.m; sourceTree = "<group>"; };
+		37E6BCCD1D9D391D00F9EFC2 /* VReserveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VReserveViewController.xib; sourceTree = "<group>"; };
 		37EA5E271BBE2F9D0003A0E7 /* LinepayProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinepayProfileViewController.h; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.h; sourceTree = "<group>"; };
 		37EA5E281BBE2F9D0003A0E7 /* LinepayProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinepayProfileViewController.m; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.m; sourceTree = "<group>"; };
 		37EA5E291BBE2F9D0003A0E7 /* LinepayProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LinepayProfileViewController.xib; path = ../PieceCore/ViewController/LinePay/LinepayProfileViewController.xib; sourceTree = "<group>"; };
+		435B62ED974602F156E050FE /* Pods-pieceSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pieceSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-pieceSample/Pods-pieceSample.release.xcconfig"; sourceTree = "<group>"; };
 		7454BDCD1C7D67680095F0E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7454BDD01C7D74B50095F0E5 /* PaypalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaypalViewController.h; sourceTree = "<group>"; };
 		7454BDD11C7D74B50095F0E5 /* PaypalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaypalViewController.m; sourceTree = "<group>"; };
 		7454BDD21C7D74B50095F0E5 /* PaypalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaypalViewController.xib; sourceTree = "<group>"; };
 		7457305A1C7D796300F171F9 /* bnr_shop_now_using_150x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bnr_shop_now_using_150x60.png; sourceTree = "<group>"; };
 		C0AEBEEC86ADD8603FA9B963 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C67161BE5C2A5485E83051DE /* Pods-pieceSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pieceSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pieceSample/Pods-pieceSample.debug.xcconfig"; sourceTree = "<group>"; };
 		F78AED9D806247E5B305AD02 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FAF53CB87D11317D20C2D7DF /* libPods-pieceSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-pieceSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,7 +684,7 @@
 				370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */,
 				37D758471AB175AF00E6B421 /* Accounts.framework in Frameworks */,
 				37D758451AB1743800E6B421 /* Social.framework in Frameworks */,
-				A3D4F76C73B2E08C13459071 /* libPods.a in Frameworks */,
+				A80D6901D867FDB082A81EE8 /* libPods-pieceSample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +707,7 @@
 				37D758461AB175AF00E6B421 /* Accounts.framework */,
 				37D758441AB1743800E6B421 /* Social.framework */,
 				C0AEBEEC86ADD8603FA9B963 /* libPods.a */,
+				FAF53CB87D11317D20C2D7DF /* libPods-pieceSample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1523,6 +1542,7 @@
 		37E3EAFB1AA45F8C00EA7CB9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				37E6BCC01D9D156800F9EFC2 /* Calendar */,
 				249A29341CB4F0FC008F015B /* Setting */,
 				3726E65A1C4C925D00405ED1 /* Reminder */,
 				2F55E8AC1BF3089500525089 /* Order */,
@@ -1714,6 +1734,22 @@
 			path = Survey;
 			sourceTree = "<group>";
 		};
+		37E6BCC01D9D156800F9EFC2 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				37E6BCC11D9D156800F9EFC2 /* CalendarViewController.h */,
+				37E6BCC21D9D156800F9EFC2 /* CalendarViewController.m */,
+				37E6BCC71D9D159500F9EFC2 /* CalendarViewController.xib */,
+				37E6BCC31D9D156800F9EFC2 /* DayCell.h */,
+				37E6BCC41D9D156800F9EFC2 /* DayCell.m */,
+				37E6BCC91D9D176700F9EFC2 /* DayCell.xib */,
+				37E6BCCB1D9D391D00F9EFC2 /* VReserveViewController.h */,
+				37E6BCCC1D9D391D00F9EFC2 /* VReserveViewController.m */,
+				37E6BCCD1D9D391D00F9EFC2 /* VReserveViewController.xib */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		7454BDCF1C7D74B50095F0E5 /* Paypal */ = {
 			isa = PBXGroup;
 			children = (
@@ -1729,6 +1765,8 @@
 			children = (
 				F78AED9D806247E5B305AD02 /* Pods.debug.xcconfig */,
 				0B2EB3020702E5D1A5D8492F /* Pods.release.xcconfig */,
+				C67161BE5C2A5485E83051DE /* Pods-pieceSample.debug.xcconfig */,
+				435B62ED974602F156E050FE /* Pods-pieceSample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1740,12 +1778,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37E3EA751AA45F6800EA7CB9 /* Build configuration list for PBXNativeTarget "pieceSample" */;
 			buildPhases = (
-				CFA7CE468A1B6CE9F9D7BF52 /* Check Pods Manifest.lock */,
+				CFA7CE468A1B6CE9F9D7BF52 /* [CP] Check Pods Manifest.lock */,
 				37E3EA4E1AA45F6800EA7CB9 /* Sources */,
 				37E3EA4F1AA45F6800EA7CB9 /* Frameworks */,
 				37E3EA501AA45F6800EA7CB9 /* Resources */,
-				94900214E9FAA1BA68C10E34 /* Copy Pods Resources */,
-				85B850A9E1FB7603A8843080 /* Embed Pods Frameworks */,
+				94900214E9FAA1BA68C10E34 /* [CP] Copy Pods Resources */,
+				85B850A9E1FB7603A8843080 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1842,6 +1880,7 @@
 				37E3EBB21AA45F8C00EA7CB9 /* ItemListViewController.xib in Resources */,
 				146824291C07107900F663CE /* treasure1.png in Resources */,
 				37949A9B1ABBE793002E5194 /* ProfileAdressTableViewCell.xib in Resources */,
+				37E6BCCF1D9D391D00F9EFC2 /* VReserveViewController.xib in Resources */,
 				37505B5F1BF3279B001CEA3B /* illust1344.png in Resources */,
 				37949A711ABA9670002E5194 /* backBtn@2x.png in Resources */,
 				37E3EBA41AA45F8C00EA7CB9 /* SinglePickerViewController.xib in Resources */,
@@ -1867,9 +1906,11 @@
 				377F40E71C578D5F00C7D2C0 /* 3dmovie.png in Resources */,
 				37E3EB901AA45F8C00EA7CB9 /* wait.jpg in Resources */,
 				377F40F51C5C7FAF00C7D2C0 /* btn_next@2x.png in Resources */,
+				37E6BCC81D9D159500F9EFC2 /* CalendarViewController.xib in Resources */,
 				146824001C06E2EE00F663CE /* BeaconSearchViewController.xib in Resources */,
 				378F31841AC533AA0068224A /* news_03.png in Resources */,
 				37505B351BF2D53B001CEA3B /* PlayYoutubeViewController.xib in Resources */,
+				37E6BCCA1D9D176700F9EFC2 /* DayCell.xib in Resources */,
 				2F55E8B61BF30A2300525089 /* OrderDataFailedViewController.xib in Resources */,
 				372345271C577CC6007C3452 /* MovieListViewController.xib in Resources */,
 				37E3EBC61AA45F8C00EA7CB9 /* StampViewController.xib in Resources */,
@@ -1964,44 +2005,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		85B850A9E1FB7603A8843080 /* Embed Pods Frameworks */ = {
+		85B850A9E1FB7603A8843080 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pieceSample/Pods-pieceSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		94900214E9FAA1BA68C10E34 /* Copy Pods Resources */ = {
+		94900214E9FAA1BA68C10E34 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pieceSample/Pods-pieceSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CFA7CE468A1B6CE9F9D7BF52 /* Check Pods Manifest.lock */ = {
+		CFA7CE468A1B6CE9F9D7BF52 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2042,6 +2083,8 @@
 				376A47F61AB02BC0002A25D3 /* ExcengeCouponViewController.m in Sources */,
 				376FDAB51B99791800D842F5 /* linepay_ViewController.m in Sources */,
 				376FDAB01B99780800D842F5 /* linepayReservSquareViewController.m in Sources */,
+				37E6BCCE1D9D391D00F9EFC2 /* VReserveViewController.m in Sources */,
+				37E6BCC61D9D156800F9EFC2 /* DayCell.m in Sources */,
 				37D758551AB296CB00E6B421 /* AlertView.m in Sources */,
 				37E3EB591AA45F8C00EA7CB9 /* FlyerBodyData.m in Sources */,
 				37E3EB681AA45F8C00EA7CB9 /* CategoryRecipient.m in Sources */,
@@ -2106,6 +2149,7 @@
 				37E3EB5E1AA45F8C00EA7CB9 /* HistoryOrderData.m in Sources */,
 				37E3EBC51AA45F8C00EA7CB9 /* StampViewController.m in Sources */,
 				37E3EB6F1AA45F8C00EA7CB9 /* NewsRecipient.m in Sources */,
+				37E6BCC51D9D156800F9EFC2 /* CalendarViewController.m in Sources */,
 				37E3EB561AA45F8C00EA7CB9 /* CategoryData.m in Sources */,
 				24ADAAD21CEB1F700010FA22 /* ItemDetailRecipient.m in Sources */,
 				37668BB01AC13ADF00D08368 /* UcIndexpathData.m in Sources */,
@@ -2256,7 +2300,7 @@
 		};
 		37E3EA761AA45F6800EA7CB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F78AED9D806247E5B305AD02 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = C67161BE5C2A5485E83051DE /* Pods-pieceSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2273,7 +2317,7 @@
 		};
 		37E3EA771AA45F6800EA7CB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B2EB3020702E5D1A5D8492F /* Pods.release.xcconfig */;
+			baseConfigurationReference = 435B62ED974602F156E050FE /* Pods-pieceSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

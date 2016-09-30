@@ -37,7 +37,7 @@ static NSString *_PayPalEnvironmentProductionClientId = @"YOUR_CLIENT_ID_FOR_PRO
 static NSString *_PayPalEnvironmentSandboxClientId = @"YOUR_CLIENT_ID_FOR_SANDBOX";
 
 NSString * const  ServerUrl= @"https://jokapi.jp/manager/html/xml/";
-
+//NSString * const  ServerUrl= @"http://192.168.77.200/piece_dev/manager/html/xml/";
 NSString * const  OsType= @"1";
 NSString * const  SendTokenUrl= @"https://jokapi.jp/manager/html/xml/device_token/";
 NSString * const  SendIdLogin= @"login/";
@@ -75,6 +75,8 @@ NSString * const  SendIdRegistQuestion = @"order/?Action=registQuestion";
 NSString * const  SentIdGetItemDetail = @"item_detail/";
 NSString * const  SendIdGetQuizedata = @"order/?Action=getQuestion";
 NSString * const  SendIdGetLocation = @"order/?Action=getLocation";
+NSString * const  SendIdGetCalendarEventList = @"reserve/?Action=eventList";
+NSString * const  SendIdPostCalendarReserve = @"reserve/registReserve";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";

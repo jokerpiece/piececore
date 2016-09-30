@@ -48,6 +48,8 @@ extern NSString * const UrlSchemeHostRapping;
 extern NSString * const UrlSchemeHostQuestion;
 extern NSString * const SendIdGetLocation;
 extern NSString * const SentIdGetItemDetail;
+extern NSString * const SendIdGetCalendarEventList;
+extern NSString * const SendIdPostCalendarReserve;
 
 extern NSString * const UrlYamatoDeliver;
 extern NSString * const UrlSagawaDeliver;

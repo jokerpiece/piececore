@@ -18,6 +18,7 @@
 #import "ReminderViewController.h"
 #import "MovieListViewController.h"
 #import "SettingViewController.h"
+#import "CalendarViewController.h"
 
 
 @implementation AppDelegate
@@ -82,6 +83,10 @@
                                                                   title:@"SHOPPING"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[CouponViewController alloc] initWithNibName:@"CouponViewController" bundle:nil]
+                                                               tabTitle:@"Coupon"
+                                                                  title:@"COUPON"]];
+    [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
+                               [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil]
                                                                tabTitle:@"Coupon"
                                                                   title:@"COUPON"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
