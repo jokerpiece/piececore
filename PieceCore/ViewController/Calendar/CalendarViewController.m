@@ -312,8 +312,8 @@ static CGFloat const CellMargin = 2.0f;
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     [param setValue:[NSString stringWithFormat:@"%ld-%02ld",(long)comps.year,(long)comps.month] forKey:@"cal_date"];
     
-    //[conecter sendActionSendId:SendIdGetCalendarEventList param:param];
-    [conecter sendActionUrl:@"http://192.168.77.200/shinden/manager/html/xml/reserve/?Action=eventList" param:param];
+    [conecter sendActionSendId:SendIdGetCalendarEventList param:param];
+    //[conecter sendActionUrl:@"http://192.168.77.200/shinden/manager/html/xml/reserve/?Action=eventList" param:param];
 }
 
 -(NSDateComponents *)getNSDateComponentsWithDate:(NSDate *)date{
