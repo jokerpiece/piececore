@@ -17,6 +17,7 @@
 #import "HistoryViewController.h"
 #import "ReminderViewController.h"
 #import "SettingViewController.h"
+#import "CalendarViewController.h"
 
 @implementation TabbarData
 -(id)initWithViewController:(BaseViewController *)viewController
@@ -88,6 +89,11 @@
         }  else if ([viewController isKindOfClass:[SettingViewController class]]){
             self.selectImgName = @"tab_icon_setting.png";
             self.imgName = @"tab_icon_setting.png";
+            
+        }  else if ([viewController isKindOfClass:[CalendarViewController class]]){
+            self.selectImgName = @"tab_icon_cal.png";
+            self.imgName = @"tab_icon_cal.png";
+            
         }
         
         self.tabTitle = tabTitle;

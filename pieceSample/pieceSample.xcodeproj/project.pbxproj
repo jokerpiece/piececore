@@ -38,6 +38,8 @@
 		2F55E8BA1BF31BA300525089 /* YoutubeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8B91BF31BA300525089 /* YoutubeData.m */; };
 		2F55E8BE1BF3282A00525089 /* FinishYoutubeUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8BC1BF3282A00525089 /* FinishYoutubeUploadViewController.m */; };
 		2F55E8BF1BF3282A00525089 /* FinishYoutubeUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8BD1BF3282A00525089 /* FinishYoutubeUploadViewController.xib */; };
+		2F771FA91DA4ECFE009EFB72 /* tab_icon_cal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F771FA81DA4ECFE009EFB72 /* tab_icon_cal@2x.png */; };
+		2F771FAB1DA4EE64009EFB72 /* tab_icon_cal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F771FAA1DA4EE64009EFB72 /* tab_icon_cal.png */; };
 		2FB208C81C05B1A0000C75BB /* RappingResistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB208C61C05B1A0000C75BB /* RappingResistViewController.m */; };
 		2FB208C91C05B1A0000C75BB /* RappingResistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB208C71C05B1A0000C75BB /* RappingResistViewController.xib */; };
 		370561931ACE2717002E7F1B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370561921ACE2717002E7F1B /* MapKit.framework */; };
@@ -327,6 +329,8 @@
 		2F55E8BB1BF3282A00525089 /* FinishYoutubeUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinishYoutubeUploadViewController.h; path = Finish/FinishYoutubeUploadViewController.h; sourceTree = "<group>"; };
 		2F55E8BC1BF3282A00525089 /* FinishYoutubeUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FinishYoutubeUploadViewController.m; path = Finish/FinishYoutubeUploadViewController.m; sourceTree = "<group>"; };
 		2F55E8BD1BF3282A00525089 /* FinishYoutubeUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FinishYoutubeUploadViewController.xib; path = Finish/FinishYoutubeUploadViewController.xib; sourceTree = "<group>"; };
+		2F771FA81DA4ECFE009EFB72 /* tab_icon_cal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_icon_cal@2x.png"; sourceTree = "<group>"; };
+		2F771FAA1DA4EE64009EFB72 /* tab_icon_cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_icon_cal.png; sourceTree = "<group>"; };
 		2FB208C51C05B1A0000C75BB /* RappingResistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RappingResistViewController.h; path = RappingRegist/RappingResistViewController.h; sourceTree = "<group>"; };
 		2FB208C61C05B1A0000C75BB /* RappingResistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RappingResistViewController.m; path = RappingRegist/RappingResistViewController.m; sourceTree = "<group>"; };
 		2FB208C71C05B1A0000C75BB /* RappingResistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RappingResistViewController.xib; path = RappingRegist/RappingResistViewController.xib; sourceTree = "<group>"; };
@@ -1455,26 +1459,28 @@
 			children = (
 				3726E6641C4CA7E800405ED1 /* icon_birthday.png */,
 				3726E6651C4CA7E900405ED1 /* icon_birthday@2x.png */,
-				37668BBC1AC2A96E00D08368 /* tab_icon_profile.png */,
-				37668BBD1AC2A96E00D08368 /* tab_icon_profile@2x.png */,
 				37949A781ABAC534002E5194 /* icon_eye@2x.png */,
 				37949A791ABAC534002E5194 /* icon_fitting@2x.png */,
 				37949A7A1ABAC534002E5194 /* icon_history@2x.png */,
 				37949A7B1ABAC534002E5194 /* icon_stamp@2x.png */,
-				376A47AF1AADAEE1002A25D3 /* tab_icon_coupon@2x.png */,
-				376A47B01AADAEE1002A25D3 /* tab_icon_flyer@2x.png */,
-				376A47B11AADAEE1002A25D3 /* tab_icon_news@2x.png */,
-				376A47B21AADAEE1002A25D3 /* tab_icon_shopping@2x.png */,
 				37E3EAE21AA45F8C00EA7CB9 /* tab_icon_barcode.png */,
+				2F771FAA1DA4EE64009EFB72 /* tab_icon_cal.png */,
+				2F771FA81DA4ECFE009EFB72 /* tab_icon_cal@2x.png */,
 				37E3EAE31AA45F8C00EA7CB9 /* tab_icon_coupon.png */,
+				376A47AF1AADAEE1002A25D3 /* tab_icon_coupon@2x.png */,
 				37E3EAE41AA45F8C00EA7CB9 /* tab_icon_fitting.png */,
 				37E3EAE51AA45F8C00EA7CB9 /* tab_icon_flyer.png */,
+				376A47B01AADAEE1002A25D3 /* tab_icon_flyer@2x.png */,
 				37E3EAE61AA45F8C00EA7CB9 /* tab_icon_home.png */,
 				37E3EAE71AA45F8C00EA7CB9 /* tab_icon_map.png */,
 				37E3EAE81AA45F8C00EA7CB9 /* tab_icon_more.png */,
 				37E3EAE91AA45F8C00EA7CB9 /* tab_icon_news.png */,
+				376A47B11AADAEE1002A25D3 /* tab_icon_news@2x.png */,
+				37668BBC1AC2A96E00D08368 /* tab_icon_profile.png */,
+				37668BBD1AC2A96E00D08368 /* tab_icon_profile@2x.png */,
 				37E3EAEA1AA45F8C00EA7CB9 /* tab_icon_setting.png */,
 				37E3EAEB1AA45F8C00EA7CB9 /* tab_icon_shopping.png */,
+				376A47B21AADAEE1002A25D3 /* tab_icon_shopping@2x.png */,
 				37E3EAEC1AA45F8C00EA7CB9 /* tab_icon_sosial.png */,
 				37E3EAED1AA45F8C00EA7CB9 /* tab_icon_stamp.png */,
 			);
@@ -1784,6 +1790,7 @@
 				37E3EA501AA45F6800EA7CB9 /* Resources */,
 				94900214E9FAA1BA68C10E34 /* [CP] Copy Pods Resources */,
 				85B850A9E1FB7603A8843080 /* [CP] Embed Pods Frameworks */,
+				EDEBFF2AA1D49A37CC40B789 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1961,6 +1968,7 @@
 				7457305B1C7D796300F171F9 /* bnr_shop_now_using_150x60.png in Resources */,
 				376A47B31AADAEE1002A25D3 /* tab_icon_coupon@2x.png in Resources */,
 				376A47AE1AADAEC3002A25D3 /* coupon_use@2x.png in Resources */,
+				2F771FAB1DA4EE64009EFB72 /* tab_icon_cal.png in Resources */,
 				37E3EB851AA45F8C00EA7CB9 /* tab_icon_coupon.png in Resources */,
 				37E3EBA81AA45F8C00EA7CB9 /* FlyerViewController.xib in Resources */,
 				249A29331CB4E89B008F015B /* ProfileMailAddressTableViewCell.xib in Resources */,
@@ -1983,6 +1991,7 @@
 				376A4EF11BF9B9F6001B9537 /* RappingQuizeViewController.xib in Resources */,
 				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
 				3726E6671C4CA7E900405ED1 /* icon_birthday@2x.png in Resources */,
+				2F771FA91DA4ECFE009EFB72 /* tab_icon_cal@2x.png in Resources */,
 				37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */,
 				37949A7E1ABAC534002E5194 /* icon_history@2x.png in Resources */,
 				3791297A1AB2CCD6001237C7 /* sns@2x.png in Resources */,
@@ -2048,6 +2057,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EDEBFF2AA1D49A37CC40B789 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pieceSample/Pods-pieceSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

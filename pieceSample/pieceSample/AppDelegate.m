@@ -87,8 +87,8 @@
                                                                   title:@"COUPON"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[CalendarViewController alloc] initWithNibName:@"CalendarViewController" bundle:nil]
-                                                               tabTitle:@"Coupon"
-                                                                  title:@"COUPON"]];
+                                                               tabTitle:@"Calendar"
+                                                                  title:@"CALENDAR"]];
     [tabbarDataList addObject:[[TabbarData alloc]initWithViewController:
                                [[SettingViewController alloc] initWithNibName:@"SettingViewController" bundle:nil]
                                                                tabTitle:@"Setting"
