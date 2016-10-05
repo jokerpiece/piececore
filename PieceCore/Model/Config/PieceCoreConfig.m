@@ -76,7 +76,7 @@ NSString * const  SentIdGetItemDetail = @"item_detail/";
 NSString * const  SendIdGetQuizedata = @"order/?Action=getQuestion";
 NSString * const  SendIdGetLocation = @"order/?Action=getLocation";
 NSString * const  SendIdGetCalendarEventList = @"reserve/?Action=eventList";
-NSString * const  SendIdPostCalendarReserve = @"reserve/registReserve";
+NSString * const  SendIdPostCalendarReserve = @"reserve/?Action=registReserve";
 
 NSString * const  UrlYamatoDeliver= @"http://jizen.kuronekoyamato.co.jp/jizen/servlet/crjz.b.NQ0010?id=";
 NSString * const  UrlSagawaDeliver= @"http://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=";

@@ -1,4 +1,5 @@
 platform:ios, 7.0
+target "pieceSample" do 
 pod 'UIActivityIndicator-for-SDWebImage'
 pod 'AFNetworking', '2.6.3'
 pod 'Reachability'
@@ -7,4 +8,5 @@ pod 'SVProgressHUD', '~> 1.0'
 pod 'HCYoutubeParser'
 pod 'Google/Analytics', '~> 1.0.0'
 pod 'PayPal-iOS-SDK'
+end
 
