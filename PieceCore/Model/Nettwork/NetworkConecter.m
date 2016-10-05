@@ -22,13 +22,13 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     //SN 新しいAPIを受け取るため追加
     [manager.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"text/html", nil]];
-    ALog(@"API通信　%@%@: param%@",ServerUrl,sendId,param);
+    DLog(@"API通信　%@%@: param%@",ServerUrl,sendId,param);
     [manager POST:[NSString stringWithFormat:@"%@%@",ServerUrl,sendId]
        parameters:param
           success:^(NSURLSessionDataTask *task, id responseObject) {
               [self.delegate receiveSucceed:responseObject sendId:sendId];
               // 通信に成功した場合の処理
-              ALog(@"url: %@ \n responseObject: %@", sendId, responseObject);
+              DLog(@"url: %@ \n responseObject: %@", sendId, responseObject);
           } failure:^(NSURLSessionDataTask *task, NSError *error) {
               [self.delegate receiveError:error sendId:sendId];
           }];
