@@ -29,7 +29,52 @@
     self.telTf.delegate = self;
     self.bikoTv.delegate =self;
     self.dateLbl.text = [NSString stringWithFormat:@"%@年%@月%@日",self.yyyy,self.mm,self.dd];
+    
+    // DatePickerの設定
+    UIDatePicker* datePicker = [[UIDatePicker alloc]init];
+    [datePicker setDatePickerMode:UIDatePickerModeTime];
+    datePicker.maximumDate=[NSDate date];
+    
+    [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+    
+    self.timeTf.inputView = datePicker;
+    
+    // DoneボタンとそのViewの作成
+    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    keyboardDoneButtonView.barStyle  = UIBarStyleBlack;
+    keyboardDoneButtonView.translucent = YES;
+    keyboardDoneButtonView.tintColor = nil;
+    [keyboardDoneButtonView sizeToFit];
+    
+    
+    // 完了ボタンとSpacerの配置
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"完了" style:UIBarButtonItemStyleBordered target:self action:@selector(pickerDoneClicked:)];
+    UIBarButtonItem *spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:spacer, spacer1, doneButton, nil]];
+    
+    // Viewの配置
+    self.timeTf.inputAccessoryView = keyboardDoneButtonView;
+
     // Do any additional setup after loading the view from its nib.
+}
+
+#pragma mark DatePickerの編集が完了したら結果をTextFieldに表示
+-(void)updateTextField:(id)sender {
+    UIDatePicker *picker = (UIDatePicker *)sender;
+    //日付・時刻のフォーマットを指定
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    df.dateFormat = @"HH:mm";
+    self.timeTf.text = [df stringFromDate:picker.date];
+}
+
+#pragma mark datepickerの完了ボタンが押された場合
+-(void)pickerDoneClicked:(id)sender {
+    [self closeKeyboard];
+}
+
+-(void)closeKeyboard{
+    [self.view endEditing:YES];
 }
 
 - (IBAction)onSend:(id)sender {
