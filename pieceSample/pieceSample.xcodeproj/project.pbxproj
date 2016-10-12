@@ -31,6 +31,7 @@
 		249A29461CB5FE2B008F015B /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 249A29441CB5FE2B008F015B /* SettingViewController.xib */; };
 		24ADAACF1CEB1F5A0010FA22 /* ItemDetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ADAACE1CEB1F5A0010FA22 /* ItemDetailData.m */; };
 		24ADAAD21CEB1F700010FA22 /* ItemDetailRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24ADAAD11CEB1F700010FA22 /* ItemDetailRecipient.m */; };
+		2F2D89CB1DADCB3B00DB447B /* open_browser.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F2D89CA1DADCB3B00DB447B /* open_browser.png */; };
 		2F55E8B01BF308DD00525089 /* OrderDataCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */; };
 		2F55E8B11BF308DD00525089 /* OrderDataCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */; };
 		2F55E8B51BF30A2300525089 /* OrderDataFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F55E8B31BF30A2300525089 /* OrderDataFailedViewController.m */; };
@@ -318,6 +319,7 @@
 		24ADAACE1CEB1F5A0010FA22 /* ItemDetailData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailData.m; sourceTree = "<group>"; };
 		24ADAAD01CEB1F700010FA22 /* ItemDetailRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailRecipient.h; sourceTree = "<group>"; };
 		24ADAAD11CEB1F700010FA22 /* ItemDetailRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailRecipient.m; sourceTree = "<group>"; };
+		2F2D89CA1DADCB3B00DB447B /* open_browser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = open_browser.png; path = ../open_browser.png; sourceTree = "<group>"; };
 		2F55E8AD1BF308DD00525089 /* OrderDataCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDataCheckViewController.h; path = Order/OrderDataCheckViewController.h; sourceTree = "<group>"; };
 		2F55E8AE1BF308DD00525089 /* OrderDataCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDataCheckViewController.m; path = Order/OrderDataCheckViewController.m; sourceTree = "<group>"; };
 		2F55E8AF1BF308DD00525089 /* OrderDataCheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderDataCheckViewController.xib; path = Order/OrderDataCheckViewController.xib; sourceTree = "<group>"; };
@@ -1422,6 +1424,7 @@
 		37E3EAD11AA45F8C00EA7CB9 /* Info */ = {
 			isa = PBXGroup;
 			children = (
+				2F2D89CA1DADCB3B00DB447B /* open_browser.png */,
 				378F317F1AC533AA0068224A /* news_01.png */,
 				378F31801AC533AA0068224A /* news_02.png */,
 				378F31811AC533AA0068224A /* news_03.png */,
@@ -1992,6 +1995,7 @@
 				376A47B51AADAEE1002A25D3 /* tab_icon_news@2x.png in Resources */,
 				3726E6671C4CA7E900405ED1 /* icon_birthday@2x.png in Resources */,
 				2F771FA91DA4ECFE009EFB72 /* tab_icon_cal@2x.png in Resources */,
+				2F2D89CB1DADCB3B00DB447B /* open_browser.png in Resources */,
 				37949AA41AC01BF6002E5194 /* MonthAndDatePickerViewController.xib in Resources */,
 				37949A7E1ABAC534002E5194 /* icon_history@2x.png in Resources */,
 				3791297A1AB2CCD6001237C7 /* sns@2x.png in Resources */,

@@ -210,6 +210,16 @@
                              action:@selector(news_link_Tapped:)
                    forControlEvents:UIControlEventTouchUpInside];
                 [link_url.titleLabel setFont:[UIFont fontWithName:@"GeezaPro" size:16]];
+                if([[dc objectForKey:@"open_browser_flg"] integerValue] == 1){
+                    UIImage *img = [UIImage imageNamed:@"open_browser.png"];
+                    [link_url setImage:img forState:UIControlStateNormal];
+                    link_url.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                    CGFloat titleWidth = link_url.titleLabel.frame.size.width;
+                    //最大文字数だと画像が被るので+17
+                    link_url.imageEdgeInsets = UIEdgeInsetsMake(0, titleWidth+17, 0, 0);
+                    //画像サイズで文字の位置変わる
+                    link_url.titleEdgeInsets = UIEdgeInsetsMake(0, -40, 0, 0);
+                }
                 [link_urls addObject:link_url];
                 totalLinkHeight += linkHeight;
                 
@@ -259,11 +269,15 @@
     if ([Common isNotEmptyString:urlStr]) {
         if ([[url host]isEqualToString:UrlSchemeHostUploadYoutube] || [[url host]isEqualToString:UrlSchemeHostInputMessage] || [[url host]isEqualToString:UrlSchemeHostQuestion]) {
             [[UIApplication sharedApplication] openURL:url];
-            
         } else {
-            WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:urlStr];
-            [self presentViewController:vc animated:YES completion:nil];
-            
+            if([[dc objectForKey:@"open_browser_flg"] integerValue] == 1){
+                if([[UIApplication sharedApplication] canOpenURL:url]){
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }else{
+                WebViewController *vc = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil url:urlStr];
+                [self presentViewController:vc animated:YES completion:nil];
+            }
         }
     }
 }
