@@ -20,8 +20,8 @@
         self.itemListTitle = @"ITEMLIST";
         self.fittingTitle = @"FITTING";
         self.profileTitle = @"DELIVERY";
-        self.getCouponTitle = @"GET COUPON";
-        self.useCouponTitle = @"USE COUPON";
+        self.getCouponTitle = @"COUPON";
+        self.useCouponTitle = @"COUPON";
         self.infoTitle = @"INFOMATION";
         self.newsTitle = @"NEWS";
         self.barcodeTitle = @"BARCODE";
@@ -43,8 +43,8 @@
         self.itemListTitle = @"商品一覧";
         self.fittingTitle = @"フィッティング";
         self.profileTitle = @"配送設定";
-        self.getCouponTitle = @"クーポン取得";
-        self.useCouponTitle = @"クーポン使用";
+        self.getCouponTitle = @"クーポン";
+        self.useCouponTitle = @"クーポン";
         self.infoTitle = @"お知らせ";
         self.newsTitle = @"お知らせ詳細";
         self.barcodeTitle = @"バーコード";

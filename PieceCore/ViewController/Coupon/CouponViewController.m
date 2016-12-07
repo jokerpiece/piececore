@@ -24,6 +24,32 @@
     
     return self;
 }
+
+
+- (IBAction)onSelectTab:(id)sender {
+    
+    switch (self.selectTab.selectedSegmentIndex) {
+        case useCoupon:
+            self.mode = useCoupon;
+            if (self.isDispGetBtn) {
+                [self dispUseCouponMode];
+            }
+            break;
+            
+        case getCoupon:
+            self.mode = getCoupon;
+            if (self.isDispGetBtn) {
+                [self dispGetCouponMode];
+            }
+            break;
+            
+        default:
+            break;
+    }
+    self.isResponse = NO;
+    [self syncAction];
+    
+}
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle {
     self = [super initWithNibName:nibName bundle:nil];
     if (!self) {
@@ -46,17 +72,12 @@
         self.pageCode = [PieceCoreConfig pageCodeData].CouponTitle;
     }
     
-    if (self.isDispGetBtn) {
-        self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;
-        UIImage *img = [UIImage imageNamed:@"coupon_search.png"];
-        self.chengeCoupnTypeBtn = [[UIButton alloc]init];
-        [self.chengeCoupnTypeBtn setBackgroundImage:img forState:UIControlStateNormal];
-        self.chengeCoupnTypeBtn.frame = CGRectMake(30, 0, 80, 30);
-        [self.chengeCoupnTypeBtn addTarget:self action:@selector(changeCoupnTypeAction:)
-                          forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *barbtn = [[UIBarButtonItem alloc] initWithCustomView:self.chengeCoupnTypeBtn];
+    if (!self.isDispGetBtn) {
         
-        self.navigationItem.rightBarButtonItem = barbtn;
+        self.selectTab.alpha = 0;
+
+    } else {
+        self.getCoupnBtnRactHeight = self.viewSize.height * 0.57;
     }
     
 }
@@ -167,6 +188,7 @@
     if (self.couponRecipient.list.count > 1) {
         [self.mainView addSubview:self.page];
     }
+    [self.view bringSubviewToFront:self.selectTab];
     
 }
 
@@ -356,6 +378,7 @@
             }
         }
         [self createSlider];
+        self.selectTab.selectedSegmentIndex = self.mode;
         CGRect frame = self.scroll.frame;
         frame.origin.x = frame.size.width * self.page.currentPage;
         [self.scroll scrollRectToVisible:frame animated:YES];
@@ -409,7 +432,7 @@
     //後で外す
     if (recipient.error_code.intValue != 0){
         //SN  && data.error_code.intValue !=999) {
-        [self showAlert:@"エラー" message:recipient.error_message];
+        [self showAlert:@"" message:recipient.error_message];
         return;
     }
     if (recipient.error_message.length > 0) {

@@ -28,7 +28,9 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UILabel *messageLbl;
 @property (nonatomic) int getCoupnBtnRactHeight;
 @property (nonatomic) bool isDispGetBtn;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectTab;
 -(void)createSlider;
 -(void)setCouponNum;
 - (id)initWithNibName:(NSString*)nibName bundle:(NSBundle*)bundle isDispGetBtn:(bool)isDispGetBtn;
+- (IBAction)onSelectTab:(id)sender;
 @end
