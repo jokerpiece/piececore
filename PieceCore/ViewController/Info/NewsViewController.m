@@ -142,7 +142,7 @@
     UIFont *font = [UIFont fontWithName:@"GeezaPro" size:16];
     
     NSDictionary *attributes =@{NSFontAttributeName:font,
-                                [NSNumber numberWithFloat:custamLetterSpacing]:NSKernAttributeName};
+                                NSKernAttributeName:[NSNumber numberWithFloat:custamLetterSpacing]};
     
     NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:textLbl.text attributes:attributes];
     textLbl.attributedText = attributedText;
